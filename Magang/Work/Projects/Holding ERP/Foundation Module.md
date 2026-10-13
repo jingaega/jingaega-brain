@@ -135,3 +135,60 @@ Draft by Claude, waiting for Jingga's approval. Stack is in the decisions table 
   - [ ] 8. Vendors, with the group company link
   - [ ] 9. Real-time: lists update live in a second browser
 - Open questions only block their own slice. Slices 1 to 3 and 6 to 9 can start now. Slices 4 and 5 use the 6 templates until they are confirmed
+
+### Slice 4 plan: roles, permissions and company data isolation
+Written 2026-10-13, **waiting for Jingga's approval**. Covers the rules "You only see companies you have access to", "Your role decides what you can do", "Super Admin can do everything" and "Super User can never change anything".
+
+**What changes for people**
+- The company picker only shows the companies you have access to. Super Admin and Super User still see all 6
+- Opening a company you have no access to (by typing its address) shows "You don't have access to this company" instead of the page
+- Someone with access to no company sees "Your account has no company yet, ask an admin" after login
+- If you have access to exactly one company, login takes you straight into it *(assumed)*
+- The sidebar shows your role in that company, like "Viewer"
+- Super User sees a "Read only" badge
+
+**New records**
+| Record | Main fields | Notes |
+|---|---|---|
+| Permission | Key like `users.manage`, description | Fixed list in the code, copied into the database so roles can point to it |
+| Role | Company, key (company admin, director, manager, supervisor, staff, viewer), name, active | The 6 templates, made for each of the 6 companies |
+| Role permission | Role, permission | Which permissions a role has |
+| Access | User, company, role, active | One role per person per company *(assumed)*. One person can have access to several companies |
+
+**Which permissions exist in slice 4**
+Only the ones for things that exist so far: `users.view`, `users.manage`, `roles.manage`, all given to company admin only *(assumed)*. Every later slice adds its own (like `items.view`, `items.edit`) with a suggested default per role, marked *(assumed)* until the role list is confirmed.
+
+**How the database keeps companies apart (the important part)**
+- Every record that belongs to a company gets a PostgreSQL rule (row level security) so the database itself only returns rows of companies the signed in person has access to. Even a bug in the app code can't show another company's data
+- For each request the app tells PostgreSQL who is asking (user and holding role), only for that one transaction, so connections shared between requests never mix people up
+- Super Admin: sees and changes every company. Super User: sees every company, and the database refuses any change from them
+- The app connects with its own limited database user, not the admin user. The admin user bypasses these rules, so it is used only for migrations and the seed
+- Login tables (users, sessions) are not under these rules, because login has to work before anyone is known
+
+**How the app checks permissions**
+- One helper, `requirePermission(company, "users.manage")`, used by every server action before it changes anything. Hiding a button is not enough (spec rule)
+- One helper, `can(...)`, for screens to hide buttons the person can't use
+- Super Admin passes every check. Super User passes only view checks
+
+**Demo data (local and staging only)**
+Two demo users so the rules can be clicked through before slice 5 adds the user screens: a Pandu viewer (`PDT-00001`) and someone with access to both Pandu and Anggoan as staff (`PDT-00002`). Never seeded in production.
+
+**Tests**
+- A Pandu user can't read or change Anggoan's rows, even with a hand written query
+- Super User can read every company and every change is refused by the database
+- Super Admin can read and change every company
+- With no user set, the database returns nothing
+- `requirePermission` and `can` for each holding role and a normal role
+- Picker, no access page and "straight in with one company" clicked through in a browser
+
+**Acceptance checks this slice closes**
+- [ ] Log in as Super Admin, see all 6 companies in the picker
+- [ ] That user can't open an Anggoan record, even by typing its URL (checked with the demo Pandu viewer)
+
+**Not in this slice**
+Screens to create users, give access and edit roles (slice 5). Master data and its permissions (slices 6 to 8).
+
+**Questions this plan raises** (built with the default shown until answered)
+- [ ] One role per person per company, or can someone be both staff and supervisor in the same company? Default: one *(assumed)*
+- [ ] People with access to only one company go straight in? Default: yes *(assumed)*
+- [ ] Who can manage users and roles inside a company: only company admin? Default: yes *(assumed)*, same as the existing open question above
