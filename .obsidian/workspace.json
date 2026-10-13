@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Magang/Work/Projects/Holding ERP/Build Log.md",
+                "file": "Magang/Work/Projects/Holding ERP/Glossary.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Build Log"
+              "title": "Glossary"
             }
           }
         ]
@@ -99,7 +99,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Magang/Work/Projects/Holding ERP/Build Log.md",
+                "file": "Magang/Work/Projects/Holding ERP/Glossary.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -118,7 +118,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Magang/Work/Projects/Holding ERP/Build Log.md",
+                "file": "Magang/Work/Projects/Holding ERP/Glossary.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
@@ -161,7 +161,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Magang/Work/Projects/Holding ERP/Build Log.md",
+                "file": "Magang/Work/Projects/Holding ERP/Glossary.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
@@ -191,6 +191,7 @@
   },
   "active": "192222acdc3a0a80",
   "lastOpenFiles": [
+    "Magang/Work/Projects/Holding ERP/Build Log.md",
     "Magang/Work/00 Start Here.md",
     "Magang/Work/Projects/Holding ERP/Glossary.md",
     "Magang/Work/Projects/Holding ERP/Colleague Repo Comparison.md",
@@ -202,7 +203,6 @@
     "Magang/Work/Projects/Holding ERP/Workflow.md",
     "Magang/Work/Projects/Holding ERP/Company Roles and Modules.md",
     "Magang/Work/Projects/Holding ERP/Claude Code Instructions.md",
-    "Magang/Work/Projects/Holding ERP/Build Log.md",
     "Magang/Work/Projects/Company Websites/Company Websites.md",
     "Test.md"
   ]
