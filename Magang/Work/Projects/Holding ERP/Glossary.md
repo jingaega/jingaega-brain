@@ -73,7 +73,14 @@ Who a company sells to: an outside business or a group company.
 
 **Vendor**:
 Who a company buys from: an outside business or a group company.
-_Avoid_: supplier
+_Avoid_: supplier (except in the name of Pandu's file, the supplier list)
+
+**PIC**:
+Person in charge: the one contact person at a customer or vendor. Can have several phone numbers and emails.
+_Avoid_: contact person
+
+**NPWP**:
+Indonesian tax ID number, 15 digits (16 since 2024).
 
 ## Selling
 
