@@ -17,7 +17,7 @@ Internship project: one ERP that connects a holding with its six companies, plus
 - [ ] Phase 1: answer the open questions in [[Foundation Module]] and approve its build plan
 - [ ] Sales and Marketing module: answer the open questions that block Pandu in [[Sales and Marketing Module]]
 - [ ] Get supervisor sign-off on the fresh repo, invite the colleague to both repos (see [[Colleague Repo Comparison]])
-- [ ] Foundation slice 3: login (Better Auth, email or Employee ID, two-step login for the holding accounts)
+- [ ] Foundation slice 4: roles and permissions, and keeping each company's data separate in PostgreSQL
 - [ ] Confirm the *(assumed)* items in [[Company Roles and Modules]]
 - [ ] Finalize the full module list for [[Holding ERP]], built around PT Pandu first as the baseline
 - [ ] Company websites: list what each one needs in [[Company Websites]]
@@ -27,6 +27,13 @@ Internship project: one ERP that connects a holding with its six companies, plus
 - Serio is the holding company. PT Pandu is still the baseline for development: build for Pandu first, then adapt Serio and the others from it
 
 ## Last session
+**2026-10-13 (sixth session)**
+- Renamed Maraloka to Sibama everywhere, logged the 404 status issue
+- Strict code review of slices 1 and 2, all 5 findings fixed
+- Built Foundation slice 3, login: email or Employee ID, forgot password by email (Mailpit locally), two-step login for Super Admin and Super User with backup codes
+- New open questions in [[Foundation Module]]: password rules, how long a login lasts, account lockout
+- Next: slice 4, roles and permissions
+
 **2026-10-13 (fifth session)**
 - Phase 0 closed in a grilling session: Better Auth, shadcn/ui, AWS Jakarta, company owned accounts, login by email or Employee ID, two-step login for the holding accounts. All in [[Holding ERP]]
 - Company colors approved: the logo based themes from the colleague's repo

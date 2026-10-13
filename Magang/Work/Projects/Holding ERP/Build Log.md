@@ -9,6 +9,15 @@ tags: [internship, erp, log]
 
 One entry per working session, newest on top. Written by Claude at wrap up. Process is in [[Workflow]].
 
+## 2026-10-13 (sixth session)
+- Built slice 3 in three commits, each clicked through in a real browser:
+  - 3a login and logout with Better Auth, email or Employee ID, placeholder Super Admin and Super User, every page needs a login
+  - 3b forgot password, same answer whether or not the account exists, one hour one time link, Mailpit in docker compose
+  - 3c two-step login for the holding accounts with QR code and 10 backup codes
+- Found and fixed a bug while testing 3c: the backup codes were never shown, because the setup page reloaded after the code was accepted. They now show before the last step
+- 30 tests pass, CI green on 3a and 3b
+- Next: slice 4
+
 ## 2026-10-13 (fifth session)
 - Closed Phase 0, logged the decisions in [[Holding ERP]]
 - Added the web-design-guidelines skill to both repos

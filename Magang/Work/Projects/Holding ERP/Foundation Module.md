@@ -91,10 +91,15 @@ These are built now so work isn't blocked, and are easy to change later. All are
 - [ ] Currency: IDR only?
 - [ ] Does anyone besides the super users manage users and roles (one admin per company)?
 - [ ] Do we need an Excel import for items, customers and vendors at the start?
+- [ ] Password rules: how long, and must it mix letters and numbers? The ERP uses Better Auth's minimum of 8 characters for now *(assumed)*
+- [ ] How long does a login last before people must sign in again? Better Auth's default for now: 7 days, renewed while in use *(assumed)*
+- [ ] Lock an account after several wrong passwords? For now Better Auth only slows down repeated attempts *(assumed)*
 
 ## Known issues
 Things that work for users but should be fixed later.
 - [ ] An unknown company address (like `/nope`) shows the not found page, but the server answers HTTP 200 instead of 404. The company check runs after the page starts streaming. Fix later, for example by checking the company before rendering (in `proxy.ts`). Found in slice 2
+- [ ] Same cause: opening the login page while already signed in sends you on with a redirect inside the page instead of an HTTP redirect, so it only happens once the page's JavaScript runs. Works in every normal browser. Found in slice 3
+- [ ] Better Auth keeps its rate limit counts in server memory, so they reset on restart and aren't shared between servers. Move them to the database before running more than one server on AWS. Found in slice 3
 
 ## Acceptance checks
 Written before the build. Each one is something Jingga can click through.
@@ -122,7 +127,7 @@ Draft by Claude, waiting for Jingga's approval. Stack is in the decisions table 
 - Slices (small, one record end to end):
   - [x] 1. Scaffold: repo layout, local PostgreSQL in Docker, health check, empty Next.js shell in English, CI, `CLAUDE.md` (done 2026-10-13)
   - [x] 2. Companies: 6 seeded with their approved themes and logos, company picker switches the theme (done 2026-10-13)
-  - [ ] 3. Login and logout with Better Auth (email or Employee ID), forgot password through Mailpit, two-step login for the holding accounts, placeholder Super Admin and Super User seeded
+  - [x] 3. Login and logout with Better Auth (email or Employee ID), forgot password through Mailpit, two-step login for the holding accounts, placeholder Super Admin and Super User seeded (done 2026-10-13)
   - [ ] 4. Roles and permissions with the 6 templates, checked on every server action, with tests for the access rules above
   - [ ] 5. User admin: Super Admin creates users and gives access per company and role
   - [ ] 6. Items and UoM
