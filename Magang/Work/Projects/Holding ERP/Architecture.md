@@ -41,7 +41,7 @@ A request goes like this:
 | App | Next.js 16, TypeScript | Screens and server code in one project. Server actions handle saves |
 | Database | PostgreSQL 16 | Local in Docker now, AWS (RDS, Jakarta) later. Decided in [[Holding ERP#Decisions]] |
 | Database code | Drizzle ORM | Tables in `db/schema`, migrations in `db/migrations` |
-| Login | Better Auth | Email or Employee ID, forgot password, two-step login. See [[#Login]] |
+| Login | Better Auth | Email or NRP, forgot password, two-step login. See [[#Login]] |
 | Screens | Tailwind CSS 4, shadcn/ui | Colors come from the [[#Companies and themes|company theme]] |
 | Tests | Vitest | See [[#Tests and CI]] |
 | Mail | nodemailer, Mailpit locally | See [[#Mail]] |
@@ -56,7 +56,7 @@ A request goes like this:
 
 ### Login
 - Better Auth (`lib/auth.ts`) handles passwords, sessions, forgot password and two-step login. Sign up is off: accounts are only made by the seed or by an admin ([[#Users and roles screens]])
-- Sign in with email or Employee ID (`lib/auth-flow.ts` turns either into the account)
+- Sign in with email or NRP (`lib/auth-flow.ts` turns either into the account)
 - Super Admin and Super User must set up two-step login with an authenticator app before they can open anything (`lib/session.ts`)
 - A deactivated account gets no new session (hook in `lib/auth.ts`), see [[#Users and roles screens]]
 - `proxy.ts` only checks that a login cookie exists. The real check is on every page (`requireSession`)
@@ -89,7 +89,7 @@ Settings in each company, built in slice 5. Account and access admin, not HR (se
 
 ### Personal details
 Added in slice 5d (plan in [[Foundation Module]]).
-- New users get an Employee ID from PostgreSQL: company code plus 5 digits, like `PDT-00004` (`app_next_employee_id` in `db/migrations/0009_company-codes-and-employee-ids.sql`)
+- New users get an NRP from PostgreSQL: company code plus 5 digits, like `PDT-00004` (`app_next_employee_id` in `db/migrations/0009_company-codes-and-employee-ids.sql`)
 - Phone, KTP number and KTP scan sit in `personal_details`, one per person, apart from the login account. HR (Phase 7) grows from it. Typed once with a new account; the app can't change or delete them
 - Only people with `users.personal_data` in one of the person's companies, and Super Admin, can read them. PostgreSQL enforces it (`app_can_see_personal_data`)
 - The scan file lives outside the public folder (`lib/file-storage.ts`, `FILE_STORAGE_DIR`), opens only through `/<company>/settings/users/<id>/ktp`, and every view is logged in the audit log. Phone and KTP numbers never go into the audit log

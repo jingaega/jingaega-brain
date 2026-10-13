@@ -24,8 +24,8 @@ One entry per working session, newest on top. Written by Claude at wrap up. Proc
 - Slice 7 plan approved after comparing with the colleague's customers: system numbered codes (C-0001), one address and one contact, at most one customer per group company, PO first by default. Who manages customers goes to the supervisor
 - Built slice 7 in two commits, each clicked through in a browser: 7a customers list and Add customer, 7b customer page with Edit, Deactivate, Reactivate and History
 - Strict code review on slice 7: shared list and record page layouts and one list filter, so vendors reuse them. 111 tests pass, lint, typecheck and build pass
-- Supervisor answers came in: item and unit codes fixed, Excel import and export needed, who manages items and customers needs departments (later), new users get an automatic Employee ID with phone, KTP number and KTP scan
-- Built slice 5d (the user revisions) before vendors, at Jingga's request: company codes, automatic Employee IDs, personal details kept apart from the login account, KTP scan upload. Only people with `users.personal_data` see them, every scan view is logged
+- Supervisor answers came in: item and unit codes fixed, Excel import and export needed, who manages items and customers needs departments (later), new users get an automatic NRP with phone, KTP number and KTP scan
+- Built slice 5d (the user revisions) before vendors, at Jingga's request: company codes, automatic NRPs, personal details kept apart from the login account, KTP scan upload. Only people with `users.personal_data` see them, every scan view is logged
 - Strict code review on 5d, 4 findings fixed. 122 tests pass, lint, typecheck and build pass, migrations checked on a fresh database
 - Next: slice 8, vendors (plan written, waiting for approval)
 
@@ -51,12 +51,12 @@ One entry per working session, newest on top. Written by Claude at wrap up. Proc
 
 ## 2026-10-13 (sixth session)
 - Built slice 3 in three commits, each clicked through in a real browser:
-  - 3a login and logout with Better Auth, email or Employee ID, placeholder Super Admin and Super User, every page needs a login
+  - 3a login and logout with Better Auth, email or NRP, placeholder Super Admin and Super User, every page needs a login
   - 3b forgot password, same answer whether or not the account exists, one hour one time link, Mailpit in docker compose
   - 3c two-step login for the holding accounts with QR code and 10 backup codes
 - Found and fixed a bug while testing 3c: the backup codes were never shown, because the setup page reloaded after the code was accepted. They now show before the last step
 - 30 tests pass, CI green on 3a and 3b
-- New rule: the strict code review runs after every slice. Ran it on slice 3 and fixed all 5 findings: one shared error handler instead of six copies, one place that turns an email or Employee ID into an account, one password length rule, a shared page frame, and each action next to its page. 37 tests pass, all three login flows re-checked in a browser
+- New rule: the strict code review runs after every slice. Ran it on slice 3 and fixed all 5 findings: one shared error handler instead of six copies, one place that turns an email or NRP into an account, one password length rule, a shared page frame, and each action next to its page. 37 tests pass, all three login flows re-checked in a browser
 - Next: slice 4
 
 ## 2026-10-13 (fifth session)

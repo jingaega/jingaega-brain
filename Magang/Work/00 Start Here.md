@@ -42,8 +42,8 @@ Internship project: one ERP that connects a holding with its six companies, plus
 - Jingga confirmed: everyone who can see an item sees its history. The Users dialogs now keep what was typed after a refused save
 - Built Foundation slice 7, customers: codes numbered by the system (C-0001), group company link, order type (PO first by default) and rework report. Plan and answers in [[Foundation Module]]
 - Strict code review on slice 7: shared list and record page layouts, ready for vendors. 111 tests pass
-- Supervisor answers: codes fixed, Excel import and export needed, departments later, new users get an automatic Employee ID plus phone, KTP number and KTP scan
-- Built slice 5d: automatic Employee IDs (PDT-00004), personal details apart from the login account, KTP scan only for people allowed to see it, every view logged. Review fixed 4 findings. 122 tests pass
+- Supervisor answers: codes fixed, Excel import and export needed, departments later, new users get an automatic NRP plus phone, KTP number and KTP scan
+- Built slice 5d: automatic NRPs (PDT-00004), personal details apart from the login account, KTP scan only for people allowed to see it, every view logged. Review fixed 4 findings. 122 tests pass
 - Next: approve and build slice 8, vendors
 
 **2026-10-13 (eighth session)**
@@ -65,12 +65,12 @@ Internship project: one ERP that connects a holding with its six companies, plus
 **2026-10-13 (sixth session)**
 - Renamed Maraloka to Sibama everywhere, logged the 404 status issue
 - Strict code review of slices 1 and 2, all 5 findings fixed
-- Built Foundation slice 3, login: email or Employee ID, forgot password by email (Mailpit locally), two-step login for Super Admin and Super User with backup codes
+- Built Foundation slice 3, login: email or NRP, forgot password by email (Mailpit locally), two-step login for Super Admin and Super User with backup codes
 - New open questions in [[Foundation Module]]: password rules, how long a login lasts, account lockout
 - Next: slice 4, roles and permissions
 
 **2026-10-13 (fifth session)**
-- Phase 0 closed in a grilling session: Better Auth, shadcn/ui, AWS Jakarta, company owned accounts, login by email or Employee ID, two-step login for the holding accounts. All in [[Holding ERP]]
+- Phase 0 closed in a grilling session: Better Auth, shadcn/ui, AWS Jakarta, company owned accounts, login by email or NRP, two-step login for the holding accounts. All in [[Holding ERP]]
 - Company colors approved: the logo based themes from the colleague's repo
 - Commits now show as jingaega, no Claude lines
 - Built Foundation slice 2: the 6 companies with their own colors and logos, a company picker, and a themed page per company

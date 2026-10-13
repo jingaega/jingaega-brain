@@ -75,7 +75,7 @@ The full list is 12 modules. Order of work and status are in [[Pandu Roadmap]]. 
 | 2026-10-13 | Phase 0 closed. Login with Better Auth (users and sessions in our own PostgreSQL). Screens with shadcn/ui, UI can still change | Grilling session on Phase 0. A login library is safer than writing our own, shadcn/ui is mainstream and easy to hand over |
 | 2026-10-13 | The company owns the AWS account from day one. The code repo moves to a company GitHub organization before go-live | Nothing stays stuck on Jingga's personal accounts after the internship |
 | 2026-10-13 | AWS Jakarta region (ap-southeast-3). Local now, staging on AWS once Foundation works, production when Pandu goes live | Personal data (HR, payroll) stays in Indonesia under UU PDP. No AWS spending before Foundation works |
-| 2026-10-13 | Login with email or [[Glossary\|Employee ID]]. Use Pandu's existing staff number if there is one | Jingga's call. The fallback format is *(assumed)* |
+| 2026-10-13 | Login with email or [[Glossary\|NRP]]. Use Pandu's existing staff number if there is one | Jingga's call. The fallback format is *(assumed)* |
 | 2026-10-13 | Two-step login (authenticator app) for Super Admin and Super User. Normal users have none for now | Both can see every company's data |
 | 2026-10-13 | Forgot password sends a reset link by email. Mailpit catches emails locally, AWS SES on staging and production | Works the same everywhere without real email setup on a laptop |
 | 2026-10-13 | Push code straight to `main` for now, no pull requests | Jingga's call, until Jingga and the colleague agree how they work together |
@@ -84,7 +84,7 @@ The full list is 12 modules. Order of work and status are in [[Pandu Roadmap]]. 
 | 2026-10-13 | PT Siar Bagja Maraloka's short name is Sibama | Jingga's call. The company's own logo says sibama |
 | 2026-10-13 | Every finished slice is followed by the strict code review (thermo-nuclear skill), and its findings are fixed before the next slice | Jingga's rule. Keeps AI written code from piling up unreviewed |
 | 2026-10-13 | Slice 4 plan approved with its defaults: people with one company go straight in, only company admin manages users and roles *(assumed)*. One role per person per company is not settled, so the database allows several | Jingga's call. Exceptions to one role may exist |
-| 2026-10-13 | Slice 5 plan approved with its defaults: new users set their own password from an emailed link (3 days), a company admin can give access to someone with an account in another group company, only Super Admin deactivates a whole account, Employee ID optional *(assumed)* | Jingga's call. Employee ID required or not: ask the supervisor |
+| 2026-10-13 | Slice 5 plan approved with its defaults: new users set their own password from an emailed link (3 days), a company admin can give access to someone with an account in another group company, only Super Admin deactivates a whole account, NRP optional *(assumed)* | Jingga's call. NRP required or not: ask the supervisor |
 | 2026-10-13 | Slice 6 plan approved with its defaults. Starter units and the code format come from the colleague's repo. An audit log is added, written by PostgreSQL on every change | Jingga's call. Units and code format are ideas, not business rules, and can change |
 | 2026-10-13 | Everyone who can see an item can see its history | Jingga's call |
 | 2026-10-13 | Slice 7 plan approved: one address and one contact per customer, the colleague's customer code format, at most one customer per group company, new customers start as PO first. Who manages customers and whether codes can change go to the supervisor | Jingga's call. Order type (PO first or work first) is a customer setting; payment type (tempo, CBD) stays on the quote |
@@ -93,10 +93,10 @@ The full list is 12 modules. Order of work and status are in [[Pandu Roadmap]]. 
 | 2026-10-13 | Exchange rate: the normally used rate (Bank Indonesia middle rate, assumed reading), locked when the purchase is paid and never changed after. Each vendor has its own currency | Jingga's call. Customer currency is still a question for the supervisor |
 | 2026-10-13 | Item and unit codes can't change after saving | Jingga's call |
 | 2026-10-13 | Items and units are managed by finance managers and above, customers by finance and procurement managers and above | Jingga's call. Needs departments in the role model first |
-| 2026-10-13 | New users get an automatic Employee ID. The person adding them types name, number, KTP and other details | Jingga's call. Changes slice 5, plan needed |
+| 2026-10-13 | New users get an automatic NRP. The person adding them types name, number, KTP and other details | Jingga's call. Changes slice 5, plan needed |
 | 2026-10-13 | Excel import and export are needed | Jingga's call |
 | 2026-10-13 | No KTP scan, only the NIK. The upload code stays, switched off | Jingga's call. Can come back when needed |
-| 2026-10-13 | User admin is not HR. Users and Roles live under Settings; employees belong to the HR module, which will own the Employee ID | Who can sign in is a different job from who works for the company |
+| 2026-10-13 | User admin is not HR. Users and Roles live under Settings; employees belong to the HR module, which will own the NRP | Who can sign in is a different job from who works for the company |
 | 2026-10-13 | PostgreSQL row level security keeps companies apart. The app connects as a limited database user, the owner is for migrations and the seed only | A bug in the app code can't show another company's data |
 | 2026-10-13 | S&M builds the tempo (non-CBD) flow first. CBD and Kopken come later | Tempo is the default flow and the best specced one |
 | 2026-10-13 | Phase 2 goal is a Pandu tempo order from quote to signed BAST, not to paid | Stock (Phase 4) and Finance (Phase 5) are built later, so stock check and invoice are only simple steps until then |
