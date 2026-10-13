@@ -162,10 +162,10 @@ Jingga shared HR's employee sheet on 2026-10-13: 18 people across the group, 23 
 | STATUS | Aktif | 17 of 18 | The account's active or deactivated status covers it |
 
 - [x] KTP scan not needed, only the NIK. Jingga, 2026-10-13. The upload code stays, switched off (`ASK_FOR_KTP_SCAN` in the Add User dialog)
-- [ ] **NRP:** is the NRP the Employee ID (Pandu's existing staff number, which the 2026-10-13 decision says to use)? If so, HR types it at account creation and the automatic `PDT-00004` numbering is dropped or kept only for people without an NRP. How does HR give a new NRP?
+- [x] **NRP is the Employee ID** (Jingga, 2026-10-13). HR types it at account creation. Was: is the NRP the Employee ID (Pandu's existing staff number, which the 2026-10-13 decision says to use)? If so, HR types it at account creation and the automatic `PDT-00004` numbering is dropped or kept only for people without an NRP. How does HR give a new NRP?
 - [ ] **Email:** the sheet has no email, but people sign in and get the set your password link by email. Does every employee have a work email, or should people without one sign in with NRP and get their first password another way?
-- [ ] **HOLDING:** the sheet lists HOLDING apart from PT Serio Prima Indotek. Is the holding a separate company in the ERP, or part of Serio?
-- [ ] Agree with the proposal: name, NRP, NIK, phone and company at account creation, the rest later by HR (Phase 7)?
+- [x] **HOLDING:** the people listed as HOLDING are the admins, the holding level accounts (Super Admin and Super User), not a separate company. Jingga, 2026-10-13
+- [x] Name, NRP, NIK, phone and company at account creation, the rest later by HR (Phase 7). Jingga agreed, 2026-10-13
 
 ### Slice 8 plan: vendors
 Written 2026-10-13, draft waiting for Jingga's approval. Covers the Vendor record with the group company link and its currency, and closes the acceptance check "Create an item, a customer and a vendor in Pandu. They don't show up in Anggoan". Built like customers (slice 7), reusing its list and record pages, numbering and audit log.
