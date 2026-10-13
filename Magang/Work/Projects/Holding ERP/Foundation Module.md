@@ -137,12 +137,54 @@ Draft by Claude, waiting for Jingga's approval. Stack is in the decisions table 
   - [x] 5. User admin: Super Admin creates users and gives access per company and role
   - [x] 6. Items and UoM, with the audit log (done 2026-10-13)
   - [x] 7. Customers, with the group company link and the S&M settings (done 2026-10-13)
-  - [ ] 8. Vendors, with the group company link
+  - [ ] 8. Vendors, with the group company link and currency (plan below, waiting for approval)
   - [ ] 9. Real-time: lists update live in a second browser
 - Open questions only block their own slice. Slices 1 to 3 and 6 to 9 can start now. Slices 4 and 5 use the 6 templates until they are confirmed
 
+### Slice 8 plan: vendors
+Written 2026-10-13, draft waiting for Jingga's approval. Covers the Vendor record with the group company link and its currency, and closes the acceptance check "Create an item, a customer and a vendor in Pandu. They don't show up in Anggoan". Built like customers (slice 7), reusing its list and record pages, numbering and audit log.
+
+**What changes for people**
+- Vendors joins Items, Units and Customers under Master data
+- **Vendors** (`/pandu/master-data/vendors`): list with search and "Show inactive", Add vendor
+- **Vendor page**: details, Edit, Deactivate, Reactivate and History
+
+**Record**
+| Field | Notes |
+|---|---|
+| Code | Numbered by the system per company: V-0001, V-0002, like customers *(assumed)*. Nobody types it, it never changes |
+| Name | Required |
+| Address | One free text address, optional, like customers |
+| Contact | One contact person: name, phone, email, all optional, like customers |
+| Group company | Empty for outside vendors, otherwise one of the other 5 group companies. At most one vendor per group company, like customers |
+| Currency | IDR, CNY, USD, SGD, AUD, EUR or JPY. Purchases from this vendor use it (Jingga, 2026-10-13). Starts at IDR *(assumed)* |
+| Active | Inactive vendors can't be picked on new documents |
+
+**Rules and defaults** (all *(assumed)* until confirmed)
+- A vendor's currency can be changed. It only affects purchases made after the change; a paid purchase keeps its locked rate (Jingga, 2026-10-13)
+- Permissions `vendors.view` (all 6 roles) and `vendors.manage` (company admin and manager), until departments decide it (Jingga: later)
+- Nothing deleted, every change in the audit log, companies kept apart, as for customers
+
+**Not in this slice** (they come with the Procurement module)
+- NPWP, NIB, bank accounts, payment terms, several contacts
+- One-time or online marketplace sellers (the colleague's repo has them as a vendor type)
+- Vendor rating and "blocked" status
+
+**Built in one commit, clicked through in a browser, then the strict code review** (customers already built the shared parts)
+
+**Tests**
+- Codes count up per company with no doubles, separate from customer codes
+- One vendor per group company, never the company itself
+- Only the 7 currencies are accepted
+- A Pandu user can't read or change Anggoan's vendors; viewer and Super User are refused changes; deletes refused; changes logged
+
+**Questions this plan raises** (built with the default shown until answered)
+- [ ] Vendor codes numbered by the system, V-0001? Default: yes, like customers *(assumed)*
+- [ ] New vendors start in IDR? Default: yes *(assumed)*
+- [ ] A vendor's currency can be changed later? Default: yes, only new purchases use the new one *(assumed)*
+
 ### Slice 5d plan: personal details and automatic Employee ID
-Written 2026-10-13, draft waiting for Jingga's approval. Changes slice 5 (finished), so it is its own plan. From Jingga's answers: new users get an automatic Employee ID, and HR types the name, phone number, KTP number and a KTP scan (PNG or PDF) once, when the person is first added. Other details come later. The KTP handling follows the five points Jingga agreed to on 2026-10-13.
+Written 2026-10-13, approved by Jingga the same day with all defaults, to build after slice 8. Changes slice 5 (finished), so it is its own plan. From Jingga's answers: new users get an automatic Employee ID, and HR types the name, phone number, KTP number and a KTP scan (PNG or PDF) once, when the person is first added. Other details come later. The KTP handling follows the five points Jingga agreed to on 2026-10-13.
 
 **What changes for people**
 - **Add User** asks for: name, email (still needed to sign in and for the set your password link), phone number, KTP number, KTP scan, role. The Employee ID field goes away: it is given automatically, like `PDT-00001`, and shown after saving
@@ -183,10 +225,10 @@ Written 2026-10-13, draft waiting for Jingga's approval. Changes slice 5 (finish
 - A person from another group company only gets access, no personal details asked or changed
 
 **Questions this plan raises** (built with the default shown until answered)
-- [ ] Company codes SPI, PDT, SBM, SAN, AKN, ETA? Default: yes, the colleague's proposal *(assumed)*
-- [ ] Nobody can change the KTP after the account is made? Default: yes *(assumed)*
-- [ ] Phone, KTP number and scan required for every new account? Default: yes *(assumed)*
-- [ ] Who may see personal details: company admin only for now? Default: yes *(assumed)*, HR later
+- [x] Company codes SPI, PDT, SBM, SAN, AKN, ETA? Yes, confirmed by Jingga
+- [x] Nobody can change the KTP after the account is made? Yes, confirmed by Jingga
+- [x] Phone, KTP number and scan required for every new account? Yes, confirmed by Jingga
+- [x] Who may see personal details: company admin only for now? Yes, confirmed by Jingga
 
 ### Slice 7 plan: customers
 Written 2026-10-13, approved by Jingga the same day with the defaults below. Covers the Customer record, with the group company link and the S&M settings (order type, rework report), and the acceptance check "Create a customer in Pandu, it doesn't show up in Anggoan". Built the same way as slice 6, reusing its form dialog, audit log and page layout.
