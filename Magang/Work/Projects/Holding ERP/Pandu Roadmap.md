@@ -42,16 +42,16 @@ Why this order: Sell and Buy are already the best specced. Stock sits right afte
 | Foundation | Draft, open questions waiting | Slice 5 of 9 done | Comes before the 12, not counted in them |
 | Sales & Marketing | Draft, open questions waiting | Not started | First module. Tempo flow first |
 | Procurement | Notes captured | Not started | Covers vendor management too |
-| IMS | None | Not started | |
-| WMS | None | Not started | |
-| Finance A&T | None | Not started | Auto-posts journals, reversal journals for corrections |
-| Production | None | Not started | BOM, batch, expiry, QC |
-| Quality | None | Not started | |
-| HR | None | Not started | Owns employees and the Employee ID. User accounts (Foundation) link to employees, not the other way round |
-| GA | None | Not started | |
-| RND | None | Not started | |
-| Engineering | None | Not started | |
-| MMS | None | Not started | |
+| IMS | General idea, see [[Module Overview]] | Not started | |
+| WMS | General idea, see [[Module Overview]] | Not started | |
+| Finance A&T | General idea, see [[Module Overview]] | Not started | Auto-posts journals, reversal journals for corrections |
+| Production | General idea, see [[Module Overview]] | Not started | BOM, batch, expiry, QC |
+| Quality | Named only, see [[Module Overview]] | Not started | |
+| HR | General idea, see [[Module Overview]] | Not started | Owns employees and the Employee ID. User accounts (Foundation) link to employees, not the other way round |
+| GA | General idea, see [[Module Overview]] | Not started | |
+| RND | Named only, see [[Module Overview]] | Not started | |
+| Engineering | Named only, see [[Module Overview]] | Not started | |
+| MMS | Named only, see [[Module Overview]] | Not started | |
 
 ## Now
 **Phase 1 prep, with the S&M spec in parallel.**

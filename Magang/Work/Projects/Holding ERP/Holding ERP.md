@@ -39,9 +39,9 @@ The full list is 12 modules. Order of work and status are in [[Pandu Roadmap]]. 
 |---|---|---|
 | Foundation (login, companies, users, roles, master data). Not one of the 12, it comes first | [[Foundation Module]] | Draft |
 | Sales & Marketing (POS, CRM, inventory elements, maybe supply chain) | [[Sales and Marketing Module]] | Draft |
-| FAHCGA is the group name for Finance A&T, HR and GA | See below | |
+| FAHCGA is the group name for Finance A&T, HR and GA | [[Module Overview]] | General idea only |
 | Procurement (includes vendor management) | [[Procurement Module]] | Notes captured |
-| Production, WMS, IMS, Finance A&T, HR, GA, RND, Engineering, Quality, MMS | Not started | |
+| Production, WMS, IMS, Finance A&T, HR, GA, RND, Engineering, Quality, MMS | [[Module Overview]] (general ideas only, subject to change) | Not started |
 
 ## Intercompany rules
 > [!note] To discuss later

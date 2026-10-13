@@ -21,7 +21,7 @@ Internship project: one ERP that connects a holding with its six companies, plus
 - [ ] Answer the 3 new *(assumed)* user admin rules from slice 5 in [[Foundation Module]]
 - [ ] Ask supervisor: is the Employee ID required for every user? (open question in [[Foundation Module]])
 - [ ] Confirm the *(assumed)* items in [[Company Roles and Modules]]
-- [ ] Finalize the full module list for [[Holding ERP]], built around PT Pandu first as the baseline
+- [ ] Finalize the full module list for [[Holding ERP]], built around PT Pandu first as the baseline (first draft of the other modules in [[Module Overview]])
 - [ ] Company websites: list what each one needs in [[Company Websites]]
 - [ ] Update both decks: Pandu is a soap manufacturer (Wening), not "industrial manufacturing"
 
@@ -29,6 +29,10 @@ Internship project: one ERP that connects a holding with its six companies, plus
 - Serio is the holding company. PT Pandu is still the baseline for development: build for Pandu first, then adapt Serio and the others from it
 
 ## Last session
+**2026-10-13 (chat, not a build session)**
+- Added [[Module Overview]]: general ideas for Finance Accounting Tax, HR, GA, Production, WMS, IMS and Integrated System, plus RND, Engineering, Quality and MMS as names only
+- Flagged overlaps to settle (Production Cost, PPIC) in that note
+
 **2026-10-13 (eighth session)**
 - Built Foundation slice 5, user admin, in three parts, each clicked through in a browser: Users list, Add user with an emailed set your password link, and Manage (change role, remove access, deactivate) plus the Roles screen
 - Strict code review on slice 5, all 6 findings fixed. The biggest: permission checks now sit with the rules, and new tests prove a viewer and a Super User are refused every change
@@ -89,6 +93,7 @@ Internship project: one ERP that connects a holding with its six companies, plus
 - How we work: [[Workflow]], [[Pandu Roadmap]], [[Build Log]]
 - For Claude Code: [[Claude Code Instructions]]
 - Module specs: [[Foundation Module]], [[Sales and Marketing Module]], [[Procurement Module]]
+- Other modules, general ideas only: [[Module Overview]]
 - Reference: [[Glossary]], [[Company Roles and Modules]], [[Companies]], [[Colleague Repo Comparison]]
 - Meetings: [[Meetings]]
 - Inbox: [[Inbox]]
