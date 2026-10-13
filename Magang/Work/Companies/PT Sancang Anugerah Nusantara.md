@@ -16,7 +16,7 @@ Building and industrial maintenance and management: HVAC, AC, valves, electrical
 - Acts as GA provider for the group: building, HVAC and electrical maintenance for everyone
 
 ## Intercompany
-- Buys from [[PT Serio Prima Indotek|Serio]] (valves), [[PT Siar Bagja Maraloka|Maraloka]] (spare parts) and [[PT Anggoan Karya Narasena|Anggoan]]
+- Buys from [[PT Serio Prima Indotek|Serio]] (valves), [[PT Siar Bagja Maraloka|Sibama]] (spare parts) and [[PT Anggoan Karya Narasena|Anggoan]]
 - Does plant maintenance for [[PT Pandu Dwiloka Teknik|Pandu]]'s soap production machines and plant
 - Invoiced by [[PT Ekatama Tiara Advisindo|Ekatama]]
 

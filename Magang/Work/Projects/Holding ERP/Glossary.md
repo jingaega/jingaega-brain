@@ -15,6 +15,10 @@ The words we use for the Holding ERP, one meaning each. Specs, code and chats us
 **Company**:
 One of the 6 PTs in the group. Every record belongs to exactly one company.
 
+**Sibama**:
+Short name for PT Siar Bagja Maraloka.
+_Avoid_: Maraloka
+
 **Group company**:
 A company inside the group when it shows up as another company's customer or vendor, like Anggoan buying from Pandu.
 _Avoid_: sister company, affiliate
@@ -101,5 +105,4 @@ Quality check on returned or reworked goods.
 Sending goods back out after rework passes QC, through a new DO / BAST.
 
 ## Open terms
-- Maraloka or Sibama for PT Siar Bagja Maraloka (see [[Colleague Repo Comparison]])
 - Is the colleague's "Surat Jalan" the same document as our DO / BAST?

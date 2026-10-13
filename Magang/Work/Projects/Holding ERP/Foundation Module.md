@@ -86,12 +86,15 @@ These are built now so work isn't blocked, and are easy to change later. All are
 ## Open questions
 - [ ] Who are the 2 super users, and do they sit in Pandu or Serio?
 - [ ] Does Pandu already give staff an ID number? If so, the ERP uses it as the Employee ID
-- [ ] Short name for PT Siar Bagja Maraloka: Maraloka or Sibama? The ERP uses Maraloka until answered. Note: the company's own logo says "sibama"
 - [ ] Confirm the 6 role templates, and what each one can do per module
 - [ ] Master data per company or shared? Spec currently says per company (Anggoan has its own catalog). If per company, how does a Wening item at Pandu match the same item at Anggoan for the automatic PO to SO?
 - [ ] Currency: IDR only?
 - [ ] Does anyone besides the super users manage users and roles (one admin per company)?
 - [ ] Do we need an Excel import for items, customers and vendors at the start?
+
+## Known issues
+Things that work for users but should be fixed later.
+- [ ] An unknown company address (like `/nope`) shows the not found page, but the server answers HTTP 200 instead of 404. The company check runs after the page starts streaming. Fix later, for example by checking the company before rendering (in `proxy.ts`). Found in slice 2
 
 ## Acceptance checks
 Written before the build. Each one is something Jingga can click through.

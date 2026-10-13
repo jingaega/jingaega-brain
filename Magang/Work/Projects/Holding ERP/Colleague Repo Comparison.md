@@ -24,7 +24,7 @@ The same ERP for the same 6 companies, with Pandu as the pilot. Next.js with Sup
 | Floor price | Warning below the floor price | Minimum margin check, manager approves below it | Minimum margin check with manager approval |
 | Pandu's products | Wening soap | Hand soap, dish soap, tire cleaner, glass cleaner. No Wening | Wening. The repo is wrong |
 | Roles | Not decided | 6 templates: company admin, director, manager, supervisor, staff, viewer | Use the 6 templates for now |
-| Maraloka short name | Maraloka | Sibama | Not asked yet |
+| Maraloka short name | Maraloka | Sibama | Sibama (the company's own logo says sibama) |
 
 All calls are logged in the decisions table in [[Holding ERP]].
 
@@ -47,4 +47,4 @@ Not answered, Claude's suggestion used for now *(assumed)*:
 ## Still to settle
 - [ ] Supervisor signs off on the fresh repo decision
 - [ ] Invite the colleague to `jingaega-brain` (vault) and `jingaega/PT-SERIO-ERP`
-- [ ] Maraloka or Sibama
+- [x] Maraloka or Sibama: Sibama

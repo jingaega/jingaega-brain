@@ -1,12 +1,12 @@
 ---
 title: PT Siar Bagja Maraloka
 type: company
-short: Maraloka
+short: Sibama
 website: maraloka.co.id
 tags: [internship, company]
 ---
 
-# PT Siar Bagja Maraloka (Maraloka)
+# PT Siar Bagja Maraloka (Sibama)
 
 Trading and supplier of spare parts, mainly trailer and heavy equipment parts. Offers locally made, OEM and original parts. Back to [[Companies]].
 
@@ -20,4 +20,4 @@ Trading and supplier of spare parts, mainly trailer and heavy equipment parts. O
 - Invoiced by [[PT Ekatama Tiara Advisindo|Ekatama]]
 
 ## To confirm
-- [ ] Maraloka is a spare parts trader
+- [ ] Sibama is a spare parts trader

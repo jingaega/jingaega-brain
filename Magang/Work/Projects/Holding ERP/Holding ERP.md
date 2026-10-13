@@ -81,6 +81,7 @@ The full list is 12 modules. Order of work and status are in [[Pandu Roadmap]]. 
 | 2026-10-13 | Push code straight to `main` for now, no pull requests | Jingga's call, until Jingga and the colleague agree how they work together |
 | 2026-10-13 | Plan for a general web developer to take over after the internship | Keeps the tools mainstream. Handover details come later |
 | 2026-10-13 | Company colors and logos: the 6 logo based themes from the colleague's repo | Approved, per Jingga |
+| 2026-10-13 | PT Siar Bagja Maraloka's short name is Sibama | Jingga's call. The company's own logo says sibama |
 | 2026-10-13 | S&M builds the tempo (non-CBD) flow first. CBD and Kopken come later | Tempo is the default flow and the best specced one |
 | 2026-10-13 | Phase 2 goal is a Pandu tempo order from quote to signed BAST, not to paid | Stock (Phase 4) and Finance (Phase 5) are built later, so stock check and invoice are only simple steps until then |
 
@@ -90,7 +91,6 @@ The full list is 12 modules. Order of work and status are in [[Pandu Roadmap]]. 
 - How do Jingga and the colleague work together in the repo (branches, reviews)?
 - Handover plan: who maintains the ERP after the internship
 - Company GitHub organization for the code repo
-- Maraloka is called "Sibama" in the colleague's repo. Which short name is right?
 
 ## Tasks
 - [ ] Confirm the items on the [[Company Roles and Modules]] checklist

@@ -15,6 +15,8 @@ One entry per working session, newest on top. Written by Claude at wrap up. Proc
 - Rewrote slice 1 so it shows as jingaega. CI passed on it
 - Built slice 2: companies table and seed, the 6 approved themes and logos, company picker, themed shell per company. 11 tests pass. A web-design-guidelines review found small accessibility gaps (skip link, focus state, long names), all fixed
 - Known limit: an unknown company shows the not found page but with HTTP status 200, because the page streams before the check. Fine for users
+- Renamed Maraloka to Sibama everywhere (decision in [[Holding ERP]]), with a migration for databases seeded earlier
+- Logged the HTTP 200 on unknown companies under Known issues in [[Foundation Module]]
 - Next: slice 3, login
 
 ## 2026-10-13 (fourth session)

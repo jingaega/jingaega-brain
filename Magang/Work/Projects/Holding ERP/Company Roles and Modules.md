@@ -56,7 +56,7 @@ Spare parts trader _(assumed)_.
 Maintenance services.
 - Modules: Procurement (confirmed), Sales for service invoices, light Inventory for spare parts _(assumed)_
 - FA, HC: its own. GA: tools and vehicles
-- Buys from [[PT Serio Prima Indotek|Serio]], [[PT Siar Bagja Maraloka|Maraloka]], and [[PT Anggoan Karya Narasena|Anggoan]]
+- Buys from [[PT Serio Prima Indotek|Serio]], [[PT Siar Bagja Maraloka|Sibama]], and [[PT Anggoan Karya Narasena|Anggoan]]
 - Does plant maintenance for Pandu's soap production machines and plant, which is an intercompany service
 
 ### [[PT Anggoan Karya Narasena]]
@@ -104,9 +104,9 @@ Dashed lines are assumed, still to confirm.
 ```mermaid
 flowchart TD
   Serio -->|valves| Sancang
-  Maraloka -->|spare parts| Sancang
+  Sibama -->|spare parts| Sancang
   Serio -.->|parts| Pandu
-  Maraloka -.->|parts| Pandu
+  Sibama -.->|parts| Pandu
   Sancang -->|plant maintenance| Pandu
   Ekatama -->|invoice, every company| Pandu
   Pandu -->|Wening| Anggoan
@@ -117,8 +117,8 @@ flowchart TD
 ## To confirm
 
 - [ ] Serio is a valve maker and machining company
-- [ ] Maraloka is a spare parts trader
-- [ ] Serio and Maraloka send parts to Pandu (dashed in the diagram): which parts, and for what?
+- [ ] Sibama is a spare parts trader
+- [ ] Serio and Sibama send parts to Pandu (dashed in the diagram): which parts, and for what?
 - [ ] The 2 super users sit in Pandu
 - [ ] Sancang needs Sales and light Inventory
 - [ ] Anggoan's FA, HC, GA run through authorization in Pandu's ERP

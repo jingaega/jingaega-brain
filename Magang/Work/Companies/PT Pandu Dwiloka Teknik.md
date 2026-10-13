@@ -23,9 +23,9 @@ Development baseline for the ERP. The holding company is [[PT Serio Prima Indote
 - Sells Wening to [[PT Anggoan Karya Narasena|Anggoan]], so most of Pandu's sales are intercompany
 - Gets plant maintenance from [[PT Sancang Anugerah Nusantara|Sancang]]
 - Buys uniforms from Anggoan
-- Gets parts from [[PT Serio Prima Indotek|Serio]] and [[PT Siar Bagja Maraloka|Maraloka]] *(assumed)*
+- Gets parts from [[PT Serio Prima Indotek|Serio]] and [[PT Siar Bagja Maraloka|Sibama]] *(assumed)*
 - Invoiced by [[PT Ekatama Tiara Advisindo|Ekatama]]
 
 ## To confirm
 - [ ] The 2 super users sit in Pandu
-- [ ] Which parts come from Serio and Maraloka, and for what
+- [ ] Which parts come from Serio and Sibama, and for what
