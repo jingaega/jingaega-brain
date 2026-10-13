@@ -143,7 +143,7 @@ Draft by Claude, waiting for Jingga's approval. Stack is in the decisions table 
 - Open questions only block their own slice. Slices 1 to 3 and 6 to 9 can start now. Slices 4 and 5 use the 6 templates until they are confirmed
 
 ### Slice 9 plan: real-time lists
-Draft by Claude, 2026-10-13, waiting for Jingga's approval. Closes the acceptance check "A second browser sees a new item appear without refreshing".
+Written 2026-10-13, approved by Jingga the same day after asking whether live updates are needed at all. Build starts when Jingga says go. Closes the acceptance check "A second browser sees a new item appear without refreshing".
 
 **What changes for people**
 - The Items, Units, Customers and Vendors lists update by themselves when someone else adds, edits or deactivates a record in the same company. No refresh button, no reload
