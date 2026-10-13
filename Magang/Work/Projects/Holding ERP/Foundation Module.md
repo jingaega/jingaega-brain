@@ -97,7 +97,7 @@ These are built now so work isn't blocked, and are easy to change later. All are
 - [ ] Seed demo items outside production (local and staging)? None for now. Needs Pandu's real item list, since the colleague's demo items (hand soap, dish soap) aren't Wening. See the slice 6 plan
 - [ ] Password rules: how long, and must it mix letters and numbers? The ERP uses Better Auth's minimum of 8 characters for now *(assumed)*
 - [ ] How long does a login last before people must sign in again? Better Auth's default for now: 7 days, renewed while in use *(assumed)*
-- [ ] Lock an account after several wrong passwords? For now Better Auth only slows down repeated attempts *(assumed)*
+- [x] Lock an account after 5 wrong passwords in a row, for 15 minutes. Jingga agreed, 2026-10-13. Built in slice 5e
 
 ## Known issues
 Things that work for users but should be fixed later.
@@ -142,15 +142,15 @@ Draft by Claude, waiting for Jingga's approval. Stack is in the decisions table 
 - Open questions only block their own slice. Slices 1 to 3 and 6 to 9 can start now. Slices 4 and 5 use the 6 templates until they are confirmed
 
 ### Slice 5e plan: existing NRPs and optional email
-Written 2026-10-13, draft waiting for Jingga's approval. Follows Jingga's answers on HR's employee sheet: the NRP is the staff ID and stays automated, employees don't need an email, and the HOLDING people are the admins.
+Written 2026-10-13, approved by Jingga the same day with the middle way on email and the safeguards below. Follows Jingga's answers on HR's employee sheet: the NRP is the staff ID and stays automated, staff don't need an email, and the HOLDING people are the admins.
 
 **What changes for people**
 - **Add User** has an **NRP** field, optional:
   - Empty: the person gets the next NRP automatically (new staff)
   - Filled: the NRP HR already gave them (existing staff, like `20123456`). Refused if someone else has it
-- **Email is optional**
+- **Email is optional for staff and viewers, required for anyone who can change important things** (Jingga, 2026-10-13): a role with any "manage" permission or `users.personal_data`, today company admin and manager. Adding such a person, or giving someone such a role, needs an email
   - With an email: as today, an emailed link to choose their own password
-  - Without one: after saving, the admin sees a **temporary password once**, to hand over. It works for 3 days. At first sign in, the ERP makes the person choose their own password before anything else
+  - Without one: after saving, the admin sees a **temporary password once**, to hand over. It works once, for **24 hours** (Jingga, 2026-10-13). At first sign in, the ERP makes the person choose their own password before anything else
 - **Sign in** with NRP or email, as today
 - **Forgot password** without an email: the page says to ask the admin. In Users, Manage, the admin can **Reset password**, which makes a new temporary password, shown once
 - Nobody ever sees a password the person chose themselves
@@ -158,7 +158,9 @@ Written 2026-10-13, draft waiting for Jingga's approval. Follows Jingga's answer
 **Rules and defaults** (all *(assumed)* until confirmed)
 - Automatic NRPs keep the current format, company code plus 5 digits (`PDT-00004`), until HR says how it numbers new staff (question below)
 - A typed NRP: letters and numbers, 4 to 20 characters, unique across all 6 companies
-- Temporary passwords: 12 characters, easy to read out (no 0/O or 1/l), valid 3 days, one use
+- Temporary passwords: 12 characters, easy to read out (no 0/O or 1/l), valid 24 hours, one use
+- Every password reset is in the audit log with who did it. Admins reset only after seeing the person or checking their NIK (a note on the Reset button)
+- **Lockout:** 5 wrong passwords in a row lock the account for 15 minutes (Claude's suggestion, Jingga agreed). Applies to every account. The lock and its end are in the audit log
 - Only people who may add users (company admin) can reset someone's password, inside their own company; holding accounts can't be reset this way
 
 **Under the hood**
@@ -169,16 +171,21 @@ Written 2026-10-13, draft waiting for Jingga's approval. Follows Jingga's answer
 - 5e-1: the NRP field (typed or automatic)
 - 5e-2: optional email, temporary password, choose your password at first sign in
 - 5e-3: Reset password in Manage, forgot password without email
+- 5e-4: lockout after 5 wrong passwords
 
 **Tests**
 - A typed NRP is saved; a taken one is refused; an empty one gets the next automatic NRP
 - Someone without an email gets a temporary password that signs in once, is forced to choose a new one, and stops working after 3 days
 - Nothing is ever sent to a placeholder address
 - A viewer, a Super User and another company's admin can't reset passwords
+- Adding a company admin or manager without an email is refused, so is giving that role to someone without one
+- 5 wrong passwords lock the account for 15 minutes, even with the right password after; it opens again after
 
 **Questions this plan raises**
 - [ ] **How does HR number new staff?** The sheet's NRPs are mostly 8 digits starting with 20, 24, 10 or 25, some start with F0. Is there a rule (year joined plus a number, F for one company)? Until then, automatic NRPs look like `PDT-00004` *(assumed)*
-- [ ] Temporary password valid 3 days, like the email link? Default: yes *(assumed)*
+- [x] Temporary password valid 24 hours, one use. Jingga, 2026-10-13
+- [ ] Someone without an email who gets promoted to manager: for now the role change is refused until they have an email. Adding an email to an existing account comes later *(assumed)*
+- [ ] Password length and how long a login lasts are still open (suggestion: at least 10 characters, one work day)
 
 ### Employee data from HR (Data Karyawan 2026)
 Jingga shared HR's employee sheet on 2026-10-13: 18 people across the group, 23 columns. Only the column list is kept here, never anyone's data. Claude's proposal of what Add User needs and what HR fills in later is waiting for Jingga's answer.
