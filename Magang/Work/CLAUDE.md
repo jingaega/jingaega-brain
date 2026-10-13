@@ -6,7 +6,8 @@ This is Jingga's Obsidian vault for the internship. It is the source of truth fo
 1. `00 Start Here.md` for current focus and the last session handoff
 2. `Projects/Holding ERP/Pandu Roadmap.md` for the goal, phases and module status
 3. `Projects/Holding ERP/Workflow.md` for how we work
-4. The spec for the module being worked on, in `Projects/Holding ERP/`
+4. `Projects/Holding ERP/Glossary.md` for the words we use, one meaning each
+5. The spec for the module being worked on, in `Projects/Holding ERP/`
 
 ## What the project is
 One ERP that connects a holding with six companies. PT Serio Prima Indotek is the holding company. PT Pandu Dwiloka Teknik (soap maker, brand Wening) owns the ERP and is the development baseline: build for Pandu first, then adapt Serio and the other companies. Simple but real-time, one database, each company with its own color theme.
@@ -17,8 +18,16 @@ One ERP that connects a holding with six companies. PT Serio Prima Indotek is th
 - `Companies/` one note per PT, plus Wening
 - `Meetings/` one note per meeting, named `YYYY-MM-DD Topic`
 - `Templates/` daily note, meeting note, module spec
-- `AI-Draft-Notes/` drafts Claude wrote that Jingga has not reviewed yet
-- `Claude Code Instructions.md` (in Projects/Holding ERP) is the template for the repo's own CLAUDE.md. This file is different: it is for working in the vault
+- `AI-Draft-Notes/` drafts Claude wrote that Jingga has not reviewed yet. Created only when needed
+- Notes in `Projects/Holding ERP/` worth knowing by name:
+  - `Foundation Module.md` the Phase 1 spec and its build plan
+  - `Glossary.md` every term, one meaning each
+  - `Colleague Repo Comparison.md` how the vault differs from `Difsyy/Serio-Intern`, and why we build our own repo
+
+## Code repo
+- The code lives in `jingaega/PT-SERIO-ERP`. Its live rules for coding are in that repo's own `CLAUDE.md`
+- `Claude Code Instructions.md` (in Projects/Holding ERP) is only the original template that repo file started from. Don't edit it to change code rules, edit the repo's `CLAUDE.md`
+- This file is different from both: it is for working in the vault
 
 ## Rules
 - *(assumed)* means a guess, not confirmed. Never remove the marker unless Jingga says it is confirmed, then link the meeting note where it was confirmed
