@@ -101,6 +101,7 @@ These are built now so work isn't blocked, and are easy to change later. All are
 Things that work for users but should be fixed later.
 - [ ] An unknown company address (like `/nope`) shows the not found page, but the server answers HTTP 200 instead of 404. The company check runs after the page starts streaming. Fix later, for example by checking the company before rendering (in `proxy.ts`). Found in slice 2
 - [ ] Same cause: opening the login page while already signed in sends you on with a redirect inside the page instead of an HTTP redirect, so it only happens once the page's JavaScript runs. Works in every normal browser. Found in slice 3
+- [ ] Add User and Manage on the Users screen clear what was typed when a save is refused (React resets the form). The master data forms already keep it (slice 6, `FormDialog`). Fix by moving the Users dialogs onto the same component. Found in slice 6
 - [ ] Better Auth keeps its rate limit counts in server memory, so they reset on restart and aren't shared between servers. Move them to the database before running more than one server on AWS. Found in slice 3
 
 ## Acceptance checks
@@ -108,10 +109,10 @@ Written before the build. Each one is something Jingga can click through.
 - [x] Log in as Super Admin, see all 6 companies in the picker
 - [ ] Log in as Super User, see all 6 companies, and every save or create is refused
 - [ ] Switch company, the colors change, the data changes
-- [ ] Create a user with the viewer role in Pandu only. Log in as them: only Pandu shows, and they can view but not create items
+- [x] Create a user with the viewer role in Pandu only. Log in as them: only Pandu shows, and they can view but not create items (items part checked in slice 6)
 - [x] That user can't open an Anggoan record, even by typing its URL
-- [ ] Create an item, a customer and a vendor in Pandu. They don't show up in Anggoan
-- [ ] Set an item Inactive, it disappears from pick lists but stays on its detail page
+- [ ] Create an item, a customer and a vendor in Pandu. They don't show up in Anggoan (items checked in slice 6, customers and vendors wait for slices 7 and 8)
+- [ ] Set an item Inactive, it disappears from pick lists but stays on its detail page (slice 6: it leaves the items list and its page still opens. The first pick list comes with the S&M quote)
 - [ ] A second browser sees a new item appear without refreshing (real-time check)
 - [ ] All labels and buttons are in English
 
@@ -132,7 +133,7 @@ Draft by Claude, waiting for Jingga's approval. Stack is in the decisions table 
   - [x] 3. Login and logout with Better Auth (email or Employee ID), forgot password through Mailpit, two-step login for the holding accounts, placeholder Super Admin and Super User seeded (done 2026-10-13)
   - [x] 4. Roles and permissions with the 6 templates, checked on every server action, with tests for the access rules above (done 2026-10-13)
   - [x] 5. User admin: Super Admin creates users and gives access per company and role
-  - [ ] 6. Items and UoM, with the audit log (plan below)
+  - [x] 6. Items and UoM, with the audit log (done 2026-10-13)
   - [ ] 7. Customers, with the group company link and the S&M settings
   - [ ] 8. Vendors, with the group company link
   - [ ] 9. Real-time: lists update live in a second browser
@@ -190,6 +191,12 @@ Written 2026-10-13, approved by Jingga the same day with the defaults below, plu
 - An item can't use another company's unit or an inactive one
 - Deletes are refused by the database
 - Every change leaves an audit row with who and what; the app can't write or change audit rows
+
+**Built (2026-10-13)**
+- 6a audit log, units with the 11 starter units, `items.view` and `items.manage`. 6b items list with search and Show inactive, Add item. 6c item page with Edit, Deactivate, Reactivate and History
+- Each part clicked through in a browser as the Pandu admin, the Pandu viewer and the Pandu and Anggoan staff member
+- Found while clicking through: a refused save cleared what was typed. Fixed for the master data forms
+- Strict code review: 6 findings, all fixed (one shared form dialog, one edit dispatcher, one item query, one code check, cleaner remount and types). 98 tests pass
 
 **Questions this plan raises** (built with the default shown until answered)
 - [ ] Seed demo items outside production (local and staging) for clicking through? Default: no. The colleague seeds made up Pandu products (hand soap, dish soap), which are wrong for Wening. Seed real ones once Pandu's item list is known

@@ -9,6 +9,19 @@ tags: [internship, erp, log]
 
 One entry per working session, newest on top. Written by Claude at wrap up. Process is in [[Workflow]].
 
+## 2026-10-13 (ninth session)
+- Wrote and got approval for the slice 6 plan, with the colleague's 11 starter units and code format, and an audit log (Jingga's call)
+- Built slice 6 in three commits, each clicked through in a browser:
+  - 6a: audit log written by PostgreSQL on every change, units screen, 11 starter units per company, `items.view` and `items.manage`
+  - 6b: items list with search and Show inactive, Add item
+  - 6c: item page with Edit, Deactivate, Reactivate and History
+- The database refuses deletes on items and units, and an item using another company's unit
+- Found while clicking through: a refused save cleared the form. Fixed for master data, logged as a known issue for the Users dialogs
+- Strict code review on slice 6, all 6 findings fixed: one shared form dialog, one edit dispatcher, one item query, one code check. 331 lines removed, 225 added
+- 98 tests pass. Lint, typecheck and build pass locally. CI only runs on main and pull requests, so it did not run on the working branch
+- Docker Hub was rate limited in the cloud session, so the local database ran on the machine's own PostgreSQL 16
+- Next: slice 7, customers
+
 ## 2026-10-13 (eighth session)
 - Built slice 5 in three commits, each clicked through in a real browser:
   - 5a shadcn/ui with the company theme colors, Settings section, Users list with search

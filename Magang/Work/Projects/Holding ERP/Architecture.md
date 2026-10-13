@@ -8,7 +8,7 @@ tags: [internship, erp, architecture]
 
 # Architecture
 
-How the ERP is put together, as built so far (Foundation slices 1 to 5). Part of [[Holding ERP]]. The words follow the [[Glossary]]. What each slice adds is in [[Foundation Module]], the order of work in [[Pandu Roadmap]], and how we work in [[Workflow]].
+How the ERP is put together, as built so far (Foundation slices 1 to 6). Part of [[Holding ERP]]. The words follow the [[Glossary]]. What each slice adds is in [[Foundation Module]], the order of work in [[Pandu Roadmap]], and how we work in [[Workflow]].
 
 Code: GitHub `jingaega/PT-SERIO-ERP`. File paths below are in that repo.
 
@@ -87,6 +87,22 @@ Settings in each company, built in slice 5. Account and access admin, not HR (se
 - **Roles**: a tick grid of permissions per role, saved per company (`lib/roles.ts`)
 - Every change goes through [[#Access and permissions|requirePermission]] and [[#Company isolation|withUser]]
 
+### Master data
+Items and units, built in slice 6 (plan in [[Foundation Module]]). Per company, under Master data in the sidebar.
+- **Units** (`lib/units.ts`): code and name. Every company starts with 11 units from the seed
+- **Items** (`lib/items.ts`): code, name, unit, buy or make. The item page shows its history
+- Codes are saved in capitals and are unique inside a company. They never change after saving
+- Nothing is deleted: the app's database user has no delete right on these tables. Records go inactive instead
+- An item's unit must belong to the same company. The database checks this too
+- Permissions `items.view` and `items.manage` cover both
+- Forms share one dialog (`app/[company]/master-data/form-dialog.tsx`) that keeps what was typed when a save is refused, and one set of server action helpers (`form.ts`)
+
+### Audit log
+- PostgreSQL writes one `audit_log` row for every insert, update and delete on an audited table, with the old and new values, who asked and when (trigger `audit_row` in `db/migrations/0007_items-and-units.sql`)
+- The app can only read it, and only for companies the person may see. Nobody can change or delete it through the app
+- Items and units are audited so far. Another table joins with one `CREATE TRIGGER` line
+- `lib/audit.ts` turns rows into a history. Changes by the seed show as "System"
+
 ### Mail
 - `lib/mail.ts` sends through SMTP. Locally Mailpit catches every email (open it from `docker compose`)
 - Used for forgot password ([[#Login]]) and invites ([[#Users and roles screens]]). An invite that fails to send never loses the new account: the admin is told to use "Forgot password?"
@@ -105,7 +121,7 @@ Settings in each company, built in slice 5. Account and access admin, not HR (se
 - Every slice is also clicked through in a real browser, and then gets the strict code review ([[Workflow]])
 
 ## Not built yet
-- Master data: items and UoM, customers, vendors (slices 6 to 8 in [[Foundation Module]])
+- Master data: customers and vendors (slices 7 and 8 in [[Foundation Module]])
 - Real-time lists (slice 9)
 - Business modules, starting with [[Sales and Marketing Module]] and [[Procurement Module]]
 - Intercompany documents (see [[Holding ERP#Intercompany rules]]), not before it is discussed

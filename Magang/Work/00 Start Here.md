@@ -17,7 +17,8 @@ Internship project: one ERP that connects a holding with its six companies, plus
 - [ ] Phase 1: answer the open questions in [[Foundation Module]] and approve its build plan
 - [ ] Sales and Marketing module: answer the open questions that block Pandu in [[Sales and Marketing Module]]
 - [ ] Get supervisor sign-off on the fresh repo, invite the colleague to both repos (see [[Colleague Repo Comparison]])
-- [ ] Foundation slice 6: Items and UoM (needs a plan first)
+- [ ] Foundation slice 7: Customers (needs a plan first)
+- [ ] Answer the slice 6 questions in [[Foundation Module]]: demo items, codes fixed after saving, who manages items, who sees history
 - [ ] Answer the 3 new *(assumed)* user admin rules from slice 5 in [[Foundation Module]]
 - [ ] Ask supervisor: is the Employee ID required for every user? (open question in [[Foundation Module]])
 - [ ] Confirm the *(assumed)* items in [[Company Roles and Modules]]
@@ -29,6 +30,15 @@ Internship project: one ERP that connects a holding with its six companies, plus
 - Serio is the holding company. PT Pandu is still the baseline for development: build for Pandu first, then adapt Serio and the others from it
 
 ## Last session
+**2026-10-13 (ninth session)**
+- Built Foundation slice 6: items and units, plus an audit log at Jingga's request. Plan, defaults and questions are in [[Foundation Module]]
+- Units and code format come from the colleague's repo: 11 starter units per company, codes like `PCS` and `WN-500`
+- Every change to items and units is logged by PostgreSQL itself, and the item page shows its history
+- Open question noted: seed demo items outside production? Not until Pandu's real item list is known
+- Strict code review on slice 6, all 6 findings fixed. 98 tests pass, lint, typecheck and build pass
+- CI did not run: it only runs on main and pull requests, and this work is on the working branch
+- Next: slice 7, customers. Start a new session and write the plan first
+
 **2026-10-13 (eighth session)**
 - Built Foundation slice 5, user admin, in three parts, each clicked through in a browser: Users list, Add user with an emailed set your password link, and Manage (change role, remove access, deactivate) plus the Roles screen
 - Strict code review on slice 5, all 6 findings fixed. The biggest: permission checks now sit with the rules, and new tests prove a viewer and a Super User are refused every change
