@@ -67,7 +67,7 @@ Why this order: Sell and Buy are already the best specced. Stock sits right afte
 - [x] Slice 6: items and units, with the audit log
 - [x] Slice 7: customers
 - [x] Slice 8: vendors
-- [ ] Slice 9: live master data lists (plan approved)
+- [ ] Slice 9: live master data lists (plan approved, skipped for now, ask supervisor)
 - [ ] Slice 10: Excel import of vendors, with Pandu's supplier list (plan approved)
 - [ ] Close the S&M open questions that block Pandu (see below)
 - [ ] Write the S&M build plan

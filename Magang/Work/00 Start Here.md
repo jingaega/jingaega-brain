@@ -17,9 +17,9 @@ Internship project: one ERP that connects a holding with its six companies, plus
 - [ ] Phase 1: answer the open questions in [[Foundation Module]] and approve its build plan
 - [ ] Sales and Marketing module: answer the open questions that block Pandu in [[Sales and Marketing Module]]
 - [ ] Get supervisor sign-off on the fresh repo, invite the colleague to both repos (see [[Colleague Repo Comparison]])
-- [ ] Foundation slice 9: live master data lists (plan approved, waiting for Jingga's go)
-- [ ] Foundation slice 10: Excel import of vendors with Pandu's supplier list (plan approved, after slice 9)
-- [ ] Ask supervisor: what "real-time" means, whether the import may be looser than the form, who may see vendor bank accounts (in [[Foundation Module]])
+- [ ] Foundation slice 10: Excel import of vendors with Pandu's supplier list (plan approved, building now)
+- [ ] Foundation slice 9: live master data lists. Plan approved, skipped for now (Jingga, 2026-10-13). Build once the supervisor says live screens are wanted
+- [ ] Ask supervisor: what "real-time" means and whether live screens (slice 9) are wanted now, whether the import may be looser than the form, who may see vendor bank accounts (in [[Foundation Module]])
 - [ ] Decide departments in roles (finance, procurement), needed for who manages items and customers (in [[Foundation Module]])
 - [ ] Plan Excel export
 - [ ] Ask HR how new NRPs are numbered (until then automatic ones look like PDT-00004)
@@ -42,7 +42,8 @@ Internship project: one ERP that connects a holding with its six companies, plus
 - Grilling session on slice 9, the Excel import and the colleague's repo. Their import is no looser than their form, so ours makes the same checks as Add vendor
 - Read Pandu's real supplier list. New rules from it: fax and several bank accounts kept (bank accounts hidden until Procurement), several PIC emails, the bank cell gets split
 - Slice 10 plan (vendor import) written and approved in [[Foundation Module]]
-- Next: Jingga says go, then slice 9, then slice 10
+- Jingga: skip slice 9 for now, build slice 10
+- Next: slice 10a, then 10b
 
 **2026-10-13 (ninth session)**
 - Built Foundation slice 6: items and units, plus an audit log at Jingga's request. Plan, defaults and questions are in [[Foundation Module]]

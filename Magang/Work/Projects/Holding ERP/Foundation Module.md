@@ -95,7 +95,7 @@ These are built now so work isn't blocked, and are easy to change later. All are
 - [ ] **Ask supervisor:** do customers also have their own currency (selling abroad), or is every sale in IDR? Vendors have one currency each (Jingga, 2026-10-13), which slice 8 adds
 - [x] Besides the super users, each company's admin manages users and roles (built in slice 5). Later HR adds users too, once departments exist. Jingga, 2026-10-13
 - [x] Excel import and export are needed. Jingga, 2026-10-13. Import of vendors planned as slice 10 (below). Export gets its own plan later
-- [ ] **Ask supervisor:** what does "real-time" in the scope mean? Our reading *(assumed)*: data is current the moment it is saved. Live lists (slice 9) are extra on top
+- [ ] **Ask supervisor:** what does "real-time" in the scope mean? Our reading *(assumed)*: data is current the moment it is saved. Live lists (slice 9) are extra on top. Also ask: are live screens wanted now? Slice 9 is planned but skipped until then (Jingga, 2026-10-13)
 - [ ] **Ask supervisor:** should the Excel import be looser than the form (for example, let a vendor in without a category)? Until then it makes the same checks as Add vendor
 - [ ] **Ask supervisor:** who may see vendor bank accounts? Until then they are stored but shown nowhere, and the audit log keeps only that they changed
 - [ ] Seed demo items outside production (local and staging)? None for now. Needs Pandu's real item list, since the colleague's demo items (hand soap, dish soap) aren't Wening. See the slice 6 plan
@@ -142,7 +142,7 @@ Draft by Claude, waiting for Jingga's approval. Stack is in the decisions table 
   - [x] 6. Items and UoM, with the audit log (done 2026-10-13)
   - [x] 7. Customers, with the group company link and the S&M settings (done 2026-10-13)
   - [x] 8. Vendors, with the group company link, currency, category and payment term (done 2026-10-13)
-  - [ ] 9. Real-time: lists update live in a second browser
+  - [ ] 9. Real-time: lists update live in a second browser. Skipped for now, plan below (Jingga, 2026-10-13)
   - [ ] 10. Excel import of vendors, starting with Pandu's supplier list (plan below)
 - Open questions only block their own slice. Slices 1 to 3 and 6 to 9 can start now. Slices 4 and 5 use the 6 templates until they are confirmed
 
@@ -178,7 +178,7 @@ Written 2026-10-13, approved by Jingga the same day after asking whether live up
 - Live counts or notifications. Notifications come with approvals
 
 ### Slice 10 plan: vendor Excel import
-Written 2026-10-13 from a grilling session with Jingga, approved the same day. Built after slice 9. Uses Pandu's real supplier list (DATA_SUPPLIER_PANDU, uploaded 2026-10-13). Compared with the colleague's repo: we copy how their import works (template, preview, all or nothing, a line limit), never their rules.
+Written 2026-10-13 from a grilling session with Jingga, approved the same day. Built before slice 9, which is skipped for now. Uses Pandu's real supplier list (DATA_SUPPLIER_PANDU, uploaded 2026-10-13). Compared with the colleague's repo: we copy how their import works (template, preview, all or nothing, a line limit), never their rules.
 
 **What changes for people**
 - **Import** button next to Add vendor on the Vendors list, for anyone with `vendors.manage` (no new permission)
