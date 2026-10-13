@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Magang/Work/Projects/Holding ERP/Module Overview.md",
+                "file": "Magang/Work/Projects/Holding ERP/Sales and Marketing Module.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Module Overview"
+              "title": "Sales and Marketing Module"
             }
           }
         ]
@@ -99,7 +99,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Magang/Work/Projects/Holding ERP/Module Overview.md",
+                "file": "Magang/Work/Projects/Holding ERP/Sales and Marketing Module.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -118,7 +118,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Magang/Work/Projects/Holding ERP/Module Overview.md",
+                "file": "Magang/Work/Projects/Holding ERP/Sales and Marketing Module.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
@@ -161,7 +161,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Magang/Work/Projects/Holding ERP/Module Overview.md",
+                "file": "Magang/Work/Projects/Holding ERP/Sales and Marketing Module.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
@@ -191,8 +191,14 @@
   },
   "active": "192222acdc3a0a80",
   "lastOpenFiles": [
-    "Magang/Work/Projects/Holding ERP/MMS Module.md",
+    "Magang/Work/Projects/Holding ERP/Glossary.md",
+    "Magang/Work/Projects/Holding ERP/Sales and Marketing Module.md",
     "Magang/Work/Projects/Holding ERP/Module Overview.md",
+    "Magang/Work/Projects/Holding ERP/Foundation Module.md",
+    "Magang/Work/Projects/Holding ERP/Holding ERP.md",
+    "Magang/Work/Projects/Holding ERP/Colleague Repo Comparison.md",
+    "Magang/Work/Projects/Holding ERP/Architecture.md",
+    "Magang/Work/Projects/Holding ERP/MMS Module.md",
     "Magang/Work/Projects/Holding ERP/Quality Module.md",
     "Magang/Work/Projects/Holding ERP/Engineering Module.md",
     "Magang/Work/Projects/Holding ERP/RND Module.md",
@@ -204,18 +210,12 @@
     "Magang/Work/Projects/Holding ERP/HR Module.md",
     "Magang/Work/Projects/Holding ERP/Finance Accounting Tax Module.md",
     "Magang/Work/Projects/Holding ERP/Procurement Module.md",
-    "Magang/Work/Projects/Holding ERP/Sales and Marketing Module.md",
-    "Magang/Work/Projects/Holding ERP/Foundation Module.md",
     "Magang/Work/Inbox/Inbox.md",
     "Magang/Work/Templates/Daily Note.md",
     "Magang/Work/Templates/Meeting Note.md",
     "Magang/Work/Templates/Module Spec.md",
     "Magang/Work/Meetings/Meetings.md",
     "Magang/Work/Projects/Holding ERP/Workflow.md",
-    "Magang/Work/00 Start Here.md",
-    "Magang/Work/CLAUDE.md",
-    "Magang/Work/Companies/Companies.md",
-    "Magang/Work/Projects/Holding ERP/Architecture.md",
-    "Magang/Work/Companies/PT Serio Prima Indotek.md"
+    "Magang/Work/00 Start Here.md"
   ]
 }
