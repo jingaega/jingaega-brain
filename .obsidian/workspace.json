@@ -11,12 +11,14 @@
             "id": "192222acdc3a0a80",
             "type": "leaf",
             "state": {
-              "type": "release-notes",
+              "type": "markdown",
               "state": {
-                "currentVersion": "1.14.4"
+                "file": "Test.md",
+                "mode": "source",
+                "source": false
               },
-              "icon": "lucide-book-up",
-              "title": "Release Notes 1.14.4"
+              "icon": "lucide-file",
+              "title": "Test"
             }
           }
         ]
@@ -97,6 +99,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "Test.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -115,6 +118,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "Test.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
@@ -157,6 +161,7 @@
             "state": {
               "type": "outline",
               "state": {
+                "file": "Test.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
@@ -180,9 +185,12 @@
       "daily-notes:Open today's daily note": false,
       "templates:Insert template": false,
       "command-palette:Open command palette": false,
-      "bases:Create new base": false
+      "bases:Create new base": false,
+      "obsidian-git:Open Git source control": false
     }
   },
   "active": "192222acdc3a0a80",
-  "lastOpenFiles": []
+  "lastOpenFiles": [
+    "Test.md"
+  ]
 }
