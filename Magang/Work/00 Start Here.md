@@ -17,7 +17,8 @@ Internship project: one ERP that connects a holding with its six companies, plus
 - [ ] Phase 1: answer the open questions in [[Foundation Module]] and approve its build plan
 - [ ] Sales and Marketing module: answer the open questions that block Pandu in [[Sales and Marketing Module]]
 - [ ] Get supervisor sign-off on the fresh repo, invite the colleague to both repos (see [[Colleague Repo Comparison]])
-- [ ] Foundation slice 5: user admin (create users, give access per company and role)
+- [ ] Foundation slice 5: Users and Roles under Settings (create users, give access per company and role)
+- [ ] Ask supervisor: is the Employee ID required for every user? (open question in [[Foundation Module]])
 - [ ] Confirm the *(assumed)* items in [[Company Roles and Modules]]
 - [ ] Finalize the full module list for [[Holding ERP]], built around PT Pandu first as the baseline
 - [ ] Company websites: list what each one needs in [[Company Websites]]

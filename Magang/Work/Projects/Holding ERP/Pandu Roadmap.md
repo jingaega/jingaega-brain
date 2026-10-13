@@ -47,7 +47,7 @@ Why this order: Sell and Buy are already the best specced. Stock sits right afte
 | Finance A&T | None | Not started | Auto-posts journals, reversal journals for corrections |
 | Production | None | Not started | BOM, batch, expiry, QC |
 | Quality | None | Not started | |
-| HR | None | Not started | |
+| HR | None | Not started | Owns employees and the Employee ID. User accounts (Foundation) link to employees, not the other way round |
 | GA | None | Not started | |
 | RND | None | Not started | |
 | Engineering | None | Not started | |

@@ -136,22 +136,22 @@ Draft by Claude, waiting for Jingga's approval. Stack is in the decisions table 
   - [ ] 9. Real-time: lists update live in a second browser
 - Open questions only block their own slice. Slices 1 to 3 and 6 to 9 can start now. Slices 4 and 5 use the 6 templates until they are confirmed
 
-### Slice 5 plan: people and roles screens
-Written 2026-10-13, **waiting for Jingga's approval**. Covers the flow "Super Admin: create users, give access per company and role" and "Create roles, tick permissions", and the acceptance check "Create a user with the viewer role in Pandu only".
+### Slice 5 plan: users and roles screens
+Written 2026-10-13, approved by Jingga the same day with the defaults below. This is account and access admin, not HR: it is about who can sign in to the ERP and what they may do, not about employees (see [[Glossary]], User and Employee). Covers the flow "Super Admin: create users, give access per company and role" and "Create roles, tick permissions", and the acceptance check "Create a user with the viewer role in Pandu only".
 
 **Who can use these screens**
 - Company admin (permission `users.manage`, and `roles.manage` for roles), inside their own company *(assumed)*
 - Super Admin, in every company
 - Super User and anyone with `users.view` can look but not change. Others don't see the menu item
 
-**Screens, inside each company**
-- **People** (`/pandu/people`): everyone with access to this company, their Employee ID, email and role, active or not. Search by name, email or Employee ID
-- **Add person**: name, email, Employee ID (optional), role
+**Screens, inside each company, under a Settings section in the sidebar**
+- **Users** (`/pandu/settings/users`): everyone with access to this company, their Employee ID, email and role, active or not. Search by name, email or Employee ID
+- **Add user**: name, email, Employee ID (optional), role
   - New email: makes the account and emails them a link to choose their own password, valid for 3 days *(assumed)*. Nobody types or sees someone else's password
   - Email that already has an account (someone from another group company): just gives them access here too, and says so
 - **Change role**: pick another role. The database already allows several roles per person, the screen sets one for now (open question)
 - **Remove access**: the person can't open this company any more, but keeps access to their other companies. The record stays, marked inactive (nothing is hard deleted)
-- **Roles** (`/pandu/roles`): the 6 roles with ticks for each permission, saved per company. Only the permissions that exist so far (people and roles) until the modules add theirs
+- **Roles** (`/pandu/settings/roles`): the 6 roles with ticks for each permission, saved per company. Only the permissions that exist so far (people and roles) until the modules add theirs
 
 **Super Admin only**
 - **Deactivate account**: the person can't sign in anywhere and is signed out at once. A company admin can only remove access to their own company
@@ -164,8 +164,8 @@ Written 2026-10-13, **waiting for Jingga's approval**. Covers the flow "Super Ad
 - Employee IDs stay unique across all 6 companies; a taken one gets a clear message
 
 **Built in three commits, each clicked through in a browser**
-- 5a: shadcn/ui setup and the People list (view only)
-- 5b: Add person, with the set your password email (Mailpit locally)
+- 5a: shadcn/ui setup, the Settings section and the Users list (view only)
+- 5b: Add user, with the set your password email (Mailpit locally)
 - 5c: Change role, remove access, deactivate account, and the Roles screen
 - Then the strict code review on slice 5
 
@@ -179,7 +179,7 @@ Written 2026-10-13, **waiting for Jingga's approval**. Covers the flow "Super Ad
 - [ ] New people choose their own password from an emailed link, valid 3 days? Default: yes *(assumed)*
 - [ ] Can a company admin give access to someone who already has an account in another group company? Default: yes, the screen says so *(assumed)*
 - [ ] Only Super Admin can deactivate a whole account; a company admin only removes access to their own company? Default: yes *(assumed)*
-- [ ] Employee ID required for every new person, or optional? Default: optional until Pandu's ID format is known *(assumed)*
+- [ ] **Ask supervisor:** Employee ID required for every new user, or optional? Default: optional until Pandu's ID format is known *(assumed)*
 
 ### Slice 4 plan: roles, permissions and company data isolation
 Written 2026-10-13, approved by Jingga the same day with the defaults below, and built. Covers the rules "You only see companies you have access to", "Your role decides what you can do", "Super Admin can do everything" and "Super User can never change anything".
