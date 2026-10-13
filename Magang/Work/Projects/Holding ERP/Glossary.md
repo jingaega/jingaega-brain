@@ -28,7 +28,11 @@ The holding level account that can see everything in every company and change no
 _Avoid_: viewer (that is a company role)
 
 **User**:
-A person who logs in to the ERP.
+A person who logs in to the ERP, with their email or their Employee ID.
+
+**Employee ID**:
+A person's staff number, unique across all 6 companies. The ID the company already uses, or company code plus a number like `PDT-00123` if there is none *(assumed)*.
+_Avoid_: NIK (it can mean the KTP number or the employee number)
 
 **Role**:
 A named set of permissions inside one company. For now one of: company admin, director, manager, supervisor, staff, viewer *(assumed)*.
