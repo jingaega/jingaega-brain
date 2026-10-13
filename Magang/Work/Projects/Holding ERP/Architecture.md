@@ -8,7 +8,7 @@ tags: [internship, erp, architecture]
 
 # Architecture
 
-How the ERP is put together, as built so far (Foundation slices 1 to 5). Part of [[Holding ERP]]. The words follow the [[Glossary]]. What each slice adds is in [[Foundation Module]], the order of work in [[Pandu Roadmap]], and how we work in [[Workflow]].
+How the ERP is put together, as built so far (Foundation slices 1 to 8). Part of [[Holding ERP]]. The words follow the [[Glossary]]. What each slice adds is in [[Foundation Module]], the order of work in [[Pandu Roadmap]], and how we work in [[Workflow]].
 
 Code: GitHub `jingaega/PT-SERIO-ERP`. File paths below are in that repo.
 
@@ -41,7 +41,7 @@ A request goes like this:
 | App | Next.js 16, TypeScript | Screens and server code in one project. Server actions handle saves |
 | Database | PostgreSQL 16 | Local in Docker now, AWS (RDS, Jakarta) later. Decided in [[Holding ERP#Decisions]] |
 | Database code | Drizzle ORM | Tables in `db/schema`, migrations in `db/migrations` |
-| Login | Better Auth | Email or Employee ID, forgot password, two-step login. See [[#Login]] |
+| Login | Better Auth | Email or NRP, forgot password, two-step login. See [[#Login]] |
 | Screens | Tailwind CSS 4, shadcn/ui | Colors come from the [[#Companies and themes|company theme]] |
 | Tests | Vitest | See [[#Tests and CI]] |
 | Mail | nodemailer, Mailpit locally | See [[#Mail]] |
@@ -56,7 +56,7 @@ A request goes like this:
 
 ### Login
 - Better Auth (`lib/auth.ts`) handles passwords, sessions, forgot password and two-step login. Sign up is off: accounts are only made by the seed or by an admin ([[#Users and roles screens]])
-- Sign in with email or Employee ID (`lib/auth-flow.ts` turns either into the account)
+- Sign in with email or NRP (`lib/auth-flow.ts` turns either into the account)
 - Super Admin and Super User must set up two-step login with an authenticator app before they can open anything (`lib/session.ts`)
 - A deactivated account gets no new session (hook in `lib/auth.ts`), see [[#Users and roles screens]]
 - `proxy.ts` only checks that a login cookie exists. The real check is on every page (`requireSession`)
@@ -87,6 +87,41 @@ Settings in each company, built in slice 5. Account and access admin, not HR (se
 - **Roles**: a tick grid of permissions per role, saved per company (`lib/roles.ts`)
 - Every change goes through [[#Access and permissions|requirePermission]] and [[#Company isolation|withUser]]
 
+### Signing in without an email
+Added in slice 5e (plan in [[Foundation Module]]).
+- Email is optional for staff and viewers; roles with a "manage" permission or `users.personal_data` need one. People without one get a hidden placeholder address (`lib/no-email.ts`) that nothing is ever sent to
+- They get a temporary password from the admin, shown once, signing in once within 24 hours; every page sends them to `/choose-password` first
+- `lib/sign-in-rules.ts` holds every rule about who may sign in, checked inside the login library: deactivated accounts, spent temporary passwords, and the 15 minute lock after 5 wrong passwords
+- Password resets by an admin and locks are in the audit log
+
+### Personal details
+Added in slice 5d (plan in [[Foundation Module]]).
+- Existing staff keep the NRP HR gave them (typed in Add User). New staff get one from PostgreSQL: company code plus 5 digits, like `PDT-00004`, until HR's numbering rule is known (`app_next_employee_id` in `db/migrations/0009_company-codes-and-employee-ids.sql`)
+- Phone, KTP number and KTP scan sit in `personal_details`, one per person, apart from the login account. HR (Phase 7) grows from it. Typed once with a new account; the app can't change or delete them
+- Only people with `users.personal_data` in one of the person's companies, and Super Admin, can read them. PostgreSQL enforces it (`app_can_see_personal_data`)
+- The scan file lives outside the public folder (`lib/file-storage.ts`, `FILE_STORAGE_DIR`), opens only through `/<company>/settings/users/<id>/ktp`, and every view is logged in the audit log. Phone and KTP numbers never go into the audit log
+
+### Master data
+Items and units (slice 6), customers (slice 7) and vendors (slice 8), plans in [[Foundation Module]]. Per company, under Master data in the sidebar.
+- **Units** (`lib/units.ts`): code and name. Every company starts with 11 units from the seed
+- **Items** (`lib/items.ts`): code, name, unit, buy or make. The item page shows its history
+- **Customers** (`lib/customers.ts`): name, address, one contact, group company link, order type, rework report. Codes are numbered by PostgreSQL (C-0001, trigger `assign_code` in `db/migrations/0008_customers.sql`) and can't be typed or changed
+- **Vendors** (`lib/vendors.ts`): the customer fields plus category, currency, payment term (CBD or Net days), NPWP, website and notes. Codes V-0001
+- Customers and vendors share their common fields and checks (`lib/partners.ts`, `partner-fields.tsx`)
+- Item and unit codes are typed, saved in capitals and unique inside a company. No code changes after saving
+- The group company picker uses `app_group_companies()`, which shows every company's name and nothing else, since company isolation hides other companies' rows
+- List and record pages share one layout (`record-views.tsx`) and one list filter (`lib/master-data.ts`)
+- Nothing is deleted: the app's database user has no delete right on these tables. Records go inactive instead
+- An item's unit must belong to the same company. The database checks this too
+- Permissions `items.view` and `items.manage` cover both
+- Forms share one dialog (`app/[company]/master-data/form-dialog.tsx`) that keeps what was typed when a save is refused, and one set of server action helpers (`form.ts`)
+
+### Audit log
+- PostgreSQL writes one `audit_log` row for every insert, update and delete on an audited table, with the old and new values, who asked and when (trigger `audit_row` in `db/migrations/0007_items-and-units.sql`)
+- The app can only read it, and only for companies the person may see. Nobody can change or delete it through the app
+- Items, units, customers and vendors are audited so far. Another table joins with one `CREATE TRIGGER` line
+- `lib/audit.ts` turns rows into a history. Changes by the seed show as "System"
+
 ### Mail
 - `lib/mail.ts` sends through SMTP. Locally Mailpit catches every email (open it from `docker compose`)
 - Used for forgot password ([[#Login]]) and invites ([[#Users and roles screens]]). An invite that fails to send never loses the new account: the admin is told to use "Forgot password?"
@@ -105,7 +140,6 @@ Settings in each company, built in slice 5. Account and access admin, not HR (se
 - Every slice is also clicked through in a real browser, and then gets the strict code review ([[Workflow]])
 
 ## Not built yet
-- Master data: items and UoM, customers, vendors (slices 6 to 8 in [[Foundation Module]])
 - Real-time lists (slice 9)
 - Business modules, starting with [[Sales and Marketing Module]] and [[Procurement Module]]
 - Intercompany documents (see [[Holding ERP#Intercompany rules]]), not before it is discussed

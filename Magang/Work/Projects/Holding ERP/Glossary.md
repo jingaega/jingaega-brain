@@ -32,16 +32,20 @@ The holding level account that can see everything in every company and change no
 _Avoid_: viewer (that is a company role)
 
 **User**:
-An account that can sign in to the ERP, with its email or Employee ID, and its access to companies. Managed under Settings, Users.
+An account that can sign in to the ERP, with its email or NRP, and its access to companies. Managed under Settings, Users.
 _Avoid_: people, staff (when you mean an account)
 
 **Employee**:
 Someone who works for a group company, kept by the HR module (Phase 7) with personal data, contracts and payroll. Many employees never sign in. Later an employee can be linked to a user.
 _Avoid_: user (when you mean the person on the payroll)
 
-**Employee ID**:
-A person's staff number, unique across all 6 companies. The ID the company already uses, or company code plus a number like `PDT-00123` if there is none *(assumed)*. Stored on the user for now; once HR exists, HR owns it and the user takes it from the linked employee.
-_Avoid_: NIK (it can mean the KTP number or the employee number)
+**NRP**:
+A person's staff number (Nomor Registrasi Pegawai), unique across all 6 companies, and their ID in the ERP. People sign in with it. Existing staff keep the NRP HR already gave them (like `20123456`); new people get one automatically. Stored on the user for now; once HR exists, HR owns it and the user takes it from the linked employee.
+_Avoid_: Employee ID, employee number
+
+**NIK**:
+The 16 digit number on a person's KTP (national ID card). Kept in their personal details, only for people allowed to see them.
+_Avoid_: NIK for the staff number (that is the NRP)
 
 **Role**:
 A named set of permissions inside one company. For now one of: company admin, director, manager, supervisor, staff, viewer *(assumed)*.

@@ -30,7 +30,7 @@ Part of [[Holding ERP]] and [[00 Start Here]]. This is my best reading based on 
 System owner, soap manufacturer under the brand Wening.
 - Modules: all of them
 - FA, HC, GA: runs its own, in full
-- The 2 super users sit here _(assumed)_
+- The 2 super users belong to the holding, not to Pandu (HR's sheet lists them as HOLDING, Jingga 2026-10-13)
 - Production and Inventory need:
     - Formulas (BOM): the recipe per product (oils, fragrance, packaging, and so on)
     - Batch and expiry tracking: every batch gets a number and expiry date so a bad batch can be traced or recalled
@@ -119,7 +119,7 @@ flowchart TD
 - [ ] Serio is a valve maker and machining company
 - [ ] Sibama is a spare parts trader
 - [ ] Serio and Sibama send parts to Pandu (dashed in the diagram): which parts, and for what?
-- [ ] The 2 super users sit in Pandu
+- [x] ~~The 2 super users sit in Pandu~~ They belong to the holding (HR's sheet, Jingga 2026-10-13)
 - [ ] Sancang needs Sales and light Inventory
 - [ ] Anggoan's FA, HC, GA run through authorization in Pandu's ERP
 - [ ] HC approach: one HR admin per company, payroll separate

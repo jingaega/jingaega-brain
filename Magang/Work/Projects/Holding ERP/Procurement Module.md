@@ -32,7 +32,13 @@ PO number, uang muka, payment of uang muka, belanja (the buyer shops after the a
 - GR for the remaining quantity
 
 ## Open questions
+- [x] Currencies: purchases can be in IDR, CNY, USD, SGD, AUD, EUR or JPY. Jingga, 2026-10-13
+- [x] Exchange rate: the rate normally used, Bank Indonesia's middle rate (kurs tengah BI) *(assumed reading of "the normally used one")*. The rate is locked when the purchase is paid and never changes after that. Jingga, 2026-10-13
+- [x] Each vendor has its own currency, and its purchases use it. Jingga, 2026-10-13
+- [ ] Before payment, purchases show in IDR at which rate: today's BI rate, or the rate on the PO date? Only the paid rate is fixed so far
 - [ ] COD flow: where does payment happen, and does it skip IR?
+- [ ] Adding a vendor while sourcing: the same vendor record and rules, with an Add vendor shortcut on the sourcing screen (Jingga expects this, 2026-10-13). Who may do it there: anyone who sources, or only managers? The colleague's repo lets staff add vendors, also one-time online sellers
+- [ ] **Ask supervisor:** payment terms as a shared list the admin keeps (CBD, Net 14, Net 30, Net 45, Net 60, picked from a dropdown), or any number of days per vendor as now? Keeping ours for now (Jingga, 2026-10-13). Matters once purchase orders exist
 - [ ] Approval rules: who approves, and above what amount?
-- [ ] What does Pandu buy (raw materials, packaging, maintenance), and does each need a different path?
+- [ ] What does Pandu buy, and does each need a different path? From the supplier list: chemicals, packaging and printing (vendor categories since slice 8)
 - [ ] Which journals post at which step?
