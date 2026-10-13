@@ -200,8 +200,8 @@ Written 2026-10-13, approved by Jingga the same day with the defaults below, plu
 
 **Questions this plan raises** (built with the default shown until answered)
 - [ ] Seed demo items outside production (local and staging) for clicking through? Default: no. The colleague seeds made up Pandu products (hand soap, dish soap), which are wrong for Wening. Seed real ones once Pandu's item list is known
-- [ ] Codes can't change after saving? Default: yes *(assumed)*
-- [ ] Who may add and change items and units: company admin and manager? Default: yes *(assumed)*
+- [ ] **Ask supervisor:** item and unit codes can't change after saving? Default: yes *(assumed)*
+- [ ] **Ask supervisor:** who may add and change items and units: company admin and manager? Default: yes *(assumed)*
 - [ ] Who may see an item's history: everyone who can see the item? Default: yes *(assumed)*
 
 ### Slice 5 plan: users and roles screens
