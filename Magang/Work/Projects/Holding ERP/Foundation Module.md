@@ -86,13 +86,14 @@ These are built now so work isn't blocked, and are easy to change later. All are
 
 ## Open questions
 - [ ] Who are the 2 super users, and do they sit in Pandu or Serio?
-- [ ] Does Pandu already give staff an ID number? If so, the ERP uses it as the Employee ID
+- [x] The Employee ID is given automatically when a new user is added. Jingga, 2026-10-13. Format still open (see slice 5 questions)
 - [ ] Confirm the 6 role templates, and what each one can do per module
+- [ ] **Departments:** Jingga's answers name finance and procurement managers and above. The 6 roles (company admin, director, manager, supervisor, staff, viewer) have no department today. Add departments to access (manager in finance), or make roles per department (Finance Manager)? And does "above" mean director and company admin? Until decided, items and customers stay with company admin and manager
 - [ ] Master data per company or shared? Spec currently says per company (Anggoan has its own catalog). If per company, how does a Wening item at Pandu match the same item at Anggoan for the automatic PO to SO?
 - [x] Currency: IDR, plus Chinese yuan (CNY), US dollar (USD), Singapore dollar (SGD), Australian dollar (AUD), euro (EUR) and Japanese yen (JPY) for procurement. Jingga, 2026-10-13. Follow ups in [[Procurement Module]]
 - [ ] **Ask supervisor:** do customers also have their own currency (selling abroad), or is every sale in IDR? Vendors have one currency each (Jingga, 2026-10-13), which slice 8 adds
 - [ ] Does anyone besides the super users manage users and roles (one admin per company)?
-- [ ] Do we need an Excel import for items, customers and vendors at the start?
+- [x] Excel import and export are needed. Jingga, 2026-10-13. Which records and when (with master data, or later) still to plan
 - [ ] Seed demo items outside production (local and staging)? None for now. Needs Pandu's real item list, since the colleague's demo items (hand soap, dish soap) aren't Wening. See the slice 6 plan
 - [ ] Password rules: how long, and must it mix letters and numbers? The ERP uses Better Auth's minimum of 8 characters for now *(assumed)*
 - [ ] How long does a login last before people must sign in again? Better Auth's default for now: 7 days, renewed while in use *(assumed)*
@@ -200,7 +201,7 @@ Written 2026-10-13, approved by Jingga the same day with the defaults below. Cov
 - [x] Customer codes are numbered by the system (C-0001), like the colleague's repo. Jingga's call, replaces typed codes
 - [x] At most one customer per group company inside a company. Confirmed by Jingga
 - [x] New customers start as PO first. Confirmed by Jingga
-- [ ] **Ask supervisor:** who may add and change customers? Default: company admin and manager *(assumed)*. The colleague's repo lets staff add customers but only admin and manager change them
+- [x] Who may add and change customers: managers and above in finance and procurement. Jingga, 2026-10-13. Needs departments, which roles don't have yet (see Open questions)
 
 ### Slice 6 plan: items and UoM
 Written 2026-10-13, approved by Jingga the same day with the defaults below, plus three calls: the colleague's 11 starter units, the colleague's code format, and an audit log. Covers the Item and UoM records, the rules "Nothing is hard deleted", "Codes are unique inside a company" and "Inactive items can't be picked", and the acceptance checks on items.
@@ -263,8 +264,8 @@ Written 2026-10-13, approved by Jingga the same day with the defaults below, plu
 
 **Questions this plan raises** (built with the default shown until answered)
 - [ ] Seed demo items outside production (local and staging) for clicking through? Default: no. The colleague seeds made up Pandu products (hand soap, dish soap), which are wrong for Wening. Seed real ones once Pandu's item list is known
-- [ ] **Ask supervisor:** item and unit codes can't change after saving? Default: yes *(assumed)*
-- [ ] **Ask supervisor:** who may add and change items and units: company admin and manager? Default: yes *(assumed)*
+- [x] Item and unit codes can't change after saving. Jingga, 2026-10-13
+- [x] Who may add and change items and units: managers and above in finance. Jingga, 2026-10-13. Needs departments, which roles don't have yet (see Open questions)
 - [x] Who may see an item's history: everyone who can see the item. Confirmed by Jingga, 2026-10-13
 
 ### Slice 5 plan: users and roles screens
@@ -310,7 +311,7 @@ Written 2026-10-13, approved by Jingga the same day with the defaults below, and
 - [ ] New people choose their own password from an emailed link, valid 3 days? Default: yes *(assumed)*
 - [ ] Can a company admin give access to someone who already has an account in another group company? Default: yes, the screen says so *(assumed)*
 - [ ] Only Super Admin can deactivate a whole account; a company admin only removes access to their own company? Default: yes *(assumed)*
-- [ ] **Ask supervisor:** Employee ID required for every new user, or optional? Default: optional until Pandu's ID format is known *(assumed)*
+- [x] Every new user is added by someone allowed to add users. They type the name, a number, the KTP and the other details needed, and the Employee ID is given automatically. Jingga, 2026-10-13. This changes slice 5 (finished), so it needs a plan and approval first. Open: which number (phone?), which other details, the ID format, and whether KTP belongs on the user or on the HR employee record
 - [ ] Nobody can change their own role, remove their own access or deactivate themselves, so an admin can't lock themselves out by mistake. Added while building 5c *(assumed)*
 - [ ] A company admin can untick "Change what each role may do" on their own role and lose the Roles screen. Only a Super Admin can give it back. Should the screen stop that? Default: no guard *(assumed)*
 - [ ] Deactivate has an undo: a Super Admin can reactivate the account, with its company access as it was. Added while building 5c *(assumed)*

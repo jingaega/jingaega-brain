@@ -91,6 +91,10 @@ The full list is 12 modules. Order of work and status are in [[Pandu Roadmap]]. 
 | 2026-10-13 | Customer codes are numbered by the system per company (C-0001), like the colleague's repo | Jingga's call. No typos or duplicates |
 | 2026-10-13 | Currencies: IDR, plus CNY, USD, SGD, AUD, EUR and JPY for procurement | Jingga's call. Some vendors are abroad |
 | 2026-10-13 | Exchange rate: the normally used rate (Bank Indonesia middle rate, assumed reading), locked when the purchase is paid and never changed after. Each vendor has its own currency | Jingga's call. Customer currency is still a question for the supervisor |
+| 2026-10-13 | Item and unit codes can't change after saving | Jingga's call |
+| 2026-10-13 | Items and units are managed by finance managers and above, customers by finance and procurement managers and above | Jingga's call. Needs departments in the role model first |
+| 2026-10-13 | New users get an automatic Employee ID. The person adding them types name, number, KTP and other details | Jingga's call. Changes slice 5, plan needed |
+| 2026-10-13 | Excel import and export are needed | Jingga's call |
 | 2026-10-13 | User admin is not HR. Users and Roles live under Settings; employees belong to the HR module, which will own the Employee ID | Who can sign in is a different job from who works for the company |
 | 2026-10-13 | PostgreSQL row level security keeps companies apart. The app connects as a limited database user, the owner is for migrations and the seed only | A bug in the app code can't show another company's data |
 | 2026-10-13 | S&M builds the tempo (non-CBD) flow first. CBD and Kopken come later | Tempo is the default flow and the best specced one |

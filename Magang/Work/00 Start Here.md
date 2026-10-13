@@ -18,10 +18,11 @@ Internship project: one ERP that connects a holding with its six companies, plus
 - [ ] Sales and Marketing module: answer the open questions that block Pandu in [[Sales and Marketing Module]]
 - [ ] Get supervisor sign-off on the fresh repo, invite the colleague to both repos (see [[Colleague Repo Comparison]])
 - [ ] Foundation slice 8: Vendors (needs a plan first)
-- [ ] Ask supervisor (slices 6 and 7, in [[Foundation Module]]): can item and unit codes change after saving? Who may add and change items and customers: company admin and manager only, or can staff add customers like in the colleague's repo?
+- [ ] Decide departments in roles (finance, procurement), needed for who manages items and customers (in [[Foundation Module]])
+- [ ] Plan the new user details: automatic Employee ID, number, KTP (changes slice 5)
+- [ ] Plan Excel import and export
 - [ ] Answer the last slice 6 question in [[Foundation Module]]: demo items, once Pandu's real item list is known
 - [ ] Answer the 3 new *(assumed)* user admin rules from slice 5 in [[Foundation Module]]
-- [ ] Ask supervisor: is the Employee ID required for every user? (open question in [[Foundation Module]])
 - [ ] Ask supervisor: can customers have their own currency, or is every sale in IDR? (in [[Foundation Module]])
 - [ ] Confirm the *(assumed)* items in [[Company Roles and Modules]]
 - [ ] Finalize the full module list for [[Holding ERP]], built around PT Pandu first as the baseline
