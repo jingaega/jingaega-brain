@@ -142,6 +142,40 @@ Draft by Claude, waiting for Jingga's approval. Stack is in the decisions table 
   - [ ] 9. Real-time: lists update live in a second browser
 - Open questions only block their own slice. Slices 1 to 3 and 6 to 9 can start now. Slices 4 and 5 use the 6 templates until they are confirmed
 
+### Slice 9 plan: real-time lists
+Draft by Claude, 2026-10-13, waiting for Jingga's approval. Closes the acceptance check "A second browser sees a new item appear without refreshing".
+
+**What changes for people**
+- The Items, Units, Customers and Vendors lists update by themselves when someone else adds, edits or deactivates a record in the same company. No refresh button, no reload
+- A search or filter you typed stays, and a dialog you have open stays open with what you typed
+- Nothing else looks different *(assumed)*: no "new" highlight, no toast. Easy to add later
+- If the live link drops (server restart, laptop asleep), the browser reconnects and loads the list once, so nothing is missed
+
+**How it works**
+- PostgreSQL announces each change itself, from the same trigger that writes the audit log (`audit_row`), so a change made any way (app, seed, a future import) is announced. Nothing is missed and no server code has to remember to do it
+- The announcement only says "company X, table Y changed". It carries no record data
+- The browser keeps one open link per company page (server-sent events, a plain HTTP route). On an announcement for a list on screen it asks the server for that page again
+- That reload goes through the normal page and `withUser`, so PostgreSQL's company rules still decide every row anyone sees. The live link can't show data a person isn't allowed to see
+- The server only sends you announcements for your company and for lists you may view (`items.view` for items and units, `customers.view`, `vendors.view`). Checked when the link opens, by the same rules as the pages
+- Many changes close together (an import later) become one reload *(assumed: at most one per second)*
+- Works with more than one server later: every server listens to the same database
+
+**Rules to test**
+- A change in Pandu reaches a Pandu viewer, not an Anggoan user
+- A person without `customers.view` gets no customer announcements
+- No session, or a company you can't open: the live link is refused
+- Super User gets announcements (read only, like the pages)
+- An announcement carries no record data
+- An update that changes nothing is not announced (same as the audit log)
+
+**Not in this slice**
+- Live record pages (an item page changing while open) and the Users list. Lists of master data only *(assumed)*, they are what the acceptance check asks for
+- Live counts or notifications. Notifications come with approvals
+
+**Questions for Jingga**
+- Is updating the four master data lists enough for now, or should the Users list and record pages be live too?
+- No highlight on new rows is fine?
+
 ### Slice 5e plan: existing NRPs and optional email
 Written 2026-10-13, approved by Jingga the same day with the middle way on email and the safeguards below. Follows Jingga's answers on HR's employee sheet: the NRP is the staff ID and stays automated, staff don't need an email, and the HOLDING people are the admins.
 
