@@ -16,6 +16,7 @@ One entry per working session, newest on top. Written by Claude at wrap up. Proc
   - 3c two-step login for the holding accounts with QR code and 10 backup codes
 - Found and fixed a bug while testing 3c: the backup codes were never shown, because the setup page reloaded after the code was accepted. They now show before the last step
 - 30 tests pass, CI green on 3a and 3b
+- New rule: the strict code review runs after every slice. Ran it on slice 3 and fixed all 5 findings: one shared error handler instead of six copies, one place that turns an email or Employee ID into an account, one password length rule, a shared page frame, and each action next to its page. 37 tests pass, all three login flows re-checked in a browser
 - Next: slice 4
 
 ## 2026-10-13 (fifth session)
