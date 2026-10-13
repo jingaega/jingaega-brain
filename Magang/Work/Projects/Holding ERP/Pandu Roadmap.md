@@ -52,7 +52,7 @@ Why this order: Sell and Buy are already the best specced. Stock sits right afte
 ## Now
 **Phase 0 and Phase 1 prep, with the S&M spec in parallel.**
 - [ ] Choose the stack (proposal below)
-- [ ] Set a deadline
+- [x] Set a deadline
 - [ ] Create the repo and add `CLAUDE.md` from [[Claude Code Instructions]]
 - [ ] Close the S&M open questions that block Pandu (see below)
 - [ ] Write the S&M build plan
