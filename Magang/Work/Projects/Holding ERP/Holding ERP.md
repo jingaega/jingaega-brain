@@ -37,6 +37,7 @@ The full list is 12 modules. Order of work and status are in [[Pandu Roadmap]]. 
 
 | Module | Spec | Status |
 |---|---|---|
+| Foundation (login, companies, users, roles, master data). Not one of the 12, it comes first | [[Foundation Module]] | Draft |
 | Sales & Marketing (POS, CRM, inventory elements, maybe supply chain) | [[Sales and Marketing Module]] | Draft |
 | FAHCGA is the group name for Finance A&T, HR and GA | See below | |
 | Procurement (includes vendor management) | [[Procurement Module]] | Notes captured |
@@ -51,12 +52,17 @@ The full list is 12 modules. Order of work and status are in [[Pandu Roadmap]]. 
 |------|----------|-----|
 | 2026-10-05 | One ERP for all companies, own color theme each | Simple, real-time, easier to maintain |
 | 2026-10-13 | Serio is the holding company, but PT Pandu is the development baseline (corrects an earlier note saying there was no head holding) | Pandu owns the ERP and uses every module, so everything else is adapted from it |
+| 2026-10-13 | Stack is Go (Fiber), Next.js, PostgreSQL. Can still change. Smaller picks: sqlc with pgx for queries, goose for migrations, session cookie login, SSE for real-time | Jingga has used this stack before on a POS project, and it fits a real-time, multi-company system |
+| 2026-10-13 | Deadline is flexible, no fixed date | Phases are ordered by dependency in [[Pandu Roadmap]], not by date |
+| 2026-10-13 | ERP repo is `jingaega/PT-SERIO-ERP` on GitHub | The name follows the holding. The ERP is still built for Pandu first |
+| 2026-10-13 | UI language is Indonesian | Jingga's call |
+| 2026-10-13 | S&M builds the tempo (non-CBD) flow first. CBD and Kopken come later | Tempo is the default flow and the best specced one |
+| 2026-10-13 | Phase 2 goal is a Pandu tempo order from quote to signed BAST, not to paid | Stock (Phase 4) and Finance (Phase 5) are built later, so stock check and invoice are only simple steps until then |
 
 ## Open questions
 - What does the holding role of Serio need in the ERP (group view, who sees what, the 2 super users)?
-- Which stack? Proposal is Go (Fiber), Next.js, PostgreSQL. Not decided
-- What is the deadline?
 - Which modules beyond Sales & Marketing and FAHCGA are actually in scope?
+- Where does the ERP run (Pandu server or cloud), and do we need a staging copy?
 
 ## Tasks
 - [ ] Confirm the items on the [[Company Roles and Modules]] checklist
@@ -64,4 +70,5 @@ The full list is 12 modules. Order of work and status are in [[Pandu Roadmap]]. 
 - [ ] Write the FAHCGA module spec (use the Module Spec template)
 
 ## Links and resources
-- 
+- ERP repo: `jingaega/PT-SERIO-ERP` on GitHub
+- Vault repo: `jingaega/jingaega-brain` on GitHub, folder `Magang/Work`

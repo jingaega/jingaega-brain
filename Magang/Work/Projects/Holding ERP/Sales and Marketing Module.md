@@ -18,6 +18,8 @@ The S&M module starts when a quotation is recorded. Everything before that (RFQ,
 - **In the ERP:** quote record, customer PO, SO, DO / BAST, delivery and receive status, returns and rework
 - **Handed to other modules:** stock (IMS/WMS), purchasing or production (Proc/Prod), invoice and payment (FAT)
 - **Flows covered:** Tempo (default, credit terms), CBD (cash before delivery), and the Kopken work-first template
+- **First build:** tempo only, starting at Quote recorded. CBD and Kopken come later (decision in [[Holding ERP]])
+- **Not in Pandu's first release:** POS, CRM and website leads. They are needed later for Anggoan's own selling
 
 > [!warning] Consequence
 > Lost-deal reports only cover quotes that were actually recorded. Deals lost before a quote exists are never seen by the ERP.
@@ -39,13 +41,13 @@ The S&M module starts when a quotation is recorded. Everything before that (RFQ,
 
 ## Records the module owns
 
-Five records carry a deal from quote to delivery. Each one links to the one before it, so any order can be traced back to its quote.
+Five records carry a deal from quote to delivery. Each one links to the one before it, so any order can be traced back to its quote. Orders from a group company are the exception: they start at the SO (see Pandu baseline).
 
 | Record | Main fields | Statuses | Links to |
 |---|---|---|---|
 | Quote record | Customer, version (v1, v2...), amount, payment type (required), validity date, date sent, attached file | Awaiting reply, Accepted, Revised (superseded), Lost | Customer |
 | PO cust | PO number, items, qty, price, payment term, delivery address, scan or file | Received, Matched, Mismatch flagged | Accepted quote version |
-| SO | Items with our item codes, qty, price, payment type (optional, falls back to quote), delivered qty, invoiced qty | Confirmed, Partially delivered, Delivered, Closed, Cancelled | PO cust |
+| SO | Items with our item codes, qty, price, payment type (optional, falls back to quote), delivered qty, invoiced qty, paid qty | Confirmed, Partially delivered, Delivered, Closed, Cancelled | PO cust, or the buyer's PO for a group company order |
 | DO / BAST | Items and qty sent, delivery date, photo proof, customer signature | Created, Delivered, Signed, Rejected | SO |
 | Return | Items returned, reason, WMS received date, QC result, rework count | Received, In QC, In rework, Passed, Sent out again | Rejected DO / BAST |
 
@@ -110,6 +112,9 @@ QC is one step with two exits: defect goes to rework, pass goes to kirim. Rework
 
 ## CBD flow
 
+> [!note] Later
+> Not in the first build. Tempo comes first.
+
 In CBD the customer pays before anything ships, so there is no AR and no credit risk.
 
 1. RFQ comes in (on the whiteboard this flow starts at RFQ, see open questions)
@@ -124,6 +129,9 @@ In CBD the customer pays before anything ships, so there is no AR and no credit 
 > The system blocks DO / BAST creation until the PI is marked paid.
 
 ## Kopken work-first template
+
+> [!note] Later
+> Not in the first build. Kopken belongs to Sancang, not Pandu.
 
 For Kopken (handled by [[PT Sancang Anugerah Nusantara]], AC service jobs) the work is done first and priced after, the reverse of tempo.
 
@@ -149,14 +157,15 @@ Build notes:
 | SO payment type falls back to the quote | SO field is optional. Empty means follow the accepted quote version. Screen shows the effective value and where it came from |
 | SO override gets flagged | If the SO or PO term differs from the quote (tempo 45 vs quoted 30), it is highlighted and needs approval |
 | Quote locks on PO | Once PO cust is linked, that quote version can't be edited |
-| Loss needs a reason | Price too low, customer cancelled, no response, expired (auto) |
-| Floor price is a warning, not a gate | Pricing is manual, so the ERP only flags a quote below the stored floor price |
+| Loss needs a reason | Price (customer says too expensive) *(assumed reading of "price too low")*, customer cancelled, no response, expired (auto) |
+| Floor price is a warning, not a gate *(assumed)* | If a floor price is stored, warn when a quote is below it. Never blocks. Waits on the floor price open question |
 | No photo, no BAST | DO / BAST can't move to Signed without at least one photo |
 | Sale is booked on BAST | Finance books revenue when the BAST is signed, not when the PO arrives. Signed BAST also triggers the invoice (tempo) |
-| DO / BAST is one document | One record with statuses (created, delivered, signed), not two |
+| DO / BAST is one document | One record with statuses (created, delivered, signed, rejected), not two |
 | Nothing ships without passing QC | Returned goods go through QC. Rework always goes back to QC before kirim |
 | Kirim uses a new DO / BAST | Linked to the original order. The original BAST stays Rejected for history |
 | Tempo invoice due date | Comes from the effective payment term (SO or quote) |
+| Group company order skips quote and PO cust *(assumed)* | A PO from a group company creates the SO at Pandu automatically, linked to that PO. Rule from [[Holding ERP]] |
 
 ## Handoffs to other modules
 
@@ -170,6 +179,14 @@ Build notes:
 | Proc / Prod | Buys or makes the goods when stock is short. Decided by a buy-or-make flag on the item | After SO, when check stock says no |
 | FAT | Invoice, AR, payment, books the sale on signed BAST | After receive |
 
+## Pandu baseline
+- **Who Pandu sells to:** outside customers and other group companies. Anggoan is the main one, a B2B buyer, and goes through S&M
+- **Group company orders:** the buyer's PO becomes Pandu's SO automatically (rule in [[Holding ERP]]). So these orders enter S&M at the SO, with no quote and no PO cust. From the SO on, the flow is the same as tempo *(assumed)*
+- **Outside customers:** full tempo flow, starting at Quote recorded
+- **Before Stock and Finance exist (Phase 2):** check stock is a manual "stock confirmed" step on the SO, and a signed BAST sets the order to "handed to FAT". Real stock and invoices are wired in at Phases 4 and 5 (see [[Pandu Roadmap]])
+- **What Wening changes:** batch and expiry on DO / BAST lines later, when Production and Stock exist (Phase 6)
+- **What the holding view excludes:** Pandu's sales to group companies. Only sales to outside customers count as group revenue
+
 ## Open questions
 - [ ] Does CBD also start at quote recorded, or at RFQ like the whiteboard? Decides if both flows share one entry point
 - [ ] Add a credit gate before SO for tempo customers (credit limit and overdue AR)? Not on the whiteboard yet
@@ -179,3 +196,22 @@ Build notes:
 - [ ] Kopken revenue timing: the price only exists after BAST, so when does finance book the sale?
 - [ ] Is there a fixed floor price per item, or does the sales person decide each time?
 - [ ] Is down payment its own payment type, or tempo with a first installment?
+- [ ] Does Anggoan (or another group buyer) ever get a quote first, or does its PO always go straight to an SO?
+- [ ] What is PMS? It is not one of the 12 modules. Is it sourcing inside Procurement?
+- [ ] Is "cash" on the quote the same as CBD? Installment has no flow yet
+- [ ] Who approves an SO term override? Depends on the role list in [[Foundation Module]]
+- [ ] Can a BAST be partly rejected, with some lines accepted and invoiced?
+- [ ] Later: who owns the PI and its paid status in CBD, S&M or FAT? CBD has no PO cust or SO in the flow, but DO / BAST links to an SO
+- [ ] Later: Kopken creates the BAST before any PO or SO exists, and the WO and Rework Report are not records yet. How do they link?
+
+## Acceptance checks
+Written before the build. Each one is something Jingga can click through.
+- [ ] 
+
+## Build plan
+Filled in by Claude and approved before any code.
+- Data model:
+- Screens:
+- API:
+- Slices (small, one record end to end):
+  - [ ] 

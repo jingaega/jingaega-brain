@@ -15,14 +15,14 @@ tags: [internship, erp, roadmap]
 A working, real-time ERP that Pandu uses for its own Wening flow, from the first quote or purchase to the closed and paid order, with finance posting automatically. Every module is built once for Pandu, then extended to the other five companies.
 
 ## Deadline
-Not set yet. Add it here once known: **TBD**. Until then, phases are ordered by dependency, not by date.
+**Flexible, no fixed date.** Phases are ordered by dependency, not by date.
 
 ## Phases
 | Phase | Outcome | Modules | Status |
 |---|---|---|---|
-| 0. Decide | Stack, deadline, repo and environment are chosen | none | Not started |
-| 1. Foundation | Login, companies with color themes, 2 super users, roles and authorization, master data (items, customers, vendors) | core | Not started |
-| 2. Sell | A Pandu order goes from quote to paid | [[Sales and Marketing Module]] | Spec drafted |
+| 0. Decide | Stack, deadline, repo and environment are chosen | none | Done, except hosting (open in [[Holding ERP]]) |
+| 1. Foundation | Login, companies with color themes, 2 super users, roles and authorization, master data (items, customers, vendors) | [[Foundation Module]] | Spec drafted |
+| 2. Sell | A Pandu tempo order goes from quote to signed BAST | [[Sales and Marketing Module]] | Spec drafted |
 | 3. Buy | A Pandu purchase goes from request to paid | [[Procurement Module]] | Notes captured |
 | 4. Stock | Stock is correct after every sale, purchase and return | IMS, WMS | Not started |
 | 5. Money | Finance posts journals automatically from phases 2 to 4 | Finance A&T | Not started |
@@ -33,10 +33,14 @@ Not set yet. Add it here once known: **TBD**. Until then, phases are ordered by 
 
 Why this order: Sell and Buy are already the best specced. Stock sits right after them because both depend on it. Finance comes after the flows it posts from, so its posting rules are known. Foundation comes before everything because even a quote needs a customer and an item.
 
+> [!note] Phase 2 before Stock and Money
+> Sell is built before IMS/WMS and Finance exist. Until then, check stock is a manual "stock confirmed" step on the SO, and a signed BAST only sets the order to "handed to FAT". Real stock and the invoice and payment are wired in at Phases 4 and 5, which is when "quote to paid" works.
+
 ## Module status (12 modules)
 | Module | Spec | Build | Notes |
 |---|---|---|---|
-| Sales & Marketing | Draft, 8 open questions | Not started | First module |
+| Foundation | Draft, open questions waiting | Not started | Comes before the 12, not counted in them |
+| Sales & Marketing | Draft, open questions waiting | Not started | First module. Tempo flow first |
 | Procurement | Notes captured | Not started | Covers vendor management too |
 | IMS | None | Not started | |
 | WMS | None | Not started | |
@@ -50,24 +54,26 @@ Why this order: Sell and Buy are already the best specced. Stock sits right afte
 | MMS | None | Not started | |
 
 ## Now
-**Phase 0 and Phase 1 prep, with the S&M spec in parallel.**
-- [ ] Choose the stack (proposal below)
-- [ ] Set a deadline
-- [ ] Create the repo and add `CLAUDE.md` from [[Claude Code Instructions]]
+**Phase 1 prep, with the S&M spec in parallel.**
+- [x] Choose the stack (logged in [[Holding ERP]], can still change)
+- [x] Set a deadline (flexible)
+- [x] Pick the repo: `jingaega/PT-SERIO-ERP`
+- [ ] Answer the Foundation open questions that block slices (see [[Foundation Module]])
+- [ ] Approve the Foundation build plan, then slice 1: scaffold the repo and add `CLAUDE.md` from [[Claude Code Instructions]]
 - [ ] Close the S&M open questions that block Pandu (see below)
 - [ ] Write the S&M build plan
 
-## Stack proposal
-**Go (Fiber) + Next.js + PostgreSQL.** Jingga has used this stack before on a full-stack POS project, and it suits a real-time, multi-company system. One database with a `company_id` on every record, plus a per-company theme. Decision is pending, so it is not final until it is logged in [[Holding ERP]].
+## Stack
+Decided, see the decisions table in [[Holding ERP]].
 
 ## S&M questions that block Pandu first
-These decide how Pandu's flow behaves, so answer them before the build plan:
-- [ ] Does CBD start at the quote or at the RFQ?
+These decide how Pandu's tempo flow behaves, so answer them before the build plan:
 - [ ] Credit gate for tempo customers before the SO?
 - [ ] Floor price per item, or decided each time?
 - [ ] Does a lost deal count as Closed?
+- [ ] Does Anggoan (or another group buyer) get a quote first, or does its PO always go straight to an SO?
 
-The other four (rework limit, check-stock difference, down payment type, Kopken revenue timing) can wait, because Kopken belongs to Sancang and not to Pandu's first release.
+CBD and Kopken are built later, so their questions (CBD entry point, check-stock difference, down payment type, Kopken revenue timing, rework limit) can wait.
 
 ## Pandu baseline checklist
 Things every module spec must answer for Pandu before building:

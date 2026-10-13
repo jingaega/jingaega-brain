@@ -7,12 +7,13 @@ tags: [internship, erp, claude-code]
 
 # Claude Code Instructions
 
-Copy the block below into `CLAUDE.md` at the root of the ERP repo. Fix the vault path once the repo exists. Start Claude Code with the vault added as an extra directory so it can read the specs, for example `claude --add-dir "C:\Users\Sora\Documents\Magang\Work"`. Process is in [[Workflow]].
+Copy the block below into `CLAUDE.md` at the root of the ERP repo (`jingaega/PT-SERIO-ERP`). Start Claude Code with the vault added as an extra directory so it can read the specs, for example `claude --add-dir "C:\Users\Sora\Documents\Magang\Work"`. Process is in [[Workflow]].
 
 ```markdown
 # ERP for PT Pandu Dwiloka Teknik (holding ERP)
 
 Spec vault (source of truth, read first): C:\Users\Sora\Documents\Magang\Work
+On GitHub the vault is `jingaega/jingaega-brain`, folder `Magang/Work`. Use that in cloud sessions.
 Read in this order: 00 Start Here.md, Projects/Holding ERP/Pandu Roadmap.md, Projects/Holding ERP/Workflow.md, then the module spec for the current task.
 
 ## Goal
@@ -29,7 +30,11 @@ Build the ERP for PT Pandu first. Pandu is the development baseline. Serio is th
 - Intercompany rule: a PO from one company becomes an SO at the supplier automatically. Intercompany sales are excluded from the holding view.
 
 ## Stack
-TBD. Proposal: Go (Fiber), Next.js, PostgreSQL. Update this section once decided.
+Go (Fiber), Next.js with TypeScript, PostgreSQL. Decided 2026-10-13, can still change (see Holding ERP.md decisions).
+- Queries: sqlc with pgx. Migrations: goose
+- Login: server sessions in a cookie
+- Real-time: SSE
+- UI language: Indonesian
 
 ## When a session ends
 Update Build Log.md, the status table in Pandu Roadmap.md, and the Last session section in 00 Start Here.md. Do not edit spec rules without approval.
