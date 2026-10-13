@@ -103,11 +103,11 @@ Things that work for users but should be fixed later.
 
 ## Acceptance checks
 Written before the build. Each one is something Jingga can click through.
-- [ ] Log in as Super Admin, see all 6 companies in the picker
+- [x] Log in as Super Admin, see all 6 companies in the picker
 - [ ] Log in as Super User, see all 6 companies, and every save or create is refused
 - [ ] Switch company, the colors change, the data changes
 - [ ] Create a user with the viewer role in Pandu only. Log in as them: only Pandu shows, and they can view but not create items
-- [ ] That user can't open an Anggoan record, even by typing its URL
+- [x] That user can't open an Anggoan record, even by typing its URL
 - [ ] Create an item, a customer and a vendor in Pandu. They don't show up in Anggoan
 - [ ] Set an item Inactive, it disappears from pick lists but stays on its detail page
 - [ ] A second browser sees a new item appear without refreshing (real-time check)
@@ -128,7 +128,7 @@ Draft by Claude, waiting for Jingga's approval. Stack is in the decisions table 
   - [x] 1. Scaffold: repo layout, local PostgreSQL in Docker, health check, empty Next.js shell in English, CI, `CLAUDE.md` (done 2026-10-13)
   - [x] 2. Companies: 6 seeded with their approved themes and logos, company picker switches the theme (done 2026-10-13)
   - [x] 3. Login and logout with Better Auth (email or Employee ID), forgot password through Mailpit, two-step login for the holding accounts, placeholder Super Admin and Super User seeded (done 2026-10-13)
-  - [ ] 4. Roles and permissions with the 6 templates, checked on every server action, with tests for the access rules above
+  - [x] 4. Roles and permissions with the 6 templates, checked on every server action, with tests for the access rules above (done 2026-10-13)
   - [ ] 5. User admin: Super Admin creates users and gives access per company and role
   - [ ] 6. Items and UoM
   - [ ] 7. Customers, with the group company link and the S&M settings
@@ -137,7 +137,7 @@ Draft by Claude, waiting for Jingga's approval. Stack is in the decisions table 
 - Open questions only block their own slice. Slices 1 to 3 and 6 to 9 can start now. Slices 4 and 5 use the 6 templates until they are confirmed
 
 ### Slice 4 plan: roles, permissions and company data isolation
-Written 2026-10-13, **waiting for Jingga's approval**. Covers the rules "You only see companies you have access to", "Your role decides what you can do", "Super Admin can do everything" and "Super User can never change anything".
+Written 2026-10-13, approved by Jingga the same day with the defaults below, and built. Covers the rules "You only see companies you have access to", "Your role decides what you can do", "Super Admin can do everything" and "Super User can never change anything".
 
 **What changes for people**
 - The company picker only shows the companies you have access to. Super Admin and Super User still see all 6
@@ -153,7 +153,7 @@ Written 2026-10-13, **waiting for Jingga's approval**. Covers the rules "You onl
 | Permission | Key like `users.manage`, description | Fixed list in the code, copied into the database so roles can point to it |
 | Role | Company, key (company admin, director, manager, supervisor, staff, viewer), name, active | The 6 templates, made for each of the 6 companies |
 | Role permission | Role, permission | Which permissions a role has |
-| Access | User, company, role, active | One role per person per company *(assumed)*. One person can have access to several companies |
+| Access | User, company, role, active | Usually one role per person per company, but not settled: exceptions may exist, so the database allows several roles, and their permissions add up. One person can have access to several companies |
 
 **Which permissions exist in slice 4**
 Only the ones for things that exist so far: `users.view`, `users.manage`, `roles.manage`, all given to company admin only *(assumed)*. Every later slice adds its own (like `items.view`, `items.edit`) with a suggested default per role, marked *(assumed)* until the role list is confirmed.
@@ -182,13 +182,13 @@ Two demo users so the rules can be clicked through before slice 5 adds the user 
 - Picker, no access page and "straight in with one company" clicked through in a browser
 
 **Acceptance checks this slice closes**
-- [ ] Log in as Super Admin, see all 6 companies in the picker
-- [ ] That user can't open an Anggoan record, even by typing its URL (checked with the demo Pandu viewer)
+- [x] Log in as Super Admin, see all 6 companies in the picker
+- [x] That user can't open an Anggoan record, even by typing its URL (checked with the demo Pandu viewer)
 
 **Not in this slice**
 Screens to create users, give access and edit roles (slice 5). Master data and its permissions (slices 6 to 8).
 
 **Questions this plan raises** (built with the default shown until answered)
-- [ ] One role per person per company, or can someone be both staff and supervisor in the same company? Default: one *(assumed)*
+- [ ] One role per person per company, or can someone be both staff and supervisor in the same company? Not settled, Jingga says there may be exceptions. The database allows several, the screens give one for now *(assumed)*
 - [ ] People with access to only one company go straight in? Default: yes *(assumed)*
 - [ ] Who can manage users and roles inside a company: only company admin? Default: yes *(assumed)*, same as the existing open question above

@@ -9,6 +9,14 @@ tags: [internship, erp, log]
 
 One entry per working session, newest on top. Written by Claude at wrap up. Process is in [[Workflow]].
 
+## 2026-10-13 (seventh session)
+- Ran the app with pnpm dev. Fixed: Next.js instant navigation warnings on every per request page (each page now opts out on its own), and the dev badge covering the sidebar links
+- Built slice 4: permissions, roles (6 per company), role permissions and company access tables. PostgreSQL row level security keeps companies apart, the app connects as a limited user, the owner only for migrations and seed. Several roles per person per company allowed
+- Demo users: PDT-00001 Pandu viewer, PDT-00002 staff in Pandu and Anggoan (not in production)
+- Tests prove a Pandu person can't read or change Anggoan's rows even with hand written queries, Super User can't change anything, Super Admin can. 52 tests pass
+- Strict code review on slice 4: one company lookup in one transaction, data and page code split, typed seed users, proper rollback in tests
+- Next: slice 5
+
 ## 2026-10-13 (sixth session)
 - Built slice 3 in three commits, each clicked through in a real browser:
   - 3a login and logout with Better Auth, email or Employee ID, placeholder Super Admin and Super User, every page needs a login

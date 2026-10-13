@@ -17,7 +17,7 @@ Internship project: one ERP that connects a holding with its six companies, plus
 - [ ] Phase 1: answer the open questions in [[Foundation Module]] and approve its build plan
 - [ ] Sales and Marketing module: answer the open questions that block Pandu in [[Sales and Marketing Module]]
 - [ ] Get supervisor sign-off on the fresh repo, invite the colleague to both repos (see [[Colleague Repo Comparison]])
-- [ ] Foundation slice 4: roles and permissions, and keeping each company's data separate in PostgreSQL
+- [ ] Foundation slice 5: user admin (create users, give access per company and role)
 - [ ] Confirm the *(assumed)* items in [[Company Roles and Modules]]
 - [ ] Finalize the full module list for [[Holding ERP]], built around PT Pandu first as the baseline
 - [ ] Company websites: list what each one needs in [[Company Websites]]
@@ -27,6 +27,13 @@ Internship project: one ERP that connects a holding with its six companies, plus
 - Serio is the holding company. PT Pandu is still the baseline for development: build for Pandu first, then adapt Serio and the others from it
 
 ## Last session
+**2026-10-13 (seventh session)**
+- Ran the app with pnpm dev and fixed the dev only warnings and the Next.js badge covering the sidebar
+- Vault CLAUDE.md: Glossary in the read order, pointer to the code repo's CLAUDE.md, folder map updated
+- Built Foundation slice 4: roles, permissions, and PostgreSQL keeping each company's data apart. Picker shows only your companies, another company shows "no access", Super User has a Read only badge
+- Strict code review on slice 4, all 4 findings fixed
+- Next: slice 5, user admin
+
 **2026-10-13 (sixth session)**
 - Renamed Maraloka to Sibama everywhere, logged the 404 status issue
 - Strict code review of slices 1 and 2, all 5 findings fixed
