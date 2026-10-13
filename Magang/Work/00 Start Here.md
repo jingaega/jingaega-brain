@@ -19,7 +19,7 @@ Internship project: one ERP that connects a holding with its six companies, plus
 - [ ] Get supervisor sign-off on the fresh repo, invite the colleague to both repos (see [[Colleague Repo Comparison]])
 - [ ] Foundation slice 7: Customers (needs a plan first)
 - [ ] Ask supervisor (slice 6, in [[Foundation Module]]): can item and unit codes change after saving? Who may add and change items: company admin and manager only?
-- [ ] Answer the other slice 6 questions in [[Foundation Module]]: demo items, who sees an item's history
+- [ ] Answer the last slice 6 question in [[Foundation Module]]: demo items, once Pandu's real item list is known
 - [ ] Answer the 3 new *(assumed)* user admin rules from slice 5 in [[Foundation Module]]
 - [ ] Ask supervisor: is the Employee ID required for every user? (open question in [[Foundation Module]])
 - [ ] Confirm the *(assumed)* items in [[Company Roles and Modules]]
@@ -38,6 +38,7 @@ Internship project: one ERP that connects a holding with its six companies, plus
 - Open question noted: seed demo items outside production? Not until Pandu's real item list is known
 - Strict code review on slice 6, all 6 findings fixed. 98 tests pass, lint, typecheck and build pass
 - CI did not run: it only runs on main and pull requests, and this work is on the working branch
+- Jingga confirmed: everyone who can see an item sees its history. The Users dialogs now keep what was typed after a refused save
 - Next: slice 7, customers. Start a new session and write the plan first
 
 **2026-10-13 (eighth session)**

@@ -20,6 +20,7 @@ One entry per working session, newest on top. Written by Claude at wrap up. Proc
 - Strict code review on slice 6, all 6 findings fixed: one shared form dialog, one edit dispatcher, one item query, one code check. 331 lines removed, 225 added
 - 98 tests pass. Lint, typecheck and build pass locally. CI only runs on main and pull requests, so it did not run on the working branch
 - Docker Hub was rate limited in the cloud session, so the local database ran on the machine's own PostgreSQL 16
+- Jingga confirmed history is visible to everyone who can see the item. Moved the Users dialogs onto the shared form dialog, so a refused Add User or Manage keeps what was typed
 - Next: slice 7, customers
 
 ## 2026-10-13 (eighth session)

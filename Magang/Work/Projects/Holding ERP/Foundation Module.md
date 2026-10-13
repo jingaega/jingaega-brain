@@ -101,7 +101,7 @@ These are built now so work isn't blocked, and are easy to change later. All are
 Things that work for users but should be fixed later.
 - [ ] An unknown company address (like `/nope`) shows the not found page, but the server answers HTTP 200 instead of 404. The company check runs after the page starts streaming. Fix later, for example by checking the company before rendering (in `proxy.ts`). Found in slice 2
 - [ ] Same cause: opening the login page while already signed in sends you on with a redirect inside the page instead of an HTTP redirect, so it only happens once the page's JavaScript runs. Works in every normal browser. Found in slice 3
-- [ ] Add User and Manage on the Users screen clear what was typed when a save is refused (React resets the form). The master data forms already keep it (slice 6, `FormDialog`). Fix by moving the Users dialogs onto the same component. Found in slice 6
+- [x] Add User and Manage on the Users screen cleared what was typed when a save was refused. Fixed 2026-10-13: they use the same form dialog as master data now
 - [ ] Better Auth keeps its rate limit counts in server memory, so they reset on restart and aren't shared between servers. Move them to the database before running more than one server on AWS. Found in slice 3
 
 ## Acceptance checks
@@ -165,7 +165,7 @@ Written 2026-10-13, approved by Jingga the same day with the defaults below, plu
 - A unit that active items still use can be deactivated. The items keep it, new items and edits can't pick it
 - Nothing is deleted: the database itself refuses deletes on items and units
 - Permissions: `items.view` (all 6 roles) and `items.manage` (company admin and manager), covering items and units
-- History on the item page is visible to everyone who can view the item
+- History on the item page is visible to everyone who can view the item (confirmed by Jingga)
 
 **Audit log**
 - New in this slice at Jingga's request. Not in the spec before, so its details are *(assumed)*
@@ -202,7 +202,7 @@ Written 2026-10-13, approved by Jingga the same day with the defaults below, plu
 - [ ] Seed demo items outside production (local and staging) for clicking through? Default: no. The colleague seeds made up Pandu products (hand soap, dish soap), which are wrong for Wening. Seed real ones once Pandu's item list is known
 - [ ] **Ask supervisor:** item and unit codes can't change after saving? Default: yes *(assumed)*
 - [ ] **Ask supervisor:** who may add and change items and units: company admin and manager? Default: yes *(assumed)*
-- [ ] Who may see an item's history: everyone who can see the item? Default: yes *(assumed)*
+- [x] Who may see an item's history: everyone who can see the item. Confirmed by Jingga, 2026-10-13
 
 ### Slice 5 plan: users and roles screens
 Written 2026-10-13, approved by Jingga the same day with the defaults below, and built. This is account and access admin, not HR: it is about who can sign in to the ERP and what they may do, not about employees (see [[Glossary]], User and Employee). Covers the flow "Super Admin: create users, give access per company and role" and "Create roles, tick permissions", and the acceptance check "Create a user with the viewer role in Pandu only".
