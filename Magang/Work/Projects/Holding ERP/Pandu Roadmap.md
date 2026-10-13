@@ -69,9 +69,8 @@ Decided, see the decisions table in [[Holding ERP]].
 ## S&M questions that block Pandu first
 These decide how Pandu's tempo flow behaves, so answer them before the build plan:
 - [ ] Credit gate for tempo customers before the SO?
-- [ ] Floor price per item, or decided each time? (ask supervisor)
+- [x] Floor price: replaced by a minimum margin check with manager approval (details still open in the spec)
 - [ ] Does a lost deal count as Closed?
-- [ ] Does Anggoan (or another group buyer) get a quote first, or does its PO always go straight to an SO?
 
 CBD and Kopken are built later, so their questions (CBD entry point, check-stock difference, down payment type, Kopken revenue timing, rework limit) can wait.
 
@@ -79,5 +78,5 @@ CBD and Kopken are built later, so their questions (CBD entry point, check-stock
 Things every module spec must answer for Pandu before building:
 - [ ] What does Pandu do in this module today, on paper or in Excel?
 - [ ] What does Wening change about it (batches, expiry, formulas)?
-- [ ] Which records cross into Anggoan (the intercompany PO to SO)?
+- [ ] Which records cross into Anggoan (intercompany, discussed later)?
 - [ ] What does the holding view exclude?

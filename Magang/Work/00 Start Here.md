@@ -16,7 +16,7 @@ Internship project: one ERP that connects a holding with its six companies, plus
 - [x] Phase 0: stack, deadline and repo chosen (see [[Pandu Roadmap]]). Hosting still open
 - [ ] Phase 1: answer the open questions in [[Foundation Module]] and approve its build plan
 - [ ] Sales and Marketing module: answer the open questions that block Pandu in [[Sales and Marketing Module]]
-- [ ] Ask supervisor: is there a fixed floor price per item? (open question in [[Sales and Marketing Module]])
+- [ ] Decide with the colleague and supervisor: contribute to `Difsyy/Serio-Intern` or build our own (see [[Colleague Repo Comparison]])
 - [ ] Confirm the *(assumed)* items in [[Company Roles and Modules]]
 - [ ] Finalize the full module list for [[Holding ERP]], built around PT Pandu first as the baseline
 - [ ] Company websites: list what each one needs in [[Company Websites]]
@@ -26,6 +26,11 @@ Internship project: one ERP that connects a holding with its six companies, plus
 - Serio is the holding company. PT Pandu is still the baseline for development: build for Pandu first, then adapt Serio and the others from it
 
 ## Last session
+**2026-10-13 (third session)**
+- Compared the vault with the colleague's repo `Difsyy/Serio-Intern`, which builds the same ERP and is much further along. See [[Colleague Repo Comparison]]
+- New calls logged in [[Holding ERP]]: Next.js and PostgreSQL (local first), English UI, Super Admin and Super User, intercompany later, minimum margin check instead of floor price, Wening confirmed, the 6 role templates for now
+- Next: decide with the colleague and supervisor whether we contribute to their repo or build our own
+
 **2026-10-13 (second session)**
 - Phase 0 closed: stack approved (can change), deadline flexible, repo is `jingaega/PT-SERIO-ERP`, UI in Indonesian. All logged in [[Holding ERP]]
 - Wrote [[Foundation Module]] with placeholders for the super users, colors and roles, plus the Phase 1 build plan
@@ -45,7 +50,7 @@ Internship project: one ERP that connects a holding with its six companies, plus
 - How we work: [[Workflow]], [[Pandu Roadmap]], [[Build Log]]
 - For Claude Code: [[Claude Code Instructions]]
 - Module specs: [[Foundation Module]], [[Sales and Marketing Module]], [[Procurement Module]]
-- Reference: [[Company Roles and Modules]], [[Companies]]
+- Reference: [[Company Roles and Modules]], [[Companies]], [[Colleague Repo Comparison]]
 - Meetings: [[Meetings]]
 - Inbox: [[Inbox]]
 

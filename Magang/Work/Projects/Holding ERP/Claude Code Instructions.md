@@ -27,14 +27,14 @@ Build the ERP for PT Pandu first. Pandu is the development baseline. Serio is th
 - Write a plan first and wait for approval before writing code for a module.
 - Ask before changing the data model of a finished module.
 - Add tests for every business rule in the spec's rules table.
-- Intercompany rule: a PO from one company becomes an SO at the supplier automatically. Intercompany sales are excluded from the holding view.
+- Intercompany is not in the first build. Do not build cross-company documents until it is discussed.
 
 ## Stack
-Go (Fiber), Next.js with TypeScript, PostgreSQL. Decided 2026-10-13, can still change (see Holding ERP.md decisions).
-- Queries: sqlc with pgx. Migrations: goose
-- Login: server sessions in a cookie
-- Real-time: SSE
-- UI language: Indonesian
+Next.js with TypeScript (full stack) and PostgreSQL, local first. Decided 2026-10-13, can still change (see Holding ERP.md decisions).
+- Query and migration tools: picked in the slice 1 plan
+- UI language: English
+- Roles: company admin, director, manager, supervisor, staff, viewer (for now)
+- Super Admin can read and write in every company. Super User can only read, in every company
 
 ## When a session ends
 Update Build Log.md, the status table in Pandu Roadmap.md, and the Last session section in 00 Start Here.md. Do not edit spec rules without approval.

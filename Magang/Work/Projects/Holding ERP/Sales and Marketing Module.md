@@ -41,19 +41,19 @@ The S&M module starts when a quotation is recorded. Everything before that (RFQ,
 
 ## Records the module owns
 
-Five records carry a deal from quote to delivery. Each one links to the one before it, so any order can be traced back to its quote. Orders from a group company are the exception: they start at the SO (see Pandu baseline).
+Five records carry a deal from quote to delivery. Each one links to the one before it, so any order can be traced back to its quote. Orders from group companies are discussed later (see Pandu baseline).
 
 | Record | Main fields | Statuses | Links to |
 |---|---|---|---|
 | Quote record | Customer, version (v1, v2...), lines (item, qty, price), total (sum of the lines), payment type (required), validity date, date sent, attached file | Awaiting reply, Accepted, Revised (superseded), Lost | Customer |
 | PO cust | PO number, items, qty, price, payment term, delivery address, scan or file | Received, Matched, Mismatch flagged | Accepted quote version |
-| SO | Items with our item codes, qty, price, payment type (optional, falls back to quote), delivered qty, invoiced qty, paid qty | Confirmed, Partially delivered, Delivered, Closed, Cancelled | PO cust, or the buyer's PO for a group company order |
+| SO | Items with our item codes, qty, price, payment type (optional, falls back to quote), delivered qty, invoiced qty, paid qty | Confirmed, Partially delivered, Delivered, Closed, Cancelled | PO cust |
 | DO / BAST | Items and qty sent, delivery date, photo proof, customer signature | Created, Delivered, Signed, Rejected | SO |
 | Return | Items returned, reason, WMS received date, QC result, rework count | Received, In QC, In rework, Passed, Sent out again | Rejected DO / BAST |
 
 Notes on the quote record:
 - Logged at the moment it is sent, so the sent date and validity date are real
-- It has item lines, not just a total. That lets the ERP check the PO cust line by line, warn on a price below the floor, and copy the lines into the SO
+- It has item lines, not just a total. That lets the ERP check the PO cust line by line, run the minimum margin check per line, and copy the lines into the SO
 - Nego happens outside the ERP. The sales person only records the outcome: accepted (PO cust comes in), revised (new version entered, old one superseded), or lost (reason required)
 - Expiry is automatic. Validity date passes with no reply, status becomes Lost (expired)
 
@@ -159,14 +159,13 @@ Build notes:
 | SO override gets flagged | If the SO or PO term differs from the quote (tempo 45 vs quoted 30), it is highlighted and needs approval |
 | Quote locks on PO | Once PO cust is linked, that quote version can't be edited |
 | Loss needs a reason | Price (customer says too expensive) *(assumed reading of "price too low")*, customer cancelled, no response, expired (auto) |
-| Floor price is a warning, not a gate *(assumed)* | If a floor price is stored for the item, warn when a quote line is below it. Never blocks. Waits on the floor price open question |
+| Minimum margin check | A quote line with a margin below the minimum needs manager approval before the quote is sent. Decided 2026-10-13, replaces the floor price idea |
 | No photo, no BAST | DO / BAST can't move to Signed without at least one photo |
 | Sale is booked on BAST | Finance books revenue when the BAST is signed, not when the PO arrives. Signed BAST also triggers the invoice (tempo) |
 | DO / BAST is one document | One record with statuses (created, delivered, signed, rejected), not two |
 | Nothing ships without passing QC | Returned goods go through QC. Rework always goes back to QC before kirim |
 | Kirim uses a new DO / BAST | Linked to the original order. The original BAST stays Rejected for history |
 | Tempo invoice due date | Comes from the effective payment term (SO or quote) |
-| Group company order skips quote and PO cust *(assumed)* | A PO from a group company creates the SO at Pandu automatically, linked to that PO. Rule from [[Holding ERP]] |
 
 ## Handoffs to other modules
 
@@ -182,7 +181,7 @@ Build notes:
 
 ## Pandu baseline
 - **Who Pandu sells to:** outside customers and other group companies. Anggoan is the main one, a B2B buyer, and goes through S&M
-- **Group company orders:** the buyer's PO becomes Pandu's SO automatically (rule in [[Holding ERP]]). So these orders enter S&M at the SO, with no quote and no PO cust. From the SO on, the flow is the same as tempo *(assumed)*
+- **Group company orders:** intercompany is discussed later. Until then Anggoan is handled like any other customer
 - **Outside customers:** full tempo flow, starting at Quote recorded
 - **Before Stock and Finance exist (Phase 2):** check stock is a manual "stock confirmed" step on the SO, and a signed BAST sets the order to "handed to FAT". Real stock and invoices are wired in at Phases 4 and 5 (see [[Pandu Roadmap]])
 - **What Wening changes:** batch and expiry on DO / BAST lines later, when Production and Stock exist (Phase 6)
@@ -195,9 +194,9 @@ Build notes:
 - [ ] Check stock N: tempo goes Prod/Purch to DO / BAST, CBD loops back to check stock. Same or different on purpose?
 - [ ] Does a lost deal count as Closed? The whiteboard links Loss to Closed
 - [ ] Kopken revenue timing: the price only exists after BAST, so when does finance book the sale?
-- [ ] **Ask supervisor:** is there a fixed floor price per item, or does the sales person decide each time? Until then the warning rule above stays *(assumed)*
+- [ ] Minimum margin: margin against which cost (average stock cost, last purchase price)? What is the minimum, one % for the company or per item? Which manager approves?
 - [ ] Is down payment its own payment type, or tempo with a first installment?
-- [ ] Does Anggoan (or another group buyer) ever get a quote first, or does its PO always go straight to an SO?
+- [ ] Later, with intercompany: does Anggoan (or another group buyer) get a quote first, or does its PO go straight to an SO?
 - [ ] What is PMS? It is not one of the 12 modules. Is it sourcing inside Procurement?
 - [ ] Is "cash" on the quote the same as CBD? Installment has no flow yet
 - [ ] Who approves an SO term override? Depends on the role list in [[Foundation Module]]

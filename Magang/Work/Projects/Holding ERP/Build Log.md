@@ -9,6 +9,12 @@ tags: [internship, erp, log]
 
 One entry per working session, newest on top. Written by Claude at wrap up. Process is in [[Workflow]].
 
+## 2026-10-13 (third session)
+- No code yet
+- Read the colleague's repo and wrote [[Colleague Repo Comparison]]
+- Logged Jingga's calls: stack, English UI, super users, intercompany later, minimum margin, Wening, roles. Updated Foundation, S&M and Claude Code Instructions to match
+- Next: contribute to the colleague's repo or build our own
+
 ## 2026-10-13 (second session)
 - No code yet
 - Closed Phase 0 in the vault: stack, deadline, repo and UI language logged in [[Holding ERP]]
