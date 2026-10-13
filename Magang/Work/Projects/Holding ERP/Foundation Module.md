@@ -95,8 +95,8 @@ These are built now so work isn't blocked, and are easy to change later. All are
 - [ ] Does anyone besides the super users manage users and roles (one admin per company)?
 - [x] Excel import and export are needed. Jingga, 2026-10-13. Which records and when (with master data, or later) still to plan
 - [ ] Seed demo items outside production (local and staging)? None for now. Needs Pandu's real item list, since the colleague's demo items (hand soap, dish soap) aren't Wening. See the slice 6 plan
-- [ ] Password rules: how long, and must it mix letters and numbers? The ERP uses Better Auth's minimum of 8 characters for now *(assumed)*
-- [ ] How long does a login last before people must sign in again? Better Auth's default for now: 7 days, renewed while in use *(assumed)*
+- [x] Password rules: at least 10 characters, no forced mix. Jingga, 2026-10-13
+- [x] A login lasts one work day: it ends 9 hours after signing in, not renewed while in use (9 hours is Claude's reading of one work day). Jingga, 2026-10-13
 - [x] Lock an account after 5 wrong passwords in a row, for 15 minutes. Jingga agreed, 2026-10-13. Built in slice 5e
 
 ## Known issues
@@ -189,10 +189,10 @@ Written 2026-10-13, approved by Jingga the same day with the middle way on email
 - Strict code review: 4 findings fixed (Add User in named steps, one module for the sign in rules, account events kept out of record history, no type cast in the form dialog). 136 tests pass
 
 **Questions this plan raises**
-- [ ] **How does HR number new staff?** The sheet's NRPs are mostly 8 digits starting with 20, 24, 10 or 25, some start with F0. Is there a rule (year joined plus a number, F for one company)? Until then, automatic NRPs look like `PDT-00004` *(assumed)*
+- [ ] **Ask HR:** how does HR number new staff? The sheet's NRPs are mostly 8 digits starting with 20, 24, 10 or 25, some start with F0. Is there a rule (year joined plus a number, F for one company)? Until then, automatic NRPs look like `PDT-00004` *(assumed)*
 - [x] Temporary password valid 24 hours, one use. Jingga, 2026-10-13
 - [ ] Someone without an email who gets promoted to manager: for now the role change is refused until they have an email. Adding an email to an existing account comes later *(assumed)*
-- [ ] Password length and how long a login lasts are still open (suggestion: at least 10 characters, one work day)
+- [x] Password at least 10 characters, a login lasts one work day. Jingga, 2026-10-13
 
 ### Employee data from HR (Data Karyawan 2026)
 Jingga shared HR's employee sheet on 2026-10-13: 18 people across the group, 23 columns. Only the column list is kept here, never anyone's data. Claude's proposal of what Add User needs and what HR fills in later is waiting for Jingga's answer.

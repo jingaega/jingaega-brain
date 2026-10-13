@@ -98,6 +98,7 @@ The full list is 12 modules. Order of work and status are in [[Pandu Roadmap]]. 
 | 2026-10-13 | No KTP scan, only the NIK. The upload code stays, switched off | Jingga's call. Can come back when needed |
 | 2026-10-13 | The staff ID is called NRP. Existing staff keep theirs, new staff get one automatically. Email is optional; without one, the admin hands over a temporary password | Jingga's call. Not every employee has an email |
 | 2026-10-13 | Email required for roles that can change important things (company admin, manager), optional for staff and viewers. Temporary passwords last 24 hours, resets are logged, 5 wrong passwords lock an account for 15 minutes | Jingga's call after asking if optional email weakens security |
+| 2026-10-13 | Passwords of at least 10 characters. A login lasts one work day (9 hours, not renewed while in use) | Jingga's call. A computer left signed in is signed out by the next morning |
 | 2026-10-13 | User admin is not HR. Users and Roles live under Settings; employees belong to the HR module, which will own the NRP | Who can sign in is a different job from who works for the company |
 | 2026-10-13 | PostgreSQL row level security keeps companies apart. The app connects as a limited database user, the owner is for migrations and the seed only | A bug in the app code can't show another company's data |
 | 2026-10-13 | S&M builds the tempo (non-CBD) flow first. CBD and Kopken come later | Tempo is the default flow and the best specced one |
