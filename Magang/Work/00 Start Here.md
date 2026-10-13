@@ -79,13 +79,13 @@ Internship project: one ERP that connects a holding with its six companies, plus
 | Folder | What goes in it |
 |---|---|
 | Inbox | Raw dumps: meeting scribbles, whiteboard photos, chat pastes. New notes land here by default |
-| AI-Draft-Notes | Drafts Claude writes that you haven't reviewed yet. Move them out once they're approved |
+| AI-Draft-Notes | Drafts Claude writes that you haven't reviewed yet. Move them out once they're approved. Created only when needed |
 | Projects | One folder per project. Project note, decisions log, module specs |
 | Companies | One note per PT, plus the Companies index |
 | Meetings | One note per meeting, named `YYYY-MM-DD Topic` |
-| Daily | Daily notes, named `YYYY-MM-DD` (made by the Daily notes button) |
+| Daily | Daily notes, named `YYYY-MM-DD` (made by the Daily notes button). Created only when needed |
 | Templates | Daily, meeting and module spec templates |
-| Attachments | Images and files pasted into notes |
+| Attachments | Images and files pasted into notes. Created only when needed |
 
 ## Conventions
 - *(assumed)* means my own reading, not confirmed yet. When someone confirms it, remove the marker and link the meeting note where the answer came from
