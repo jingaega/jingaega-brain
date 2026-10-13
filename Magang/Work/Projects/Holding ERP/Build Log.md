@@ -21,7 +21,10 @@ One entry per working session, newest on top. Written by Claude at wrap up. Proc
 - 98 tests pass. Lint, typecheck and build pass locally. CI only runs on main and pull requests, so it did not run on the working branch
 - Docker Hub was rate limited in the cloud session, so the local database ran on the machine's own PostgreSQL 16
 - Jingga confirmed history is visible to everyone who can see the item. Moved the Users dialogs onto the shared form dialog, so a refused Add User or Manage keeps what was typed
-- Next: slice 7, customers
+- Slice 7 plan approved after comparing with the colleague's customers: system numbered codes (C-0001), one address and one contact, at most one customer per group company, PO first by default. Who manages customers goes to the supervisor
+- Built slice 7 in two commits, each clicked through in a browser: 7a customers list and Add customer, 7b customer page with Edit, Deactivate, Reactivate and History
+- Strict code review on slice 7: shared list and record page layouts and one list filter, so vendors reuse them. 111 tests pass, lint, typecheck and build pass
+- Next: slice 8, vendors
 
 ## 2026-10-13 (eighth session)
 - Built slice 5 in three commits, each clicked through in a real browser:

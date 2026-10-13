@@ -17,8 +17,8 @@ Internship project: one ERP that connects a holding with its six companies, plus
 - [ ] Phase 1: answer the open questions in [[Foundation Module]] and approve its build plan
 - [ ] Sales and Marketing module: answer the open questions that block Pandu in [[Sales and Marketing Module]]
 - [ ] Get supervisor sign-off on the fresh repo, invite the colleague to both repos (see [[Colleague Repo Comparison]])
-- [ ] Foundation slice 7: Customers (needs a plan first)
-- [ ] Ask supervisor (slice 6, in [[Foundation Module]]): can item and unit codes change after saving? Who may add and change items: company admin and manager only?
+- [ ] Foundation slice 8: Vendors (needs a plan first)
+- [ ] Ask supervisor (slices 6 and 7, in [[Foundation Module]]): can item and unit codes change after saving? Who may add and change items and customers: company admin and manager only, or can staff add customers like in the colleague's repo?
 - [ ] Answer the last slice 6 question in [[Foundation Module]]: demo items, once Pandu's real item list is known
 - [ ] Answer the 3 new *(assumed)* user admin rules from slice 5 in [[Foundation Module]]
 - [ ] Ask supervisor: is the Employee ID required for every user? (open question in [[Foundation Module]])
@@ -39,7 +39,9 @@ Internship project: one ERP that connects a holding with its six companies, plus
 - Strict code review on slice 6, all 6 findings fixed. 98 tests pass, lint, typecheck and build pass
 - CI did not run: it only runs on main and pull requests, and this work is on the working branch
 - Jingga confirmed: everyone who can see an item sees its history. The Users dialogs now keep what was typed after a refused save
-- Next: slice 7, customers. Start a new session and write the plan first
+- Built Foundation slice 7, customers: codes numbered by the system (C-0001), group company link, order type (PO first by default) and rework report. Plan and answers in [[Foundation Module]]
+- Strict code review on slice 7: shared list and record page layouts, ready for vendors. 111 tests pass
+- Next: slice 8, vendors. Write the plan first
 
 **2026-10-13 (eighth session)**
 - Built Foundation slice 5, user admin, in three parts, each clicked through in a browser: Users list, Add user with an emailed set your password link, and Manage (change role, remove access, deactivate) plus the Roles screen

@@ -111,7 +111,7 @@ Written before the build. Each one is something Jingga can click through.
 - [ ] Switch company, the colors change, the data changes
 - [x] Create a user with the viewer role in Pandu only. Log in as them: only Pandu shows, and they can view but not create items (items part checked in slice 6)
 - [x] That user can't open an Anggoan record, even by typing its URL
-- [ ] Create an item, a customer and a vendor in Pandu. They don't show up in Anggoan (items checked in slice 6, customers and vendors wait for slices 7 and 8)
+- [ ] Create an item, a customer and a vendor in Pandu. They don't show up in Anggoan (items and customers checked in slices 6 and 7, vendors wait for slice 8)
 - [ ] Set an item Inactive, it disappears from pick lists but stays on its detail page (slice 6: it leaves the items list and its page still opens. The first pick list comes with the S&M quote)
 - [ ] A second browser sees a new item appear without refreshing (real-time check)
 - [ ] All labels and buttons are in English
@@ -134,7 +134,7 @@ Draft by Claude, waiting for Jingga's approval. Stack is in the decisions table 
   - [x] 4. Roles and permissions with the 6 templates, checked on every server action, with tests for the access rules above (done 2026-10-13)
   - [x] 5. User admin: Super Admin creates users and gives access per company and role
   - [x] 6. Items and UoM, with the audit log (done 2026-10-13)
-  - [ ] 7. Customers, with the group company link and the S&M settings (plan below)
+  - [x] 7. Customers, with the group company link and the S&M settings (done 2026-10-13)
   - [ ] 8. Vendors, with the group company link
   - [ ] 9. Real-time: lists update live in a second browser
 - Open questions only block their own slice. Slices 1 to 3 and 6 to 9 can start now. Slices 4 and 5 use the 6 templates until they are confirmed
@@ -187,6 +187,12 @@ Written 2026-10-13, approved by Jingga the same day with the defaults below. Cov
 - Codes count up per company with no gaps or doubles, also when two people save at once. Pandu and Anggoan each have their own C-0001
 - Pandu can't pick itself as a group company, and can't link two customers to the same group company
 - Deletes are refused, every change leaves an audit row
+
+**Built (2026-10-13)**
+- 7a customers list and Add customer, 7b customer page with Edit, Deactivate, Reactivate and History. Each clicked through in a browser as the Pandu admin and the Pandu viewer
+- Codes are numbered by PostgreSQL per company and can't be typed or changed, also by a hand written query
+- The group company picker lists the other 5 companies. A second customer for the same group company is refused
+- Strict code review: shared list and record page layouts and one list filter, ready for vendors. 166 lines added, 349 removed. 111 tests pass
 
 **Questions this plan raises** (built with the default shown until answered)
 - [x] One address and one contact person per customer for now. Confirmed by Jingga
