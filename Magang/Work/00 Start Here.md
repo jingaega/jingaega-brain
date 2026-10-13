@@ -32,6 +32,7 @@ Internship project: one ERP that connects a holding with its six companies, plus
 **2026-10-13 (chat, not a build session)**
 - Added [[Module Overview]]: general ideas for Finance Accounting Tax, HR, GA, Production, WMS, IMS and Integrated System, plus RND, Engineering, Quality and MMS as names only
 - Flagged overlaps to settle (Production Cost, PPIC) in that note
+- Every module now has a linked spec note in the module tables, stubs for the ones with only a general idea
 
 **2026-10-13 (eighth session)**
 - Built Foundation slice 5, user admin, in three parts, each clicked through in a browser: Users list, Add user with an emailed set your password link, and Manage (change role, remove access, deactivate) plus the Roles screen
@@ -93,7 +94,7 @@ Internship project: one ERP that connects a holding with its six companies, plus
 - How we work: [[Workflow]], [[Pandu Roadmap]], [[Build Log]]
 - For Claude Code: [[Claude Code Instructions]]
 - Module specs: [[Foundation Module]], [[Sales and Marketing Module]], [[Procurement Module]]
-- Other modules, general ideas only: [[Module Overview]]
+- Other modules (stubs, general ideas only): [[Module Overview]], [[Finance Accounting Tax Module]], [[HR Module]], [[GA Module]], [[Production Module]], [[WMS Module]], [[IMS Module]], [[Integrated System Module]], [[RND Module]], [[Engineering Module]], [[Quality Module]], [[MMS Module]]
 - Reference: [[Glossary]], [[Company Roles and Modules]], [[Companies]], [[Colleague Repo Comparison]]
 - Meetings: [[Meetings]]
 - Inbox: [[Inbox]]

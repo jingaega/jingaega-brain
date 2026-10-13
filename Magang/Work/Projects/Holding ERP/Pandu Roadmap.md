@@ -42,16 +42,16 @@ Why this order: Sell and Buy are already the best specced. Stock sits right afte
 | Foundation | Draft, open questions waiting | Slice 5 of 9 done | Comes before the 12, not counted in them |
 | Sales & Marketing | Draft, open questions waiting | Not started | First module. Tempo flow first |
 | Procurement | Notes captured | Not started | Covers vendor management too |
-| IMS | General idea, see [[Module Overview]] | Not started | |
-| WMS | General idea, see [[Module Overview]] | Not started | |
-| Finance A&T | General idea, see [[Module Overview]] | Not started | Auto-posts journals, reversal journals for corrections |
-| Production | General idea, see [[Module Overview]] | Not started | BOM, batch, expiry, QC |
-| Quality | Named only, see [[Module Overview]] | Not started | |
-| HR | General idea, see [[Module Overview]] | Not started | Owns employees and the Employee ID. User accounts (Foundation) link to employees, not the other way round |
-| GA | General idea, see [[Module Overview]] | Not started | |
-| RND | Named only, see [[Module Overview]] | Not started | |
-| Engineering | Named only, see [[Module Overview]] | Not started | |
-| MMS | Named only, see [[Module Overview]] | Not started | |
+| IMS | [[IMS Module]] (stub, general idea) | Not started | |
+| WMS | [[WMS Module]] (stub, general idea) | Not started | |
+| Finance A&T | [[Finance Accounting Tax Module]] (stub, general idea) | Not started | Auto-posts journals, reversal journals for corrections |
+| Production | [[Production Module]] (stub, general idea) | Not started | BOM, batch, expiry, QC |
+| Quality | [[Quality Module]] (stub, name only) | Not started | |
+| HR | [[HR Module]] (stub, general idea) | Not started | Owns employees and the Employee ID. User accounts (Foundation) link to employees, not the other way round |
+| GA | [[GA Module]] (stub, general idea) | Not started | |
+| RND | [[RND Module]] (stub, name only) | Not started | |
+| Engineering | [[Engineering Module]] (stub, name only) | Not started | |
+| MMS | [[MMS Module]] (stub, name only) | Not started | |
 
 ## Now
 **Phase 1 prep, with the S&M spec in parallel.**

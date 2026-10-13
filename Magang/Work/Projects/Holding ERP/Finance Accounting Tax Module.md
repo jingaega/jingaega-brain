@@ -1,0 +1,31 @@
+---
+title: Finance Accounting Tax Module
+type: module-spec
+project: "[[Holding ERP]]"
+status: stub
+created: 2026-10-13
+tags: [internship, erp, module, finance]
+---
+
+# Finance Accounting Tax Module
+
+Stub. Only the general idea is here, and it is subject to change. The full spec comes later, from the Module Spec template, when its turn comes (Phase 5 in [[Pandu Roadmap]]). Part of [[Holding ERP]]. All modules: [[Module Overview]].
+
+Called Finance A&T in other notes. Part of FAHCGA, the group name for Finance Accounting Tax, HR and GA.
+
+## General idea
+- Cost Control and Analyze
+- Tax Analyze
+- Marketing Cost
+- Production Cost
+- Distribution Cost
+- Cost Structure
+- Salary Structure
+
+## Pandu baseline
+- What Pandu does here today:
+- What Wening changes (batches, expiry, formulas):
+
+## Open questions
+- [ ] Production Cost is also listed in [[Production Module]]. Which module owns it?
+- [ ] Which parts does Pandu need first?
