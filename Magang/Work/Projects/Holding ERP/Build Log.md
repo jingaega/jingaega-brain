@@ -9,6 +9,12 @@ tags: [internship, erp, log]
 
 One entry per working session, newest on top. Written by Claude at wrap up. Process is in [[Workflow]].
 
+## 2026-10-13 (fifth session)
+- Closed Phase 0, logged the decisions in [[Holding ERP]]
+- Added the web-design-guidelines skill to both repos
+- Rewrote slice 1 so it shows as jingaega. CI passed on it
+- Next: slice 2
+
 ## 2026-10-13 (fourth session)
 - Decided: fresh repo, colleague's repo as reference (see [[Colleague Repo Comparison]])
 - Built Foundation slice 1 in `jingaega/PT-SERIO-ERP`: Next.js 16, PostgreSQL 16 in Docker, Drizzle, `/api/health`, Vitest, CI, `CLAUDE.md`, README, ADR 0001

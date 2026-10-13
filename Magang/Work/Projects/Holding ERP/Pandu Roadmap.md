@@ -20,7 +20,7 @@ A working, real-time ERP that Pandu uses for its own Wening flow, from the first
 ## Phases
 | Phase | Outcome | Modules | Status |
 |---|---|---|---|
-| 0. Decide | Stack, deadline, repo and environment are chosen | none | Done, except hosting (open in [[Holding ERP]]) |
+| 0. Decide | Stack, deadline, repo and environment are chosen | none | Done (3 follow ups open in [[Holding ERP]]) |
 | 1. Foundation | Login, companies with color themes, 2 super users, roles and authorization, master data (items, customers, vendors) | [[Foundation Module]] | Building, slice 1 of 9 done |
 | 2. Sell | A Pandu tempo order goes from quote to signed BAST | [[Sales and Marketing Module]] | Spec drafted |
 | 3. Buy | A Pandu purchase goes from request to paid | [[Procurement Module]] | Notes captured |

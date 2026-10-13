@@ -72,13 +72,24 @@ The full list is 12 modules. Order of work and status are in [[Pandu Roadmap]]. 
 | 2026-10-13 | Hosting later is plain PostgreSQL on AWS (RDS) with our own login, no Supabase | Jingga's call, standard parts any developer can maintain |
 | 2026-10-13 | Database tools: Drizzle ORM with the `pg` driver and drizzle-kit migrations | Claude's pick in Foundation slice 1, mainstream and close to plain SQL. Can change |
 | 2026-10-13 | One [[Glossary]] note in the vault holds all terms. The repo's `CLAUDE.md` points to it | Jingga's call in the grilling session, so terms live in one place |
+| 2026-10-13 | Phase 0 closed. Login with Better Auth (users and sessions in our own PostgreSQL). Screens with shadcn/ui, UI can still change | Grilling session on Phase 0. A login library is safer than writing our own, shadcn/ui is mainstream and easy to hand over |
+| 2026-10-13 | The company owns the AWS account from day one. The code repo moves to a company GitHub organization before go-live | Nothing stays stuck on Jingga's personal accounts after the internship |
+| 2026-10-13 | AWS Jakarta region (ap-southeast-3). Local now, staging on AWS once Foundation works, production when Pandu goes live | Personal data (HR, payroll) stays in Indonesia under UU PDP. No AWS spending before Foundation works |
+| 2026-10-13 | Login with email or [[Glossary\|Employee ID]]. Use Pandu's existing staff number if there is one | Jingga's call. The fallback format is *(assumed)* |
+| 2026-10-13 | Two-step login (authenticator app) for Super Admin and Super User. Normal users have none for now | Both can see every company's data |
+| 2026-10-13 | Forgot password sends a reset link by email. Mailpit catches emails locally, AWS SES on staging and production | Works the same everywhere without real email setup on a laptop |
+| 2026-10-13 | Push code straight to `main` for now, no pull requests | Jingga's call, until Jingga and the colleague agree how they work together |
+| 2026-10-13 | Plan for a general web developer to take over after the internship | Keeps the tools mainstream. Handover details come later |
+| 2026-10-13 | Company colors and logos: the 6 logo based themes from the colleague's repo | Approved, per Jingga |
 | 2026-10-13 | S&M builds the tempo (non-CBD) flow first. CBD and Kopken come later | Tempo is the default flow and the best specced one |
 | 2026-10-13 | Phase 2 goal is a Pandu tempo order from quote to signed BAST, not to paid | Stock (Phase 4) and Finance (Phase 5) are built later, so stock check and invoice are only simple steps until then |
 
 ## Open questions
 - What does the holding role of Serio need in the ERP (group view, who sees what, the 2 super users)?
 - Which modules beyond Sales & Marketing and FAHCGA are actually in scope?
-- Where does the ERP run later (Pandu server or cloud), and do we need a staging copy? Local first for now
+- How do Jingga and the colleague work together in the repo (branches, reviews)?
+- Handover plan: who maintains the ERP after the internship
+- Company GitHub organization for the code repo
 - Maraloka is called "Sibama" in the colleague's repo. Which short name is right?
 
 ## Tasks

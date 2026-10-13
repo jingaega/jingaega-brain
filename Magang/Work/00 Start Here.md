@@ -27,6 +27,12 @@ Internship project: one ERP that connects a holding with its six companies, plus
 - Serio is the holding company. PT Pandu is still the baseline for development: build for Pandu first, then adapt Serio and the others from it
 
 ## Last session
+**2026-10-13 (fifth session)**
+- Phase 0 closed in a grilling session: Better Auth, shadcn/ui, AWS Jakarta, company owned accounts, login by email or Employee ID, two-step login for the holding accounts. All in [[Holding ERP]]
+- Company colors approved: the logo based themes from the colleague's repo
+- Commits now show as jingaega, no Claude lines
+- Next: Foundation slice 2, companies with themes
+
 **2026-10-13 (fourth session)**
 - Grilling session settled it: fresh repo `jingaega/PT-SERIO-ERP` with the colleague, his repo as reference only, plain PostgreSQL on AWS later
 - Foundation slice 1 is built: Next.js, PostgreSQL in Docker, Drizzle, health check, CI, `CLAUDE.md`. Pushed to the repo's working branch

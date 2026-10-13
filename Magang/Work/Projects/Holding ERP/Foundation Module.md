@@ -24,7 +24,7 @@ All terms are in [[Glossary]].
 | Record | Main fields | Statuses | Links to |
 |---|---|---|---|
 | Company | Code, name, short name, is holding, theme colors, logo | Active, Inactive | |
-| User | Name, email, password, platform role (none, Super Admin, Super User) | Active, Inactive | |
+| User | Name, email, Employee ID, password, platform role (none, Super Admin, Super User), two-step login setup | Active, Inactive | |
 | Role | Name, list of permissions | Active, Inactive | Permissions |
 | Access | User, company, role | | User, Company, Role |
 | Session | User, current company, expiry | | User |
@@ -58,7 +58,10 @@ flowchart TD
 | Super Admin can do everything | Skips the permission check, in every company |
 | Super User can never change anything | Every write is refused for a Super User, in every company, and the screens hide write buttons for them |
 | There is one Super Admin and one Super User | Seeded at setup. The screen does not offer "make Super Admin" *(assumed)* |
-| Each company has its own theme | The theme is loaded from the company record when you switch company |
+| Each company has its own theme | The company's theme and logo are loaded when you open that company. Themes are the approved logo based ones (see [[Holding ERP]]) |
+| Log in with email or Employee ID | Either one plus the password |
+| Two-step login for Super Admin and Super User | They must enter a code from an authenticator app. Normal users do not |
+| Forgot password | A reset link goes to the user's email |
 | Nothing is hard deleted *(assumed)* | Master data and users go Inactive instead. Inactive items, customers and vendors can't be picked on new documents |
 | Codes are unique inside a company *(assumed)* | Two items in Pandu can't share a code. Pandu and Anggoan can |
 
@@ -72,7 +75,6 @@ flowchart TD
 ## Placeholders until Jingga decides
 These are built now so work isn't blocked, and are easy to change later. All are *(assumed)*.
 - **Super users:** two anonymous accounts, one Super Admin and one Super User. Real names and emails replace them later. Where they sit (Pandu or Serio) is still open
-- **Colors:** one neutral default theme for all 6 companies. Colors are just fields on the company record, so changing them later is a data change, not a code change
 - **Roles:** the 6 templates from the colleague's repo, for now: company admin, director, manager, supervisor, staff, viewer. What each one can do per module is still to be confirmed
 
 ## Pandu baseline
@@ -83,13 +85,13 @@ These are built now so work isn't blocked, and are easy to change later. All are
 
 ## Open questions
 - [ ] Who are the 2 super users, and do they sit in Pandu or Serio?
-- [ ] Colors (and logos) for each company
+- [ ] Does Pandu already give staff an ID number? If so, the ERP uses it as the Employee ID
+- [ ] Short name for PT Siar Bagja Maraloka: Maraloka or Sibama? The ERP uses Maraloka until answered
 - [ ] Confirm the 6 role templates, and what each one can do per module
 - [ ] Master data per company or shared? Spec currently says per company (Anggoan has its own catalog). If per company, how does a Wening item at Pandu match the same item at Anggoan for the automatic PO to SO?
 - [ ] Currency: IDR only?
 - [ ] Does anyone besides the super users manage users and roles (one admin per company)?
 - [ ] Do we need an Excel import for items, customers and vendors at the start?
-- [ ] Where does it run, Pandu's server or cloud? (also in [[Holding ERP]])
 
 ## Acceptance checks
 Written before the build. Each one is something Jingga can click through.
@@ -116,8 +118,8 @@ Draft by Claude, waiting for Jingga's approval. Stack is in the decisions table 
   - Specs stay in this vault, not in the repo
 - Slices (small, one record end to end):
   - [x] 1. Scaffold: repo layout, local PostgreSQL in Docker, health check, empty Next.js shell in English, CI, `CLAUDE.md` (done 2026-10-13)
-  - [ ] 2. Companies: 6 seeded with the default theme, company picker switches the theme
-  - [ ] 3. Login and logout with sessions, placeholder Super Admin and Super User seeded
+  - [ ] 2. Companies: 6 seeded with their approved themes and logos, company picker switches the theme
+  - [ ] 3. Login and logout with Better Auth (email or Employee ID), forgot password through Mailpit, two-step login for the holding accounts, placeholder Super Admin and Super User seeded
   - [ ] 4. Roles and permissions with the 6 templates, checked on every server action, with tests for the access rules above
   - [ ] 5. User admin: Super Admin creates users and gives access per company and role
   - [ ] 6. Items and UoM
