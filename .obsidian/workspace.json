@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Magang/Work/Projects/Holding ERP/Architecture.md",
+                "file": "Magang/Work/Projects/Holding ERP/Sales and Marketing Module.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Architecture"
+              "title": "Sales and Marketing Module"
             }
           }
         ]
@@ -99,7 +99,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Magang/Work/Projects/Holding ERP/Architecture.md",
+                "file": "Magang/Work/Projects/Holding ERP/Sales and Marketing Module.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -118,7 +118,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Magang/Work/Projects/Holding ERP/Architecture.md",
+                "file": "Magang/Work/Projects/Holding ERP/Sales and Marketing Module.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
@@ -161,7 +161,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Magang/Work/Projects/Holding ERP/Architecture.md",
+                "file": "Magang/Work/Projects/Holding ERP/Sales and Marketing Module.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
@@ -191,12 +191,14 @@
   },
   "active": "192222acdc3a0a80",
   "lastOpenFiles": [
+    "Magang/Work/Templates/Module Spec.md",
+    "Magang/Work/Companies/Companies.md",
+    "Magang/Work/Projects/Holding ERP/Architecture.md",
     "Magang/Work/Companies/PT Serio Prima Indotek.md",
     "Magang/Work/Companies/PT Siar Bagja Maraloka.md",
     "Magang/Work/00 Start Here.md",
     "Magang/Work/Projects/Holding ERP/Colleague Repo Comparison.md",
     "Magang/Work/Projects/Holding ERP/Claude Code Instructions.md",
-    "Magang/Work/Projects/Holding ERP/Architecture.md",
     "Magang/Work/CLAUDE.md",
     "Magang/Work/Projects/Holding ERP/Glossary.md",
     "Magang/Work/Projects/Holding ERP/Build Log.md",
