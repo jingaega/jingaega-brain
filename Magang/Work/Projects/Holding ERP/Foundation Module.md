@@ -134,13 +134,13 @@ Draft by Claude, waiting for Jingga's approval. Stack is in the decisions table 
   - [x] 4. Roles and permissions with the 6 templates, checked on every server action, with tests for the access rules above (done 2026-10-13)
   - [x] 5. User admin: Super Admin creates users and gives access per company and role
   - [x] 6. Items and UoM, with the audit log (done 2026-10-13)
-  - [ ] 7. Customers, with the group company link and the S&M settings (plan below, waiting for approval)
+  - [ ] 7. Customers, with the group company link and the S&M settings (plan below)
   - [ ] 8. Vendors, with the group company link
   - [ ] 9. Real-time: lists update live in a second browser
 - Open questions only block their own slice. Slices 1 to 3 and 6 to 9 can start now. Slices 4 and 5 use the 6 templates until they are confirmed
 
 ### Slice 7 plan: customers
-Written 2026-10-13, draft waiting for Jingga's approval. Covers the Customer record, with the group company link and the S&M settings (order type, rework report), and the acceptance check "Create a customer in Pandu, it doesn't show up in Anggoan". Built the same way as slice 6, reusing its form dialog, audit log and page layout.
+Written 2026-10-13, approved by Jingga the same day with the defaults below. Covers the Customer record, with the group company link and the S&M settings (order type, rework report), and the acceptance check "Create a customer in Pandu, it doesn't show up in Anggoan". Built the same way as slice 6, reusing its form dialog, audit log and page layout.
 
 **What changes for people**
 - Customers joins Items and Units under Master data in the sidebar
@@ -151,19 +151,19 @@ Written 2026-10-13, draft waiting for Jingga's approval. Covers the Customer rec
 **Record**
 | Field | Notes |
 |---|---|
-| Code | Capitals, numbers and dashes, 2 to 16, like `CUS-001`. The colleague's customer format *(assumed)*. Unique inside a company, can't change after saving (same as items) |
+| Code | Capitals, numbers and dashes, 2 to 16, like `CUS-001`. The colleague's customer format. Unique inside a company, can't change after saving (same as items) |
 | Name | Required |
-| Address | One free text address, optional *(assumed)* |
-| Contact | One contact person: name, phone, email, all optional *(assumed)* |
+| Address | One free text address, optional |
+| Contact | One contact person: name, phone, email, all optional |
 | Group company | Empty for outside customers. Otherwise one of the other 5 group companies, like Anggoan for Pandu. Only stored for now, intercompany comes later |
-| Order type | PO first (tempo, the default) or work first (like Kopken) |
+| Order type | PO first (the customer's PO comes before the work) or work first (work before the PO, like Kopken). Not the payment type: tempo or CBD is picked on each quote |
 | Rework report needed | Off by default |
 | Active | Inactive customers can't be picked on new documents |
 
 **Rules and defaults** (all *(assumed)* until confirmed)
-- Order type starts at PO first, because tempo is the default flow. Work first is picked by hand
+- Order type starts at PO first (Jingga's call). Only Kopken, a Sancang customer, is work first in the spec. Work first is picked by hand
 - A company can't be its own customer: Pandu's list offers the other 5 companies only
-- At most one customer per group company inside a company (Pandu has one "Anggoan" customer), so intercompany can later find it without guessing
+- At most one customer per group company inside a company (Pandu has one "Anggoan" customer), so intercompany can later find it without guessing. Confirmed by Jingga
 - Nothing is deleted, the database refuses deletes. Every change goes in the audit log, history visible to everyone who can see the customer
 - Permissions: `customers.view` (all 6 roles) and `customers.manage` (company admin and manager), the same split as items
 
@@ -189,10 +189,10 @@ Written 2026-10-13, draft waiting for Jingga's approval. Covers the Customer rec
 - Deletes are refused, every change leaves an audit row
 
 **Questions this plan raises** (built with the default shown until answered)
-- [ ] One address and one contact person per customer for now? Default: yes *(assumed)*
-- [ ] Customer code format like the colleague's, 2 to 16 capitals, numbers and dashes? Default: yes *(assumed)*
-- [ ] At most one customer per group company inside a company? Default: yes *(assumed)*
-- [ ] New customers start as PO first? Default: yes *(assumed)*
+- [x] One address and one contact person per customer for now. Confirmed by Jingga
+- [x] Customer code format like the colleague's, 2 to 16 capitals, numbers and dashes. Confirmed by Jingga
+- [x] At most one customer per group company inside a company. Confirmed by Jingga
+- [x] New customers start as PO first. Confirmed by Jingga
 - [ ] **Ask supervisor** (with the slice 6 questions): who may add and change customers, and can a customer code change after saving?
 
 ### Slice 6 plan: items and UoM
