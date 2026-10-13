@@ -22,6 +22,7 @@ How Jingga, Claude (chat) and Claude Code work together on the ERP. Goal and ord
 2. **Plan.** Before any code, Claude writes a build plan at the bottom of the spec: data model, screens, API, and a task list cut into small slices. Jingga approves it
 3. **Build.** Claude Code takes one slice at a time. A slice is one record working end to end (database, API, screen), not a whole layer
 4. **Verify.** Run the acceptance checks written in the spec. Jingga clicks through it as the user
+   - After every slice, Claude Code runs the strict code review (thermo-nuclear skill) on that slice and fixes what it finds before the next slice starts. Jingga's rule, 2026-10-13
 5. **Log.** Update the status in [[Pandu Roadmap]], add decisions to [[Holding ERP]], and write the handoff in [[00 Start Here]]
 
 Do not start the next module until the current one passes step 4. A module is done when its definition of done (below) is fully ticked.
