@@ -12,21 +12,21 @@ tags: [internship, erp, modules, overview]
 The general idea of every module other than Foundation, Sales & Marketing and Procurement, which have their own notes. This is a first list from Jingga and **subject to change**. Nothing here is a spec yet. Each module gets one with the Module Spec template when its turn comes in [[Pandu Roadmap]]. Part of [[Holding ERP]].
 
 ## At a glance
-| Module | Main parts | Spec |
-|---|---|---|
-| Sales & Marketing | | [[Sales and Marketing Module]] |
-| Procurement | | [[Procurement Module]] |
-| Finance Accounting Tax | Cost control, tax, cost structure, salary structure | General idea below |
-| HR | HRIS: employees, contracts, attendance, overtime, payroll, reimbursement | General idea below |
-| GA | Assets, facilities | General idea below |
-| Production | Master data, planning, machines, maintenance, report, cost | General idea below |
-| WMS | Receiving, binning, outgoing, logistics, hub, trucking | General idea below |
-| IMS | Planning and inventory control, inventory analysis | General idea below |
-| Integrated System | All modules working together | General idea below |
-| RND | | Named only |
-| Engineering | | Named only |
-| Quality | | Named only |
-| MMS | | Named only |
+| Module                 | Main parts                                                               | Spec                           |
+| ---------------------- | ------------------------------------------------------------------------ | ------------------------------ |
+| Sales & Marketing      |                                                                          | [[Sales and Marketing Module]] |
+| Procurement            |                                                                          | [[Procurement Module]]         |
+| Finance Accounting Tax | Cost control, tax, cost structure, salary structure                      | General idea below             |
+| HR                     | HRIS: employees, contracts, attendance, overtime, payroll, reimbursement | General idea below             |
+| GA                     | Assets, facilities                                                       | General idea below             |
+| Production             | Master data, planning, machines, maintenance, report, cost               | General idea below             |
+| WMS                    | Receiving, binning, outgoing, logistics, hub, trucking                   | General idea below             |
+| IMS                    | Planning and inventory control, inventory analysis                       | General idea below             |
+| Integrated System      | All modules working together                                             | General idea below             |
+| RND                    |                                                                          | Named only                     |
+| Engineering            |                                                                          | Named only                     |
+| Quality                |                                                                          | Named only                     |
+| MMS                    |                                                                          | Named only                     |
 
 FAHCGA is the group name for Finance Accounting Tax, HR and GA. Finance Accounting Tax is called Finance A&T in other notes.
 
