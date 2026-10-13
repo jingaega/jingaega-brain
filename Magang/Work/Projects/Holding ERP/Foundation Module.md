@@ -265,7 +265,7 @@ Written 2026-10-13, approved by Jingga the same day with the changes from Pandu'
 
 **Changes from Pandu's supplier list** (DATA_SUPPLIER_PANDU, 7 suppliers, shared by Jingga 2026-10-13; only the columns are kept here)
 - Added: category (Chemical, Packaging, Printing, the list can grow), payment term (CBD or Net with days; CBD is preselected since 6 of 7 use it *(assumed)*), NPWP, website and notes, all optional except category and payment term
-- One contact person; the phone field may hold several numbers
+- One contact person, called **PIC** like on the supplier list (also on customers, Jingga 2026-10-13); the phone field may hold several numbers
 - Still for Procurement: bank accounts (stricter access), fax, one-time or online sellers, rating and "blocked"
 - Compared with the colleague's repo: they type vendor codes, keep payment terms in a shared list (CBD, Net 14/30/45/60), category as free text, and have no vendor screen (vendors are made while sourcing)
 

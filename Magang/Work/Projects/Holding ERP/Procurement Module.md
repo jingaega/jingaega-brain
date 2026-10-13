@@ -37,6 +37,8 @@ PO number, uang muka, payment of uang muka, belanja (the buyer shops after the a
 - [x] Each vendor has its own currency, and its purchases use it. Jingga, 2026-10-13
 - [ ] Before payment, purchases show in IDR at which rate: today's BI rate, or the rate on the PO date? Only the paid rate is fixed so far
 - [ ] COD flow: where does payment happen, and does it skip IR?
+- [ ] Adding a vendor while sourcing: the same vendor record and rules, with an Add vendor shortcut on the sourcing screen (Jingga expects this, 2026-10-13). Who may do it there: anyone who sources, or only managers? The colleague's repo lets staff add vendors, also one-time online sellers
+- [ ] A shared list of payment terms (CBD, Net 14, Net 30...) once purchase orders exist, or keep any number of days per vendor as now?
 - [ ] Approval rules: who approves, and above what amount?
 - [ ] What does Pandu buy, and does each need a different path? From the supplier list: chemicals, packaging and printing (vendor categories since slice 8)
 - [ ] Which journals post at which step?
