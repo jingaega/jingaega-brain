@@ -141,6 +141,53 @@ Draft by Claude, waiting for Jingga's approval. Stack is in the decisions table 
   - [ ] 9. Real-time: lists update live in a second browser
 - Open questions only block their own slice. Slices 1 to 3 and 6 to 9 can start now. Slices 4 and 5 use the 6 templates until they are confirmed
 
+### Slice 5d plan: personal details and automatic Employee ID
+Written 2026-10-13, draft waiting for Jingga's approval. Changes slice 5 (finished), so it is its own plan. From Jingga's answers: new users get an automatic Employee ID, and HR types the name, phone number, KTP number and a KTP scan (PNG or PDF) once, when the person is first added. Other details come later. The KTP handling follows the five points Jingga agreed to on 2026-10-13.
+
+**What changes for people**
+- **Add User** asks for: name, email (still needed to sign in and for the set your password link), phone number, KTP number, KTP scan, role. The Employee ID field goes away: it is given automatically, like `PDT-00001`, and shown after saving
+- The KTP number and scan are asked **only when a new account is made**. Giving someone who already has an account access to another group company asks for nothing new
+- After saving, nobody changes the KTP in the ERP *(assumed reading of "only there for the first time")*. A mistake is fixed later by HR (Phase 7)
+- **Personal details** on the Users screen (phone, KTP number, View KTP scan) only for people with the new permission `users.personal_data`. Everyone else sees name, Employee ID, email and role as today
+
+**Records**
+| Record | Fields | Notes |
+|---|---|---|
+| Company | adds Code: SPI, PDT, SBM, SAN, AKN, ETA | The doc codes proposed in the colleague's repo (initials of the legal names). Used for Employee IDs now and document numbers later |
+| Personal details | User, phone, KTP number, KTP scan (file), added by, added at | One per person, across all 6 companies. Kept apart from the login account. HR (Phase 7) grows from this record |
+| KTP scan file | Stored outside the public folder, opened only through a checked link | PNG, JPG or PDF, up to 5 MB. Local disk now, private storage on AWS Jakarta later |
+
+**Rules and defaults** (all *(assumed)* until confirmed)
+- Employee ID: company code, a dash, 5 digits, numbered per company by the database: `PDT-00001`, `PDT-00002`. The company that adds the person first gives the prefix; it never changes, also when they join another group company. Unique across all 6
+- Phone and KTP number and scan are required for new accounts. KTP number: 16 digits, unique across all 6 companies
+- Who adds users stays the same for now (company admin, `users.manage`). "HR adds users" needs departments, which come later with the items and customers question
+- `users.personal_data` (see phone, KTP, open the scan): company admin only by default. Super Admin can, Super User can't (it is not a view of normal data, it is personal data)
+- Every time someone opens a KTP scan, the audit log records who and when. Changes to personal details are logged like everything else
+- Existing accounts (the seeded holding and demo users) keep their Employee IDs and have no personal details. The counter starts after the highest existing number, so `PDT-00004` comes next
+
+**Not in this slice**
+- The "other details" (to be announced)
+- Editing personal details, departments, HR
+- Excel import and export (own plan)
+
+**Built in three commits, each clicked through in a browser, then the strict review**
+- 5d-1: company codes, automatic Employee ID, Add User without the Employee ID field
+- 5d-2: personal details record with phone and KTP number, `users.personal_data`
+- 5d-3: KTP scan upload and the checked link to open it, logged in the audit log
+
+**Tests**
+- Employee IDs count up per company with no doubles, also when two people are added at once, and never collide with existing ones
+- A KTP number used twice is refused. A bad KTP number (not 16 digits) is refused. A file that isn't PNG, JPG or PDF, or is too big, is refused
+- Without `users.personal_data` nobody sees phone or KTP, and the scan link refuses them, even typed by hand. Super User is refused
+- Opening a scan leaves an audit row
+- A person from another group company only gets access, no personal details asked or changed
+
+**Questions this plan raises** (built with the default shown until answered)
+- [ ] Company codes SPI, PDT, SBM, SAN, AKN, ETA? Default: yes, the colleague's proposal *(assumed)*
+- [ ] Nobody can change the KTP after the account is made? Default: yes *(assumed)*
+- [ ] Phone, KTP number and scan required for every new account? Default: yes *(assumed)*
+- [ ] Who may see personal details: company admin only for now? Default: yes *(assumed)*, HR later
+
 ### Slice 7 plan: customers
 Written 2026-10-13, approved by Jingga the same day with the defaults below. Covers the Customer record, with the group company link and the S&M settings (order type, rework report), and the acceptance check "Create a customer in Pandu, it doesn't show up in Anggoan". Built the same way as slice 6, reusing its form dialog, audit log and page layout.
 
@@ -311,7 +358,7 @@ Written 2026-10-13, approved by Jingga the same day with the defaults below, and
 - [ ] New people choose their own password from an emailed link, valid 3 days? Default: yes *(assumed)*
 - [ ] Can a company admin give access to someone who already has an account in another group company? Default: yes, the screen says so *(assumed)*
 - [ ] Only Super Admin can deactivate a whole account; a company admin only removes access to their own company? Default: yes *(assumed)*
-- [x] Every new user is added by someone allowed to add users. They type the name, a number, the KTP and the other details needed, and the Employee ID is given automatically. Jingga, 2026-10-13. This changes slice 5 (finished), so it needs a plan and approval first. The number is the phone number. The Employee ID is the company code plus a number, like `PDT-00001`. The KTP is stored as a number and as a scan (PNG or PDF). Other details: to be announced. Open: where the KTP lives and who may see it (Claude's proposal sent to Jingga)
+- [x] Every new user is added by someone allowed to add users. They type the name, a number, the KTP and the other details needed, and the Employee ID is given automatically. Jingga, 2026-10-13. This changes slice 5 (finished), so it needs a plan and approval first. The number is the phone number. The Employee ID is the company code plus a number, like `PDT-00001`. The KTP is stored as a number and as a scan (PNG or PDF). Other details: to be announced. KTP: kept in a separate personal details record with its own permission, the scan off the public web, every view logged, one per person (Jingga agreed 2026-10-13). Entered only once, when HR first creates the user. Plan: slice 5d below
 - [ ] Nobody can change their own role, remove their own access or deactivate themselves, so an admin can't lock themselves out by mistake. Added while building 5c *(assumed)*
 - [ ] A company admin can untick "Change what each role may do" on their own role and lose the Roles screen. Only a Super Admin can give it back. Should the screen stop that? Default: no guard *(assumed)*
 - [ ] Deactivate has an undo: a Super Admin can reactivate the account, with its company access as it was. Added while building 5c *(assumed)*
