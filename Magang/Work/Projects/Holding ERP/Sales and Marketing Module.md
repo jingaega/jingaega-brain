@@ -25,19 +25,7 @@ The S&M module starts when a quotation is recorded. Everything before that (RFQ,
 > Lost-deal reports only cover quotes that were actually recorded. Deals lost before a quote exists are never seen by the ERP.
 
 ## Key terms
-
-| Term | Meaning | Who makes it |
-|---|---|---|
-| RFQ | Customer asks for a price | Customer, manual |
-| Quotation (quote) | Our price offer, given to the customer | Us, manual. ERP keeps a copy |
-| PO cust | Customer's purchase order, their official commitment to buy | Customer. Scanned or input |
-| SO | Sales order, our internal record of the confirmed order. Everything after runs off it | Us, in the ERP, from the PO |
-| DO / BAST | One document: delivery order plus signed handover minutes (Berita Acara Serah Terima) | Us, signed by the customer |
-| PI | Proforma invoice, a payment request before delivery (CBD) | Us |
-| Tempo | Credit terms. Deliver first, invoice after receipt, customer pays by due date | Payment type |
-| CBD | Cash before delivery. Customer pays the PI, then we deliver | Payment type |
-| QC | Quality check on returned or reworked goods | Warehouse / QC team |
-| Kirim | Sending goods back out after rework passes QC | Through a new DO / BAST |
+All terms are in [[Glossary]].
 
 ## Records the module owns
 

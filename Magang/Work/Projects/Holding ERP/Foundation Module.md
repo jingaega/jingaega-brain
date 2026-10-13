@@ -18,20 +18,7 @@ Part of [[Holding ERP]]. Company context is in [[Company Roles and Modules]]. Th
 - **UI language:** English
 
 ## Key terms
-| Term | Meaning | Who makes it |
-|---|---|---|
-| Company | One of the 6 PTs. Every record belongs to one | Seeded at setup |
-| Theme | A company's colors (and logo). The whole screen switches when you switch company | Super Admin |
-| Super Admin | Holding level account. Can see and change everything in every company | Seeded at setup |
-| Super User | Holding level account. Can see everything in every company, change nothing | Seeded at setup |
-| User | A person who logs in | Super Admin |
-| Role | A named set of permissions, like what a manager can do | Super Admin |
-| Permission | One action on one record type, like "create item" or "view customer" | Fixed in the system |
-| Access | A user gets a role inside a company. One user can have access to several companies | Super Admin |
-| Item | Something we sell, buy or make | Company admin |
-| UoM | Unit of measure (pcs, kg, liter, box) | Company admin |
-| Customer | Who we sell to. Can be an outside company or another group company | Company admin |
-| Vendor | Who we buy from. Can be an outside company or another group company | Company admin |
+All terms are in [[Glossary]].
 
 ## Records the module owns
 | Record | Main fields | Statuses | Links to |
@@ -124,11 +111,11 @@ Draft by Claude, waiting for Jingga's approval. Stack is in the decisions table 
 - Server: Next.js server side (server actions or route handlers). Login, logout, current user, switch company, then list, create, edit and deactivate for each record above
 - Repo layout (`jingaega/PT-SERIO-ERP`):
   - One Next.js app with TypeScript: `app/login`, `app/[company]/...`, `modules/<module>` for each module's server code, shared components, themes
-  - `db/` migrations and seed data for PostgreSQL. The query and migration tools get picked in the slice 1 plan
+  - `db/` schema, migrations and seed data for PostgreSQL, with Drizzle
   - `CLAUDE.md` from [[Claude Code Instructions]], `README.md`, `docker-compose.yml` for the database, `Makefile`, CI that runs tests and builds
   - Specs stay in this vault, not in the repo
 - Slices (small, one record end to end):
-  - [ ] 1. Scaffold: repo layout, local PostgreSQL in Docker, health check, empty Next.js shell in English, CI, `CLAUDE.md`
+  - [x] 1. Scaffold: repo layout, local PostgreSQL in Docker, health check, empty Next.js shell in English, CI, `CLAUDE.md` (done 2026-10-13)
   - [ ] 2. Companies: 6 seeded with the default theme, company picker switches the theme
   - [ ] 3. Login and logout with sessions, placeholder Super Admin and Super User seeded
   - [ ] 4. Roles and permissions with the 6 templates, checked on every server action, with tests for the access rules above

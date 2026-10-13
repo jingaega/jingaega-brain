@@ -7,7 +7,7 @@ tags: [internship, erp, claude-code]
 
 # Claude Code Instructions
 
-Copy the block below into `CLAUDE.md` at the root of the ERP repo (`jingaega/PT-SERIO-ERP`). Start Claude Code with the vault added as an extra directory so it can read the specs, for example `claude --add-dir "C:\Users\Sora\Documents\Magang\Work"`. Process is in [[Workflow]].
+The live copy is `CLAUDE.md` in `jingaega/PT-SERIO-ERP`, which now overrides this template. The block below is the original template. Start Claude Code with the vault added as an extra directory so it can read the specs, for example `claude --add-dir "C:\Users\Sora\Documents\Magang\Work"`. Process is in [[Workflow]].
 
 ```markdown
 # ERP for PT Pandu Dwiloka Teknik (holding ERP)

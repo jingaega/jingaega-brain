@@ -9,6 +9,13 @@ tags: [internship, erp, log]
 
 One entry per working session, newest on top. Written by Claude at wrap up. Process is in [[Workflow]].
 
+## 2026-10-13 (fourth session)
+- Decided: fresh repo, colleague's repo as reference (see [[Colleague Repo Comparison]])
+- Built Foundation slice 1 in `jingaega/PT-SERIO-ERP`: Next.js 16, PostgreSQL 16 in Docker, Drizzle, `/api/health`, Vitest, CI, `CLAUDE.md`, README, ADR 0001
+- Checks: lint, typecheck, 1 test and the build all pass. Health check returns 200 with the database up and 503 with it down
+- Added [[Glossary]]
+- Next: slice 2, companies with themes
+
 ## 2026-10-13 (third session)
 - No code yet
 - Read the colleague's repo and wrote [[Colleague Repo Comparison]]

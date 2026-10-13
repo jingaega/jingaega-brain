@@ -28,8 +28,23 @@ The same ERP for the same 6 companies, with Pandu as the pilot. Next.js with Sup
 
 All calls are logged in the decisions table in [[Holding ERP]].
 
+## Outcome (grilling session, 2026-10-13)
+Fresh repo `jingaega/PT-SERIO-ERP`, built together with the colleague. His repo is reference only. Plain PostgreSQL on AWS later, no Supabase. Logged in [[Holding ERP]].
+
+Answered by Jingga:
+- Same ERP, same supervisor. The company will run one ERP
+- The colleague is open to changes, and Jingga has access to his repo
+- Goal is an ERP the company actually uses
+- His repo: too big, unneeded files, nobody reviewed it, unconfirmed rules
+- The vault is Jingga's notes from discussions, partly confirmed and partly still unclear
+- One [[Glossary]] in the vault
+
+Not answered, Claude's suggestion used for now *(assumed)*:
+- Rule status: only rules confirmed by the supervisor win over code. *(assumed)* ones can be built but must be easy to change. Open ones block only their slice
+- Build Foundation together, then split by module (colleague on Procurement, Jingga on S&M)
+- Company data isolation is enforced inside PostgreSQL, not only in the app
+
 ## Still to settle
-- [ ] Contribute to the colleague's repo, or build our own in `jingaega/PT-SERIO-ERP`? Talk to the colleague and the supervisor first
-- [ ] If we build our own: is Supabase OK, since it is PostgreSQL and runs locally too, or plain PostgreSQL only?
-- [ ] If we contribute: the two points where the repo is wrong for us (sales start, Wening) need to go to the colleague
+- [ ] Supervisor signs off on the fresh repo decision
+- [ ] Invite the colleague to `jingaega-brain` (vault) and `jingaega/PT-SERIO-ERP`
 - [ ] Maraloka or Sibama

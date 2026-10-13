@@ -16,7 +16,8 @@ Internship project: one ERP that connects a holding with its six companies, plus
 - [x] Phase 0: stack, deadline and repo chosen (see [[Pandu Roadmap]]). Hosting still open
 - [ ] Phase 1: answer the open questions in [[Foundation Module]] and approve its build plan
 - [ ] Sales and Marketing module: answer the open questions that block Pandu in [[Sales and Marketing Module]]
-- [ ] Decide with the colleague and supervisor: contribute to `Difsyy/Serio-Intern` or build our own (see [[Colleague Repo Comparison]])
+- [ ] Get supervisor sign-off on the fresh repo, invite the colleague to both repos (see [[Colleague Repo Comparison]])
+- [ ] Foundation slice 2: companies with themes
 - [ ] Confirm the *(assumed)* items in [[Company Roles and Modules]]
 - [ ] Finalize the full module list for [[Holding ERP]], built around PT Pandu first as the baseline
 - [ ] Company websites: list what each one needs in [[Company Websites]]
@@ -26,6 +27,12 @@ Internship project: one ERP that connects a holding with its six companies, plus
 - Serio is the holding company. PT Pandu is still the baseline for development: build for Pandu first, then adapt Serio and the others from it
 
 ## Last session
+**2026-10-13 (fourth session)**
+- Grilling session settled it: fresh repo `jingaega/PT-SERIO-ERP` with the colleague, his repo as reference only, plain PostgreSQL on AWS later
+- Foundation slice 1 is built: Next.js, PostgreSQL in Docker, Drizzle, health check, CI, `CLAUDE.md`. Pushed to the repo's working branch
+- Added the [[Glossary]] and moved the key terms into it
+- Next: supervisor sign-off, then slice 2 (companies with themes)
+
 **2026-10-13 (third session)**
 - Compared the vault with the colleague's repo `Difsyy/Serio-Intern`, which builds the same ERP and is much further along. See [[Colleague Repo Comparison]]
 - New calls logged in [[Holding ERP]]: Next.js and PostgreSQL (local first), English UI, Super Admin and Super User, intercompany later, minimum margin check instead of floor price, Wening confirmed, the 6 role templates for now
@@ -50,7 +57,7 @@ Internship project: one ERP that connects a holding with its six companies, plus
 - How we work: [[Workflow]], [[Pandu Roadmap]], [[Build Log]]
 - For Claude Code: [[Claude Code Instructions]]
 - Module specs: [[Foundation Module]], [[Sales and Marketing Module]], [[Procurement Module]]
-- Reference: [[Company Roles and Modules]], [[Companies]], [[Colleague Repo Comparison]]
+- Reference: [[Glossary]], [[Company Roles and Modules]], [[Companies]], [[Colleague Repo Comparison]]
 - Meetings: [[Meetings]]
 - Inbox: [[Inbox]]
 

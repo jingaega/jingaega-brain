@@ -68,6 +68,10 @@ The full list is 12 modules. Order of work and status are in [[Pandu Roadmap]]. 
 | 2026-10-13 | Floor price becomes a minimum margin check: a quote line below the minimum margin needs manager approval | Jingga's call. Replaces the floor price warning idea |
 | 2026-10-13 | Pandu's product is Wening soap | Jingga confirmed. The colleague's repo lists hand soap, dish soap, tire cleaner and glass cleaner instead |
 | 2026-10-13 | Use the colleague's 6 role templates for now: company admin, director, manager, supervisor, staff, viewer | Jingga's call, until the real role list exists |
+| 2026-10-13 | Build a fresh repo `jingaega/PT-SERIO-ERP` together with the colleague. His repo `Difsyy/Serio-Intern` is reference only | His repo is too big, unreviewed and built on unconfirmed rules, and dropping Supabase for AWS means rewriting its core anyway. Supervisor sign-off pending. Full reasoning in the repo's `docs/adr/0001-fresh-repo.md` |
+| 2026-10-13 | Hosting later is plain PostgreSQL on AWS (RDS) with our own login, no Supabase | Jingga's call, standard parts any developer can maintain |
+| 2026-10-13 | Database tools: Drizzle ORM with the `pg` driver and drizzle-kit migrations | Claude's pick in Foundation slice 1, mainstream and close to plain SQL. Can change |
+| 2026-10-13 | One [[Glossary]] note in the vault holds all terms. The repo's `CLAUDE.md` points to it | Jingga's call in the grilling session, so terms live in one place |
 | 2026-10-13 | S&M builds the tempo (non-CBD) flow first. CBD and Kopken come later | Tempo is the default flow and the best specced one |
 | 2026-10-13 | Phase 2 goal is a Pandu tempo order from quote to signed BAST, not to paid | Stock (Phase 4) and Finance (Phase 5) are built later, so stock check and invoice are only simple steps until then |
 
@@ -75,7 +79,6 @@ The full list is 12 modules. Order of work and status are in [[Pandu Roadmap]]. 
 - What does the holding role of Serio need in the ERP (group view, who sees what, the 2 super users)?
 - Which modules beyond Sales & Marketing and FAHCGA are actually in scope?
 - Where does the ERP run later (Pandu server or cloud), and do we need a staging copy? Local first for now
-- How do we relate to the colleague's repo `Difsyy/Serio-Intern`? It builds the same ERP and is much further along. Contribute to it, or build our own? See [[Colleague Repo Comparison]]
 - Maraloka is called "Sibama" in the colleague's repo. Which short name is right?
 
 ## Tasks
