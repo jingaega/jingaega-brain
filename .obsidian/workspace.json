@@ -11,12 +11,14 @@
             "id": "192222acdc3a0a80",
             "type": "leaf",
             "state": {
-              "type": "release-notes",
+              "type": "markdown",
               "state": {
-                "currentVersion": "1.14.4"
+                "file": "Magang/Work/Projects/Holding ERP/Pandu Roadmap.md",
+                "mode": "source",
+                "source": false
               },
-              "icon": "lucide-book-up",
-              "title": "Release Notes 1.14.4"
+              "icon": "lucide-file",
+              "title": "Pandu Roadmap"
             }
           }
         ]
@@ -97,6 +99,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "Magang/Work/Projects/Holding ERP/Pandu Roadmap.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -115,6 +118,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "Magang/Work/Projects/Holding ERP/Pandu Roadmap.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
@@ -157,7 +161,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Test.md",
+                "file": "Magang/Work/Projects/Holding ERP/Pandu Roadmap.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
@@ -185,8 +189,18 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "df8434663f7054c1",
+  "active": "192222acdc3a0a80",
   "lastOpenFiles": [
+    "Magang/Work/00 Start Here.md",
+    "Magang/Work/Projects/Holding ERP/Holding ERP.md",
+    "Magang/Work/Projects/Holding ERP/Pandu Roadmap.md",
+    "Magang/Work/Projects/Holding ERP/Procurement Module.md",
+    "Magang/Work/Projects/Holding ERP/Sales and Marketing Module.md",
+    "Magang/Work/Projects/Holding ERP/Workflow.md",
+    "Magang/Work/Projects/Holding ERP/Company Roles and Modules.md",
+    "Magang/Work/Projects/Holding ERP/Claude Code Instructions.md",
+    "Magang/Work/Projects/Holding ERP/Build Log.md",
+    "Magang/Work/Projects/Company Websites/Company Websites.md",
     "Test.md"
   ]
 }
