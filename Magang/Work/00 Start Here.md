@@ -17,7 +17,7 @@ Internship project: one ERP that connects a holding with its six companies, plus
 - [ ] Phase 1: answer the open questions in [[Foundation Module]] and approve its build plan
 - [ ] Sales and Marketing module: answer the open questions that block Pandu in [[Sales and Marketing Module]]
 - [ ] Get supervisor sign-off on the fresh repo, invite the colleague to both repos (see [[Colleague Repo Comparison]])
-- [ ] Foundation slice 2: companies with themes
+- [ ] Foundation slice 3: login (Better Auth, email or Employee ID, two-step login for the holding accounts)
 - [ ] Confirm the *(assumed)* items in [[Company Roles and Modules]]
 - [ ] Finalize the full module list for [[Holding ERP]], built around PT Pandu first as the baseline
 - [ ] Company websites: list what each one needs in [[Company Websites]]
@@ -31,7 +31,8 @@ Internship project: one ERP that connects a holding with its six companies, plus
 - Phase 0 closed in a grilling session: Better Auth, shadcn/ui, AWS Jakarta, company owned accounts, login by email or Employee ID, two-step login for the holding accounts. All in [[Holding ERP]]
 - Company colors approved: the logo based themes from the colleague's repo
 - Commits now show as jingaega, no Claude lines
-- Next: Foundation slice 2, companies with themes
+- Built Foundation slice 2: the 6 companies with their own colors and logos, a company picker, and a themed page per company
+- Next: slice 3, login
 
 **2026-10-13 (fourth session)**
 - Grilling session settled it: fresh repo `jingaega/PT-SERIO-ERP` with the colleague, his repo as reference only, plain PostgreSQL on AWS later

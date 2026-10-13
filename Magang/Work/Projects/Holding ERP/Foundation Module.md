@@ -86,7 +86,7 @@ These are built now so work isn't blocked, and are easy to change later. All are
 ## Open questions
 - [ ] Who are the 2 super users, and do they sit in Pandu or Serio?
 - [ ] Does Pandu already give staff an ID number? If so, the ERP uses it as the Employee ID
-- [ ] Short name for PT Siar Bagja Maraloka: Maraloka or Sibama? The ERP uses Maraloka until answered
+- [ ] Short name for PT Siar Bagja Maraloka: Maraloka or Sibama? The ERP uses Maraloka until answered. Note: the company's own logo says "sibama"
 - [ ] Confirm the 6 role templates, and what each one can do per module
 - [ ] Master data per company or shared? Spec currently says per company (Anggoan has its own catalog). If per company, how does a Wening item at Pandu match the same item at Anggoan for the automatic PO to SO?
 - [ ] Currency: IDR only?
@@ -118,7 +118,7 @@ Draft by Claude, waiting for Jingga's approval. Stack is in the decisions table 
   - Specs stay in this vault, not in the repo
 - Slices (small, one record end to end):
   - [x] 1. Scaffold: repo layout, local PostgreSQL in Docker, health check, empty Next.js shell in English, CI, `CLAUDE.md` (done 2026-10-13)
-  - [ ] 2. Companies: 6 seeded with their approved themes and logos, company picker switches the theme
+  - [x] 2. Companies: 6 seeded with their approved themes and logos, company picker switches the theme (done 2026-10-13)
   - [ ] 3. Login and logout with Better Auth (email or Employee ID), forgot password through Mailpit, two-step login for the holding accounts, placeholder Super Admin and Super User seeded
   - [ ] 4. Roles and permissions with the 6 templates, checked on every server action, with tests for the access rules above
   - [ ] 5. User admin: Super Admin creates users and gives access per company and role

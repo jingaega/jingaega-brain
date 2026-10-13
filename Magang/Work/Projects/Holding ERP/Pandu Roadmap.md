@@ -21,7 +21,7 @@ A working, real-time ERP that Pandu uses for its own Wening flow, from the first
 | Phase | Outcome | Modules | Status |
 |---|---|---|---|
 | 0. Decide | Stack, deadline, repo and environment are chosen | none | Done (3 follow ups open in [[Holding ERP]]) |
-| 1. Foundation | Login, companies with color themes, 2 super users, roles and authorization, master data (items, customers, vendors) | [[Foundation Module]] | Building, slice 1 of 9 done |
+| 1. Foundation | Login, companies with color themes, 2 super users, roles and authorization, master data (items, customers, vendors) | [[Foundation Module]] | Building, slice 2 of 9 done |
 | 2. Sell | A Pandu tempo order goes from quote to signed BAST | [[Sales and Marketing Module]] | Spec drafted |
 | 3. Buy | A Pandu purchase goes from request to paid | [[Procurement Module]] | Notes captured |
 | 4. Stock | Stock is correct after every sale, purchase and return | IMS, WMS | Not started |
@@ -39,7 +39,7 @@ Why this order: Sell and Buy are already the best specced. Stock sits right afte
 ## Module status (12 modules)
 | Module | Spec | Build | Notes |
 |---|---|---|---|
-| Foundation | Draft, open questions waiting | Slice 1 of 9 done | Comes before the 12, not counted in them |
+| Foundation | Draft, open questions waiting | Slice 2 of 9 done | Comes before the 12, not counted in them |
 | Sales & Marketing | Draft, open questions waiting | Not started | First module. Tempo flow first |
 | Procurement | Notes captured | Not started | Covers vendor management too |
 | IMS | None | Not started | |
@@ -60,7 +60,8 @@ Why this order: Sell and Buy are already the best specced. Stock sits right afte
 - [x] Pick the repo: `jingaega/PT-SERIO-ERP`
 - [ ] Answer the Foundation open questions that block slices (see [[Foundation Module]])
 - [x] Slice 1: scaffold the repo and add `CLAUDE.md` from [[Claude Code Instructions]]
-- [ ] Slice 2: companies with themes
+- [x] Slice 2: companies with themes
+- [ ] Slice 3: login
 - [ ] Close the S&M open questions that block Pandu (see below)
 - [ ] Write the S&M build plan
 

@@ -13,7 +13,9 @@ One entry per working session, newest on top. Written by Claude at wrap up. Proc
 - Closed Phase 0, logged the decisions in [[Holding ERP]]
 - Added the web-design-guidelines skill to both repos
 - Rewrote slice 1 so it shows as jingaega. CI passed on it
-- Next: slice 2
+- Built slice 2: companies table and seed, the 6 approved themes and logos, company picker, themed shell per company. 11 tests pass. A web-design-guidelines review found small accessibility gaps (skip link, focus state, long names), all fixed
+- Known limit: an unknown company shows the not found page but with HTTP status 200, because the page streams before the check. Fine for users
+- Next: slice 3, login
 
 ## 2026-10-13 (fourth session)
 - Decided: fresh repo, colleague's repo as reference (see [[Colleague Repo Comparison]])
