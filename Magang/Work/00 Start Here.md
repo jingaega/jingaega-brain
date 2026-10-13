@@ -17,9 +17,11 @@ Internship project: one ERP that connects a holding with its six companies, plus
 - [ ] Phase 1: answer the open questions in [[Foundation Module]] and approve its build plan
 - [ ] Sales and Marketing module: answer the open questions that block Pandu in [[Sales and Marketing Module]]
 - [ ] Get supervisor sign-off on the fresh repo, invite the colleague to both repos (see [[Colleague Repo Comparison]])
-- [ ] Foundation slice 9: real-time lists (needs a plan first), or the Excel import of Pandu's suppliers
+- [ ] Foundation slice 9: live master data lists (plan approved, waiting for Jingga's go)
+- [ ] Foundation slice 10: Excel import of vendors with Pandu's supplier list (plan approved, after slice 9)
+- [ ] Ask supervisor: what "real-time" means, whether the import may be looser than the form, who may see vendor bank accounts (in [[Foundation Module]])
 - [ ] Decide departments in roles (finance, procurement), needed for who manages items and customers (in [[Foundation Module]])
-- [ ] Plan Excel import and export
+- [ ] Plan Excel export
 - [ ] Ask HR how new NRPs are numbered (until then automatic ones look like PDT-00004)
 - [ ] Ask supervisor: payment terms as a shared list (CBD, Net 14/30/45/60) or any number of days per vendor? Ours for now (in [[Procurement Module]])
 - [ ] Answer the last slice 6 question in [[Foundation Module]]: demo items, once Pandu's real item list is known
@@ -34,6 +36,14 @@ Internship project: one ERP that connects a holding with its six companies, plus
 - Serio is the holding company. PT Pandu is still the baseline for development: build for Pandu first, then adapt Serio and the others from it
 
 ## Last session
+**2026-10-13 (tenth session, planning only)**
+- Merged the slice 6 to 8 branch into `main` in both repos. CI green on `main`. Docker works, its service just needs starting in a new cloud session
+- Asked whether live updates are needed at all. Decided: "real-time" means data is current when saved *(assumed, supervisor question)*, and slice 9 builds live master data lists anyway
+- Grilling session on slice 9, the Excel import and the colleague's repo. Their import is no looser than their form, so ours makes the same checks as Add vendor
+- Read Pandu's real supplier list. New rules from it: fax and several bank accounts kept (bank accounts hidden until Procurement), several PIC emails, the bank cell gets split
+- Slice 10 plan (vendor import) written and approved in [[Foundation Module]]
+- Next: Jingga says go, then slice 9, then slice 10
+
 **2026-10-13 (ninth session)**
 - Built Foundation slice 6: items and units, plus an audit log at Jingga's request. Plan, defaults and questions are in [[Foundation Module]]
 - Units and code format come from the colleague's repo: 11 starter units per company, codes like `PCS` and `WN-500`

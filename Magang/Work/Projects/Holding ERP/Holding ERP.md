@@ -112,6 +112,11 @@ The full list is 12 modules. Order of work and status are in [[Pandu Roadmap]]. 
 | 2026-10-13 | PostgreSQL row level security keeps companies apart. The app connects as a limited database user, the owner is for migrations and the seed only | A bug in the app code can't show another company's data |
 | 2026-10-13 | S&M builds the tempo (non-CBD) flow first. CBD and Kopken come later | Tempo is the default flow and the best specced one |
 | 2026-10-13 | Phase 2 goal is a Pandu tempo order from quote to signed BAST, not to paid | Stock (Phase 4) and Finance (Phase 5) are built later, so stock check and invoice are only simple steps until then |
+| 2026-10-13 | "Real-time" means data is current the moment it is saved: no end of day batch, finance posts right away *(assumed, asking supervisor)*. Live lists (slice 9) are extra on top | Jingga's reading. Nobody had said what the scope line meant |
+| 2026-10-13 | Build slice 9 (live master data lists) now, then slice 10 (vendor Excel import) | Jingga's call after asking whether live updates are needed at all |
+| 2026-10-13 | Excel import: same checks as the form, add only, warning on similar names, our template and Pandu's own columns both read. Copy how the colleague's import works, not its rules | Grilling session. Keeps one set of rules, and the import never changes existing vendors |
+| 2026-10-13 | Vendors keep fax and several bank accounts. Bank accounts are shown nowhere until Procurement, and the audit log never holds the numbers *(assumed)* | Pandu's supplier list has them, so nothing in the file is lost. Bank details need stricter access |
+| 2026-10-13 | A PIC may have several emails, on customers and vendors | Two of Pandu's 7 vendors have two emails |
 
 ## Open questions
 - What does the holding role of Serio need in the ERP (group view, who sees what)? The 2 super users are settled: the holding's admins

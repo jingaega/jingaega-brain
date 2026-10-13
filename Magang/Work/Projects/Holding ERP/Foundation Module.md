@@ -94,7 +94,10 @@ These are built now so work isn't blocked, and are easy to change later. All are
 - [x] Currency: IDR, plus Chinese yuan (CNY), US dollar (USD), Singapore dollar (SGD), Australian dollar (AUD), euro (EUR) and Japanese yen (JPY) for procurement. Jingga, 2026-10-13. Follow ups in [[Procurement Module]]
 - [ ] **Ask supervisor:** do customers also have their own currency (selling abroad), or is every sale in IDR? Vendors have one currency each (Jingga, 2026-10-13), which slice 8 adds
 - [x] Besides the super users, each company's admin manages users and roles (built in slice 5). Later HR adds users too, once departments exist. Jingga, 2026-10-13
-- [x] Excel import and export are needed. Jingga, 2026-10-13. Which records and when (with master data, or later) still to plan
+- [x] Excel import and export are needed. Jingga, 2026-10-13. Import of vendors planned as slice 10 (below). Export gets its own plan later
+- [ ] **Ask supervisor:** what does "real-time" in the scope mean? Our reading *(assumed)*: data is current the moment it is saved. Live lists (slice 9) are extra on top
+- [ ] **Ask supervisor:** should the Excel import be looser than the form (for example, let a vendor in without a category)? Until then it makes the same checks as Add vendor
+- [ ] **Ask supervisor:** who may see vendor bank accounts? Until then they are stored but shown nowhere, and the audit log keeps only that they changed
 - [ ] Seed demo items outside production (local and staging)? None for now. Needs Pandu's real item list, since the colleague's demo items (hand soap, dish soap) aren't Wening. See the slice 6 plan
 - [x] Password rules: at least 10 characters, no forced mix. Jingga, 2026-10-13
 - [x] A login lasts one work day: it ends 9 hours after signing in, not renewed while in use (9 hours is Claude's reading of one work day). Jingga, 2026-10-13
@@ -140,6 +143,7 @@ Draft by Claude, waiting for Jingga's approval. Stack is in the decisions table 
   - [x] 7. Customers, with the group company link and the S&M settings (done 2026-10-13)
   - [x] 8. Vendors, with the group company link, currency, category and payment term (done 2026-10-13)
   - [ ] 9. Real-time: lists update live in a second browser
+  - [ ] 10. Excel import of vendors, starting with Pandu's supplier list (plan below)
 - Open questions only block their own slice. Slices 1 to 3 and 6 to 9 can start now. Slices 4 and 5 use the 6 templates until they are confirmed
 
 ### Slice 9 plan: real-time lists
@@ -168,13 +172,51 @@ Written 2026-10-13, approved by Jingga the same day after asking whether live up
 - An announcement carries no record data
 - An update that changes nothing is not announced (same as the audit log)
 
-**Not in this slice**
-- Live record pages (an item page changing while open) and the Users list. Lists of master data only *(assumed)*, they are what the acceptance check asks for
+**Not in this slice** (to add later)
+- Live record pages (an item page changing while open) and the Users list. Only the four master data lists for now (Jingga, 2026-10-13)
+- "Added by X" on a new or changed row. Jingga likes it, later. No highlight for now (Jingga, 2026-10-13)
 - Live counts or notifications. Notifications come with approvals
 
-**Questions for Jingga**
-- Is updating the four master data lists enough for now, or should the Users list and record pages be live too?
-- No highlight on new rows is fine?
+### Slice 10 plan: vendor Excel import
+Written 2026-10-13 from a grilling session with Jingga, approved the same day. Built after slice 9. Uses Pandu's real supplier list (DATA_SUPPLIER_PANDU, uploaded 2026-10-13). Compared with the colleague's repo: we copy how their import works (template, preview, all or nothing, a line limit), never their rules.
+
+**What changes for people**
+- **Import** button next to Add vendor on the Vendors list, for anyone with `vendors.manage` (no new permission)
+- Upload an .xlsx file. A preview shows every line as New, Warning or Error with the reason. Save adds all lines, or none if any line has an error
+- A template to download, with column names in English or Indonesian. Pandu's own supplier list columns are recognised too, so the file can be imported as it is
+- Vendor form: a **Fax** field, and the PIC email may hold several emails (on customers too, they share the PIC fields)
+
+**Rules** (Jingga, 2026-10-13, unless marked)
+- Each line gets the same checks as Add vendor: name, category, payment term, currency, NPWP, website, PIC email. Same messages as the form. Whether the import should be looser is a supervisor question
+- Values are read leniently: any capitals, extra spaces, Indonesian words (Kimia, Kemasan, Percetakan, Tunai, "NET 30 Hari")
+- A blank payment term is an error. A blank currency is IDR
+- Add only: a name that matches an existing vendor (ignoring capitals and spaces) is an error, so the import never changes existing vendors. The same name twice in the file is an error too *(assumed)*
+- A name that is the same after leaving out PT, CV, Tbk, UD, dots and commas gets a warning, and is still imported
+- Names are kept exactly as written, like "Barca Trios Chemindo, PT"
+- Fax and bank accounts are kept, even though bank accounts have no field yet. Any other column the import doesn't know is listed in the preview as "not imported"
+- Bank account cell like "BCA : 2303466126" with "an : name" on the next line is split into bank, account number and account name. Several pairs in one cell become several accounts *(assumed)*. A cell that doesn't fit is an error, with an example
+- An account holder different from the vendor (a CV or a person) is fine, no warning
+- At most 2000 lines per import *(assumed)*
+- Vendor codes V-0001 onward as usual. Every vendor added is in the audit log
+
+**Bank accounts**
+- Several per vendor: bank, branch, account number, account name
+- Stored but shown on no screen until Procurement. The audit log keeps only that an account was added or changed, never the numbers *(assumed, supervisor question: who may see them)*
+
+**Pandu's file**
+- Columns: No, Kategori, Nama Perusahaan, Alamat, NPWP, Email, PIC, No Tlp., Fax, Term of Payment, Account Bank, Website, Remark. Title rows above the header, empty numbered rows below the last vendor
+- Expected result: 7 new vendors, no errors, 3 with a bank account, 1 with a fax
+
+**Built in two parts, one commit each**
+- 10a: fax, several PIC emails, bank accounts table (a data model change to vendors and customers, approved by Jingga)
+- 10b: the import, with the shared parts (reading the file, finding the header row, preview, all or nothing) written once, so items and customers can reuse them
+
+**Tests**
+- Header found by English, Indonesian and Pandu column names
+- Each check gives the form's message; Indonesian values read right
+- Existing name refused, similar name warns, any error saves nothing
+- Viewer and Super User refused; Anggoan can't see Pandu's imported vendors or bank accounts
+- Bank account numbers never in the audit log
 
 ### Slice 5e plan: existing NRPs and optional email
 Written 2026-10-13, approved by Jingga the same day with the middle way on email and the safeguards below. Follows Jingga's answers on HR's employee sheet: the NRP is the staff ID and stays automated, staff don't need an email, and the HOLDING people are the admins.
