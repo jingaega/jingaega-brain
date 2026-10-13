@@ -141,6 +141,32 @@ Draft by Claude, waiting for Jingga's approval. Stack is in the decisions table 
   - [ ] 9. Real-time: lists update live in a second browser
 - Open questions only block their own slice. Slices 1 to 3 and 6 to 9 can start now. Slices 4 and 5 use the 6 templates until they are confirmed
 
+### Employee data from HR (Data Karyawan 2026)
+Jingga shared HR's employee sheet on 2026-10-13: 18 people across the group, 23 columns. Only the column list is kept here, never anyone's data. Claude's proposal of what Add User needs and what HR fills in later is waiting for Jingga's answer.
+
+| Column | What it is | Filled | Proposal |
+|---|---|---|---|
+| NAMA LENGKAP | Full name | 18 of 18 | At account creation (already asked) |
+| NRP | The group's existing staff number, 7 to 9 characters (some start with F0) | 18 of 18 | At account creation, as the Employee ID? See questions |
+| NIK | KTP number, 16 digits | 18 of 18 | At account creation (already asked) |
+| NO. TLP | Phone | 18 of 18 | At account creation (already asked) |
+| GROUP | Which company (HOLDING listed apart from PT Serio Prima Indotek) | 18 of 18 | At account creation: the company giving access |
+| JABATAN, GRADE | Job title and pay grade | 18 of 18 | Later by HR. Not the ERP role |
+| NO. KK, NPWP | Family card number, tax number | 14 and 15 of 18 | Later by HR |
+| TEMPAT LAHIR, TANGGAL LAHIR | Place and date of birth | 18 of 18 | Later by HR |
+| TANGGAL MASUK, TANGGAL KELUAR | Start and leaving date | 10 and 0 of 18 | Later by HR |
+| ID BPJS KES, ID BPJS KET | Health and employment insurance numbers | 6 and 5 of 18 | Later by HR |
+| ALAMAT | Home address | 18 of 18 | Later by HR |
+| AGAMA | Religion | 18 of 18 | Later by HR, only if HR needs it |
+| BANK PAYROLL, CABANG BANK, NO. REKENING, NAMA ACCOUNT | Payroll bank account | 18, 9, 18, 17 of 18 | Later by HR or payroll, stricter access (financial data under UU PDP) |
+| STATUS | Aktif | 17 of 18 | The account's active or deactivated status covers it |
+
+- [x] KTP scan not needed, only the NIK. Jingga, 2026-10-13. The upload code stays, switched off (`ASK_FOR_KTP_SCAN` in the Add User dialog)
+- [ ] **NRP:** is the NRP the Employee ID (Pandu's existing staff number, which the 2026-10-13 decision says to use)? If so, HR types it at account creation and the automatic `PDT-00004` numbering is dropped or kept only for people without an NRP. How does HR give a new NRP?
+- [ ] **Email:** the sheet has no email, but people sign in and get the set your password link by email. Does every employee have a work email, or should people without one sign in with NRP and get their first password another way?
+- [ ] **HOLDING:** the sheet lists HOLDING apart from PT Serio Prima Indotek. Is the holding a separate company in the ERP, or part of Serio?
+- [ ] Agree with the proposal: name, NRP, NIK, phone and company at account creation, the rest later by HR (Phase 7)?
+
 ### Slice 8 plan: vendors
 Written 2026-10-13, draft waiting for Jingga's approval. Covers the Vendor record with the group company link and its currency, and closes the acceptance check "Create an item, a customer and a vendor in Pandu. They don't show up in Anggoan". Built like customers (slice 7), reusing its list and record pages, numbering and audit log.
 
