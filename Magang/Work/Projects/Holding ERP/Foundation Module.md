@@ -28,6 +28,7 @@ All terms are in [[Glossary]].
 | Role | Name, list of permissions | Active, Inactive | Permissions |
 | Access | User, company, role | | User, Company, Role |
 | Session | User, current company, expiry | | User |
+| Audit log | Company, table, record, action, old and new values, who, when *(assumed)* | | Company, User |
 | UoM | Code, name | Active, Inactive | Company |
 | Item | Code, name, UoM, buy or make flag | Active, Inactive | Company, UoM |
 | Customer | Code, name, address, contact, group company link (empty for outside customers, used later for intercompany), order type (PO first or work first), rework report needed | Active, Inactive | Company, linked group company |
@@ -91,6 +92,7 @@ These are built now so work isn't blocked, and are easy to change later. All are
 - [ ] Currency: IDR only?
 - [ ] Does anyone besides the super users manage users and roles (one admin per company)?
 - [ ] Do we need an Excel import for items, customers and vendors at the start?
+- [ ] Seed demo items outside production (local and staging)? None for now. Needs Pandu's real item list, since the colleague's demo items (hand soap, dish soap) aren't Wening. See the slice 6 plan
 - [ ] Password rules: how long, and must it mix letters and numbers? The ERP uses Better Auth's minimum of 8 characters for now *(assumed)*
 - [ ] How long does a login last before people must sign in again? Better Auth's default for now: 7 days, renewed while in use *(assumed)*
 - [ ] Lock an account after several wrong passwords? For now Better Auth only slows down repeated attempts *(assumed)*
@@ -130,11 +132,70 @@ Draft by Claude, waiting for Jingga's approval. Stack is in the decisions table 
   - [x] 3. Login and logout with Better Auth (email or Employee ID), forgot password through Mailpit, two-step login for the holding accounts, placeholder Super Admin and Super User seeded (done 2026-10-13)
   - [x] 4. Roles and permissions with the 6 templates, checked on every server action, with tests for the access rules above (done 2026-10-13)
   - [x] 5. User admin: Super Admin creates users and gives access per company and role
-  - [ ] 6. Items and UoM
+  - [ ] 6. Items and UoM, with the audit log (plan below)
   - [ ] 7. Customers, with the group company link and the S&M settings
   - [ ] 8. Vendors, with the group company link
   - [ ] 9. Real-time: lists update live in a second browser
 - Open questions only block their own slice. Slices 1 to 3 and 6 to 9 can start now. Slices 4 and 5 use the 6 templates until they are confirmed
+
+### Slice 6 plan: items and UoM
+Written 2026-10-13, approved by Jingga the same day with the defaults below, plus three calls: the colleague's 11 starter units, the colleague's code format, and an audit log. Covers the Item and UoM records, the rules "Nothing is hard deleted", "Codes are unique inside a company" and "Inactive items can't be picked", and the acceptance checks on items.
+
+**What changes for people**
+- A new Master data section in the sidebar with Items and Units, for everyone who may view items
+- **Units** (`/pandu/master-data/units`): the list, Add, Edit (name only), Deactivate and Reactivate
+- **Items** (`/pandu/master-data/items`): the list with search and "Show inactive", and Add item
+- **Item page** (`/pandu/master-data/items/<id>`): code, name, unit, buy or make, status, Edit, Deactivate and Reactivate, and its History. Still opens for an inactive item, with an Inactive badge
+- Super User and anyone without `items.manage` see no write buttons
+
+**Records**
+| Record | Main fields | Notes |
+|---|---|---|
+| UoM | Company, code, name, active | Code: capital letters and numbers, up to 8, like `PCS` (colleague's format) |
+| Item | Company, code, name, UoM, buy or make, active | Code: capital letters, numbers and dashes, 2 to 24, starts with a letter or number, like `WN-500` (colleague's format). The UoM must be one of the same company's |
+| Audit log | Company, table, record, insert or update, old and new values, who, when | Written by PostgreSQL itself on every change, so nothing is missed. Nobody can edit or delete it |
+
+**Rules and defaults** (all *(assumed)* until confirmed)
+- Starter units for every company, from the colleague's repo: PCS piece, BTL bottle, JRG jerrycan, L liter, ML milliliter, KG kilogram, CTN carton, BOX box, SET set, UNIT unit, DRUM drum. Seeded once: running the seed again never brings back a unit someone renamed or deactivated
+- Codes are typed in any case and saved in capitals. Unique inside a company, Pandu and Anggoan can share one
+- Every item picks buy or make, nothing preset
+- An item's or unit's code can't be changed after it is saved, because later documents print it
+- An item's unit can be changed for now. Lock it once documents use the item (a later module)
+- A unit that active items still use can be deactivated. The items keep it, new items and edits can't pick it
+- Nothing is deleted: the database itself refuses deletes on items and units
+- Permissions: `items.view` (all 6 roles) and `items.manage` (company admin and manager), covering items and units
+- History on the item page is visible to everyone who can view the item
+
+**Audit log**
+- New in this slice at Jingga's request. Not in the spec before, so its details are *(assumed)*
+- One `audit_log` table for every company table. Items and units are the first to use it, later tables add one line to join
+- Each insert and update keeps the old and new values, who did it and when. Changes made by the seed show as "System"
+- The app can only read it, and only for companies the person may see (same company rules as everything else)
+
+**Not in this slice**
+- Item pick lists on documents: the first document (S&M quote) uses active items only. The acceptance check "disappears from pick lists" is closed there; here the items list hides inactive items unless "Show inactive" is ticked
+- History for units and the older tables (users, roles): the log is there to add later
+- Excel import, categories, batches and expiry (Phase 6), reorder levels (IMS)
+
+**Built in three commits, each clicked through in a browser**
+- 6a: audit log, units end to end, permissions, starter units
+- 6b: items list and Add item
+- 6c: item page with Edit, Deactivate, Reactivate and History
+- Then the strict code review on slice 6
+
+**Tests**
+- A Pandu user can't read or change Anggoan's items, units or audit rows
+- Super User is refused every change, a viewer can view but not add, Super Admin can
+- A code used twice in one company is refused with a clear message, the same code in another company is fine. A badly formed code is refused
+- An item can't use another company's unit or an inactive one
+- Deletes are refused by the database
+- Every change leaves an audit row with who and what; the app can't write or change audit rows
+
+**Questions this plan raises** (built with the default shown until answered)
+- [ ] Seed demo items outside production (local and staging) for clicking through? Default: no. The colleague seeds made up Pandu products (hand soap, dish soap), which are wrong for Wening. Seed real ones once Pandu's item list is known
+- [ ] Codes can't change after saving? Default: yes *(assumed)*
+- [ ] Who may add and change items and units: company admin and manager? Default: yes *(assumed)*
+- [ ] Who may see an item's history: everyone who can see the item? Default: yes *(assumed)*
 
 ### Slice 5 plan: users and roles screens
 Written 2026-10-13, approved by Jingga the same day with the defaults below, and built. This is account and access admin, not HR: it is about who can sign in to the ERP and what they may do, not about employees (see [[Glossary]], User and Employee). Covers the flow "Super Admin: create users, give access per company and role" and "Create roles, tick permissions", and the acceptance check "Create a user with the viewer role in Pandu only".
