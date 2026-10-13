@@ -21,6 +21,7 @@ Internship project: one ERP that connects a holding with its six companies, plus
 - [ ] Decide departments in roles (finance, procurement), needed for who manages items and customers (in [[Foundation Module]])
 - [ ] Plan Excel import and export
 - [ ] Ask HR how new NRPs are numbered (until then automatic ones look like PDT-00004)
+- [ ] Ask supervisor: payment terms as a shared list (CBD, Net 14/30/45/60) or any number of days per vendor? Ours for now (in [[Procurement Module]])
 - [ ] Answer the last slice 6 question in [[Foundation Module]]: demo items, once Pandu's real item list is known
 - [ ] Answer the 3 new *(assumed)* user admin rules from slice 5 in [[Foundation Module]]
 - [ ] Ask supervisor: can customers have their own currency, or is every sale in IDR? (in [[Foundation Module]])
