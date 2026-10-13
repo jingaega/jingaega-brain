@@ -38,5 +38,5 @@ PO number, uang muka, payment of uang muka, belanja (the buyer shops after the a
 - [ ] Before payment, purchases show in IDR at which rate: today's BI rate, or the rate on the PO date? Only the paid rate is fixed so far
 - [ ] COD flow: where does payment happen, and does it skip IR?
 - [ ] Approval rules: who approves, and above what amount?
-- [ ] What does Pandu buy (raw materials, packaging, maintenance), and does each need a different path?
+- [ ] What does Pandu buy, and does each need a different path? From the supplier list: chemicals, packaging and printing (vendor categories since slice 8)
 - [ ] Which journals post at which step?

@@ -114,7 +114,7 @@ Written before the build. Each one is something Jingga can click through.
 - [ ] Switch company, the colors change, the data changes
 - [x] Create a user with the viewer role in Pandu only. Log in as them: only Pandu shows, and they can view but not create items (items part checked in slice 6)
 - [x] That user can't open an Anggoan record, even by typing its URL
-- [ ] Create an item, a customer and a vendor in Pandu. They don't show up in Anggoan (items and customers checked in slices 6 and 7, vendors wait for slice 8)
+- [x] Create an item, a customer and a vendor in Pandu. They don't show up in Anggoan (checked in slices 6 to 8)
 - [ ] Set an item Inactive, it disappears from pick lists but stays on its detail page (slice 6: it leaves the items list and its page still opens. The first pick list comes with the S&M quote)
 - [ ] A second browser sees a new item appear without refreshing (real-time check)
 - [ ] All labels and buttons are in English
@@ -138,7 +138,7 @@ Draft by Claude, waiting for Jingga's approval. Stack is in the decisions table 
   - [x] 5. User admin: Super Admin creates users and gives access per company and role. Revised in 5d (NRP, phone, NIK) and 5e (existing NRPs, optional email, temporary passwords, lockout), done 2026-10-13
   - [x] 6. Items and UoM, with the audit log (done 2026-10-13)
   - [x] 7. Customers, with the group company link and the S&M settings (done 2026-10-13)
-  - [ ] 8. Vendors, with the group company link and currency (plan below, waiting for approval)
+  - [x] 8. Vendors, with the group company link, currency, category and payment term (done 2026-10-13)
   - [ ] 9. Real-time: lists update live in a second browser
 - Open questions only block their own slice. Slices 1 to 3 and 6 to 9 can start now. Slices 4 and 5 use the 6 templates until they are confirmed
 
@@ -222,7 +222,7 @@ Jingga shared HR's employee sheet on 2026-10-13: 18 people across the group, 23 
 - [x] Name, NRP, NIK, phone and company at account creation, the rest later by HR (Phase 7). Jingga agreed, 2026-10-13
 
 ### Slice 8 plan: vendors
-Written 2026-10-13, draft waiting for Jingga's approval. Covers the Vendor record with the group company link and its currency, and closes the acceptance check "Create an item, a customer and a vendor in Pandu. They don't show up in Anggoan". Built like customers (slice 7), reusing its list and record pages, numbering and audit log.
+Written 2026-10-13, approved by Jingga the same day with the changes from Pandu's supplier list (below). Covers the Vendor record with the group company link and its currency, and closes the acceptance check "Create an item, a customer and a vendor in Pandu. They don't show up in Anggoan". Built like customers (slice 7), reusing its list and record pages, numbering and audit log.
 
 **What changes for people**
 - Vendors joins Items, Units and Customers under Master data
@@ -259,9 +259,20 @@ Written 2026-10-13, draft waiting for Jingga's approval. Covers the Vendor recor
 - A Pandu user can't read or change Anggoan's vendors; viewer and Super User are refused changes; deletes refused; changes logged
 
 **Questions this plan raises** (built with the default shown until answered)
-- [ ] Vendor codes numbered by the system, V-0001? Default: yes, like customers *(assumed)*
-- [ ] New vendors start in IDR? Default: yes *(assumed)*
-- [ ] A vendor's currency can be changed later? Default: yes, only new purchases use the new one *(assumed)*
+- [x] Vendor codes numbered by the system, V-0001. Jingga, 2026-10-13
+- [x] New vendors start in IDR. Jingga, 2026-10-13
+- [x] A vendor's currency can be changed later; only new purchases use the new one. Jingga, 2026-10-13
+
+**Changes from Pandu's supplier list** (DATA_SUPPLIER_PANDU, 7 suppliers, shared by Jingga 2026-10-13; only the columns are kept here)
+- Added: category (Chemical, Packaging, Printing, the list can grow), payment term (CBD or Net with days; CBD is preselected since 6 of 7 use it *(assumed)*), NPWP, website and notes, all optional except category and payment term
+- One contact person; the phone field may hold several numbers
+- Still for Procurement: bank accounts (stricter access), fax, one-time or online sellers, rating and "blocked"
+- Compared with the colleague's repo: they type vendor codes, keep payment terms in a shared list (CBD, Net 14/30/45/60), category as free text, and have no vendor screen (vendors are made while sourcing)
+
+**Built (2026-10-13)**
+- Vendors list and vendor page with Edit, Deactivate, Reactivate and History, clicked through in a browser as the Pandu admin and viewer
+- Customers and vendors now share their name, address, contact and group company code and fields
+- Strict code review: shared detail rows and history labels, one check for fixed lists, one payment term label table. 146 tests pass
 
 ### Slice 5d plan: personal details and automatic NRP
 Written 2026-10-13, approved by Jingga the same day with all defaults, to build after slice 8. Changes slice 5 (finished), so it is its own plan. From Jingga's answers: new users get an automatic NRP, and HR types the name, phone number, KTP number and a KTP scan (PNG or PDF) once, when the person is first added. Other details come later. The KTP handling follows the five points Jingga agreed to on 2026-10-13.

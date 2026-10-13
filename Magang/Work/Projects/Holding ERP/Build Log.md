@@ -31,7 +31,12 @@ One entry per working session, newest on top. Written by Claude at wrap up. Proc
 - Employee ID renamed NRP everywhere (code and vault)
 - Built slice 5e: typed or automatic NRP, optional email for staff and viewers (required for admins and managers), 24 hour temporary passwords with a choose your password page, Reset Password in Manage, 15 minute lock after 5 wrong passwords. All logged in the audit log
 - Strict code review on 5e, 4 findings fixed. 136 tests pass, lint, typecheck and build pass, migrations checked on a fresh database
-- Next: slice 8, vendors (plan written, waiting for approval)
+- Passwords now need 10 characters, a login lasts one work day (9 hours, not renewed)
+- Tidied the vault: the 2 super users belong to the holding
+- Pandu's supplier list reviewed (columns only kept): added category, payment term, NPWP, website and notes to the vendor plan
+- Built slice 8, vendors: codes V-0001, currency, category, payment term, one per group company. Customers and vendors now share their common fields
+- Strict code review on 8, 3 findings fixed. 146 tests pass, lint, typecheck and build pass, migrations checked on a fresh database
+- Next: slice 9, real time (plan first), or the Excel import for Pandu's real suppliers
 
 ## 2026-10-13 (eighth session)
 - Built slice 5 in three commits, each clicked through in a real browser:

@@ -17,7 +17,7 @@ Internship project: one ERP that connects a holding with its six companies, plus
 - [ ] Phase 1: answer the open questions in [[Foundation Module]] and approve its build plan
 - [ ] Sales and Marketing module: answer the open questions that block Pandu in [[Sales and Marketing Module]]
 - [ ] Get supervisor sign-off on the fresh repo, invite the colleague to both repos (see [[Colleague Repo Comparison]])
-- [ ] Foundation slice 8: Vendors (plan written in [[Foundation Module]], waiting for approval)
+- [ ] Foundation slice 9: real-time lists (needs a plan first)
 - [ ] Decide departments in roles (finance, procurement), needed for who manages items and customers (in [[Foundation Module]])
 - [ ] Plan Excel import and export
 - [ ] Ask HR how new NRPs are numbered (until then automatic ones look like PDT-00004)
@@ -47,7 +47,9 @@ Internship project: one ERP that connects a holding with its six companies, plus
 - Built slice 5d: automatic NRPs (PDT-00004), personal details apart from the login account, KTP scan only for people allowed to see it, every view logged. Review fixed 4 findings. 122 tests pass
 - HR's employee sheet: name, NRP, NIK, phone and company at account creation, the rest later by HR. KTP scan switched off. Employee ID renamed NRP everywhere
 - Built slice 5e: existing NRPs, optional email for staff (admins and managers need one), 24 hour temporary passwords, Reset Password, 15 minute lock after 5 wrong passwords. Review fixed 4 findings. 136 tests pass
-- Next: approve and build slice 8, vendors. Ask HR how new NRPs are numbered
+- Passwords of 10 characters, a login lasts one work day. Tidied the super users (they belong to the holding)
+- Built slice 8, vendors, with category, payment term, currency, NPWP and website from Pandu's supplier list. Review fixed 3 findings. 146 tests pass
+- Next: slice 9 (real time) or the Excel import of Pandu's 7 suppliers. Ask HR how new NRPs are numbered
 
 **2026-10-13 (eighth session)**
 - Built Foundation slice 5, user admin, in three parts, each clicked through in a browser: Users list, Add user with an emailed set your password link, and Manage (change role, remove access, deactivate) plus the Roles screen
