@@ -1,0 +1,241 @@
+{
+  "main": {
+    "id": "7fc6f5ae9b69d52d",
+    "type": "split",
+    "children": [
+      {
+        "id": "639e66fbfa1a8db8",
+        "type": "tabs",
+        "dimension": 60.53299492385786,
+        "children": [
+          {
+            "id": "73054e523145d872",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Projects/Holding ERP/Workflow.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Workflow"
+            }
+          }
+        ]
+      },
+      {
+        "id": "d5227dbab9a196f8",
+        "type": "tabs",
+        "dimension": 39.46700507614213,
+        "children": [
+          {
+            "id": "6dfcfd6387926fb8",
+            "type": "leaf",
+            "state": {
+              "type": "graph",
+              "state": {},
+              "icon": "lucide-git-fork",
+              "title": "Graph view"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "a9c54e4ee788cd03",
+    "type": "split",
+    "children": [
+      {
+        "id": "09420d46023c1478",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "51b429e1677d861a",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "25a1374f97d534da",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "c2c062b37dd1caf9",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "88efeff49a74a4d4",
+    "type": "split",
+    "children": [
+      {
+        "id": "30b9842221d1f419",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "987ff0af07663cf8",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Projects/Holding ERP/Workflow.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for Workflow"
+            }
+          },
+          {
+            "id": "e2bacdfe5fd9df6f",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "Projects/Holding ERP/Workflow.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from Workflow"
+            }
+          },
+          {
+            "id": "0593bcd8a3e576a5",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "c7633b8baf0083d1",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "All properties"
+            }
+          },
+          {
+            "id": "5e04ed7ab1df6dc3",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Projects/Holding ERP/Workflow.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline of Workflow"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "bases:Create new base": false
+    }
+  },
+  "active": "73054e523145d872",
+  "lastOpenFiles": [
+    "CLAUDE.md",
+    "Projects/Holding ERP/Sales and Marketing Module.md",
+    "Projects/Holding ERP/Procurement Module.md",
+    "Projects/Holding ERP/Pandu Roadmap.md",
+    "Projects/Holding ERP/Holding ERP.md",
+    "Projects/Holding ERP/Claude Code Instructions.md",
+    "00 Start Here.md",
+    "Projects/Holding ERP/Build Log.md",
+    "Projects/Holding ERP/Workflow.md",
+    "Companies/Companies.md",
+    "Companies/Wening.md",
+    "Companies/PT Siar Bagja Maraloka.md",
+    "Companies/PT Serio Prima Indotek.md",
+    "Companies/PT Sancang Anugerah Nusantara.md",
+    "Companies/PT Pandu Dwiloka Teknik.md",
+    "Companies/PT Anggoan Karya Narasena.md",
+    "Inbox/Inbox.md",
+    "Templates/Module Spec.md",
+    "Templates/Meeting Note.md",
+    "Templates/Daily Note.md",
+    "PT Anggoan Karya Narasena.md",
+    "Company Roles and Modules.md",
+    "Companies.md",
+    "Wening.md",
+    "Sales and Marketing Module.md",
+    "Projects/Holding ERP/Company Roles and Modules.md",
+    "Templates",
+    "Projects/Holding ERP",
+    "Projects/Company Websites",
+    "Projects",
+    "Meetings",
+    "Inbox",
+    "Companies",
+    "AI-Draft-Notes"
+  ]
+}
