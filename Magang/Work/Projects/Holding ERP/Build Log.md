@@ -9,6 +9,16 @@ tags: [internship, erp, log]
 
 One entry per working session, newest on top. Written by Claude at wrap up. Process is in [[Workflow]].
 
+## 2026-10-13 (eighth session)
+- Built slice 5 in three commits, each clicked through in a real browser:
+  - 5a shadcn/ui with the company theme colors, Settings section, Users list with search
+  - 5b Add user: new email gets an account and a set your password link (3 days), an existing account from another company just gets access. Account, access and link saved together
+  - 5c Manage: change role, remove access (one company only), give access back. Super Admin deactivates or reactivates an account: no sign in anywhere, signed out at once. Roles screen with a tick grid per company
+- Bugs found while testing: the form crashed when no role was picked, roles were listed alphabetically instead of in template order, two test files changed the same demo user at the same time, the seed would have undone Roles screen changes. All fixed
+- Strict code review on slice 5, all 6 findings fixed: permission checks with the rules, one rule for who can't be changed, success messages that can't be faked by a link, one table for the Manage buttons, simpler user and permission types
+- 72 tests pass
+- Next: slice 6, items and UoM
+
 ## 2026-10-13 (seventh session)
 - Ran the app with pnpm dev. Fixed: Next.js instant navigation warnings on every per request page (each page now opts out on its own), and the dev badge covering the sidebar links
 - Built slice 4: permissions, roles (6 per company), role permissions and company access tables. PostgreSQL row level security keeps companies apart, the app connects as a limited user, the owner only for migrations and seed. Several roles per person per company allowed

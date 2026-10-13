@@ -129,7 +129,7 @@ Draft by Claude, waiting for Jingga's approval. Stack is in the decisions table 
   - [x] 2. Companies: 6 seeded with their approved themes and logos, company picker switches the theme (done 2026-10-13)
   - [x] 3. Login and logout with Better Auth (email or Employee ID), forgot password through Mailpit, two-step login for the holding accounts, placeholder Super Admin and Super User seeded (done 2026-10-13)
   - [x] 4. Roles and permissions with the 6 templates, checked on every server action, with tests for the access rules above (done 2026-10-13)
-  - [ ] 5. User admin: Super Admin creates users and gives access per company and role
+  - [x] 5. User admin: Super Admin creates users and gives access per company and role
   - [ ] 6. Items and UoM
   - [ ] 7. Customers, with the group company link and the S&M settings
   - [ ] 8. Vendors, with the group company link
@@ -137,7 +137,7 @@ Draft by Claude, waiting for Jingga's approval. Stack is in the decisions table 
 - Open questions only block their own slice. Slices 1 to 3 and 6 to 9 can start now. Slices 4 and 5 use the 6 templates until they are confirmed
 
 ### Slice 5 plan: users and roles screens
-Written 2026-10-13, approved by Jingga the same day with the defaults below. This is account and access admin, not HR: it is about who can sign in to the ERP and what they may do, not about employees (see [[Glossary]], User and Employee). Covers the flow "Super Admin: create users, give access per company and role" and "Create roles, tick permissions", and the acceptance check "Create a user with the viewer role in Pandu only".
+Written 2026-10-13, approved by Jingga the same day with the defaults below, and built. This is account and access admin, not HR: it is about who can sign in to the ERP and what they may do, not about employees (see [[Glossary]], User and Employee). Covers the flow "Super Admin: create users, give access per company and role" and "Create roles, tick permissions", and the acceptance check "Create a user with the viewer role in Pandu only".
 
 **Who can use these screens**
 - Company admin (permission `users.manage`, and `roles.manage` for roles), inside their own company *(assumed)*
@@ -180,6 +180,14 @@ Written 2026-10-13, approved by Jingga the same day with the defaults below. Thi
 - [ ] Can a company admin give access to someone who already has an account in another group company? Default: yes, the screen says so *(assumed)*
 - [ ] Only Super Admin can deactivate a whole account; a company admin only removes access to their own company? Default: yes *(assumed)*
 - [ ] **Ask supervisor:** Employee ID required for every new user, or optional? Default: optional until Pandu's ID format is known *(assumed)*
+- [ ] Nobody can change their own role, remove their own access or deactivate themselves, so an admin can't lock themselves out by mistake. Added while building 5c *(assumed)*
+- [ ] A company admin can untick "Change what each role may do" on their own role and lose the Roles screen. Only a Super Admin can give it back. Should the screen stop that? Default: no guard *(assumed)*
+- [ ] Deactivate has an undo: a Super Admin can reactivate the account, with its company access as it was. Added while building 5c *(assumed)*
+
+**Built (2026-10-13)**
+- 5a Users list with search, 5b Add user with the set your password email, 5c Manage (change role, remove access, give access back, deactivate and reactivate for Super Admin) and the Roles screen with a tick grid
+- Running the seed again never undoes ticks changed on the Roles screen. A template permission is only given to a new role, or when the permission itself is new
+- Not yet done: "a viewer can view but not create items" in the acceptance check waits for slice 6 (items)
 
 ### Slice 4 plan: roles, permissions and company data isolation
 Written 2026-10-13, approved by Jingga the same day with the defaults below, and built. Covers the rules "You only see companies you have access to", "Your role decides what you can do", "Super Admin can do everything" and "Super User can never change anything".
