@@ -16,7 +16,9 @@ One entry per working session, newest on top. Written by Claude at wrap up. Proc
   - 5c Manage: change role, remove access (one company only), give access back. Super Admin deactivates or reactivates an account: no sign in anywhere, signed out at once. Roles screen with a tick grid per company
 - Bugs found while testing: the form crashed when no role was picked, roles were listed alphabetically instead of in template order, two test files changed the same demo user at the same time, the seed would have undone Roles screen changes. All fixed
 - Strict code review on slice 5, all 6 findings fixed: permission checks with the rules, one rule for who can't be changed, success messages that can't be faked by a link, one table for the Manage buttons, simpler user and permission types
-- 72 tests pass
+- 72 tests pass, CI green on every commit
+- Wrote [[Architecture]]: the main parts of the code (login, access and permissions, company isolation, users and roles, mail, database, tests) and how they link
+- Installed graphify for this session. Only useful once the code is bigger, plan is to run it after slice 9
 - Next: slice 6, items and UoM
 
 ## 2026-10-13 (seventh session)

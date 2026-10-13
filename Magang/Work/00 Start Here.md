@@ -33,7 +33,10 @@ Internship project: one ERP that connects a holding with its six companies, plus
 - Built Foundation slice 5, user admin, in three parts, each clicked through in a browser: Users list, Add user with an emailed set your password link, and Manage (change role, remove access, deactivate) plus the Roles screen
 - Strict code review on slice 5, all 6 findings fixed. The biggest: permission checks now sit with the rules, and new tests prove a viewer and a Super User are refused every change
 - New *(assumed)* rules to confirm in [[Foundation Module]]: nobody changes their own access, deactivate can be undone, no guard against an admin removing their own Roles permission
-- Next: slice 6, items and UoM (plan first)
+- New note [[Architecture]]: how the built code fits together, with links between the parts
+- Installed graphify (turns a folder into a knowledge graph) for this session only. Not worth running yet, try `/graphify .` on the code repo after slice 9. A new session needs it installed again
+- CI green on every slice 5 commit
+- Next: slice 6, items and UoM. Start a new session and write the plan first
 
 **2026-10-13 (seventh session)**
 - Ran the app with pnpm dev and fixed the dev only warnings and the Next.js badge covering the sidebar
