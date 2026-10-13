@@ -22,6 +22,7 @@ Internship project: one ERP that connects a holding with its six companies, plus
 - [ ] Answer the last slice 6 question in [[Foundation Module]]: demo items, once Pandu's real item list is known
 - [ ] Answer the 3 new *(assumed)* user admin rules from slice 5 in [[Foundation Module]]
 - [ ] Ask supervisor: is the Employee ID required for every user? (open question in [[Foundation Module]])
+- [ ] Ask supervisor: can customers have their own currency, or is every sale in IDR? (in [[Foundation Module]])
 - [ ] Confirm the *(assumed)* items in [[Company Roles and Modules]]
 - [ ] Finalize the full module list for [[Holding ERP]], built around PT Pandu first as the baseline
 - [ ] Company websites: list what each one needs in [[Company Websites]]

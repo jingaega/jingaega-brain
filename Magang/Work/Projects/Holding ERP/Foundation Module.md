@@ -90,6 +90,7 @@ These are built now so work isn't blocked, and are easy to change later. All are
 - [ ] Confirm the 6 role templates, and what each one can do per module
 - [ ] Master data per company or shared? Spec currently says per company (Anggoan has its own catalog). If per company, how does a Wening item at Pandu match the same item at Anggoan for the automatic PO to SO?
 - [x] Currency: IDR, plus Chinese yuan (CNY), US dollar (USD), Singapore dollar (SGD), Australian dollar (AUD), euro (EUR) and Japanese yen (JPY) for procurement. Jingga, 2026-10-13. Follow ups in [[Procurement Module]]
+- [ ] **Ask supervisor:** do customers also have their own currency (selling abroad), or is every sale in IDR? Vendors have one currency each (Jingga, 2026-10-13), which slice 8 adds
 - [ ] Does anyone besides the super users manage users and roles (one admin per company)?
 - [ ] Do we need an Excel import for items, customers and vendors at the start?
 - [ ] Seed demo items outside production (local and staging)? None for now. Needs Pandu's real item list, since the colleague's demo items (hand soap, dish soap) aren't Wening. See the slice 6 plan
