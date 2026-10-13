@@ -17,9 +17,8 @@ Internship project: one ERP that connects a holding with its six companies, plus
 - [ ] Phase 1: answer the open questions in [[Foundation Module]] and approve its build plan
 - [ ] Sales and Marketing module: answer the open questions that block Pandu in [[Sales and Marketing Module]]
 - [ ] Get supervisor sign-off on the fresh repo, invite the colleague to both repos (see [[Colleague Repo Comparison]])
-- [ ] Foundation slice 8: Vendors (needs a plan first)
+- [ ] Foundation slice 8: Vendors (plan written in [[Foundation Module]], waiting for approval)
 - [ ] Decide departments in roles (finance, procurement), needed for who manages items and customers (in [[Foundation Module]])
-- [ ] Plan the new user details: automatic Employee ID, number, KTP (changes slice 5)
 - [ ] Plan Excel import and export
 - [ ] Answer the last slice 6 question in [[Foundation Module]]: demo items, once Pandu's real item list is known
 - [ ] Answer the 3 new *(assumed)* user admin rules from slice 5 in [[Foundation Module]]
@@ -43,7 +42,9 @@ Internship project: one ERP that connects a holding with its six companies, plus
 - Jingga confirmed: everyone who can see an item sees its history. The Users dialogs now keep what was typed after a refused save
 - Built Foundation slice 7, customers: codes numbered by the system (C-0001), group company link, order type (PO first by default) and rework report. Plan and answers in [[Foundation Module]]
 - Strict code review on slice 7: shared list and record page layouts, ready for vendors. 111 tests pass
-- Next: slice 8, vendors. Write the plan first
+- Supervisor answers: codes fixed, Excel import and export needed, departments later, new users get an automatic Employee ID plus phone, KTP number and KTP scan
+- Built slice 5d: automatic Employee IDs (PDT-00004), personal details apart from the login account, KTP scan only for people allowed to see it, every view logged. Review fixed 4 findings. 122 tests pass
+- Next: approve and build slice 8, vendors
 
 **2026-10-13 (eighth session)**
 - Built Foundation slice 5, user admin, in three parts, each clicked through in a browser: Users list, Add user with an emailed set your password link, and Manage (change role, remove access, deactivate) plus the Roles screen

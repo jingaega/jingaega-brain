@@ -87,6 +87,13 @@ Settings in each company, built in slice 5. Account and access admin, not HR (se
 - **Roles**: a tick grid of permissions per role, saved per company (`lib/roles.ts`)
 - Every change goes through [[#Access and permissions|requirePermission]] and [[#Company isolation|withUser]]
 
+### Personal details
+Added in slice 5d (plan in [[Foundation Module]]).
+- New users get an Employee ID from PostgreSQL: company code plus 5 digits, like `PDT-00004` (`app_next_employee_id` in `db/migrations/0009_company-codes-and-employee-ids.sql`)
+- Phone, KTP number and KTP scan sit in `personal_details`, one per person, apart from the login account. HR (Phase 7) grows from it. Typed once with a new account; the app can't change or delete them
+- Only people with `users.personal_data` in one of the person's companies, and Super Admin, can read them. PostgreSQL enforces it (`app_can_see_personal_data`)
+- The scan file lives outside the public folder (`lib/file-storage.ts`, `FILE_STORAGE_DIR`), opens only through `/<company>/settings/users/<id>/ktp`, and every view is logged in the audit log. Phone and KTP numbers never go into the audit log
+
 ### Master data
 Items and units (slice 6) and customers (slice 7), plans in [[Foundation Module]]. Per company, under Master data in the sidebar.
 - **Units** (`lib/units.ts`): code and name. Every company starts with 11 units from the seed

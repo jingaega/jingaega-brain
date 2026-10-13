@@ -134,7 +134,7 @@ Draft by Claude, waiting for Jingga's approval. Stack is in the decisions table 
   - [x] 2. Companies: 6 seeded with their approved themes and logos, company picker switches the theme (done 2026-10-13)
   - [x] 3. Login and logout with Better Auth (email or Employee ID), forgot password through Mailpit, two-step login for the holding accounts, placeholder Super Admin and Super User seeded (done 2026-10-13)
   - [x] 4. Roles and permissions with the 6 templates, checked on every server action, with tests for the access rules above (done 2026-10-13)
-  - [x] 5. User admin: Super Admin creates users and gives access per company and role
+  - [x] 5. User admin: Super Admin creates users and gives access per company and role. Revised in 5d: automatic Employee ID, phone, KTP number and scan (done 2026-10-13)
   - [x] 6. Items and UoM, with the audit log (done 2026-10-13)
   - [x] 7. Customers, with the group company link and the S&M settings (done 2026-10-13)
   - [ ] 8. Vendors, with the group company link and currency (plan below, waiting for approval)
@@ -223,6 +223,13 @@ Written 2026-10-13, approved by Jingga the same day with all defaults, to build 
 - Without `users.personal_data` nobody sees phone or KTP, and the scan link refuses them, even typed by hand. Super User is refused
 - Opening a scan leaves an audit row
 - A person from another group company only gets access, no personal details asked or changed
+
+**Built (2026-10-13)**
+- 5d-1 company codes and automatic Employee IDs (the next Pandu user is PDT-00004), 5d-2 personal details with phone and KTP number, 5d-3 KTP scan upload and the checked link. Each clicked through in a browser
+- Found while building: the audit log would have copied phone and KTP numbers where everyone in the company can read them. It now records only that details were added, and every time a scan is opened
+- The scan is checked by its content (a text file renamed .png is refused), stored outside the public folder, removed again if the save fails, and served only to people with `users.personal_data`; everyone else gets "not found"
+- After a refused save the person has to pick the scan file again: a browser can't put a chosen file back
+- Strict code review: 4 findings fixed (scan always required in the database, simpler cleanup, real errors no longer hidden as not found, view entries in history). 122 tests pass
 
 **Questions this plan raises** (built with the default shown until answered)
 - [x] Company codes SPI, PDT, SBM, SAN, AKN, ETA? Yes, confirmed by Jingga
