@@ -30,6 +30,11 @@ One ERP that connects a holding with six companies. PT Serio Prima Indotek is th
 - Use the templates in `Templates/` for new notes
 - Every note links back to its parent (project, hub or index) and every new note gets linked from one
 
+## Git
+- Commit as Jingga: run `git config user.name "jingaega"` and `git config user.email "ganpique@gmail.com"` before the first commit of a session
+- No `Co-Authored-By`, `Claude-Session` or "Generated with Claude Code" lines in commits or pull requests
+- Push vault changes straight to `main`, so Obsidian picks them up
+
 ## Writing style
 - Short and plain, like a student writing notes. Relaxed, not corporate
 - No em dashes or en dashes anywhere. Use commas, periods or colons
