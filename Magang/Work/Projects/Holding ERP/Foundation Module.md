@@ -141,6 +141,45 @@ Draft by Claude, waiting for Jingga's approval. Stack is in the decisions table 
   - [ ] 9. Real-time: lists update live in a second browser
 - Open questions only block their own slice. Slices 1 to 3 and 6 to 9 can start now. Slices 4 and 5 use the 6 templates until they are confirmed
 
+### Slice 5e plan: existing NRPs and optional email
+Written 2026-10-13, draft waiting for Jingga's approval. Follows Jingga's answers on HR's employee sheet: the NRP is the staff ID and stays automated, employees don't need an email, and the HOLDING people are the admins.
+
+**What changes for people**
+- **Add User** has an **NRP** field, optional:
+  - Empty: the person gets the next NRP automatically (new staff)
+  - Filled: the NRP HR already gave them (existing staff, like `20123456`). Refused if someone else has it
+- **Email is optional**
+  - With an email: as today, an emailed link to choose their own password
+  - Without one: after saving, the admin sees a **temporary password once**, to hand over. It works for 3 days. At first sign in, the ERP makes the person choose their own password before anything else
+- **Sign in** with NRP or email, as today
+- **Forgot password** without an email: the page says to ask the admin. In Users, Manage, the admin can **Reset password**, which makes a new temporary password, shown once
+- Nobody ever sees a password the person chose themselves
+
+**Rules and defaults** (all *(assumed)* until confirmed)
+- Automatic NRPs keep the current format, company code plus 5 digits (`PDT-00004`), until HR says how it numbers new staff (question below)
+- A typed NRP: letters and numbers, 4 to 20 characters, unique across all 6 companies
+- Temporary passwords: 12 characters, easy to read out (no 0/O or 1/l), valid 3 days, one use
+- Only people who may add users (company admin) can reset someone's password, inside their own company; holding accounts can't be reset this way
+
+**Under the hood**
+- The login library needs an email on every account. People without one get a hidden placeholder address that can never receive mail (`<id>@no-email.invalid`), and the screens show "No email". Nothing is ever sent to it
+- A "must choose a new password" mark on the account, cleared when they do
+
+**Built in three commits, each clicked through in a browser, then the strict review**
+- 5e-1: the NRP field (typed or automatic)
+- 5e-2: optional email, temporary password, choose your password at first sign in
+- 5e-3: Reset password in Manage, forgot password without email
+
+**Tests**
+- A typed NRP is saved; a taken one is refused; an empty one gets the next automatic NRP
+- Someone without an email gets a temporary password that signs in once, is forced to choose a new one, and stops working after 3 days
+- Nothing is ever sent to a placeholder address
+- A viewer, a Super User and another company's admin can't reset passwords
+
+**Questions this plan raises**
+- [ ] **How does HR number new staff?** The sheet's NRPs are mostly 8 digits starting with 20, 24, 10 or 25, some start with F0. Is there a rule (year joined plus a number, F for one company)? Until then, automatic NRPs look like `PDT-00004` *(assumed)*
+- [ ] Temporary password valid 3 days, like the email link? Default: yes *(assumed)*
+
 ### Employee data from HR (Data Karyawan 2026)
 Jingga shared HR's employee sheet on 2026-10-13: 18 people across the group, 23 columns. Only the column list is kept here, never anyone's data. Claude's proposal of what Add User needs and what HR fills in later is waiting for Jingga's answer.
 
@@ -163,7 +202,7 @@ Jingga shared HR's employee sheet on 2026-10-13: 18 people across the group, 23 
 
 - [x] KTP scan not needed, only the NIK. Jingga, 2026-10-13. The upload code stays, switched off (`ASK_FOR_KTP_SCAN` in the Add User dialog)
 - [x] **NRP is the NRP** (Jingga, 2026-10-13). HR types it at account creation. Was: is the NRP the NRP (Pandu's existing staff number, which the 2026-10-13 decision says to use)? If so, HR types it at account creation and the automatic `PDT-00004` numbering is dropped or kept only for people without an NRP. How does HR give a new NRP?
-- [ ] **Email:** the sheet has no email, but people sign in and get the set your password link by email. Does every employee have a work email, or should people without one sign in with NRP and get their first password another way?
+- [x] **Email:** optional. People without one get a temporary password from the admin and choose their own at first sign in (Jingga agreed, 2026-10-13). Plan: slice 5e
 - [x] **HOLDING:** the people listed as HOLDING are the admins, the holding level accounts (Super Admin and Super User), not a separate company. Jingga, 2026-10-13
 - [x] Name, NRP, NIK, phone and company at account creation, the rest later by HR (Phase 7). Jingga agreed, 2026-10-13
 
