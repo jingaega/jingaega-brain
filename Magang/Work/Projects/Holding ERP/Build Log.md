@@ -17,6 +17,7 @@ One entry per working session, newest on top. Written by Claude at wrap up. Proc
 - Known limit: an unknown company shows the not found page but with HTTP status 200, because the page streams before the check. Fine for users
 - Renamed Maraloka to Sibama everywhere (decision in [[Holding ERP]]), with a migration for databases seeded earlier
 - Logged the HTTP 200 on unknown companies under Known issues in [[Foundation Module]]
+- Ran the strict code review on slices 1 and 2 and fixed all 5 findings: one company lookup per page instead of three, build works without a database (needed for AWS), one clear home for the company list, shared page shell and sidebar component. Behavior unchanged, all checks pass
 - Next: slice 3, login
 
 ## 2026-10-13 (fourth session)
