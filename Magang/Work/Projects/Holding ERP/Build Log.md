@@ -27,6 +27,10 @@ One entry per working session, newest on top. Written by Claude at wrap up. Proc
 - Supervisor answers came in: item and unit codes fixed, Excel import and export needed, who manages items and customers needs departments (later), new users get an automatic NRP with phone, KTP number and KTP scan
 - Built slice 5d (the user revisions) before vendors, at Jingga's request: company codes, automatic NRPs, personal details kept apart from the login account, KTP scan upload. Only people with `users.personal_data` see them, every scan view is logged
 - Strict code review on 5d, 4 findings fixed. 122 tests pass, lint, typecheck and build pass, migrations checked on a fresh database
+- HR's employee sheet reviewed (columns only kept): name, NRP, NIK, phone and company at account creation, the rest later by HR. KTP scan switched off, only the NIK
+- Employee ID renamed NRP everywhere (code and vault)
+- Built slice 5e: typed or automatic NRP, optional email for staff and viewers (required for admins and managers), 24 hour temporary passwords with a choose your password page, Reset Password in Manage, 15 minute lock after 5 wrong passwords. All logged in the audit log
+- Strict code review on 5e, 4 findings fixed. 136 tests pass, lint, typecheck and build pass, migrations checked on a fresh database
 - Next: slice 8, vendors (plan written, waiting for approval)
 
 ## 2026-10-13 (eighth session)

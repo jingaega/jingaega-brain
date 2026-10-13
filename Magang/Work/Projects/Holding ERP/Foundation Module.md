@@ -134,7 +134,7 @@ Draft by Claude, waiting for Jingga's approval. Stack is in the decisions table 
   - [x] 2. Companies: 6 seeded with their approved themes and logos, company picker switches the theme (done 2026-10-13)
   - [x] 3. Login and logout with Better Auth (email or NRP), forgot password through Mailpit, two-step login for the holding accounts, placeholder Super Admin and Super User seeded (done 2026-10-13)
   - [x] 4. Roles and permissions with the 6 templates, checked on every server action, with tests for the access rules above (done 2026-10-13)
-  - [x] 5. User admin: Super Admin creates users and gives access per company and role. Revised in 5d: automatic NRP, phone, KTP number and scan (done 2026-10-13)
+  - [x] 5. User admin: Super Admin creates users and gives access per company and role. Revised in 5d (NRP, phone, NIK) and 5e (existing NRPs, optional email, temporary passwords, lockout), done 2026-10-13
   - [x] 6. Items and UoM, with the audit log (done 2026-10-13)
   - [x] 7. Customers, with the group company link and the S&M settings (done 2026-10-13)
   - [ ] 8. Vendors, with the group company link and currency (plan below, waiting for approval)
@@ -180,6 +180,13 @@ Written 2026-10-13, approved by Jingga the same day with the middle way on email
 - A viewer, a Super User and another company's admin can't reset passwords
 - Adding a company admin or manager without an email is refused, so is giving that role to someone without one
 - 5 wrong passwords lock the account for 15 minutes, even with the right password after; it opens again after
+
+**Built (2026-10-13)**
+- 5e-1 NRP field (typed for existing staff, automatic when empty), 5e-2 optional email with temporary passwords and the choose your password page, 5e-3 Reset Password in Manage and forgot password without email, 5e-4 lockout. Each clicked through in a browser
+- Someone without an email who joins a second group company is found by their NRP
+- The lock counts every way of signing in, also the login library's own web address, so it can't be skipped
+- Found while building: the lock was never written to the audit log (a database type mistake). Caught by a test, fixed
+- Strict code review: 4 findings fixed (Add User in named steps, one module for the sign in rules, account events kept out of record history, no type cast in the form dialog). 136 tests pass
 
 **Questions this plan raises**
 - [ ] **How does HR number new staff?** The sheet's NRPs are mostly 8 digits starting with 20, 24, 10 or 25, some start with F0. Is there a rule (year joined plus a number, F for one company)? Until then, automatic NRPs look like `PDT-00004` *(assumed)*

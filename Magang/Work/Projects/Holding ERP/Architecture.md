@@ -87,9 +87,16 @@ Settings in each company, built in slice 5. Account and access admin, not HR (se
 - **Roles**: a tick grid of permissions per role, saved per company (`lib/roles.ts`)
 - Every change goes through [[#Access and permissions|requirePermission]] and [[#Company isolation|withUser]]
 
+### Signing in without an email
+Added in slice 5e (plan in [[Foundation Module]]).
+- Email is optional for staff and viewers; roles with a "manage" permission or `users.personal_data` need one. People without one get a hidden placeholder address (`lib/no-email.ts`) that nothing is ever sent to
+- They get a temporary password from the admin, shown once, signing in once within 24 hours; every page sends them to `/choose-password` first
+- `lib/sign-in-rules.ts` holds every rule about who may sign in, checked inside the login library: deactivated accounts, spent temporary passwords, and the 15 minute lock after 5 wrong passwords
+- Password resets by an admin and locks are in the audit log
+
 ### Personal details
 Added in slice 5d (plan in [[Foundation Module]]).
-- New users get an NRP from PostgreSQL: company code plus 5 digits, like `PDT-00004` (`app_next_employee_id` in `db/migrations/0009_company-codes-and-employee-ids.sql`)
+- Existing staff keep the NRP HR gave them (typed in Add User). New staff get one from PostgreSQL: company code plus 5 digits, like `PDT-00004`, until HR's numbering rule is known (`app_next_employee_id` in `db/migrations/0009_company-codes-and-employee-ids.sql`)
 - Phone, KTP number and KTP scan sit in `personal_details`, one per person, apart from the login account. HR (Phase 7) grows from it. Typed once with a new account; the app can't change or delete them
 - Only people with `users.personal_data` in one of the person's companies, and Super Admin, can read them. PostgreSQL enforces it (`app_can_see_personal_data`)
 - The scan file lives outside the public folder (`lib/file-storage.ts`, `FILE_STORAGE_DIR`), opens only through `/<company>/settings/users/<id>/ktp`, and every view is logged in the audit log. Phone and KTP numbers never go into the audit log

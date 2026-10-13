@@ -20,6 +20,7 @@ Internship project: one ERP that connects a holding with its six companies, plus
 - [ ] Foundation slice 8: Vendors (plan written in [[Foundation Module]], waiting for approval)
 - [ ] Decide departments in roles (finance, procurement), needed for who manages items and customers (in [[Foundation Module]])
 - [ ] Plan Excel import and export
+- [ ] Ask HR how new NRPs are numbered (until then automatic ones look like PDT-00004)
 - [ ] Answer the last slice 6 question in [[Foundation Module]]: demo items, once Pandu's real item list is known
 - [ ] Answer the 3 new *(assumed)* user admin rules from slice 5 in [[Foundation Module]]
 - [ ] Ask supervisor: can customers have their own currency, or is every sale in IDR? (in [[Foundation Module]])
@@ -44,7 +45,9 @@ Internship project: one ERP that connects a holding with its six companies, plus
 - Strict code review on slice 7: shared list and record page layouts, ready for vendors. 111 tests pass
 - Supervisor answers: codes fixed, Excel import and export needed, departments later, new users get an automatic NRP plus phone, KTP number and KTP scan
 - Built slice 5d: automatic NRPs (PDT-00004), personal details apart from the login account, KTP scan only for people allowed to see it, every view logged. Review fixed 4 findings. 122 tests pass
-- Next: approve and build slice 8, vendors
+- HR's employee sheet: name, NRP, NIK, phone and company at account creation, the rest later by HR. KTP scan switched off. Employee ID renamed NRP everywhere
+- Built slice 5e: existing NRPs, optional email for staff (admins and managers need one), 24 hour temporary passwords, Reset Password, 15 minute lock after 5 wrong passwords. Review fixed 4 findings. 136 tests pass
+- Next: approve and build slice 8, vendors. Ask HR how new NRPs are numbered
 
 **2026-10-13 (eighth session)**
 - Built Foundation slice 5, user admin, in three parts, each clicked through in a browser: Users list, Add user with an emailed set your password link, and Manage (change role, remove access, deactivate) plus the Roles screen
