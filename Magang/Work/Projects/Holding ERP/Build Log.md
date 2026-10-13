@@ -36,7 +36,9 @@ One entry per working session, newest on top. Written by Claude at wrap up. Proc
 - Pandu's supplier list reviewed (columns only kept): added category, payment term, NPWP, website and notes to the vendor plan
 - Built slice 8, vendors: codes V-0001, currency, category, payment term, one per group company. Customers and vendors now share their common fields
 - Strict code review on 8, 3 findings fixed. 146 tests pass, lint, typecheck and build pass, migrations checked on a fresh database
-- Next: slice 9, real time (plan first), or the Excel import for Pandu's real suppliers
+- Contact person renamed PIC on customers and vendors. Payment terms stay per vendor; a shared list (like the colleague's) is a supervisor question in [[Procurement Module]]
+- All of this session's work is on `claude/vault-slice-6-9vxzpp` in both repos, not merged into `main` yet, so CI hasn't run on it
+- Next: merge into `main`, then slice 9, real time (plan first), or the Excel import for Pandu's real suppliers
 
 ## 2026-10-13 (eighth session)
 - Built slice 5 in three commits, each clicked through in a real browser:

@@ -17,7 +17,8 @@ Internship project: one ERP that connects a holding with its six companies, plus
 - [ ] Phase 1: answer the open questions in [[Foundation Module]] and approve its build plan
 - [ ] Sales and Marketing module: answer the open questions that block Pandu in [[Sales and Marketing Module]]
 - [ ] Get supervisor sign-off on the fresh repo, invite the colleague to both repos (see [[Colleague Repo Comparison]])
-- [ ] Foundation slice 9: real-time lists (needs a plan first)
+- [ ] Merge `claude/vault-slice-6-9vxzpp` into `main` in both repos, so CI runs on this session's work
+- [ ] Foundation slice 9: real-time lists (needs a plan first), or the Excel import of Pandu's suppliers
 - [ ] Decide departments in roles (finance, procurement), needed for who manages items and customers (in [[Foundation Module]])
 - [ ] Plan Excel import and export
 - [ ] Ask HR how new NRPs are numbered (until then automatic ones look like PDT-00004)
@@ -50,7 +51,9 @@ Internship project: one ERP that connects a holding with its six companies, plus
 - Built slice 5e: existing NRPs, optional email for staff (admins and managers need one), 24 hour temporary passwords, Reset Password, 15 minute lock after 5 wrong passwords. Review fixed 4 findings. 136 tests pass
 - Passwords of 10 characters, a login lasts one work day. Tidied the super users (they belong to the holding)
 - Built slice 8, vendors, with category, payment term, currency, NPWP and website from Pandu's supplier list. Review fixed 3 findings. 146 tests pass
-- Next: slice 9 (real time) or the Excel import of Pandu's 7 suppliers. Ask HR how new NRPs are numbered
+- The contact person is called PIC on customers and vendors, like the supplier list. Payment terms stay per vendor (CBD or Net days); a shared list is a supervisor question
+- All work is on the branch `claude/vault-slice-6-9vxzpp` in both repos, not yet merged into `main` (the decision is to push to `main`). CI only runs on `main` and pull requests, so it hasn't run on this work; lint, typecheck, 146 tests and the build pass locally
+- Next: merge the branch into `main` in both repos, then slice 9 (real time, plan first) or the Excel import of Pandu's 7 suppliers. Ask HR how new NRPs are numbered
 
 **2026-10-13 (eighth session)**
 - Built Foundation slice 5, user admin, in three parts, each clicked through in a browser: Users list, Add user with an emailed set your password link, and Manage (change role, remove access, deactivate) plus the Roles screen
