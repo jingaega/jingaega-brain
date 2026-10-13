@@ -14,8 +14,8 @@ Every module has a linked spec note. [[Foundation Module]], Sales & Marketing an
 ## At a glance
 | Module                 | Main parts                                                               | Spec                           |
 | ---------------------- | ------------------------------------------------------------------------ | ------------------------------ |
-| Sales & Marketing      |                                                                          | [[Sales and Marketing Module]] |
-| Procurement            |                                                                          | [[Procurement Module]]         |
+| Sales & Marketing      | Quote, PO cust, SO, DO / BAST, returns with QC and rework. Tempo flow first, then CBD and Kopken. POS, CRM and website leads later | [[Sales and Marketing Module]] |
+| Procurement            | PR, sourcing, PO, GR, IR, payment, vendor management. Down payment and COD flows, partial receipts, auto-posted journals | [[Procurement Module]]         |
 | Finance Accounting Tax | Cost control, tax, cost structure, salary structure                      | [[Finance Accounting Tax Module]]             |
 | HR                     | HRIS: employees, contracts, attendance, overtime, payroll, reimbursement | [[HR Module]]             |
 | GA                     | Assets, facilities                                                       | [[GA Module]]             |
