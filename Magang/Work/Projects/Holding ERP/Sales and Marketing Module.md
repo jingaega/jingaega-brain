@@ -45,7 +45,7 @@ Five records carry a deal from quote to delivery. Each one links to the one befo
 
 | Record | Main fields | Statuses | Links to |
 |---|---|---|---|
-| Quote record | Customer, version (v1, v2...), amount, payment type (required), validity date, date sent, attached file | Awaiting reply, Accepted, Revised (superseded), Lost | Customer |
+| Quote record | Customer, version (v1, v2...), lines (item, qty, price), total (sum of the lines), payment type (required), validity date, date sent, attached file | Awaiting reply, Accepted, Revised (superseded), Lost | Customer |
 | PO cust | PO number, items, qty, price, payment term, delivery address, scan or file | Received, Matched, Mismatch flagged | Accepted quote version |
 | SO | Items with our item codes, qty, price, payment type (optional, falls back to quote), delivered qty, invoiced qty, paid qty | Confirmed, Partially delivered, Delivered, Closed, Cancelled | PO cust, or the buyer's PO for a group company order |
 | DO / BAST | Items and qty sent, delivery date, photo proof, customer signature | Created, Delivered, Signed, Rejected | SO |
@@ -53,6 +53,7 @@ Five records carry a deal from quote to delivery. Each one links to the one befo
 
 Notes on the quote record:
 - Logged at the moment it is sent, so the sent date and validity date are real
+- It has item lines, not just a total. That lets the ERP check the PO cust line by line, warn on a price below the floor, and copy the lines into the SO
 - Nego happens outside the ERP. The sales person only records the outcome: accepted (PO cust comes in), revised (new version entered, old one superseded), or lost (reason required)
 - Expiry is automatic. Validity date passes with no reply, status becomes Lost (expired)
 
@@ -158,7 +159,7 @@ Build notes:
 | SO override gets flagged | If the SO or PO term differs from the quote (tempo 45 vs quoted 30), it is highlighted and needs approval |
 | Quote locks on PO | Once PO cust is linked, that quote version can't be edited |
 | Loss needs a reason | Price (customer says too expensive) *(assumed reading of "price too low")*, customer cancelled, no response, expired (auto) |
-| Floor price is a warning, not a gate *(assumed)* | If a floor price is stored, warn when a quote is below it. Never blocks. Waits on the floor price open question |
+| Floor price is a warning, not a gate *(assumed)* | If a floor price is stored for the item, warn when a quote line is below it. Never blocks. Waits on the floor price open question |
 | No photo, no BAST | DO / BAST can't move to Signed without at least one photo |
 | Sale is booked on BAST | Finance books revenue when the BAST is signed, not when the PO arrives. Signed BAST also triggers the invoice (tempo) |
 | DO / BAST is one document | One record with statuses (created, delivered, signed, rejected), not two |
@@ -194,7 +195,7 @@ Build notes:
 - [ ] Check stock N: tempo goes Prod/Purch to DO / BAST, CBD loops back to check stock. Same or different on purpose?
 - [ ] Does a lost deal count as Closed? The whiteboard links Loss to Closed
 - [ ] Kopken revenue timing: the price only exists after BAST, so when does finance book the sale?
-- [ ] Is there a fixed floor price per item, or does the sales person decide each time?
+- [ ] **Ask supervisor:** is there a fixed floor price per item, or does the sales person decide each time? Until then the warning rule above stays *(assumed)*
 - [ ] Is down payment its own payment type, or tempo with a first installment?
 - [ ] Does Anggoan (or another group buyer) ever get a quote first, or does its PO always go straight to an SO?
 - [ ] What is PMS? It is not one of the 12 modules. Is it sourcing inside Procurement?

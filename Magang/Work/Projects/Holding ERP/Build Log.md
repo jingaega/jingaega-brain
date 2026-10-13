@@ -14,6 +14,7 @@ One entry per working session, newest on top. Written by Claude at wrap up. Proc
 - Closed Phase 0 in the vault: stack, deadline, repo and UI language logged in [[Holding ERP]]
 - Added [[Foundation Module]] with the Phase 1 build plan (9 slices)
 - Fixed contradictions in [[Sales and Marketing Module]], added its Pandu baseline, cut Phase 2 to quote to signed BAST
+- Quotes now have item lines (decision logged). Floor price question marked to ask the supervisor
 - Next: Foundation answers and plan approval, then slice 1
 
 ## 2026-10-13

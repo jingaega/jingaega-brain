@@ -69,7 +69,7 @@ Decided, see the decisions table in [[Holding ERP]].
 ## S&M questions that block Pandu first
 These decide how Pandu's tempo flow behaves, so answer them before the build plan:
 - [ ] Credit gate for tempo customers before the SO?
-- [ ] Floor price per item, or decided each time?
+- [ ] Floor price per item, or decided each time? (ask supervisor)
 - [ ] Does a lost deal count as Closed?
 - [ ] Does Anggoan (or another group buyer) get a quote first, or does its PO always go straight to an SO?
 
