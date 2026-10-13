@@ -105,7 +105,7 @@ The full list is 12 modules. Order of work and status are in [[Pandu Roadmap]]. 
 | 2026-10-13 | Phase 2 goal is a Pandu tempo order from quote to signed BAST, not to paid | Stock (Phase 4) and Finance (Phase 5) are built later, so stock check and invoice are only simple steps until then |
 
 ## Open questions
-- What does the holding role of Serio need in the ERP (group view, who sees what, the 2 super users)?
+- What does the holding role of Serio need in the ERP (group view, who sees what)? The 2 super users are settled: the holding's admins
 - Which modules beyond Sales & Marketing and FAHCGA are actually in scope?
 - How do Jingga and the colleague work together in the repo (branches, reviews)?
 - Handover plan: who maintains the ERP after the internship

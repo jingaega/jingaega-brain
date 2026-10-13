@@ -75,7 +75,7 @@ flowchart TD
 
 ## Placeholders until Jingga decides
 These are built now so work isn't blocked, and are easy to change later. All are *(assumed)*.
-- **Super users:** two anonymous accounts, one Super Admin and one Super User. Real names and emails replace them later. Where they sit (Pandu or Serio) is still open
+- **Super users:** two anonymous accounts, one Super Admin and one Super User. Real names and emails replace them later. They belong to the holding, not to one company: HR's sheet lists them as HOLDING (Jingga, 2026-10-13)
 - **Roles:** the 6 templates from the colleague's repo, for now: company admin, director, manager, supervisor, staff, viewer. What each one can do per module is still to be confirmed
 
 ## Pandu baseline
@@ -85,14 +85,15 @@ These are built now so work isn't blocked, and are easy to change later. All are
 - What the holding view excludes: nothing here. The group company link is what later lets the holding view drop intercompany sales
 
 ## Open questions
-- [ ] Who are the 2 super users, and do they sit in Pandu or Serio?
+- [x] The 2 super users are the holding's admins, listed as HOLDING in HR's employee sheet, not part of one company. Jingga, 2026-10-13
+- [ ] Which of the two is Super Admin (changes everything) and which is Super User (sees everything, changes nothing)? Their real accounts replace the placeholder ones
 - [x] The NRP is given automatically when a new user is added. Jingga, 2026-10-13. Format still open (see slice 5 questions)
 - [ ] Confirm the 6 role templates, and what each one can do per module
 - [ ] **Departments** (later, Jingga): Jingga's answers name finance and procurement managers and above. The 6 roles (company admin, director, manager, supervisor, staff, viewer) have no department today. Add departments to access (manager in finance), or make roles per department (Finance Manager)? And does "above" mean director and company admin? Until decided, items and customers stay with company admin and manager
 - [ ] Master data per company or shared? Spec currently says per company (Anggoan has its own catalog). If per company, how does a Wening item at Pandu match the same item at Anggoan for the automatic PO to SO?
 - [x] Currency: IDR, plus Chinese yuan (CNY), US dollar (USD), Singapore dollar (SGD), Australian dollar (AUD), euro (EUR) and Japanese yen (JPY) for procurement. Jingga, 2026-10-13. Follow ups in [[Procurement Module]]
 - [ ] **Ask supervisor:** do customers also have their own currency (selling abroad), or is every sale in IDR? Vendors have one currency each (Jingga, 2026-10-13), which slice 8 adds
-- [ ] Does anyone besides the super users manage users and roles (one admin per company)?
+- [x] Besides the super users, each company's admin manages users and roles (built in slice 5). Later HR adds users too, once departments exist. Jingga, 2026-10-13
 - [x] Excel import and export are needed. Jingga, 2026-10-13. Which records and when (with master data, or later) still to plan
 - [ ] Seed demo items outside production (local and staging)? None for now. Needs Pandu's real item list, since the colleague's demo items (hand soap, dish soap) aren't Wening. See the slice 6 plan
 - [x] Password rules: at least 10 characters, no forced mix. Jingga, 2026-10-13
