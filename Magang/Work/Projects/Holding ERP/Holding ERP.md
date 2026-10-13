@@ -103,6 +103,6 @@ The full list is 12 modules. Order of work and status are in [[Pandu Roadmap]]. 
 - [ ] Write the FAHCGA module spec (use the Module Spec template)
 
 ## Links and resources
-- ERP repo: `jingaega/PT-SERIO-ERP` on GitHub
+- ERP repo: `jingaega/PT-SERIO-ERP` on GitHub. How the code is put together: [[Architecture]]
 - Vault repo: `jingaega/jingaega-brain` on GitHub, folder `Magang/Work`
 - Colleague's ERP repo: `Difsyy/Serio-Intern` on GitHub (see [[Colleague Repo Comparison]])

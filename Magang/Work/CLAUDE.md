@@ -22,6 +22,7 @@ One ERP that connects a holding with six companies. PT Serio Prima Indotek is th
 - Notes in `Projects/Holding ERP/` worth knowing by name:
   - `Foundation Module.md` the Phase 1 spec and its build plan
   - `Glossary.md` every term, one meaning each
+  - `Architecture.md` how the built code fits together: login, access, company isolation, users and roles
   - `Colleague Repo Comparison.md` how the vault differs from `Difsyy/Serio-Intern`, and why we build our own repo
 
 ## Code repo
