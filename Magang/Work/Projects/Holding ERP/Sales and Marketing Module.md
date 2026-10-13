@@ -189,6 +189,7 @@ Build notes:
 - [ ] Is "cash" on the quote the same as CBD? Installment has no flow yet
 - [ ] Who approves an SO term override? Depends on the role list in [[Foundation Module]]
 - [ ] Can a BAST be partly rejected, with some lines accepted and invoiced?
+- [ ] Does a customer need several delivery addresses for the DO / BAST? Foundation keeps one address and one contact per customer for now. The colleague's repo has several of each
 - [ ] Later: who owns the PI and its paid status in CBD, S&M or FAT? CBD has no PO cust or SO in the flow, but DO / BAST links to an SO
 - [ ] Later: Kopken creates the BAST before any PO or SO exists, and the WO and Rework Report are not records yet. How do they link?
 

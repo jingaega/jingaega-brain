@@ -151,7 +151,7 @@ Written 2026-10-13, approved by Jingga the same day with the defaults below. Cov
 **Record**
 | Field | Notes |
 |---|---|
-| Code | Capitals, numbers and dashes, 2 to 16, like `CUS-001`. The colleague's customer format. Unique inside a company, can't change after saving (same as items) |
+| Code | Numbered by the system per company: C-0001, C-0002 and so on, like the colleague's repo (Jingga's call). Nobody types it, and it never changes |
 | Name | Required |
 | Address | One free text address, optional |
 | Contact | One contact person: name, phone, email, all optional |
@@ -173,7 +173,7 @@ Written 2026-10-13, approved by Jingga the same day with the defaults below. Cov
 
 **Not in this slice**
 - Credit limit, payment terms, NPWP and tax: they come with S&M
-- Several contacts or addresses per customer
+- Several contacts or delivery addresses per customer. One of each for now (Jingga's call); several delivery addresses are noted as an S&M question for DO / BAST
 - Vendors (slice 8). Customers and vendors share address, contact and group company fields, so slice 8 reuses them
 
 **Built in two commits, each clicked through in a browser**
@@ -184,16 +184,16 @@ Written 2026-10-13, approved by Jingga the same day with the defaults below. Cov
 **Tests**
 - A Pandu user can't read or change Anggoan's customers
 - Super User is refused every change, a viewer can view but not add, Super Admin can
-- A code used twice in one company is refused, the same code in another company is fine
+- Codes count up per company with no gaps or doubles, also when two people save at once. Pandu and Anggoan each have their own C-0001
 - Pandu can't pick itself as a group company, and can't link two customers to the same group company
 - Deletes are refused, every change leaves an audit row
 
 **Questions this plan raises** (built with the default shown until answered)
 - [x] One address and one contact person per customer for now. Confirmed by Jingga
-- [x] Customer code format like the colleague's, 2 to 16 capitals, numbers and dashes. Confirmed by Jingga
+- [x] Customer codes are numbered by the system (C-0001), like the colleague's repo. Jingga's call, replaces typed codes
 - [x] At most one customer per group company inside a company. Confirmed by Jingga
 - [x] New customers start as PO first. Confirmed by Jingga
-- [ ] **Ask supervisor** (with the slice 6 questions): who may add and change customers, and can a customer code change after saving?
+- [ ] **Ask supervisor:** who may add and change customers? Default: company admin and manager *(assumed)*. The colleague's repo lets staff add customers but only admin and manager change them
 
 ### Slice 6 plan: items and UoM
 Written 2026-10-13, approved by Jingga the same day with the defaults below, plus three calls: the colleague's 11 starter units, the colleague's code format, and an audit log. Covers the Item and UoM records, the rules "Nothing is hard deleted", "Codes are unique inside a company" and "Inactive items can't be picked", and the acceptance checks on items.
