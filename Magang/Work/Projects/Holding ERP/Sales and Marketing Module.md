@@ -144,10 +144,10 @@ Build notes:
 |---|---|
 | Payment type lives on the quote | Required field on every quote version (cash, tempo + days, down payment, installment) |
 | SO payment type falls back to the quote | SO field is optional. Empty means follow the accepted quote version. Screen shows the effective value and where it came from |
-| SO override gets flagged | If the SO or PO term differs from the quote (tempo 45 vs quoted 30), it is highlighted and needs approval |
+| SO override gets flagged | If the SO or PO term differs from the quote (tempo 45 vs quoted 30), it is highlighted. A looser term needs GM approval (Director if no GM) *(assumed details)* |
 | Quote locks on PO | Once PO cust is linked, that quote version can't be edited |
 | Loss needs a reason | Price (customer says too expensive) *(assumed reading of "price too low")*, customer cancelled, no response, expired (auto) |
-| Minimum margin check | A quote line with a margin below the minimum needs manager approval before the quote is sent. Decided 2026-10-13, replaces the floor price idea |
+| Minimum margin check | A quote line with a markup on average cost below the company minimum (10 %) needs approval by a Manager or up in Sales before the quote is sent. Decided 2026-10-13, details from the colleague's repo 2026-10-14, supervisor to confirm |
 | No photo, no BAST | DO / BAST can't move to Signed without at least one photo |
 | Sale is booked on BAST | Finance books revenue when the BAST is signed, not when the PO arrives. Signed BAST also triggers the invoice (tempo) |
 | DO / BAST is one document | One record with statuses (created, delivered, signed, rejected), not two |
@@ -182,12 +182,13 @@ Build notes:
 - [ ] Check stock N: tempo goes Prod/Purch to DO / BAST, CBD loops back to check stock. Same or different on purpose?
 - [ ] Does a lost deal count as Closed? The whiteboard links Loss to Closed
 - [ ] Kopken revenue timing: the price only exists after BAST, so when does finance book the sale?
-- [ ] Minimum margin: margin against which cost (average stock cost, last purchase price)? What is the minimum, one % for the company or per item? Which manager approves?
+- [x] Minimum margin: use the colleague's repo for now. Jingga, 2026-10-14. **Ask supervisor to confirm.** Margin is markup on cost: (price - cost) / cost. Cost is the item's average stock cost. One % per company: default margin 20 %, minimum 10 %, both changeable per company. Below the minimum, a Manager or up in Sales approves before the quote is sent
+- [ ] **Ask supervisor:** in Phase 2 there is no stock (Phase 4) and no production cost (Phase 6), so the margin check has no cost to compare with. Type a cost on each item until then, or wait for Phase 4?
 - [ ] Is down payment its own payment type, or tempo with a first installment? Partly answered in meeting [[2026-10-14]]: sales payment types are ours to decide, default CBD, with COD, progress payment and Net up to 180 days. Which ones S&M builds first still to decide
 - [ ] Later, with intercompany: does Anggoan (or another group buyer) get a quote first, or does its PO go straight to an SO?
 - [ ] What is PMS? It is not one of the 12 modules. Is it sourcing inside Procurement?
 - [ ] Is "cash" on the quote the same as CBD? Installment has no flow yet
-- [ ] Who approves an SO term override? Depends on the role list in [[Foundation Module]]
+- [x] SO term override is approved by the GM. Jingga, 2026-10-14. Only a looser term (more days, or tempo instead of CBD) needs approval *(assumed)*. A company with no active GM falls back to a Director *(assumed)*
 - [ ] Can a BAST be partly rejected, with some lines accepted and invoiced?
 - [x] Every sale is in IDR. Meeting [[2026-10-14]]
 - [ ] Does a customer need several delivery addresses for the DO / BAST? Foundation keeps one address and one contact per customer for now. The colleague's repo has several of each
