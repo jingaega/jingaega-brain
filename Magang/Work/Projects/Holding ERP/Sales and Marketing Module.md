@@ -43,7 +43,9 @@ Notes on the quote record:
 - Logged at the moment it is sent, so the sent date and validity date are real
 - It has item lines, not just a total. That lets the ERP check the PO cust line by line, run the minimum margin check per line, and copy the lines into the SO
 - Nego happens outside the ERP. The sales person only records the outcome: accepted (PO cust comes in), revised (new version entered, old one superseded), or lost (reason required)
-- Expiry is automatic. Validity date passes with no reply, status becomes Lost (expired)
+- Expiry is automatic. Validity date passes with no reply, status becomes Lost (expired). Jingga, 2026-10-14: keep it
+- The sales person is warned 3 days before the validity date *(assumed number)*
+- An expired quote is never revived. If the customer still wants it, sales makes a new quote version with fresh prices
 
 ## Tempo flow (default)
 
@@ -97,6 +99,7 @@ QC is one step with two exits: defect goes to rework, pass goes to kirim. Rework
 
 - Kirim creates a new DO / BAST linked to the original order. The original BAST stays Rejected, so the history is visible
 - The return record keeps a rework count. The limit before scrap or a supplier claim is still open
+- After QC, the customer gets the goods again (kirim) or a **credit note**: a document that takes the returned goods' value off what they owe, or leaves them a credit if they already paid. Jingga, 2026-10-14. The credit note needs invoices, so it comes with FAT (Phase 5). Until then only kirim. Who may issue a credit note and whether it needs approval is open
 - This is the default loop. Kopken uses a Rework Report instead and gets no new BAST (see the Kopken template below)
 
 ## CBD flow
@@ -149,7 +152,8 @@ Build notes:
 | Loss needs a reason | Price (customer says too expensive) *(assumed reading of "price too low")*, customer cancelled, no response, expired (auto) |
 | Minimum margin check | A quote line with a GP % ((price - COGS) / price) below the company minimum (10 %) needs approval by a Manager or up in Sales before the quote is sent. Decided 2026-10-13, details 2026-10-14 from the whiteboard and the colleague's repo, supervisor to confirm |
 | No photo, no BAST | DO / BAST can't move to Signed without at least one photo |
-| Sale is booked on BAST | Finance books revenue when the BAST is signed, not when the PO arrives. Signed BAST also triggers the invoice (tempo) |
+| Stock goes out when goods leave | Stock drops when the goods leave the warehouse, so nobody else is promised them *(assumed, ask supervisor and FAT)*. Manual until stock exists (Phase 4) |
+| Sale is booked on BAST | Finance books revenue and its COGS together when the BAST is signed, not when the PO arrives or the goods leave. Signed BAST also triggers the invoice (tempo). COGS at the same moment is *(assumed, ask supervisor and FAT)* |
 | DO / BAST is one document | One record with statuses (created, delivered, signed, rejected), not two |
 | Nothing ships without passing QC | Returned goods go through QC. Rework always goes back to QC before kirim |
 | Kirim uses a new DO / BAST | Linked to the original order. The original BAST stays Rejected for history |
@@ -192,6 +196,7 @@ Build notes:
 - [ ] What is PMS? It is not one of the 12 modules. Is it sourcing inside Procurement?
 - [ ] Is "cash" on the quote the same as CBD? Installment has no flow yet
 - [x] SO term override is approved by the GM. Jingga, 2026-10-14. **Ask supervisor to confirm** where it happens: Claude suggested on the PO cust mismatch, not as a free field on the SO, and Jingga agreed (2026-10-14). Only a looser term (more days, or tempo instead of CBD) needs approval *(assumed)*. A company with no active GM falls back to a Director *(assumed)*
+- [ ] Credit note after a return: who issues it, and does it need approval? (comes with Phase 5)
 - [ ] Can a BAST be partly rejected, with some lines accepted and invoiced?
 - [x] Every sale is in IDR. Meeting [[2026-10-14]]
 - [ ] Does a customer need several delivery addresses for the DO / BAST? Foundation keeps one address and one contact per customer for now. The colleague's repo has several of each
