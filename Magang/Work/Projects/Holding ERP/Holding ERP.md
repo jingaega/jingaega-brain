@@ -126,6 +126,12 @@ The full list is 12 modules. Order of work and status are in [[Pandu Roadmap]]. 
 | 2026-10-14 | Om Leo (director, "super finance") approves journals in every company and gives finance people access to journal entries | Jingga |
 | 2026-10-14 | A Manager may correct a goods receipt, and every reversal is done by a Manager | Jingga |
 | 2026-10-14 | Vendor bank accounts: seen by everyone who can see vendors, changed by people who can manage vendors, like the colleague's repo | Jingga, after looking at the colleague's repo |
+| 2026-10-14 | S&M first build: CBD first, then tempo and progress (down payment). COD and Kopken later, Kopken as an order type | Jingga, after comparing with the colleague's repo. CBD is the default payment type |
+| 2026-10-14 | S&M starts at Quote recorded, and the customer PO is its own record, checked against the quote | Jingga, kept over the colleague's repo, where the PO is a field on the SO |
+| 2026-10-14 | Check stock is automatic, like the colleague's repo | Jingga. When it can be built depends on stock (Phase 4), open question in [[Sales and Marketing Module]] |
+| 2026-10-14 | Credit gate before the SO for tempo customers, like the colleague's repo | Jingga. Details in [[Sales and Marketing Module]] |
+| 2026-10-14 | Minimum margin is gross profit on the selling price, with the colleague's per company numbers (20 % default, 10 % minimum) | Formula from the office whiteboard, numbers from the colleague's repo. Supervisor to confirm |
+| 2026-10-14 | The GM approves SO term overrides | Jingga |
 | 2026-10-14 | Roles move toward the colleague's model: levels (General Manager, Manager, SPV, Lead, OPR) with a department function, Company Admin as a switch | Jingga. Needs its own plan before building |
 | 2026-10-13 | Excel import: same checks as the form, add only, warning on similar names, our template and Pandu's own columns both read. Copy how the colleague's import works, not its rules | Grilling session. Keeps one set of rules, and the import never changes existing vendors |
 | 2026-10-13 | Vendors keep fax and several bank accounts. Bank accounts are shown nowhere until Procurement, and the audit log never holds the numbers *(assumed)* | Pandu's supplier list has them, so nothing in the file is lost. Bank details need stricter access |

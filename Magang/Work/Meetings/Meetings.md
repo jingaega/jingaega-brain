@@ -12,3 +12,4 @@ When a meeting confirms an *(assumed)* item, remove the marker in the note it li
 
 ## Log
 - 
+- [[2026-10-14 Whiteboard costing and pricing]]

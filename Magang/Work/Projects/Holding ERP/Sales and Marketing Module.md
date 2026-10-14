@@ -18,7 +18,7 @@ The S&M module starts when a quotation is recorded. Everything before that (RFQ,
 - **In the ERP:** quote record, customer PO, SO, DO / BAST, delivery and receive status, returns and rework
 - **Handed to other modules:** stock (IMS/WMS), purchasing or production (Proc/Prod), invoice and payment (FAT)
 - **Flows covered:** Tempo (default, credit terms), CBD (cash before delivery), and the Kopken work-first template
-- **First build:** tempo only, starting at Quote recorded. CBD and Kopken come later (decision in [[Holding ERP]])
+- **First build:** CBD first, then tempo and progress (down payment), all starting at Quote recorded. COD and Kopken come later (decisions in [[Holding ERP]], 2026-10-14)
 - **Not in Pandu's first release:** POS, CRM and website leads. They are needed later for Anggoan's own selling
 
 > [!warning] Consequence
@@ -101,8 +101,8 @@ QC is one step with two exits: defect goes to rework, pass goes to kirim. Rework
 
 ## CBD flow
 
-> [!note] Later
-> Not in the first build. Tempo comes first.
+> [!note] First build
+> Built first, before tempo (Jingga, 2026-10-14). It is also the default payment type.
 
 In CBD the customer pays before anything ships, so there is no AR and no credit risk.
 
@@ -147,7 +147,7 @@ Build notes:
 | SO override gets flagged | If the SO or PO term differs from the quote (tempo 45 vs quoted 30), it is highlighted. A looser term needs GM approval (Director if no GM) *(assumed details)* |
 | Quote locks on PO | Once PO cust is linked, that quote version can't be edited |
 | Loss needs a reason | Price (customer says too expensive) *(assumed reading of "price too low")*, customer cancelled, no response, expired (auto) |
-| Minimum margin check | A quote line with a markup on average cost below the company minimum (10 %) needs approval by a Manager or up in Sales before the quote is sent. Decided 2026-10-13, details from the colleague's repo 2026-10-14, supervisor to confirm |
+| Minimum margin check | A quote line with a GP % ((price - COGS) / price) below the company minimum (10 %) needs approval by a Manager or up in Sales before the quote is sent. Decided 2026-10-13, details 2026-10-14 from the whiteboard and the colleague's repo, supervisor to confirm |
 | No photo, no BAST | DO / BAST can't move to Signed without at least one photo |
 | Sale is booked on BAST | Finance books revenue when the BAST is signed, not when the PO arrives. Signed BAST also triggers the invoice (tempo) |
 | DO / BAST is one document | One record with statuses (created, delivered, signed, rejected), not two |
@@ -179,12 +179,15 @@ Build notes:
 - [ ] Does CBD also start at quote recorded, or at RFQ like the whiteboard? Decides if both flows share one entry point
 - [x] Credit gate before the SO for tempo customers, like the colleague's repo. Jingga, 2026-10-14. Each customer has a credit limit (0 by default). Exposure = open SOs not yet invoiced + unpaid invoices + the new SO. Over the limit: a warning, the SO waits for approval by a Manager or up in Sales, and no stock is held until approved. Overdue invoices are not checked separately *(assumed)*
 - [ ] Rework limit: after how many failed QC rounds does it go to scrap or a supplier claim?
-- [ ] Check stock N: tempo goes Prod/Purch to DO / BAST, CBD loops back to check stock. Same or different on purpose?
+- [x] Check stock is automatic, like the colleague's repo: available stock is held for the SO when it is confirmed, and a shortage goes to Prod/Purch. Same for every payment type. Jingga, 2026-10-14
+- [ ] Automatic check stock needs stock records, which come in Phase 4. Build stock (IMS core) before or with S&M, or keep the manual "stock confirmed" step until Phase 4?
 - [ ] Does a lost deal count as Closed? The whiteboard links Loss to Closed
 - [ ] Kopken revenue timing: the price only exists after BAST, so when does finance book the sale?
-- [x] Minimum margin: use the colleague's repo for now. Jingga, 2026-10-14. **Ask supervisor to confirm.** Margin is markup on cost: (price - cost) / cost. Cost is the item's average stock cost. One % per company: default margin 20 %, minimum 10 %, both changeable per company. Below the minimum, a Manager or up in Sales approves before the quote is sent
+- [x] Minimum margin: settings from the colleague's repo, formula from the office whiteboard ([[2026-10-14 Whiteboard costing and pricing]]). Jingga, 2026-10-14. **Ask supervisor to confirm.** Margin is gross profit on the selling price: GP % = (price - COGS) / price x 100. COGS is the item's moving average cost *(assumed, the whiteboard also lists standard price)*. One % per company: default 20 %, minimum 10 %, both changeable per company *(colleague's numbers, the whiteboard says 15 to 22, meaning unclear)*. Below the minimum, a Manager or up in Sales approves before the quote is sent
+- [ ] **Ask supervisor:** cost method for COGS: moving average price or standard price (both on the whiteboard, plus a third one that reads "VA")? And what does "15 to 22" next to the cost parts mean, a target GP %?
+- [ ] Inbox note says "Marketing may have a margin, sales may not". Does that mean sales staff must not see the margin or cost on a quote, only that it needs approval?
 - [ ] **Ask supervisor:** in Phase 2 there is no stock (Phase 4) and no production cost (Phase 6), so the margin check has no cost to compare with. Type a cost on each item until then, or wait for Phase 4?
-- [ ] Is down payment its own payment type, or tempo with a first installment? Partly answered in meeting [[2026-10-14]]: sales payment types are ours to decide, default CBD, with COD, progress payment and Net up to 180 days. Which ones S&M builds first still to decide
+- [x] Down payment is its own payment type, called progress: a down payment before delivery, then the rest in parts, like the colleague's repo. Built in the first build. Jingga, 2026-10-14. COD comes later. Was: Is down payment its own payment type, or tempo with a first installment? Partly answered in meeting [[2026-10-14]]: sales payment types are ours to decide, default CBD, with COD, progress payment and Net up to 180 days. Which ones S&M builds first still to decide
 - [ ] Later, with intercompany: does Anggoan (or another group buyer) get a quote first, or does its PO go straight to an SO?
 - [ ] What is PMS? It is not one of the 12 modules. Is it sourcing inside Procurement?
 - [ ] Is "cash" on the quote the same as CBD? Installment has no flow yet
