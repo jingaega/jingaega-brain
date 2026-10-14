@@ -205,13 +205,98 @@ Build notes:
 - [ ] Later: Kopken creates the BAST before any PO or SO exists, and the WO and Rework Report are not records yet. How do they link?
 
 ## Acceptance checks
-Written before the build. Each one is something Jingga can click through.
-- [ ] 
+Written before the build. Each one is something Jingga can click through, as Pandu.
+- [ ] A sales person records a quote (customer, lines, payment type, validity date, file) and sees it as Awaiting reply
+- [ ] Revising a quote makes v2. v1 shows Revised and can't be edited
+- [ ] Marking a quote lost asks for a reason. A quote past its validity date shows Lost (expired) by itself, and shows "expires soon" 3 days before
+- [ ] A quote line below the minimum margin shows only "needs approval" to Sales. A Marketing Manager sees the GP % and approves or refuses it. A Sales Manager never sees a margin or a cost
+- [ ] A customer PO is recorded against the accepted quote version. A different qty, price or term is flagged per line. A looser term waits for the GM. The quote version locks
+- [ ] An SO is made from the PO cust and shows its payment type and term, and where they came from
+- [ ] A tempo SO over the customer's credit limit waits for a Sales Manager. Under the limit it goes straight to Confirmed
+- [ ] "Stock confirmed" on the SO is needed before any DO / BAST
+- [ ] CBD: a PI is made from the SO. No DO / BAST can be made until Finance marks the PI paid. After the last signed BAST the order is Closed
+- [ ] Progress: a down payment PI is paid before the first DO / BAST. The rest goes to FAT as a schedule
+- [ ] A DO / BAST can't be signed without a photo. Partial deliveries update the SO's delivered qty
+- [ ] Tempo: a signed BAST sets the delivery to "handed to FAT"
+- [ ] A rejected BAST makes a return. QC defect goes to rework, rework goes back to QC (rework count goes up), pass makes a new DO / BAST linked to the same SO. The old BAST stays Rejected
+- [ ] Someone from Anggoan, a Super User, or a person without the permission can't see or change any of Pandu's sales records (database rules, with tests)
 
 ## Build plan
-Filled in by Claude and approved before any code.
-- Data model:
-- Screens:
-- API:
-- Slices (small, one record end to end):
-  - [ ] 
+Written 2026-10-14, **waiting for Jingga's approval**. Order: CBD first, then tempo and progress, all from Quote recorded. Phase 2 has no stock (Phase 4) and no invoices (Phase 5), so check stock is a manual "stock confirmed" step and tempo ends at "handed to FAT".
+
+### Changes to Foundation first (finished module, needs approval)
+Foundation is done, so these change its data model. Each one is small:
+- **Marketing function.** Add `marketing` to the department functions, so "only Marketing sees margin" and "a Marketing Manager approves low margins" have someone to point at. Pandu gets a Marketing department at seed
+- **Customer fields** that S&M needs, all promised "with S&M" earlier: NPWP (15 or 16 digits, optional), credit limit (Rp, 0 by default), default payment type and term (CBD, tempo with Net 1 to 180 days, or progress), set by Sales and Finance Managers
+- **Several delivery addresses per customer**, like the colleague's repo *(assumed, open question below)*. The one address today becomes the first one
+- **Item cost**: a typed standard cost per item, changed only by Finance Managers and up, seen only by Marketing and the supers *(assumed, until Phase 4)*
+- **New permission to see cost and margin** (`margin.view`). The GM gets everything by default today, so the GM is left out of this one on purpose *(assumed, ask: should the GM see margins?)*
+
+### Data model
+One table per record, each with `company_id`, the read and write rule pair, a company isolation test and the audit log, like every Foundation table.
+
+| Table | Holds | Notes |
+|---|---|---|
+| `sales_settings` | Per company: default margin 20 %, minimum margin 10 %, quote warning days 3 | *(assumed numbers, colleague's)* |
+| `quotes` | Customer, number, current version, status (awaiting reply, accepted, lost), lost reason and note | Lost reasons: price, customer cancelled, no response, expired (auto) |
+| `quote_versions` | Version number, payment type and term, down payment % for progress, validity date, date sent, file, status (current, revised) | Only the current version can change, and only before a PO cust |
+| `quote_lines` | Item, qty, unit, price | GP % is worked out when read, never stored, so cost changes show at once |
+| `customer_pos` | Quote version, PO number, PO date, payment term, delivery address, scan, status (received, matched, mismatch) | One per accepted quote version |
+| `customer_po_lines` | Item, qty, price, plus the flag when it differs from the quote | |
+| `sales_orders` | PO cust, payment type and term (copied, never typed), credit check result, stock confirmed (who, when), status | Confirmed, Partially delivered, Delivered, Handed to FAT, Closed, Cancelled |
+| `sales_order_lines` | Item, qty, price, delivered qty | Invoiced and paid qty come with FAT (Phase 5) |
+| `proforma_invoices` | SO, kind (full for CBD, down payment for progress), amount, paid (who, when, reference) | No AR, no journal |
+| `deliveries` | SO, number, date, status (created, delivered, signed, rejected), receiver name, rejection reason, replaces (for kirim) | The DO / BAST, one document |
+| `delivery_lines` | SO line, qty | |
+| `delivery_photos` | Photo files | Stored like the KTP scan (`lib/file-storage.ts`) |
+| `returns` | Rejected delivery, reason, received by warehouse (who, when), status, rework count | Received, In QC, In rework, Passed, Sent out again |
+| `return_checks` | Each QC round: pass or defect, what was wrong, who | The rework count is the number of defect rounds |
+| `approval_requests` | Document, kind (low margin, term mismatch, credit limit), asked by, decided by, decision, note | One shared table so there is one "To approve" list *(design choice)* |
+
+Document numbers *(assumed format, open question below)*: `SQ-PDT-2026-10-0001` for quotes, then SO, PI and DO the same way, numbered per company per month like the colleague's repo.
+
+### Screens
+All under the company, in a new **Sales** menu:
+- **Quotes**: list (filter by status, "expires soon"), record a quote, quote page with versions, revise, mark lost, record PO cust
+- **Orders**: list, SO page with lines, stock confirmed button, PIs, deliveries and returns on one page, the document chain on top
+- **Deliveries**: list for the warehouse, DO / BAST page with photo upload, sign or reject
+- **Returns**: list, return page with QC rounds and kirim
+- **To approve**: one list of everything waiting for me (low margins, term mismatches, credit limits)
+- **Settings, Sales**: margin numbers and warning days (Company Admin)
+
+### Who does what (starting grants, all *(assumed)*, changed on the Roles screen)
+| Work | Who |
+|---|---|
+| Record quotes, PO cust and SOs, mark lost | OPR and up in Sales |
+| See margin and cost | Marketing (every level) and the supers, nobody else |
+| Approve low margins | Manager and up in Marketing |
+| Approve a looser term on a PO cust | GM (Director if no GM) |
+| Approve a credit limit overrun | Manager and up in Sales |
+| Confirm stock, make and sign DO / BAST, receive returns | OPR and up in Warehouse |
+| Mark a PI paid | Manager and up in Finance |
+| QC and rework on returns | OPR and up in Production *(Quality module later)* |
+| See all sales records | Everyone in Sales, Marketing, Warehouse and Finance, plus Director and GM |
+
+### Slices
+One record end to end each, with the strict code review after each slice.
+- [ ] **S0. Foundation changes**: Marketing function, customer fields and delivery addresses, item cost, `margin.view`
+- [ ] **S1. Quotes**: record, versions, lost with reason, expiry and "expires soon", sales settings
+- [ ] **S2. Margin check and approvals**: GP % per line from the item cost, hidden from everyone without `margin.view`, low margin approval by Marketing, the To approve list
+- [ ] **S3. Customer PO**: record against the accepted version, line by line check, term mismatch to the GM, quote locks
+- [ ] **S4. Sales order**: from the PO cust, payment type and term with their source, stock confirmed, cancel
+- [ ] **S5. PI and CBD**: PI from the SO, Finance marks it paid, DO / BAST blocked until then. CBD works end to end after S6
+- [ ] **S6. DO / BAST**: create (partial qty), deliver, sign with photo or reject. CBD order closes after the last signed BAST
+- [ ] **S7. Tempo**: credit check on the SO with Sales Manager approval, signed BAST hands the delivery to FAT
+- [ ] **S8. Progress**: down payment PI before the first DO / BAST, the rest handed to FAT as a schedule
+- [ ] **S9. Returns**: from a rejected BAST, QC rounds, rework count, kirim with a new DO / BAST
+
+### Open questions this plan raises
+- [ ] Several delivery addresses per customer, like the colleague's repo? The plan says yes *(assumed)*. Was already open above
+- [ ] Who marks a CBD PI paid? CBD is now first, so this blocks S5. The plan says Finance Managers *(assumed)*. Was "later" above
+- [ ] Prices on quotes before or after PPN? Is PPN on the quote at all? The spec is silent. The plan stores prices without PPN *(assumed)*
+- [ ] Document number format. The plan uses the colleague's `SQ-PDT-2026-10-0001` *(assumed)*. Customers use `C-0001`
+- [ ] Should the GM see margins? The plan says no, only Marketing and the supers
+- [ ] Partly rejected BAST (some lines accepted): the plan rejects the whole BAST *(assumed)*. Was already open above
+- [ ] Rework limit: the plan only counts rounds, no scrap *(assumed)*. Was already open above
+- [ ] Who does QC on returns until the Quality module exists? The plan says Production *(assumed)*
+- [ ] Progress: what does the payment schedule after the down payment look like? The plan uses the colleague's default (30 % down, the rest 30 days after delivery) *(assumed)*
