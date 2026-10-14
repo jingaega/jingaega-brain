@@ -177,7 +177,7 @@ Build notes:
 
 ## Open questions
 - [ ] Does CBD also start at quote recorded, or at RFQ like the whiteboard? Decides if both flows share one entry point
-- [ ] Add a credit gate before SO for tempo customers (credit limit and overdue AR)? Not on the whiteboard yet
+- [x] Credit gate before the SO for tempo customers, like the colleague's repo. Jingga, 2026-10-14. Each customer has a credit limit (0 by default). Exposure = open SOs not yet invoiced + unpaid invoices + the new SO. Over the limit: a warning, the SO waits for approval by a Manager or up in Sales, and no stock is held until approved. Overdue invoices are not checked separately *(assumed)*
 - [ ] Rework limit: after how many failed QC rounds does it go to scrap or a supplier claim?
 - [ ] Check stock N: tempo goes Prod/Purch to DO / BAST, CBD loops back to check stock. Same or different on purpose?
 - [ ] Does a lost deal count as Closed? The whiteboard links Loss to Closed
