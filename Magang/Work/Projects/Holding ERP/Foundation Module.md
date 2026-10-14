@@ -149,7 +149,7 @@ Draft by Claude, waiting for Jingga's approval. Stack is in the decisions table 
   - [x] 8. Vendors, with the group company link, currency, category and payment term (done 2026-10-13)
   - 9. Real-time lists: moved to [[Pandu Roadmap#Additional features]] (Jingga, 2026-10-14). The plan stays below
   - [x] 10. Excel import of vendors, starting with Pandu's supplier list (done 2026-10-14)
-  - [ ] 11. Levels and departments instead of the 6 role templates (plan below, waiting for approval)
+  - [ ] 11. Levels and departments instead of the 6 role templates (plan below, approved, building)
 - Open questions only block their own slice. Slices 1 to 3 and 6 to 9 can start now. Slices 4 and 5 use the 6 templates until they are confirmed
 
 ### Slice 9 plan: real-time lists
@@ -184,7 +184,7 @@ Written 2026-10-13, approved by Jingga the same day after asking whether live up
 - Live counts or notifications. Notifications come with approvals
 
 ### Slice 11 plan: levels and departments
-Draft by Claude, 2026-10-14, waiting for Jingga's approval. Replaces the 6 role templates with levels and departments, like the colleague's repo (Jingga's call), plus a Director level. A change to finished slices 4 and 5 (roles, users), so it needs this plan first.
+Written 2026-10-14, approved by Jingga the same day. Replaces the 6 role templates with levels and departments, like the colleague's repo (Jingga's call), plus a Director level. A change to finished slices 4 and 5 (roles, users), so it needs this plan first.
 
 **Answers so far** (Jingga, 2026-10-14)
 - Levels in each company: **Director, GM, Manager, SPV, Lead, OPR**. Super Admin stays for the holding. Directors are also Super User
