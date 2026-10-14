@@ -19,16 +19,14 @@ Internship project: one ERP that connects a holding with its six companies, plus
 - [ ] Write the S&M build plan once the S&M questions that block Pandu are answered
 - [ ] Sales and Marketing module: answer the open questions that block Pandu in [[Sales and Marketing Module]]
 - [ ] Get supervisor sign-off on the fresh repo, invite the colleague to both repos (see [[Colleague Repo Comparison]])
-- [ ] Ask supervisor: what "real-time" means and whether live screens are wanted now (see [[Pandu Roadmap#Additional features]]), whether the import may be looser than the form, who may see vendor bank accounts (in [[Foundation Module]])
-- [ ] Decide departments in roles (finance, procurement), needed for who manages items and customers (in [[Foundation Module]])
+- [ ] Ask supervisor: what "real-time" means and whether live screens are wanted now (see [[Pandu Roadmap#Additional features]]), whether the import may be looser than the form (in [[Foundation Module]])
+- [ ] Ask supervisor: the "super finance" role (Om Leo) and which journals it approves, and approval bands up to Rp 100 jt (in [[Finance Accounting Tax Module]] and [[Procurement Module]])
 - [ ] Plan Excel export
 - [ ] Later, from the architecture review: history labels per record, one login module, split user admin, merge the small option files
-- [ ] Set up a start-up script for cloud sessions (starts Docker and the database), so a worker restart doesn't stop tests
+- [ ] Set up a start-up script for cloud sessions (starts Docker and the database), so a worker restart doesn't stop tests. Docker died twice more in the tenth session
 - [ ] Ask HR how new NRPs are numbered (until then automatic ones look like PDT-00004)
-- [ ] Ask supervisor: payment terms as a shared list (CBD, Net 14/30/45/60) or any number of days per vendor? Ours for now (in [[Procurement Module]])
 - [ ] Answer the last slice 6 question in [[Foundation Module]]: demo items, once Pandu's real item list is known
 - [ ] Answer the 3 new *(assumed)* user admin rules from slice 5 in [[Foundation Module]]
-- [ ] Ask supervisor: can customers have their own currency, or is every sale in IDR? (in [[Foundation Module]])
 - [ ] Confirm the *(assumed)* items in [[Company Roles and Modules]]
 - [ ] Finalize the full module list for [[Holding ERP]], built around PT Pandu first as the baseline (first draft of the other modules in [[Module Overview]])
 - [ ] Company websites: list what each one needs in [[Company Websites]]
@@ -39,8 +37,11 @@ Internship project: one ERP that connects a holding with its six companies, plus
 
 ## Last session
 **2026-10-13 to 14 (tenth session)**
-- Slice 11 built: levels (Director, GM, Manager, SPV, Lead, OPR) and departments with a function instead of the 6 roles, the Company Admin switch, master data rights by owning function, Roles per function and a Departments screen. 188 tests pass, CI green
-- Open: who owns customers and items, since the slice 11 plan differs from the 2026-10-13 answers (see [[Foundation Module]])
+- Slice 11 built: levels (Director, GM, Manager, SPV, Lead, OPR) and departments with a function instead of the 6 roles, the Company Admin switch, Roles per function and a Departments screen. Strict reviews after 11a and 11b. 188 tests pass, CI green
+- Master data owners answered (Jingga): only Managers and up add and change on the master data screens. Vendors: Procurement. Customers: Sales and Finance. Items and units: Finance, Production and Warehouse. Adding from each module's own screens comes later. Migrations 0021 to 0023
+- Customer payment term is for Sales and Finance. Customer NPWP is optional with the 15 or 16 digit check. Both arrive with Sales and Marketing
+- Fixed a test race: the levels test added Sibama vendors while the vendors test counted their codes
+- Earlier answers recorded: every sale in IDR, Net up to 180 days free per vendor, Director is read only plus approvals, Super User approvals above Rp 100 jt after Super Admin, vendor bank accounts seen by everyone who sees vendors
 - Merged the slice 6 to 8 branch into `main` in both repos. CI green on `main`. Docker works, its service just needs starting in a new cloud session
 - Asked whether live updates are needed at all. Decided: "real-time" means data is current when saved *(assumed, supervisor question)*, and slice 9 builds live master data lists anyway
 - Grilling session on slice 9, the Excel import and the colleague's repo. Their import is no looser than their form, so ours makes the same checks as Add vendor
