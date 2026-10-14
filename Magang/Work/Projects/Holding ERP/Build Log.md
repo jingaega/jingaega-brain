@@ -22,6 +22,8 @@ One entry per working session, newest on top. Written by Claude at wrap up. Proc
 - Built S1 (quotes) in three commits plus review fixes: SPPR on items, quotes with versions and lines priced from the SPPR, mark sent with the file, revise, mark lost, expiry. A sent version's lines are fixed in PostgreSQL. 225 tests pass, clicked through in a browser
 - S0 and S1 merged into `main` in the code repo
 - Found: a dev server started right after `pnpm build` can get stuck reloading the login page. Restarting `pnpm dev` fixes it
+- Second costing whiteboard read: FOH in pricing is a standard % of COGM (COGS = COGM x 115 %), SPPR = COGS / (1 - GP)
+- Built S2 (price proposals) in two commits plus review fixes: Pricing page (FOH rate %, minimum GP), COGS and GP on the item page, Propose Price on quote lines, To approve for Marketing Managers. Fixed a test race over Serio's pricing. 235 tests pass, merged into `main`
 
 ## 2026-10-13 to 14 (tenth session)
 - Jingga: customers belong to Sales and Finance, Managers and up. Migration 0023. Master data owners now all answered

@@ -311,7 +311,11 @@ One record end to end each, with the strict code review after each slice.
   - Strict review: a sent version's lines can't change in PostgreSQL either, plus 4 tidy ups. 225 tests pass, clicked through in a browser
   - Not in the plan, built *(assumed, easy to change)*: a quote is saved first as **Being prepared**, then marked sent. The spec said a quote is recorded when it is sent, but the price proposals of S2 need it to wait before sending. New quotes are valid 14 days. Sales, Marketing and Finance (every level) and the Director see quotes; Sales records them
   - Left for S2: the Sales settings page (minimum margin, warning days). The 3 days and 14 days are fixed in code until then
-- [ ] **S2. Price proposals and approvals**: Sales proposes another price with a reason, the quote waits, a Marketing Manager approves or refuses, seeing the COGS and GP (hidden from everyone without `margin.view`), the To approve list. Needs the FOH rate per unit to reach COGS (Finance calculates it; Finance Managers type it until Phase 5 *(assumed)*)
+- [x] **S2. Price proposals and approvals**: built 2026-10-14
+  - S2a: Sales, Pricing: the **FOH rate as a % of COGM** (Finance Managers set it) and the **minimum GP** (Marketing Managers), seen only by people who see costs. COGS = cost x (1 + FOH %). The item page shows COGS and the GP at the SPPR to them
+  - S2b: on a quote being prepared, Sales proposes another price for a line with a reason. The quote can't be sent while it waits. Sales, **To approve** lists them for Managers and up in Marketing (and the GM) with the price now, the proposed price, the COGS and the GP now and proposed, and a warning below the minimum GP. Approved: the line takes the price. Refused: it keeps its price, and Sales may propose again
+  - Built *(assumed, easy to change)*: editing a quote being prepared resets its lines to the SPPR and drops their proposals; a revision starts at today's SPPR without earlier approved prices; one proposal can wait per line
+  - Strict review: one money module, one save helper, a test race fixed. 235 tests pass, clicked through in a browser
 - [ ] **S3. Customer PO**: record against the accepted version, line by line check, term mismatch to the GM, quote locks
 - [ ] **S4. Sales order**: from the PO cust, payment type and term with their source, stock confirmed, cancel
 - [ ] **S5. PI and CBD**: PI from the SO, Finance marks it paid, DO / BAST blocked until then. CBD works end to end after S6
