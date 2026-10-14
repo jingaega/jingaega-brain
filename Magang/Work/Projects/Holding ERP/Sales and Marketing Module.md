@@ -228,7 +228,7 @@ Written before the build. Each one is something Jingga can click through, as Pan
 - [ ] Someone from Anggoan, a Super User, or a person without the permission can't see or change any of Pandu's sales records (database rules, with tests)
 
 ## Build plan
-Written 2026-10-14, **waiting for Jingga's approval**. Order: CBD first, then tempo and progress, all from Quote recorded. Phase 2 has no stock (Phase 4) and no invoices (Phase 5), so check stock is a manual "stock confirmed" step and tempo ends at "handed to FAT".
+Written and **approved by Jingga 2026-10-14**. Order: CBD first, then tempo and progress, all from Quote recorded. Phase 2 has no stock (Phase 4) and no invoices (Phase 5), so check stock is a manual "stock confirmed" step and tempo ends at "handed to FAT".
 
 ### Changes to Foundation first (finished module, needs approval)
 Foundation is done, so these change its data model. Each one is small:
