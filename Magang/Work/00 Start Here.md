@@ -20,7 +20,7 @@ Internship project: one ERP that connects a holding with its six companies, plus
 - [ ] Sales and Marketing module: answer the open questions that block Pandu in [[Sales and Marketing Module]]
 - [ ] Get supervisor sign-off on the fresh repo, invite the colleague to both repos (see [[Colleague Repo Comparison]])
 - [ ] Ask supervisor: what "real-time" means and whether live screens are wanted now (see [[Pandu Roadmap#Additional features]]), whether the import may be looser than the form (in [[Foundation Module]])
-- [ ] **Waiting for confirmation (supervisor):** cost method from the whiteboard: "VA" (what is it?), moving average price, or standard price, and for which items? Until confirmed: moving average for every item, with a typed standard cost until Phase 4 (in [[Sales and Marketing Module]])
+- [x] Cost method answered by Jingga: MAP builds the COGM, VA is value added (see [[Finance Accounting Tax Module#Costing and pricing]])
 - [ ] Ask supervisor: the "super finance" role (Om Leo) and which journals it approves, and approval bands up to Rp 100 jt (in [[Finance Accounting Tax Module]] and [[Procurement Module]])
 - [ ] Plan Excel export
 - [ ] Later, from the architecture review: history labels per record, one login module, split user admin, merge the small option files

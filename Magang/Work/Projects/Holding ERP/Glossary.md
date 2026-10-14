@@ -95,6 +95,33 @@ _Avoid_: quotation (fine in speech, but write quote), penawaran
 The lowest margin a quote line may have without a manager's approval.
 _Avoid_: floor price
 
+**COGM**:
+Cost of goods material: all the materials that make a product (chemical, packaging, sticker, cap). In this project it does not mean "cost of goods manufactured". Model in [[Finance Accounting Tax Module#Costing and pricing]].
+
+**MAP**:
+Moving average price, the costing method. Each material's price is its moving average; together they build the COGM. Procurement sees it.
+
+**DL**:
+Direct labor: what the people making the product cost per month.
+
+**FOH**:
+Factory overhead: electricity, water, rent and so on, per month. In Marketing's way DL is grouped into it as one standard rate.
+
+**COGS**:
+Cost of goods sold = COGM + DL + FOH. Also called HPP.
+_Avoid_: HPP (fine in speech)
+
+**VA**:
+Value added = revenue - COGM. Finance's way to reach the GP: VA - DL - FOH = GP.
+
+**GP**:
+Gross profit, the margin: (selling price - COGS) / selling price.
+_Avoid_: markup (that is on cost, not on the price)
+
+**SPPR**:
+Selling price publish rate = COGS + GP. The price Sales sees and quotes from. HET on the whiteboard.
+_Avoid_: publish rate (alone), HET
+
 **PO cust**:
 The customer's purchase order, their official commitment to buy.
 _Avoid_: PO (alone, it also means our own purchase order)
