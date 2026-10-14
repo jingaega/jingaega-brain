@@ -200,9 +200,9 @@ Written 2026-10-14, approved by Jingga the same day. Replaces the 6 role templat
 |---|---|---|---|
 | Vendors | Procurement | Manager and up | Manager and up |
 | Customers | Sales | Manager and up | Manager and up |
-| Items and units | Procurement, Warehouse, Production | Manager and up | Manager and up |
+| Items and units | Finance, Production, Warehouse | Manager and up | Manager and up |
 
-Changed by Jingga, 2026-10-14, after 11b: on the master data screens only Managers and up add and change. OPR, Lead and SPV only look. Adding records from a module's own screens (a customer from Sales, an item from Inventory) comes later. Built in commit a2e9e86 (migration 0021).
+Changed by Jingga, 2026-10-14, after 11b: on the master data screens only Managers and up add and change. OPR, Lead and SPV only look. Adding records from a module's own screens (a customer from Sales, an item from Inventory) comes later. Built in commit a2e9e86 (migration 0021). Items and units moved from Procurement to Finance, Production and Warehouse (Jingga, 2026-10-14, commit e7d0fc9, migration 0022).
 
 Everyone in the company sees all master data. The GM changes everything; the Director only views.
 
@@ -234,7 +234,8 @@ Everyone in the company sees all master data. The GM changes everything; the Dir
 - Strict review: one helper now works out what a place may do (it was in two places), one guard for function names, no casts in the starting grants, saving roles in three queries instead of three per level. 183 tests pass
 
 **Open questions from building slice 11**
-- [ ] Who owns customers and items? Levels answered (Jingga, 2026-10-14): Managers and up only. Functions still differ: the 2026-10-13 answers say Finance and Procurement for customers and Finance for items; the build follows the slice 11 plan (Sales for customers; Procurement, Warehouse and Production for items). A change of starting grants only
+- [x] Who owns items and units: Managers and up in Finance, Production and Warehouse. Jingga, 2026-10-14
+- [ ] Who owns customers: Sales (slice 11 plan, built) or Finance and Procurement (answer of 2026-10-13)? Managers and up either way
 - [ ] May a department's function change later, and what happens to the people in a deactivated department?
 
 **Tests**

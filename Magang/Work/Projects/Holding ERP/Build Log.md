@@ -10,6 +10,7 @@ tags: [internship, erp, log]
 One entry per working session, newest on top. Written by Claude at wrap up. Process is in [[Workflow]].
 
 ## 2026-10-13 to 14 (tenth session)
+- Jingga: items and units belong to Finance, Production and Warehouse. Starting grants moved, migration 0022. Fixed a test race found on the way: the levels test added Sibama vendors while the vendors test counted Sibama's codes; it uses Serio now
 - Jingga: master data screens are for Managers and up only; adding from modules comes later. Starting grants changed, migration 0021 takes back OPR, Lead and SPV add rights. 188 tests pass
 - Slice 11b: Settings, Departments (add, rename, deactivate, people count). Function fixed after adding, people keep a deactivated department *(both assumed)*. Strict review: 3 small fixes. 188 tests pass, CI green on 11a
 - Found while writing up: the slice 11 master data owners differ from Jingga's 2026-10-13 answers on customers and items. Put in Open questions in [[Foundation Module]] for Jingga
