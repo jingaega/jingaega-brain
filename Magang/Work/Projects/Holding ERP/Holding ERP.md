@@ -119,7 +119,11 @@ The full list is 12 modules. Order of work and status are in [[Pandu Roadmap]]. 
 | 2026-10-14 | Payment terms: Net up to 180 days. Sales terms are ours to decide (default CBD, also COD, progress payment, Net up to 180). Purchases follow the vendor's own terms, any number of days per vendor | Meeting [[2026-10-14]] |
 | 2026-10-14 | Directors approve big transactions only. A limit that makes them approve something every day is the wrong limit | Meeting [[2026-10-14]]. Approval amounts still to set |
 | 2026-10-14 | Both holding people are Super Admin | Jingga |
-| 2026-10-14 | The directors are Super User: they see every company and change nothing | Jingga, like the colleague's repo |
+| 2026-10-14 | The directors are Super User, and also have a Director level in their own company | Jingga |
+| 2026-10-14 | Company levels: Director, GM, Manager, SPV, Lead, OPR. Super Admin stays for the holding | Jingga |
+| 2026-10-14 | Super User only views, except approvals above Rp 100 jt: Super Admin approves first, then a Super User gives the final approval | Jingga |
+| 2026-10-14 | Om Leo (director, "super finance") approves journals in every company and gives finance people access to journal entries | Jingga |
+| 2026-10-14 | A Manager may correct a goods receipt, and every reversal is done by a Manager | Jingga |
 | 2026-10-14 | Vendor bank accounts: seen by everyone who can see vendors, changed by people who can manage vendors, like the colleague's repo | Jingga, after looking at the colleague's repo |
 | 2026-10-14 | Roles move toward the colleague's model: levels (General Manager, Manager, SPV, Lead, OPR) with a department function, Company Admin as a switch | Jingga. Needs its own plan before building |
 | 2026-10-13 | Excel import: same checks as the form, add only, warning on similar names, our template and Pandu's own columns both read. Copy how the colleague's import works, not its rules | Grilling session. Keeps one set of rules, and the import never changes existing vendors |

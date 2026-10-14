@@ -32,6 +32,9 @@ PO number, uang muka, payment of uang muka, belanja (the buyer shops after the a
 - GR for the remaining quantity
 
 ## Open questions
+- [x] A Manager may correct a goods receipt. Every reversal is done by a Manager. Jingga, 2026-10-14
+- [x] Approvals above Rp 100 jt: the Super Admin approves first, then a Super User (a director) gives the final approval. Jingga, 2026-10-14
+- [ ] Approval amounts up to Rp 100 jt: who approves which band? The colleague's repo: up to 5 jt Manager, up to 25 jt GM, up to 100 jt Super Admin
 - [x] Currencies: purchases can be in IDR, CNY, USD, SGD, AUD, EUR or JPY. Jingga, 2026-10-13
 - [x] Exchange rate: the rate normally used, Bank Indonesia's middle rate (kurs tengah BI) *(assumed reading of "the normally used one")*. The rate is locked when the purchase is paid and never changes after that. Jingga, 2026-10-13
 - [x] Each vendor has its own currency, and its purchases use it. Jingga, 2026-10-13

@@ -26,6 +26,11 @@ Called Finance A&T in other notes. Part of FAHCGA, the group name for Finance Ac
 - What Pandu does here today:
 - What Wening changes (batches, expiry, formulas):
 
+## Rules from Jingga
+- Om Leo (a director, "super finance") approves the journals of every company, and gives finance people access to make journal entries. Jingga, 2026-10-14
+- Every reversal (correcting a posted entry) is done by a Manager. Jingga, 2026-10-14
+
 ## Open questions
+- [ ] Which journals does Om Leo approve: every journal, or only the ones typed by hand (automatic ones from purchases and sales post on their own)?
 - [ ] Production Cost is also listed in [[Production Module]]. Which module owns it?
 - [ ] Which parts does Pandu need first?
