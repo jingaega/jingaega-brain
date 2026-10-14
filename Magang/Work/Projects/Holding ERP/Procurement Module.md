@@ -31,6 +31,25 @@ PO number, uang muka, payment of uang muka, belanja (the buyer shops after the a
 - GR before the desired quantity is reached
 - GR for the remaining quantity
 
+## The group's PO templates
+Six real POs shared by Jingga, 2026-10-14 (Serio 2022, Sibama 2023 and 2025, Sancang 2024, Pandu 2025, Anggoan 2025). Only their layout is kept here, never the vendors' data.
+
+**Two layouts**
+- **Older** (Serio 2022, Sancang 2024): header No. PO, date, "Your Ref" (the vendor's quote), delivery time. A Vendor box and a Customer box (us), each with address, phone, Attn and email. Lines: no, part number, description, qty, unit, unit price, total. Subtotal, PPN, total. A Terms and Conditions list (payment, delivery term and place, delivery time, packing, origin, documents like COO, COA). The vendor signs and stamps it to acknowledge; Prepared by and Approved by sign for us
+- **Newer** (Sibama, Pandu, Anggoan, 2023 on): our company name, address and Tax ID (NPWP) on top. No., date, delivery date, quote ref. "Order to" the vendor with address, phone, Tax ID, Att and phone or email. Lines: no, item code, description (with a sub line like "COA included"), qty, UoM, unit price, amount. Total, discount %, tax 11 %, grand total; imports add freight and bank fee. Notes: term of payment, incoterms (like "Dooring PT Pandu ..." or EXW), HS code, down payment. Signature blocks for us and the vendor. Anggoan's adds a payment term in the header and a "Delivery to" block with a PIC, phone and email
+
+**What they tell us**
+- PO numbers today: `PO.007/SERIO/I/2022`, `PO.2407007/SAN/FAR`, `LK-0825-008` (Pandu, local, month and year then a number), `POLK-000040R1` (Sibama, local, revision 1), `POIM-000012` (Sibama, import), `POLK-AKN-0106` (Anggoan, local). So **local and import POs are numbered apart**, and a **revised PO keeps its number with R1, R2**
+- POs can be in **IDR, USD or CNY** (matches the currencies decided 2026-10-13)
+- Payment terms seen: CBD, TT 100 % in advance, full payment when goods are ready, 14 days after invoice, DP 50 % then the rest after receipt, immediately. They match CBD, Net days and down payment
+- Each PO shows the vendor's Tax ID, an incoterm or delivery place, a requested delivery date, and the vendor's quote reference
+- PPN is shown on the PO (11 %, 10 % in 2022), not in the unit prices
+
+**Open questions from them**
+- [ ] Should the ERP number POs like today (local and import apart, per company), or one new format for every company?
+- [ ] Is the PO printed from the ERP in the newer layout, the same for every company with its own header?
+- [ ] Who are Prepared by and Approved by on a PO: the buyer and their Manager, or the approval chain (up to Rp 100 jt and above)?
+
 ## Open questions
 - [x] A Manager may correct a goods receipt. Every reversal is done by a Manager. Jingga, 2026-10-14
 - [x] Approvals above Rp 100 jt: the Super Admin approves first, then a Super User (a director) gives the final approval. Jingga, 2026-10-14

@@ -180,6 +180,9 @@ The full model is in [[Finance Accounting Tax Module#Costing and pricing]]. What
 - The typed item cost from slice S0 is the **COGM** for now (assumed). DL and FOH are not in the ERP yet, so the S2 margin check needs them first. This changes the S2 plan, see the open questions in the Finance note
 - MAP (moving average price) is the costing method, confirmed by Jingga. Procurement sees MAP
 
+## What a customer's PO looks like
+From the group's own POs (see [[Procurement Module#The group's PO templates]]): when a group company buys from Pandu, its PO is Pandu's **PO cust**. A customer's PO carries its own PO number and date, a requested delivery date, a **quote reference** (our quote number), the payment term, a delivery address with a PIC, and lines with item, qty, unit, unit price and amount, plus PPN and the grand total. So the PO cust record (slice S3) needs: their PO number and date, delivery date, our quote it answers, payment term, delivery address, lines, and the scan *(Claude's reading, for the S3 plan)*
+
 ## Notes from the Inbox
 From Jingga's Inbox, processed 2026-10-14. Raw notes, not rules yet.
 - **After the SO, Production comes before Procurement.** For goods Pandu makes, a shortage on an SO goes to Production, and Production asks Procurement for the raw materials. Pandu makes what it sells instead of buying finished goods. Fits the buy or make flag on items: make items go to Production first *(assumed reading)*
