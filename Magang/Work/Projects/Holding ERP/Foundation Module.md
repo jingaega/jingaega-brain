@@ -87,7 +87,7 @@ These are built now so work isn't blocked, and are easy to change later. All are
 ## Open questions
 - [x] The 2 super users are the holding's admins, listed as HOLDING in HR's employee sheet, not part of one company. Jingga, 2026-10-13
 - [x] Both holding people are Super Admin. Jingga, 2026-10-14. Their real accounts replace the placeholder ones
-- [ ] Who is Super User (sees every company, changes nothing), if anyone? The colleague's repo gives it to the directors
+- [x] The directors are Super User (see every company, change nothing), like the colleague's repo. Jingga, 2026-10-14
 - [x] The NRP is given automatically when a new user is added. Jingga, 2026-10-13. Format still open (see slice 5 questions)
 - [ ] **Roles like the colleague's repo** (Jingga, 2026-10-14): levels General Manager, Manager, SPV, Lead, OPR, plus a department with a function (Finance, Procurement, Warehouse, HR...). What someone may do is their level in their department's function. Company Admin becomes a switch on the access. Replaces our 6 role templates and answers the departments question below. A change to a finished module, needs its own plan first
 - [ ] Confirm the 6 role templates, and what each one can do per module (replaced by the levels above once planned)
