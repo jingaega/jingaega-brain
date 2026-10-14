@@ -187,7 +187,7 @@ Draft by Claude, 2026-10-14, waiting for Jingga's approval. Replaces the 6 role 
 
 **Answers so far** (Jingga, 2026-10-14)
 - Levels in each company: **Director, GM, Manager, SPV, Lead, OPR**. Super Admin stays for the holding. Directors are also Super User
-- **Director** = everything a GM has, plus the approvals that go to a director (approvals come later)
+- **Director** = sees everything in the company, changes nothing, and approves what goes to a director (approvals come later). Jingga, 2026-10-14
 - **GM** = everything in the company except Settings changes, like the colleague's repo
 - Each person has **one department** in a company, and each department has a **function**: Management, Procurement, Sales, Warehouse, Finance, HR, Production, General Affairs, Other (the colleague's list)
 - What someone may do = their level, in their department's function
@@ -201,7 +201,7 @@ Draft by Claude, 2026-10-14, waiting for Jingga's approval. Replaces the 6 role 
 | Customers | Sales | OPR and up | Manager and up |
 | Items and units | Procurement, Warehouse, Production | OPR and up | Manager and up |
 
-Everyone in the company sees all master data. GM and Director change everything.
+Everyone in the company sees all master data. The GM changes everything; the Director only views.
 
 **What changes for people**
 - Add user and Manage ask for a **level** and a **department**, and have a **Company Admin** switch
@@ -211,7 +211,7 @@ Everyone in the company sees all master data. GM and Director change everything.
 
 **Defaults** *(assumed, easy to change on the Roles screen)*
 - Every company starts with one department per function, named after it (Management, Procurement and so on)
-- Today's people move: Company Admin → Manager in Management with the switch on; Director → Director in Management; Manager → Manager in Management; Supervisor → SPV in Management; Staff → OPR in Management; Viewer → OPR in Other (Other owns nothing, so they still only view). Only demo people exist today
+- Today's people move: Company Admin → Manager in Management with the switch on; Director → Director in Management (now view only); Manager → Manager in Management; Supervisor → SPV in Management; Staff → OPR in Management; Viewer → OPR in Other (Other owns nothing, so they still only view). Only demo people exist today
 - One access row per person per company. This replaces the earlier "several roles per person are allowed" (Jingga, 2026-10-13)
 - An email is needed for anyone who can add, change or see personal data, as now with "manage"
 
@@ -222,7 +222,7 @@ Everyone in the company sees all master data. GM and Director change everything.
 
 **Tests**
 - A Procurement OPR can add a vendor but not change one; a Procurement Manager can change it; a Sales Manager can't change vendors
-- Everyone sees all master data; GM and Director change everything; Settings only with the switch
+- Everyone sees all master data; the GM changes everything; the Director changes nothing; Settings only with the switch
 - Personal data only for HR Managers and up, GM and Director
 - Company isolation for departments; one access row per person per company
 - Super User still only views, Super Admin still does everything

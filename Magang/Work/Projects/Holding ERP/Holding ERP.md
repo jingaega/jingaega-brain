@@ -121,6 +121,7 @@ The full list is 12 modules. Order of work and status are in [[Pandu Roadmap]]. 
 | 2026-10-14 | Both holding people are Super Admin | Jingga |
 | 2026-10-14 | The directors are Super User, and also have a Director level in their own company | Jingga |
 | 2026-10-14 | Company levels: Director, GM, Manager, SPV, Lead, OPR. Super Admin stays for the holding | Jingga |
+| 2026-10-14 | The Director level sees everything in its company and changes nothing, apart from approvals. The GM changes everything except Settings | Jingga |
 | 2026-10-14 | Super User only views, except approvals above Rp 100 jt: Super Admin approves first, then a Super User gives the final approval | Jingga |
 | 2026-10-14 | Om Leo (director, "super finance") approves journals in every company and gives finance people access to journal entries | Jingga |
 | 2026-10-14 | A Manager may correct a goods receipt, and every reversal is done by a Manager | Jingga |
