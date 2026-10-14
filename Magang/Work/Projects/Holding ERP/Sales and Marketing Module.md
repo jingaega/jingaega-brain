@@ -150,7 +150,9 @@ Build notes:
 | Term change only through the PO cust | The SO has no free term field. Its term comes from the accepted quote. If the PO cust term differs (tempo 45 vs quoted 30), the mismatch is flagged: the GM approves it (Director if no GM) and it becomes the order's term, or sales makes a new quote version *(assumed, ask supervisor)* |
 | Quote locks on PO | Once PO cust is linked, that quote version can't be edited |
 | Loss needs a reason | Price (customer says too expensive) *(assumed reading of "price too low")*, customer cancelled, no response, expired (auto) |
-| Minimum margin check | A quote line with a GP % ((price - COGS) / price) below the company minimum (10 %) needs approval by a Manager or up in Marketing before the quote is sent. Only Marketing and the supers see the margin. Decided 2026-10-13, details 2026-10-14 from the whiteboard and the colleague's repo, supervisor to confirm |
+| Price comes from the SPPR | A quote line's price fills in from the item's SPPR. Sales can't type a price. Jingga, 2026-10-14 |
+| Another price is a proposal | Sales proposes a price with a required reason. The quote waits and can't be sent until a Manager or up in Marketing approves. Refused: the line goes back to the SPPR. Jingga, 2026-10-14 |
+| Approvers see the margin | The approver sees the COGS and the GP (price - COGS) / price at the proposed price. Sales never does. The minimum margin (10 %) is a warning for the approver *(assumed)* |
 | No photo, no BAST | DO / BAST can't move to Signed without at least one photo |
 | Stock goes out when goods leave | Stock drops when the goods leave the warehouse, so nobody else is promised them *(assumed, ask supervisor and FAT)*. Manual until stock exists (Phase 4) |
 | Sale is booked on BAST | Finance books revenue and its COGS together when the BAST is signed, not when the PO arrives or the goods leave. Signed BAST also triggers the invoice (tempo). COGS at the same moment is *(assumed, ask supervisor and FAT)* |
@@ -173,7 +175,7 @@ Build notes:
 
 ## Costing and pricing (from Jingga, 2026-10-14)
 The full model is in [[Finance Accounting Tax Module#Costing and pricing]]. What it means for S&M:
-- Sales quotes from the **SPPR** (selling price publish rate) and never sees cost or margin. A quote line's price fills in from the item's SPPR; Sales can't type a price, only propose another one, approved by Marketing and Finance. Pandu has no bottom price (Jingga, 2026-10-14)
+- Sales quotes from the **SPPR** (selling price publish rate) and never sees cost or margin. A quote line's price fills in from the item's SPPR; Sales can't type a price, only propose another one with a reason, approved by a Manager or up in Marketing (Jingga, 2026-10-14). Pandu has no bottom price
 - The margin check uses COGS = COGM + DL + FOH, not just the material cost. GP = (price - COGS) / price
 - The typed item cost from slice S0 is the **COGM** for now (assumed). DL and FOH are not in the ERP yet, so the S2 margin check needs them first. This changes the S2 plan, see the open questions in the Finance note
 - MAP (moving average price) is the costing method, confirmed by Jingga. Procurement sees MAP
@@ -283,7 +285,8 @@ All under the company, in a new **Sales** menu:
 |---|---|
 | Record quotes, PO cust and SOs, mark lost | OPR and up in Sales |
 | See margin and cost | Marketing and Finance (every level), the GM and the supers, never Sales (GM: ask supervisor) |
-| Approve low margins | Manager and up in Marketing |
+| Approve proposed prices | Manager and up in Marketing |
+| Set the SPPR of items | Manager and up in Marketing, with Finance's advice |
 | Approve a looser term on a PO cust | GM (Director if no GM) |
 | Approve a credit limit overrun | Manager and up in Sales |
 | Confirm stock, make and sign DO / BAST, receive returns | OPR and up in Warehouse |
@@ -300,8 +303,8 @@ One record end to end each, with the strict code review after each slice.
   - Found and fixed: the vendor payment term check in the database let Net through with no days (a NULL slips past a CHECK). The new customer check had the same hole
   - Strict review: 6 fixes (one insert per address, money formatting without floats, shared Net days limit, cleaner payment term field, no cast on the item page, one permission check for "see or change costs"). 206 tests pass, clicked through in a browser
   - Also from Jingga during S0: address, PIC name and PIC phone are required for customers and vendors, PIC email optional. The Excel import checks the same
-- [ ] **S1. Quotes**: record, versions, lost with reason, expiry and "expires soon", sales settings
-- [ ] **S2. Margin check and approvals**: GP % per line from the item cost, hidden from everyone without `margin.view`, low margin approval by Marketing, the To approve list
+- [ ] **S1. Quotes**: SPPR on items (set by Marketing Managers, seen by everyone who sees items), record a quote with lines priced from the SPPR, versions, lost with reason, expiry and "expires soon", sales settings
+- [ ] **S2. Price proposals and approvals**: Sales proposes another price with a reason, the quote waits, a Marketing Manager approves or refuses, seeing the COGS and GP (hidden from everyone without `margin.view`), the To approve list. Needs the FOH rate per unit to reach COGS (Finance types it)
 - [ ] **S3. Customer PO**: record against the accepted version, line by line check, term mismatch to the GM, quote locks
 - [ ] **S4. Sales order**: from the PO cust, payment type and term with their source, stock confirmed, cancel
 - [ ] **S5. PI and CBD**: PI from the SO, Finance marks it paid, DO / BAST blocked until then. CBD works end to end after S6
