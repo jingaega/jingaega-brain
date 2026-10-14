@@ -143,8 +143,8 @@ Build notes:
 | Rule | How the system enforces it |
 |---|---|
 | Payment type lives on the quote | Required field on every quote version (cash, tempo + days, down payment, installment) |
-| SO payment type falls back to the quote | SO field is optional. Empty means follow the accepted quote version. Screen shows the effective value and where it came from |
-| SO override gets flagged | If the SO or PO term differs from the quote (tempo 45 vs quoted 30), it is highlighted. A looser term needs GM approval (Director if no GM) *(assumed details)* |
+| SO payment type comes from the quote | Taken from the accepted quote version, or from an approved PO cust mismatch (rule below) *(assumed, ask supervisor)* |
+| Term change only through the PO cust | The SO has no free term field. Its term comes from the accepted quote. If the PO cust term differs (tempo 45 vs quoted 30), the mismatch is flagged: the GM approves it (Director if no GM) and it becomes the order's term, or sales makes a new quote version *(assumed, ask supervisor)* |
 | Quote locks on PO | Once PO cust is linked, that quote version can't be edited |
 | Loss needs a reason | Price (customer says too expensive) *(assumed reading of "price too low")*, customer cancelled, no response, expired (auto) |
 | Minimum margin check | A quote line with a GP % ((price - COGS) / price) below the company minimum (10 %) needs approval by a Manager or up in Sales before the quote is sent. Decided 2026-10-13, details 2026-10-14 from the whiteboard and the colleague's repo, supervisor to confirm |
@@ -180,7 +180,7 @@ Build notes:
 - [x] Credit gate before the SO for tempo customers, like the colleague's repo. Jingga, 2026-10-14. Each customer has a credit limit (0 by default). Exposure = open SOs not yet invoiced + unpaid invoices + the new SO. Over the limit: a warning, the SO waits for approval by a Manager or up in Sales, and no stock is held until approved. Overdue invoices are not checked separately *(assumed)*
 - [ ] Rework limit: after how many failed QC rounds does it go to scrap or a supplier claim?
 - [x] Check stock is automatic, like the colleague's repo: available stock is held for the SO when it is confirmed, and a shortage goes to Prod/Purch. Same for every payment type. Jingga, 2026-10-14
-- [ ] Automatic check stock needs stock records, which come in Phase 4. Build stock (IMS core) before or with S&M, or keep the manual "stock confirmed" step until Phase 4?
+- [x] Until stock exists (Phase 4), check stock stays a manual "stock confirmed" step on the SO. It becomes automatic in Phase 4. Jingga, 2026-10-14
 - [ ] Does a lost deal count as Closed? The whiteboard links Loss to Closed
 - [ ] Kopken revenue timing: the price only exists after BAST, so when does finance book the sale?
 - [x] Minimum margin: settings from the colleague's repo, formula from the office whiteboard ([[2026-10-14 Whiteboard costing and pricing]]). Jingga, 2026-10-14. **Ask supervisor to confirm.** Margin is gross profit on the selling price: GP % = (price - COGS) / price x 100. COGS is the item's moving average cost *(assumed, the whiteboard also lists standard price)*. One % per company: default 20 %, minimum 10 %, both changeable per company *(colleague's numbers, the whiteboard says 15 to 22, meaning unclear)*. Below the minimum, a Manager or up in Sales approves before the quote is sent
@@ -191,7 +191,7 @@ Build notes:
 - [ ] Later, with intercompany: does Anggoan (or another group buyer) get a quote first, or does its PO go straight to an SO?
 - [ ] What is PMS? It is not one of the 12 modules. Is it sourcing inside Procurement?
 - [ ] Is "cash" on the quote the same as CBD? Installment has no flow yet
-- [x] SO term override is approved by the GM. Jingga, 2026-10-14. Only a looser term (more days, or tempo instead of CBD) needs approval *(assumed)*. A company with no active GM falls back to a Director *(assumed)*
+- [x] SO term override is approved by the GM. Jingga, 2026-10-14. **Ask supervisor to confirm** where it happens: Claude suggested on the PO cust mismatch, not as a free field on the SO, and Jingga agreed (2026-10-14). Only a looser term (more days, or tempo instead of CBD) needs approval *(assumed)*. A company with no active GM falls back to a Director *(assumed)*
 - [ ] Can a BAST be partly rejected, with some lines accepted and invoiced?
 - [x] Every sale is in IDR. Meeting [[2026-10-14]]
 - [ ] Does a customer need several delivery addresses for the DO / BAST? Foundation keeps one address and one contact per customer for now. The colleague's repo has several of each

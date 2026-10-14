@@ -72,6 +72,7 @@ Why this order: Sell and Buy are already the best specced. Stock sits right afte
 - [x] Architecture review of Foundation, 3 of 7 candidates built (see [[Build Log]])
 - [ ] Close the S&M open questions that block Pandu (see below)
 - [ ] Write the S&M build plan
+- [ ] Phase 4: make S&M check stock automatic (hold stock on the SO, shortage to Prod/Purch), replacing the manual "stock confirmed" step
 
 ## Additional features
 Not needed to finish a module. Built later, when a screen gains from it or someone asks. Each one keeps its plan where it was written.
