@@ -1,7 +1,7 @@
 ---
 title: Start Here
 type: hub
-updated: 2026-10-13
+updated: 2026-10-14
 tags: [internship, hub]
 ---
 
@@ -16,8 +16,10 @@ Internship project: one ERP that connects a holding with its six companies, plus
 - [x] Phase 0: stack, deadline and repo chosen (see [[Pandu Roadmap]]). Hosting still open
 - [x] Phase 1: Foundation built (slices 1 to 8, 10 and 11). Its open questions still wait, see [[Foundation Module]]
 - [ ] Meet the supervisor with the questions below, starting with the ones marked "Ask supervisor" and the first S&M questions
-- [ ] Write the S&M build plan once the S&M questions that block Pandu are answered
-- [ ] Sales and Marketing module: answer the open questions that block Pandu in [[Sales and Marketing Module]]
+- [x] Write the S&M build plan once the S&M questions that block Pandu are answered (approved 2026-10-14)
+- [x] Sales and Marketing module: answer the open questions that block Pandu in [[Sales and Marketing Module]]
+- [ ] Build S&M: S0 to S3 done (quotes, price proposals, customer PO). Next: S4 sales order (see [[Sales and Marketing Module#Slices]])
+- [ ] Ask supervisor: the S&M items marked *(ask supervisor)* and the 3 new S3 questions (order of payment terms, whether a PO with a different qty or price needs approval, Director deciding terms) in [[Sales and Marketing Module]]
 - [ ] Get supervisor sign-off on the fresh repo, invite the colleague to both repos (see [[Colleague Repo Comparison]])
 - [ ] Ask supervisor: what "real-time" means and whether live screens are wanted now (see [[Pandu Roadmap#Additional features]]), whether the import may be looser than the form (in [[Foundation Module]])
 - [x] Cost method answered by Jingga: MAP builds the COGM, VA is value added (see [[Finance Accounting Tax Module#Costing and pricing]])
@@ -37,6 +39,18 @@ Internship project: one ERP that connects a holding with its six companies, plus
 - Serio is the holding company. PT Pandu is still the baseline for development: build for Pandu first, then adapt Serio and the others from it
 
 ## Last session
+**2026-10-14 (eleventh session)**
+- Session start hook for cloud sessions merged into `main`: installs packages, starts PostgreSQL 16, runs `pnpm db:setup`
+- S&M questions answered with Jingga (compared with the colleague's repo and two office whiteboards), Inbox sorted into the module notes, S&M build plan written and approved (S0 to S9, CBD first)
+- Costing model settled: COGM (materials at MAP), COGS = COGM + FOH rate %, GP on the selling price, SPPR set by Marketing. Sales only sees the SPPR and proposes other prices. Marketing, Finance, the GM and the supers see costs and margins
+- Built and merged into `main`: S0 (Marketing and Quality functions, customer terms, credit limit, NPWP, delivery addresses, item cost), S1 (quotes with versions, sent, revised, lost, expiry), S2 (Pricing page, price proposals, To approve), S3 (customer PO checked against the quote, looser term to the GM). Strict review after each. 246 tests pass
+- Address, PIC name and PIC phone are now required for customers and vendors
+- Quote numbers follow the group's official style, `SQ-1025-001`, from the PO templates Jingga shared. Those templates are Procurement POs (ours to vendors); S3's customer PO is the one Pandu receives
+- GitHub Codespaces set up so the ERP runs in a browser tab, since it won't run on Jingga's laptop
+- A dev server started right after `pnpm build` can get stuck reloading the login page. Restart `pnpm dev`
+- CI for the S3 merge was queued at wrap up; S2's CI passed
+- Next: S4 sales order (from the customer PO, payment type and term with their source, manual stock confirmed, cancel). It must wait for a pending term decision
+
 **2026-10-13 to 14 (tenth session)**
 - Slice 11 built: levels (Director, GM, Manager, SPV, Lead, OPR) and departments with a function instead of the 6 roles, the Company Admin switch, Roles per function and a Departments screen. Strict reviews after 11a and 11b. 188 tests pass, CI green
 - Master data owners answered (Jingga): only Managers and up add and change on the master data screens. Vendors: Procurement. Customers: Sales and Finance. Items and units: Finance, Production and Warehouse. Adding from each module's own screens comes later. Migrations 0021 to 0023

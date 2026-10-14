@@ -114,6 +114,8 @@ The full list is 12 modules. Order of work and status are in [[Pandu Roadmap]]. 
 | 2026-10-13 | Phase 2 goal is a Pandu tempo order from quote to signed BAST, not to paid | Stock (Phase 4) and Finance (Phase 5) are built later, so stock check and invoice are only simple steps until then |
 | 2026-10-13 | "Real-time" means data is current the moment it is saved: no end of day batch, finance posts right away *(assumed, asking supervisor)*. Live lists (slice 9) are extra on top | Jingga's reading. Nobody had said what the scope line meant |
 | 2026-10-13 | Build slice 9 (live master data lists) now, then slice 10 (vendor Excel import) | Jingga's call after asking whether live updates are needed at all |
+| 2026-10-14 | The ERP can run in GitHub Codespaces (`.devcontainer` in the code repo) | It won't run on Jingga's laptop. Same PostgreSQL 16 and mail catcher as local |
+| 2026-10-14 | A customer's PO with a payment term looser than the quote's waits for the GM, or a Director. Refused, the quote waits for the customer again | Jingga's S3 plan. Which terms count as looser, and the Director fallback, are *(assumed)*, see [[Sales and Marketing Module]] |
 | 2026-10-14 | Live lists (slice 9) become an additional feature, not part of Foundation. Foundation's build is done with slices 1 to 8 and 10 | Not needed to finish Foundation. Built when a screen gains from it, after the supervisor says what real-time means |
 | 2026-10-14 | Every sale is in IDR | Meeting [[2026-10-14]] |
 | 2026-10-14 | Payment terms: Net up to 180 days. Sales terms are ours to decide (default CBD, also COD, progress payment, Net up to 180). Purchases follow the vendor's own terms, any number of days per vendor | Meeting [[2026-10-14]] |
