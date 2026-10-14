@@ -126,6 +126,7 @@ The full list is 12 modules. Order of work and status are in [[Pandu Roadmap]]. 
 | 2026-10-14 | Om Leo (director, "super finance") approves journals in every company and gives finance people access to journal entries | Jingga |
 | 2026-10-14 | A Manager may correct a goods receipt, and every reversal is done by a Manager | Jingga |
 | 2026-10-14 | Vendor bank accounts: seen by everyone who can see vendors, changed by people who can manage vendors, like the colleague's repo | Jingga, after looking at the colleague's repo |
+| 2026-10-14 | Finance sees item costs and margins too, every level. Sales never does | Jingga. Finance types the costs |
 | 2026-10-14 | Customers and vendors need an address, a PIC name and a PIC phone. The PIC email stays optional, and the Excel import makes the same check | Jingga |
 | 2026-10-14 | Every column in the company's Excel sheets (supplier list, customer list, employee sheet) is a field when adding that record | Jingga. Nothing in their files is lost. Example: customer NPWP is kept although only Finance uses it |
 | 2026-10-14 | New department functions: Marketing (next to Sales, both in S&M) and Quality (empty until the Quality module) | Jingga. Only Marketing sees margins. QC on returns goes to Quality |

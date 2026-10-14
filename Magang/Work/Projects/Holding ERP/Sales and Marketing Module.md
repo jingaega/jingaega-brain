@@ -236,8 +236,8 @@ Foundation is done, so these change its data model. Each one is small:
 - **Quality function, empty.** Add `quality` to the department functions with no starting grants, so it is ready for the Quality module. QC on returns (S9) is given to Quality. Jingga, 2026-10-14
 - **Customer fields** that S&M needs, all promised "with S&M" earlier: NPWP (15 or 16 digits, optional, kept because every column of the Excel sheets is a field when adding a record), credit limit (Rp, 0 by default), default payment type and term (CBD, tempo with Net 1 to 180 days, or progress), set by Sales and Finance Managers
 - **Several delivery addresses per customer**, like the colleague's repo (Jingga, 2026-10-14). Built as extra addresses next to the customer's own address, which stays where it is (not copied)
-- **Item cost**: a typed standard cost per item, changed only by Finance Managers and up, seen only by Marketing, the GM and the supers. Jingga, 2026-10-14 *(until Phase 4)*. Built: the Finance Managers who type it see it too *(assumed, they have to see what they type)*
-- **New permission to see cost and margin** (`margin.view`): Marketing, the GM and the supers. Jingga, 2026-10-14 *(GM: ask supervisor)*
+- **Item cost**: a typed standard cost per item, changed only by Finance Managers and up, seen only by Marketing, the GM and the supers. Jingga, 2026-10-14 *(until Phase 4)*. Built: Finance sees it too, every level (Jingga, 2026-10-14)
+- **New permission to see cost and margin** (`margin.view`): Marketing, Finance (Jingga, 2026-10-14), the GM and the supers. Jingga, 2026-10-14 *(GM: ask supervisor)*
 
 ### Data model
 One table per record, each with `company_id`, the read and write rule pair, a company isolation test and the audit log, like every Foundation table.
@@ -275,7 +275,7 @@ All under the company, in a new **Sales** menu:
 | Work | Who |
 |---|---|
 | Record quotes, PO cust and SOs, mark lost | OPR and up in Sales |
-| See margin and cost | Marketing (every level), the GM and the supers, nobody else (GM: ask supervisor) |
+| See margin and cost | Marketing and Finance (every level), the GM and the supers, never Sales (GM: ask supervisor) |
 | Approve low margins | Manager and up in Marketing |
 | Approve a looser term on a PO cust | GM (Director if no GM) |
 | Approve a credit limit overrun | Manager and up in Sales |
