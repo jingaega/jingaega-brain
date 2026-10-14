@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Magang/Work/Projects/Holding ERP/Sales and Marketing Module.md",
+                "file": "Magang/Work/Inbox/Inbox.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Sales and Marketing Module"
+              "title": "Inbox"
             }
           }
         ]
@@ -99,7 +99,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Magang/Work/Projects/Holding ERP/Sales and Marketing Module.md",
+                "file": "Magang/Work/Inbox/Inbox.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -118,7 +118,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Magang/Work/Projects/Holding ERP/Sales and Marketing Module.md",
+                "file": "Magang/Work/Inbox/Inbox.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
@@ -161,7 +161,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Magang/Work/Projects/Holding ERP/Sales and Marketing Module.md",
+                "file": "Magang/Work/Inbox/Inbox.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
@@ -191,11 +191,11 @@
   },
   "active": "192222acdc3a0a80",
   "lastOpenFiles": [
+    "Magang/Work/Projects/Holding ERP/Sales and Marketing Module.md",
     "Magang/Work/Meetings/2026-10-14 Whiteboard costing and pricing.md",
     "Magang/Work/Attachments/2026-10-14 whiteboard costing and pricing.jpg",
     "Magang/Work/Attachments",
     "Magang/Work/Meetings/2026-10-14.md",
-    "Magang/Work/Projects/Holding ERP/Sales and Marketing Module.md",
     "Magang/Work/Inbox/Inbox.md",
     "Magang/Work/Projects/Company Websites/Company Websites.md",
     "Magang/Work/Projects/Holding ERP/Foundation Module.md",
