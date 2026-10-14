@@ -53,16 +53,17 @@ From Jingga, 2026-10-14 (explaining the office whiteboard, [[2026-10-14 Whiteboa
 Finance and Marketing work it out together: Finance advises from the numbers, Marketing knows the market.
 
 **Who sees what**
-- Sales only knows the SPPR, never cost or margin
+- Sales only knows the SPPR and the bottom price, never cost or margin
 - Procurement knows the MAP (material prices)
 - Marketing and Finance see cost and margin (built in S&M slice S0)
 
 **Open questions on this**
-- [ ] % FOH and % margin in Marketing's way: a % of what? Example: COGM Rp 10.000, FOH 20 %, margin 25 %. Is SPPR 10.000 x 1,2 = 12.000 COGS, then 12.000 / (1 - 0,25) = Rp 16.000 (GP on the price)? Or 10.000 + 20 % + 25 % of COGM = Rp 14.500?
-- [ ] Is the % FOH one rate for the company, or per product? Who sets it, Finance?
-- [ ] Is the SPPR one price per item, or per distributor or region (the whiteboard shows Dis A Surabaya and Dis B Bandung under it)?
-- [ ] Who sets and changes the SPPR: Marketing, with Finance's advice? Does it need approval?
-- [ ] When sales quotes below the SPPR, does that need approval (Sales can't see the margin, so the margin check would show up as "below publish rate")?
+- [x] FOH is a rate: whatever DL and FOH cost that month is split over the units you want to look at (per bottle, per liter and so on), giving a rupiah amount per unit. Jingga, 2026-10-14
+- [ ] Is the margin in Marketing's way the GP on the price (price = COGS / (1 - GP))? *(assumed, matches the GP formula)*
+- [x] One FOH rate for the whole company: the month's total, split per unit. Jingga, 2026-10-14. Who types it (Finance?) still open
+- [x] One SPPR per item. Dis A Surabaya and Dis B Bandung on the whiteboard are probably about something else. Jingga, 2026-10-14
+- [x] Marketing sets the SPPR with Finance's advice. Jingga, 2026-10-14
+- [x] Sales can't type a price, only propose one, approved by Marketing and Finance. Sales sees only the SPPR and the bottom price (for their incentive), never the COGS. Below the bottom price needs Marketing's approval. Jingga, 2026-10-14. Details open in [[Sales and Marketing Module]]
 
 ## Notes from the Inbox
 From Jingga's Inbox, processed 2026-10-14. Raw notes, not rules yet.
