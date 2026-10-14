@@ -237,7 +237,7 @@ Everyone in the company sees all master data. The GM changes everything; the Dir
 - [x] Who owns items and units: Managers and up in Finance, Production and Warehouse. Jingga, 2026-10-14
 - [x] Who owns customers: Managers and up in Sales and Finance. Jingga, 2026-10-14. Replaces "Finance and Procurement" of 2026-10-13
 - [x] A customer's payment term is for Sales and Finance, the same people who own customers, so no rule per field is needed. Jingga, 2026-10-14. Customers get payment terms with Sales and Marketing
-- [ ] Customer NPWP: who may set it, and is it checked? The colleague's repo treats it as an ordinary optional field: anyone who may add or change the customer fills it, with no format check on customers (vendors get the 15 or 16 digit check)
+- [x] Customer NPWP: optional, set by whoever may add or change the customer (Sales and Finance Managers), with the same 15 or 16 digit check as vendors. Jingga, 2026-10-14. Like the colleague's repo, plus the digit check. Customers get NPWP with Sales and Marketing
 - [ ] May a department's function change later, and what happens to the people in a deactivated department?
 
 **Tests**
