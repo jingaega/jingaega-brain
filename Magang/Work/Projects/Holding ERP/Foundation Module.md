@@ -148,6 +148,7 @@ Draft by Claude, waiting for Jingga's approval. Stack is in the decisions table 
   - [x] 8. Vendors, with the group company link, currency, category and payment term (done 2026-10-13)
   - 9. Real-time lists: moved to [[Pandu Roadmap#Additional features]] (Jingga, 2026-10-14). The plan stays below
   - [x] 10. Excel import of vendors, starting with Pandu's supplier list (done 2026-10-14)
+  - [ ] 11. Levels and departments instead of the 6 role templates (plan below, waiting for approval)
 - Open questions only block their own slice. Slices 1 to 3 and 6 to 9 can start now. Slices 4 and 5 use the 6 templates until they are confirmed
 
 ### Slice 9 plan: real-time lists
@@ -180,6 +181,56 @@ Written 2026-10-13, approved by Jingga the same day after asking whether live up
 - Live record pages (an item page changing while open) and the Users list. Only the four master data lists for now (Jingga, 2026-10-13)
 - "Added by X" on a new or changed row. Jingga likes it, later. No highlight for now (Jingga, 2026-10-13)
 - Live counts or notifications. Notifications come with approvals
+
+### Slice 11 plan: levels and departments
+Draft by Claude, 2026-10-14, waiting for Jingga's approval. Replaces the 6 role templates with levels and departments, like the colleague's repo (Jingga's call), plus a Director level. A change to finished slices 4 and 5 (roles, users), so it needs this plan first.
+
+**Answers so far** (Jingga, 2026-10-14)
+- Levels in each company: **Director, GM, Manager, SPV, Lead, OPR**. Super Admin stays for the holding. Directors are also Super User
+- **Director** = everything a GM has, plus the approvals that go to a director (approvals come later)
+- **GM** = everything in the company except Settings changes, like the colleague's repo
+- Each person has **one department** in a company, and each department has a **function**: Management, Procurement, Sales, Warehouse, Finance, HR, Production, General Affairs, Other (the colleague's list)
+- What someone may do = their level, in their department's function
+- **Company Admin** becomes a switch on someone's access. It gives Settings only: users, logins, roles, departments
+- **Personal data** (phone, NIK, KTP) goes to Managers and up in the HR function, plus GM and Director
+- **Master data by function**, add and change split like the colleague's repo:
+
+| Record | Owning function | Add | Change, deactivate |
+|---|---|---|---|
+| Vendors | Procurement | OPR and up | Manager and up |
+| Customers | Sales | OPR and up | Manager and up |
+| Items and units | Procurement, Warehouse, Production | OPR and up | Manager and up |
+
+Everyone in the company sees all master data. GM and Director change everything.
+
+**What changes for people**
+- Add user and Manage ask for a **level** and a **department**, and have a **Company Admin** switch
+- Settings gets a **Departments** screen: add, rename, deactivate (Company Admin)
+- The **Roles** screen becomes a grid per function: levels across, permissions down
+- Permissions split: `vendors.manage` becomes `vendors.create` and `vendors.edit`, the same for customers and items. The Excel import needs `vendors.create`
+
+**Defaults** *(assumed, easy to change on the Roles screen)*
+- Every company starts with one department per function, named after it (Management, Procurement and so on)
+- Today's people move: Company Admin → Manager in Management with the switch on; Director → Director in Management; Manager → Manager in Management; Supervisor → SPV in Management; Staff → OPR in Management; Viewer → OPR in Other (Other owns nothing, so they still only view). Only demo people exist today
+- One access row per person per company. This replaces the earlier "several roles per person are allowed" (Jingga, 2026-10-13)
+- An email is needed for anyone who can add, change or see personal data, as now with "manage"
+
+**Built in three parts, one commit each, then the strict review**
+- 11a: levels, departments, the admin switch, split permissions, moving today's people, permission checks by level and function (database and app), Add user and Manage with level and department
+- 11b: Departments screen
+- 11c: Roles screen as a grid per function
+
+**Tests**
+- A Procurement OPR can add a vendor but not change one; a Procurement Manager can change it; a Sales Manager can't change vendors
+- Everyone sees all master data; GM and Director change everything; Settings only with the switch
+- Personal data only for HR Managers and up, GM and Director
+- Company isolation for departments; one access row per person per company
+- Super User still only views, Super Admin still does everything
+
+**Not in this slice**
+- Approvals and approval amounts (with Procurement and S&M), including Super Admin then Super User above Rp 100 jt
+- Om Leo's "super finance" journal approval (with Finance)
+- Documents seen by department (the colleague's repo limits OPR, Lead and SPV to their own department's documents). Comes with the first documents
 
 ### Slice 10 plan: vendor Excel import
 Written 2026-10-13 from a grilling session with Jingga, approved the same day. Built before slice 9, which is skipped for now. Uses Pandu's real supplier list (DATA_SUPPLIER_PANDU, uploaded 2026-10-13). Compared with the colleague's repo: we copy how their import works (template, preview, all or nothing, a line limit), never their rules.
