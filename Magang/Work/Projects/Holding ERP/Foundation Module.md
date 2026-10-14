@@ -143,7 +143,7 @@ Draft by Claude, waiting for Jingga's approval. Stack is in the decisions table 
   - [x] 7. Customers, with the group company link and the S&M settings (done 2026-10-13)
   - [x] 8. Vendors, with the group company link, currency, category and payment term (done 2026-10-13)
   - [ ] 9. Real-time: lists update live in a second browser. Skipped for now, plan below (Jingga, 2026-10-13)
-  - [ ] 10. Excel import of vendors, starting with Pandu's supplier list (plan below)
+  - [x] 10. Excel import of vendors, starting with Pandu's supplier list (done 2026-10-14)
 - Open questions only block their own slice. Slices 1 to 3 and 6 to 9 can start now. Slices 4 and 5 use the 6 templates until they are confirmed
 
 ### Slice 9 plan: real-time lists
@@ -217,6 +217,13 @@ Written 2026-10-13 from a grilling session with Jingga, approved the same day. B
 - Existing name refused, similar name warns, any error saves nothing
 - Viewer and Super User refused; Anggoan can't see Pandu's imported vendors or bank accounts
 - Bank account numbers never in the audit log
+
+**Built (2026-10-14)**
+- 10a: Fax on the vendor form, several PIC emails on customers and vendors, the bank accounts table. Clicked through in a browser
+- 10b: Import from Excel on the Vendors list, with a template to download and a preview. Pandu's real file imported in a browser as 7 new vendors, 3 with a bank account, 1 with a fax, no errors
+- Found while clicking through: the Add vendor dialog was taller than a laptop screen, so its button couldn't be reached. Form dialogs scroll now
+- Strict code review: one model for a checked line, and all vendors go in with one insert. 163 tests pass, CI green
+- Tests use made up vendors in Pandu's layout, so no real bank details are in the code repo
 
 ### Slice 5e plan: existing NRPs and optional email
 Written 2026-10-13, approved by Jingga the same day with the middle way on email and the safeguards below. Follows Jingga's answers on HR's employee sheet: the NRP is the staff ID and stays automated, staff don't need an email, and the HOLDING people are the admins.

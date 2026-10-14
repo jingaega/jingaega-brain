@@ -9,6 +9,15 @@ tags: [internship, erp, log]
 
 One entry per working session, newest on top. Written by Claude at wrap up. Process is in [[Workflow]].
 
+## 2026-10-13 to 14 (tenth session)
+- Merged the slice 6 to 8 branch into `main` in both repos. CI green
+- Grilling session on slice 9, the Excel import and the colleague's repo. Slice 9 planned, then skipped for now (Jingga)
+- Read Pandu's real supplier list. It drove fax, several PIC emails and the bank account split
+- Built slice 10 in two commits: 10a fax, several PIC emails, bank accounts table with numbers kept out of the audit log; 10b the vendor import with template, preview and all or nothing save
+- Fixed while clicking through: long form dialogs now scroll, so Add vendor's button is reachable on a laptop
+- Strict code review, 3 findings fixed. 163 tests pass, CI green
+- Docker needed restarting twice after the cloud worker restarted: remove the stale containerd pid and socket files, then start dockerd
+
 ## 2026-10-13 (ninth session)
 - Wrote and got approval for the slice 6 plan, with the colleague's 11 starter units and code format, and an audit log (Jingga's call)
 - Built slice 6 in three commits, each clicked through in a browser:

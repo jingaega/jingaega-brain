@@ -106,7 +106,9 @@ Items and units (slice 6), customers (slice 7) and vendors (slice 8), plans in [
 - **Units** (`lib/units.ts`): code and name. Every company starts with 11 units from the seed
 - **Items** (`lib/items.ts`): code, name, unit, buy or make. The item page shows its history
 - **Customers** (`lib/customers.ts`): name, address, one contact, group company link, order type, rework report. Codes are numbered by PostgreSQL (C-0001, trigger `assign_code` in `db/migrations/0008_customers.sql`) and can't be typed or changed
-- **Vendors** (`lib/vendors.ts`): the customer fields plus category, currency, payment term (CBD or Net days), NPWP, website and notes. Codes V-0001
+- **Vendors** (`lib/vendors.ts`): the customer fields plus category, currency, payment term (CBD or Net days), fax, NPWP, website and notes. Codes V-0001
+- **Vendor bank accounts** (`vendor_bank_accounts`, slice 10): several per vendor, for the import. No screen shows them yet
+- **Excel import** (slice 10): the browser reads the .xlsx, the server checks every line. `lib/sheet-import.ts` finds the header row and reads lines for any import; `lib/vendor-import.ts` holds the vendor columns and rules and reuses Add vendor's checks (`checkVendorFields`). The template is made from the same column list
 - Customers and vendors share their common fields and checks (`lib/partners.ts`, `partner-fields.tsx`)
 - Item and unit codes are typed, saved in capitals and unique inside a company. No code changes after saving
 - The group company picker uses `app_group_companies()`, which shows every company's name and nothing else, since company isolation hides other companies' rows
@@ -119,7 +121,8 @@ Items and units (slice 6), customers (slice 7) and vendors (slice 8), plans in [
 ### Audit log
 - PostgreSQL writes one `audit_log` row for every insert, update and delete on an audited table, with the old and new values, who asked and when (trigger `audit_row` in `db/migrations/0007_items-and-units.sql`)
 - The app can only read it, and only for companies the person may see. Nobody can change or delete it through the app
-- Items, units, customers and vendors are audited so far. Another table joins with one `CREATE TRIGGER` line
+- Items, units, customers, vendors and vendor bank accounts are audited so far. Another table joins with one `CREATE TRIGGER` line
+- Columns named in the trigger's arguments are left out of the log, so the history shows that something changed but not the value. Bank accounts use it for the bank and the numbers (`db/migrations/0018_vendor-fax-and-bank-accounts.sql`)
 - `lib/audit.ts` turns rows into a history. Changes by the seed show as "System"
 
 ### Mail
