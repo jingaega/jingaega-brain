@@ -86,18 +86,20 @@ These are built now so work isn't blocked, and are easy to change later. All are
 
 ## Open questions
 - [x] The 2 super users are the holding's admins, listed as HOLDING in HR's employee sheet, not part of one company. Jingga, 2026-10-13
-- [ ] Which of the two is Super Admin (changes everything) and which is Super User (sees everything, changes nothing)? Their real accounts replace the placeholder ones
+- [x] Both holding people are Super Admin. Jingga, 2026-10-14. Their real accounts replace the placeholder ones
+- [ ] Who is Super User (sees every company, changes nothing), if anyone? The colleague's repo gives it to the directors
 - [x] The NRP is given automatically when a new user is added. Jingga, 2026-10-13. Format still open (see slice 5 questions)
-- [ ] Confirm the 6 role templates, and what each one can do per module
-- [ ] **Departments** (later, Jingga): Jingga's answers name finance and procurement managers and above. The 6 roles (company admin, director, manager, supervisor, staff, viewer) have no department today. Add departments to access (manager in finance), or make roles per department (Finance Manager)? And does "above" mean director and company admin? Until decided, items and customers stay with company admin and manager
+- [ ] **Roles like the colleague's repo** (Jingga, 2026-10-14): levels General Manager, Manager, SPV, Lead, OPR, plus a department with a function (Finance, Procurement, Warehouse, HR...). What someone may do is their level in their department's function. Company Admin becomes a switch on the access. Replaces our 6 role templates and answers the departments question below. A change to a finished module, needs its own plan first
+- [ ] Confirm the 6 role templates, and what each one can do per module (replaced by the levels above once planned)
+- [ ] **Departments** (later, Jingga, now covered by the levels above): Jingga's answers name finance and procurement managers and above. The 6 roles (company admin, director, manager, supervisor, staff, viewer) have no department today. Add departments to access (manager in finance), or make roles per department (Finance Manager)? And does "above" mean director and company admin? Until decided, items and customers stay with company admin and manager
 - [ ] Master data per company or shared? Spec currently says per company (Anggoan has its own catalog). If per company, how does a Wening item at Pandu match the same item at Anggoan for the automatic PO to SO?
 - [x] Currency: IDR, plus Chinese yuan (CNY), US dollar (USD), Singapore dollar (SGD), Australian dollar (AUD), euro (EUR) and Japanese yen (JPY) for procurement. Jingga, 2026-10-13. Follow ups in [[Procurement Module]]
-- [ ] **Ask supervisor:** do customers also have their own currency (selling abroad), or is every sale in IDR? Vendors have one currency each (Jingga, 2026-10-13), which slice 8 adds
+- [x] Every sale is in IDR, customers have no currency of their own. Meeting [[2026-10-14]]. Vendors keep one currency each
 - [x] Besides the super users, each company's admin manages users and roles (built in slice 5). Later HR adds users too, once departments exist. Jingga, 2026-10-13
 - [x] Excel import and export are needed. Jingga, 2026-10-13. Import of vendors planned as slice 10 (below). Export gets its own plan later
 - [ ] **Ask supervisor:** what does "real-time" in the scope mean? Our reading *(assumed)*: data is current the moment it is saved. Live lists (slice 9) are extra on top. Also ask: are live screens wanted now? Slice 9 is planned but skipped until then (Jingga, 2026-10-13)
 - [ ] **Ask supervisor:** should the Excel import be looser than the form (for example, let a vendor in without a category)? Until then it makes the same checks as Add vendor
-- [ ] **Ask supervisor:** who may see vendor bank accounts? Until then they are stored but shown nowhere, and the audit log keeps only that they changed
+- [x] Vendor bank accounts like the colleague's repo: everyone who can see vendors sees them, only people who can manage vendors change them. Jingga, 2026-10-14. Built today: stored but shown nowhere, the audit log keeps only that they changed. Showing them is a small change still to build
 - [ ] Seed demo items outside production (local and staging)? None for now. Needs Pandu's real item list, since the colleague's demo items (hand soap, dish soap) aren't Wening. See the slice 6 plan
 - [x] Password rules: at least 10 characters, no forced mix. Jingga, 2026-10-13
 - [x] A login lasts one work day: it ends 9 hours after signing in, not renewed while in use (9 hours is Claude's reading of one work day). Jingga, 2026-10-13

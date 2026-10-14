@@ -183,13 +183,13 @@ Build notes:
 - [ ] Does a lost deal count as Closed? The whiteboard links Loss to Closed
 - [ ] Kopken revenue timing: the price only exists after BAST, so when does finance book the sale?
 - [ ] Minimum margin: margin against which cost (average stock cost, last purchase price)? What is the minimum, one % for the company or per item? Which manager approves?
-- [ ] Is down payment its own payment type, or tempo with a first installment?
+- [ ] Is down payment its own payment type, or tempo with a first installment? Partly answered in meeting [[2026-10-14]]: sales payment types are ours to decide, default CBD, with COD, progress payment and Net up to 180 days. Which ones S&M builds first still to decide
 - [ ] Later, with intercompany: does Anggoan (or another group buyer) get a quote first, or does its PO go straight to an SO?
 - [ ] What is PMS? It is not one of the 12 modules. Is it sourcing inside Procurement?
 - [ ] Is "cash" on the quote the same as CBD? Installment has no flow yet
 - [ ] Who approves an SO term override? Depends on the role list in [[Foundation Module]]
 - [ ] Can a BAST be partly rejected, with some lines accepted and invoiced?
-- [ ] **Ask supervisor:** can a sale be in a foreign currency (a customer with its own currency, like vendors have)? Purchases can be in IDR, CNY, USD, SGD, AUD, EUR or JPY
+- [x] Every sale is in IDR. Meeting [[2026-10-14]]
 - [ ] Does a customer need several delivery addresses for the DO / BAST? Foundation keeps one address and one contact per customer for now. The colleague's repo has several of each
 - [ ] Later: who owns the PI and its paid status in CBD, S&M or FAT? CBD has no PO cust or SO in the flow, but DO / BAST links to an SO
 - [ ] Later: Kopken creates the BAST before any PO or SO exists, and the WO and Rework Report are not records yet. How do they link?

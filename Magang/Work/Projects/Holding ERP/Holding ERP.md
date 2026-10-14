@@ -115,6 +115,12 @@ The full list is 12 modules. Order of work and status are in [[Pandu Roadmap]]. 
 | 2026-10-13 | "Real-time" means data is current the moment it is saved: no end of day batch, finance posts right away *(assumed, asking supervisor)*. Live lists (slice 9) are extra on top | Jingga's reading. Nobody had said what the scope line meant |
 | 2026-10-13 | Build slice 9 (live master data lists) now, then slice 10 (vendor Excel import) | Jingga's call after asking whether live updates are needed at all |
 | 2026-10-14 | Live lists (slice 9) become an additional feature, not part of Foundation. Foundation's build is done with slices 1 to 8 and 10 | Not needed to finish Foundation. Built when a screen gains from it, after the supervisor says what real-time means |
+| 2026-10-14 | Every sale is in IDR | Meeting [[2026-10-14]] |
+| 2026-10-14 | Payment terms: Net up to 180 days. Sales terms are ours to decide (default CBD, also COD, progress payment, Net up to 180). Purchases follow the vendor's own terms, any number of days per vendor | Meeting [[2026-10-14]] |
+| 2026-10-14 | Directors approve big transactions only. A limit that makes them approve something every day is the wrong limit | Meeting [[2026-10-14]]. Approval amounts still to set |
+| 2026-10-14 | Both holding people are Super Admin | Jingga |
+| 2026-10-14 | Vendor bank accounts: seen by everyone who can see vendors, changed by people who can manage vendors, like the colleague's repo | Jingga, after looking at the colleague's repo |
+| 2026-10-14 | Roles move toward the colleague's model: levels (General Manager, Manager, SPV, Lead, OPR) with a department function, Company Admin as a switch | Jingga. Needs its own plan before building |
 | 2026-10-13 | Excel import: same checks as the form, add only, warning on similar names, our template and Pandu's own columns both read. Copy how the colleague's import works, not its rules | Grilling session. Keeps one set of rules, and the import never changes existing vendors |
 | 2026-10-13 | Vendors keep fax and several bank accounts. Bank accounts are shown nowhere until Procurement, and the audit log never holds the numbers *(assumed)* | Pandu's supplier list has them, so nothing in the file is lost. Bank details need stricter access |
 | 2026-10-13 | A PIC may have several emails, on customers and vendors | Two of Pandu's 7 vendors have two emails |
