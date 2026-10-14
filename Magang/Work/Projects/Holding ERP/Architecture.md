@@ -66,8 +66,8 @@ A request goes like this:
 - An [[Glossary#Group and access|access]] row gives a user a role in one company. One user can have access to several companies. Several roles in one company are allowed by the database, the screens give one (open question in [[Foundation Module]])
 - A [[Glossary#Group and access|role]] belongs to one company and has a list of permissions. The 6 role templates and the permission list are in `lib/permissions.ts`
 - What someone may do in a company is their abilities: their holding role (if any) plus the permissions of their roles there
-- `can()` decides what a screen shows. `requirePermission()` stops a change. Super Admin passes every check, Super User only view checks
-- Every function that changes company data takes an Actor: the person, the company and their abilities. It checks its own permission, so the check sits with the rule and is tested with it
+- `can()` decides what a screen shows. `requirePermission()` stops a read or a change. Super Admin passes every check, Super User only view checks
+- Every function that reads or changes company data takes an Actor: the person, the company and their abilities. It checks its own permission (`*.view` to read, `*.manage` to change), so the check sits with the rule and is tested with it. Pages get the Actor from `getCompanyActor`, file download routes from `routeActor` (`lib/company-page.ts`)
 - Permissions are the app's check. [[#Company isolation]] is the database's check underneath. Both must agree
 
 ### Company isolation
@@ -112,6 +112,8 @@ Items and units (slice 6), customers (slice 7) and vendors (slice 8), plans in [
 - Customers and vendors share their common fields and checks (`lib/partners.ts`, `partner-fields.tsx`)
 - Item and unit codes are typed, saved in capitals and unique inside a company. No code changes after saving
 - The group company picker uses `app_group_companies()`, which shows every company's name and nothing else, since company isolation hides other companies' rows
+- One shared module, `lib/master-record.ts`: each record describes its table once and gets list, get, history, change and deactivate from it, with the permission checks, the "doesn't exist any more" message and the "code already used" message written once. Each record's own file keeps only its field rules and Add. New master data records use it too
+- Vendors and their bank accounts are written in one place, `insertVendors` in `lib/vendors.ts`, used by Add vendor and the Excel import
 - List and record pages share one layout (`record-views.tsx`) and one list filter (`lib/master-data.ts`)
 - Nothing is deleted: the app's database user has no delete right on these tables. Records go inactive instead
 - An item's unit must belong to the same company. The database checks this too

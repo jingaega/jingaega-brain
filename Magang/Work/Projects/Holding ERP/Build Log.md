@@ -10,6 +10,12 @@ tags: [internship, erp, log]
 One entry per working session, newest on top. Written by Claude at wrap up. Process is in [[Workflow]].
 
 ## 2026-10-13 to 14 (tenth session)
+- Architecture review of Foundation (`/improve-codebase-architecture`): 7 candidates. Built 3 of them:
+  - One shared module for master data records, 5 copies of the same logic removed
+  - Reads now check permissions themselves, like changes, for master data and Settings. Rule added to the code repo's `CLAUDE.md`
+  - Vendors and bank accounts are written in one place
+- Strict review of that work fixed 3 findings: the permission check came after the field checks in two places, the two download routes repeated one guard, an unused type. 168 tests pass
+- Left for later from the review: history labels per record, one login module, split user admin, merge the small option files
 - Merged the slice 6 to 8 branch into `main` in both repos. CI green
 - Grilling session on slice 9, the Excel import and the colleague's repo. Slice 9 planned, then skipped for now (Jingga)
 - Read Pandu's real supplier list. It drove fax, several PIC emails and the bank account split
