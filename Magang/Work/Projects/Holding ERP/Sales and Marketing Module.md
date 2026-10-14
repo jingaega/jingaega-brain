@@ -303,7 +303,14 @@ One record end to end each, with the strict code review after each slice.
   - Found and fixed: the vendor payment term check in the database let Net through with no days (a NULL slips past a CHECK). The new customer check had the same hole
   - Strict review: 6 fixes (one insert per address, money formatting without floats, shared Net days limit, cleaner payment term field, no cast on the item page, one permission check for "see or change costs"). 206 tests pass, clicked through in a browser
   - Also from Jingga during S0: address, PIC name and PIC phone are required for customers and vendors, PIC email optional. The Excel import checks the same
-- [ ] **S1. Quotes**: SPPR on items (set by Marketing Managers, seen by everyone who sees items), record a quote with lines priced from the SPPR, versions, lost with reason, expiry and "expires soon", sales settings
+- [x] **S1. Quotes**: built 2026-10-14
+  - S1a: SPPR on items, set by Manager and up in Marketing (and the GM), seen by everyone who sees items, in the item's history
+  - S1b: record a quote with lines priced from the SPPR (Sales never types a price), numbered `SQ-PDT-2026-10-0001` per company and month, edit while being prepared. Sales menu with Quotes
+  - S1c: Mark as Sent (date, and the file that was sent, PDF, PNG or JPG up to 5 MB), Revise (a new version at today's SPPR, the old one kept), Mark Lost (price, customer cancelled or no response, plus a note)
+  - Expires soon shows 3 days before the validity date, Lost (expired) after it. Worked out from the date, not stored
+  - Strict review: a sent version's lines can't change in PostgreSQL either, plus 4 tidy ups. 225 tests pass, clicked through in a browser
+  - Not in the plan, built *(assumed, easy to change)*: a quote is saved first as **Being prepared**, then marked sent. The spec said a quote is recorded when it is sent, but the price proposals of S2 need it to wait before sending. New quotes are valid 14 days. Sales, Marketing and Finance (every level) and the Director see quotes; Sales records them
+  - Left for S2: the Sales settings page (minimum margin, warning days). The 3 days and 14 days are fixed in code until then
 - [ ] **S2. Price proposals and approvals**: Sales proposes another price with a reason, the quote waits, a Marketing Manager approves or refuses, seeing the COGS and GP (hidden from everyone without `margin.view`), the To approve list. Needs the FOH rate per unit to reach COGS (Finance calculates it; Finance Managers type it until Phase 5 *(assumed)*)
 - [ ] **S3. Customer PO**: record against the accepted version, line by line check, term mismatch to the GM, quote locks
 - [ ] **S4. Sales order**: from the PO cust, payment type and term with their source, stock confirmed, cancel

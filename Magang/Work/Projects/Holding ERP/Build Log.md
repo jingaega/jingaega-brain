@@ -16,7 +16,12 @@ One entry per working session, newest on top. Written by Claude at wrap up. Proc
 - Built S0 (Foundation changes for S&M) in three commits plus review fixes: Marketing and Quality functions, customer payment term, credit limit, NPWP and delivery addresses, typed item cost seen only by Marketing, the GM and Finance, enforced in PostgreSQL
 - Fixed a database hole: payment term checks let Net or tempo through with no days
 - Jingga: address, PIC name and PIC phone required for customers and vendors
-- Clicked through in a browser; found and fixed a server page passing a plain function to a client component. 206 tests pass. Work is on the branch `claude/focused-allen-q1pbd3`, not merged into `main` yet
+- Clicked through in a browser; found and fixed a server page passing a plain function to a client component. 206 tests pass
+- Jingga: Finance sees costs and margins too. Costing model from Jingga: COGM (materials at MAP) + DL + FOH = COGS, GP on the price, SPPR set by Marketing. Sales only sees the SPPR and proposes other prices, approved by Marketing Managers
+- GitHub Codespaces set up (`.devcontainer`), so the ERP runs in a browser tab. Fixed two sign in problems behind the Codespaces proxy (it sends the origin as localhost:3000)
+- Built S1 (quotes) in three commits plus review fixes: SPPR on items, quotes with versions and lines priced from the SPPR, mark sent with the file, revise, mark lost, expiry. A sent version's lines are fixed in PostgreSQL. 225 tests pass, clicked through in a browser
+- S0 and S1 merged into `main` in the code repo
+- Found: a dev server started right after `pnpm build` can get stuck reloading the login page. Restarting `pnpm dev` fixes it
 
 ## 2026-10-13 to 14 (tenth session)
 - Jingga: customers belong to Sales and Finance, Managers and up. Migration 0023. Master data owners now all answered
