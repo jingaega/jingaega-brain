@@ -55,7 +55,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "assumed",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -191,15 +191,15 @@
   },
   "active": "192222acdc3a0a80",
   "lastOpenFiles": [
+    "Magang/Work/Inbox/Inbox.md",
+    "Magang/Work/CLAUDE.md",
+    "Magang/Work/00 Start Here.md",
+    "Magang/Work/Meetings/2026-10-14.md",
     "Magang/Work/Meetings/Meetings.md",
     "Magang/Work/Templates/Meeting Note.md",
-    "Magang/Work/Meetings/2026-10-14.md",
     "Meeting Note.md",
     "Magang/Work/Projects/Company Websites/Company Websites.md",
-    "Magang/Work/Inbox/Inbox.md",
     "Magang/Work/Projects/Holding ERP/Glossary.md",
-    "Magang/Work/00 Start Here.md",
-    "Magang/Work/CLAUDE.md",
     "Magang/Work/Projects/Holding ERP/GA Module.md",
     "Magang/Work/Projects/Holding ERP/Sales and Marketing Module.md",
     "Magang/Work/Projects/Holding ERP/Module Overview.md",
