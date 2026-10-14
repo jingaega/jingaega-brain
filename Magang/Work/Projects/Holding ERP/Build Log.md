@@ -9,6 +9,15 @@ tags: [internship, erp, log]
 
 One entry per working session, newest on top. Written by Claude at wrap up. Process is in [[Workflow]].
 
+## 2026-10-14 (eleventh session)
+- Session start hook for cloud sessions in the code repo: installs packages, starts the machine's PostgreSQL 16 (not Docker), runs `pnpm db:setup`. Merged into `main`
+- S&M questions answered with Jingga, compared with the colleague's repo and the office whiteboard (GP % on the selling price, cost methods). Inbox processed into the module notes
+- S&M build plan written and approved: S0 to S9, CBD first
+- Built S0 (Foundation changes for S&M) in three commits plus review fixes: Marketing and Quality functions, customer payment term, credit limit, NPWP and delivery addresses, typed item cost seen only by Marketing, the GM and Finance, enforced in PostgreSQL
+- Fixed a database hole: payment term checks let Net or tempo through with no days
+- Jingga: address, PIC name and PIC phone required for customers and vendors
+- Clicked through in a browser; found and fixed a server page passing a plain function to a client component. 206 tests pass. Work is on the branch `claude/focused-allen-q1pbd3`, not merged into `main` yet
+
 ## 2026-10-13 to 14 (tenth session)
 - Jingga: customers belong to Sales and Finance, Managers and up. Migration 0023. Master data owners now all answered
 - Jingga: items and units belong to Finance, Production and Warehouse. Starting grants moved, migration 0022. Fixed a test race found on the way: the levels test added Sibama vendors while the vendors test counted Sibama's codes; it uses Serio now

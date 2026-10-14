@@ -235,8 +235,8 @@ Foundation is done, so these change its data model. Each one is small:
 - **Marketing function.** Add `marketing` next to `sales` in the department functions. Both work in the S&M module, but only Marketing sees margins and approves low ones. Pandu gets a Marketing department at seed. Jingga, 2026-10-14
 - **Quality function, empty.** Add `quality` to the department functions with no starting grants, so it is ready for the Quality module. QC on returns (S9) is given to Quality. Jingga, 2026-10-14
 - **Customer fields** that S&M needs, all promised "with S&M" earlier: NPWP (15 or 16 digits, optional, kept because every column of the Excel sheets is a field when adding a record), credit limit (Rp, 0 by default), default payment type and term (CBD, tempo with Net 1 to 180 days, or progress), set by Sales and Finance Managers
-- **Several delivery addresses per customer**, like the colleague's repo *(assumed, open question below)*. The one address today becomes the first one
-- **Item cost**: a typed standard cost per item, changed only by Finance Managers and up, seen only by Marketing, the GM and the supers. Jingga, 2026-10-14 *(until Phase 4)*
+- **Several delivery addresses per customer**, like the colleague's repo (Jingga, 2026-10-14). Built as extra addresses next to the customer's own address, which stays where it is (not copied)
+- **Item cost**: a typed standard cost per item, changed only by Finance Managers and up, seen only by Marketing, the GM and the supers. Jingga, 2026-10-14 *(until Phase 4)*. Built: the Finance Managers who type it see it too *(assumed, they have to see what they type)*
 - **New permission to see cost and margin** (`margin.view`): Marketing, the GM and the supers. Jingga, 2026-10-14 *(GM: ask supervisor)*
 
 ### Data model
@@ -286,7 +286,13 @@ All under the company, in a new **Sales** menu:
 
 ### Slices
 One record end to end each, with the strict code review after each slice.
-- [ ] **S0. Foundation changes**: Marketing function, customer fields and delivery addresses, item cost, `margin.view`
+- [x] **S0. Foundation changes**: Marketing function, customer fields and delivery addresses, item cost, `margin.view`. Built 2026-10-14, see below
+  - S0a: Marketing and Quality functions, every company gets both departments, `margin.view` for every level in Marketing and the GM
+  - S0b: customer payment term (CBD, tempo Net 1 to 180, progress; CBD for new and existing customers), credit limit in rupiah, NPWP, delivery addresses with add, edit, deactivate
+  - S0c: item cost, typed by Finance Managers (`items.cost`), kept in its own table that PostgreSQL only shows to people with `margin.view` or `items.cost`. The audit log keeps that it changed, never the amount
+  - Found and fixed: the vendor payment term check in the database let Net through with no days (a NULL slips past a CHECK). The new customer check had the same hole
+  - Strict review: 6 fixes (one insert per address, money formatting without floats, shared Net days limit, cleaner payment term field, no cast on the item page, one permission check for "see or change costs"). 206 tests pass, clicked through in a browser
+  - Also from Jingga during S0: address, PIC name and PIC phone are required for customers and vendors, PIC email optional. The Excel import checks the same
 - [ ] **S1. Quotes**: record, versions, lost with reason, expiry and "expires soon", sales settings
 - [ ] **S2. Margin check and approvals**: GP % per line from the item cost, hidden from everyone without `margin.view`, low margin approval by Marketing, the To approve list
 - [ ] **S3. Customer PO**: record against the accepted version, line by line check, term mismatch to the GM, quote locks

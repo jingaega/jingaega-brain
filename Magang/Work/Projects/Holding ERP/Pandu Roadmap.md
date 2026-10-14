@@ -22,7 +22,7 @@ A working, real-time ERP that Pandu uses for its own Wening flow, from the first
 |---|---|---|---|
 | 0. Decide | Stack, deadline, repo and environment are chosen | none | Done (3 follow ups open in [[Holding ERP]]) |
 | 1. Foundation | Login, companies with color themes, 2 super users, roles and authorization, master data (items, customers, vendors) | [[Foundation Module]] | Built (slices 1 to 8, 10 and 11: levels and departments). Live lists moved to [[#Additional features]] |
-| 2. Sell | A Pandu tempo order goes from quote to signed BAST | [[Sales and Marketing Module]] | Spec drafted |
+| 2. Sell | A Pandu CBD, tempo or progress order goes from quote to signed BAST | [[Sales and Marketing Module]] | Plan approved, S0 built |
 | 3. Buy | A Pandu purchase goes from request to paid | [[Procurement Module]] | Notes captured |
 | 4. Stock | Stock is correct after every sale, purchase and return | IMS, WMS | Not started |
 | 5. Money | Finance posts journals automatically from phases 2 to 4 | Finance A&T | Not started |
@@ -40,7 +40,7 @@ Why this order: Sell and Buy are already the best specced. Stock sits right afte
 | Module | Spec | Build | Notes |
 |---|---|---|---|
 | Foundation | Draft, open questions waiting | Built, open questions left. Live lists moved to Additional features | Comes before the 12, not counted in them |
-| Sales & Marketing | Draft, open questions waiting | Not started | First module. Tempo flow first |
+| Sales & Marketing | Build plan approved 2026-10-14, supervisor questions marked | S0 built (Foundation changes). Next: S1 quotes | First module. CBD first, then tempo and progress |
 | Procurement | Notes captured | Not started | Covers vendor management too |
 | IMS | [[IMS Module]] (stub, general idea) | Not started | |
 | WMS | [[WMS Module]] (stub, general idea) | Not started | |
@@ -70,8 +70,10 @@ Why this order: Sell and Buy are already the best specced. Stock sits right afte
 - [x] Slice 10: Excel import of vendors, with Pandu's supplier list
 - [x] Slice 11: levels and departments, Company Admin switch, Departments screen, master data by owning department
 - [x] Architecture review of Foundation, 3 of 7 candidates built (see [[Build Log]])
-- [ ] Close the S&M open questions that block Pandu (see below)
-- [ ] Write the S&M build plan
+- [x] Close the S&M open questions that block Pandu (answered by Jingga 2026-10-14, some still to confirm with the supervisor)
+- [x] Write the S&M build plan (approved 2026-10-14)
+- [x] S&M S0: Foundation changes for S&M
+- [ ] S&M S1: quotes
 - [ ] Phase 4: the margin check moves from the typed item cost to the moving average cost
 - [ ] Phase 4: make S&M check stock automatic (hold stock on the SO, shortage to Prod/Purch), replacing the manual "stock confirmed" step
 

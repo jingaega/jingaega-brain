@@ -65,6 +65,7 @@ flowchart TD
 | Forgot password | A reset link goes to the user's email |
 | Nothing is hard deleted *(assumed)* | Master data and users go Inactive instead. Inactive items, customers and vendors can't be picked on new documents |
 | Codes are unique inside a company *(assumed)* | Two items in Pandu can't share a code. Pandu and Anggoan can |
+| Address and PIC are required | Customers and vendors need an address, a PIC name and a PIC phone. The PIC email is optional. Add, Edit and the Excel import refuse without them. Jingga, 2026-10-14 |
 
 ## Handoffs to other modules
 | Module | What it does for this module | Where in the flow |
