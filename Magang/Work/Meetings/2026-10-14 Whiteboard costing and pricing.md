@@ -21,6 +21,6 @@ Back to [[Meetings]]. Photo shared by Jingga on 2026-10-14. Who wrote it and whe
 
 ## Where it went
 - GP formula: minimum margin in [[Sales and Marketing Module]]
-- Cost method and "15 to 22": open questions in [[Sales and Marketing Module]]
+- Cost method: open question in [[Sales and Marketing Module]]. Jingga reads "15 to 22" as nothing important
 - HET and distributor prices: not in any spec yet. Pricing (price lists) is outside the ERP today, see [[Sales and Marketing Module]]
 - BoM: [[Production Module]]
