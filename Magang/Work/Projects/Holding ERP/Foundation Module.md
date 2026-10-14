@@ -199,10 +199,10 @@ Written 2026-10-14, approved by Jingga the same day. Replaces the 6 role templat
 | Record | Owning function | Add | Change, deactivate |
 |---|---|---|---|
 | Vendors | Procurement | Manager and up | Manager and up |
-| Customers | Sales | Manager and up | Manager and up |
+| Customers | Sales, Finance | Manager and up | Manager and up |
 | Items and units | Finance, Production, Warehouse | Manager and up | Manager and up |
 
-Changed by Jingga, 2026-10-14, after 11b: on the master data screens only Managers and up add and change. OPR, Lead and SPV only look. Adding records from a module's own screens (a customer from Sales, an item from Inventory) comes later. Built in commit a2e9e86 (migration 0021). Items and units moved from Procurement to Finance, Production and Warehouse (Jingga, 2026-10-14, commit e7d0fc9, migration 0022).
+Changed by Jingga, 2026-10-14, after 11b: on the master data screens only Managers and up add and change. OPR, Lead and SPV only look. Adding records from a module's own screens (a customer from Sales, an item from Inventory) comes later. Built in commit a2e9e86 (migration 0021). Items and units moved from Procurement to Finance, Production and Warehouse (Jingga, 2026-10-14, commit e7d0fc9, migration 0022). Customers belong to Sales and Finance (Jingga, 2026-10-14, migration 0023).
 
 Everyone in the company sees all master data. The GM changes everything; the Director only views.
 
@@ -235,7 +235,8 @@ Everyone in the company sees all master data. The GM changes everything; the Dir
 
 **Open questions from building slice 11**
 - [x] Who owns items and units: Managers and up in Finance, Production and Warehouse. Jingga, 2026-10-14
-- [ ] Who owns customers: Sales (slice 11 plan, built) or Finance and Procurement (answer of 2026-10-13)? Managers and up either way
+- [x] Who owns customers: Managers and up in Sales and Finance. Jingga, 2026-10-14. Replaces "Finance and Procurement" of 2026-10-13
+- [ ] Later, with Sales and Marketing: should Sales add customers but only Finance change payment terms and NPWP? Needs rules per field, which we don't have yet
 - [ ] May a department's function change later, and what happens to the people in a deactivated department?
 
 **Tests**
