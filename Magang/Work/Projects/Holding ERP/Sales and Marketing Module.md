@@ -232,8 +232,9 @@ Written 2026-10-14, **waiting for Jingga's approval**. Order: CBD first, then te
 
 ### Changes to Foundation first (finished module, needs approval)
 Foundation is done, so these change its data model. Each one is small:
-- **Marketing function.** Add `marketing` to the department functions, so "only Marketing sees margin" and "a Marketing Manager approves low margins" have someone to point at. Pandu gets a Marketing department at seed
-- **Customer fields** that S&M needs, all promised "with S&M" earlier: NPWP (15 or 16 digits, optional), credit limit (Rp, 0 by default), default payment type and term (CBD, tempo with Net 1 to 180 days, or progress), set by Sales and Finance Managers
+- **Marketing function.** Add `marketing` next to `sales` in the department functions. Both work in the S&M module, but only Marketing sees margins and approves low ones. Pandu gets a Marketing department at seed. Jingga, 2026-10-14
+- **Quality function, empty.** Add `quality` to the department functions with no starting grants, so it is ready for the Quality module. QC on returns (S9) is given to Quality. Jingga, 2026-10-14
+- **Customer fields** that S&M needs, all promised "with S&M" earlier: NPWP (15 or 16 digits, optional, kept because every column of the Excel sheets is a field when adding a record), credit limit (Rp, 0 by default), default payment type and term (CBD, tempo with Net 1 to 180 days, or progress), set by Sales and Finance Managers
 - **Several delivery addresses per customer**, like the colleague's repo *(assumed, open question below)*. The one address today becomes the first one
 - **Item cost**: a typed standard cost per item, changed only by Finance Managers and up, seen only by Marketing, the GM and the supers. Jingga, 2026-10-14 *(until Phase 4)*
 - **New permission to see cost and margin** (`margin.view`): Marketing, the GM and the supers. Jingga, 2026-10-14 *(GM: ask supervisor)*
@@ -280,7 +281,7 @@ All under the company, in a new **Sales** menu:
 | Approve a credit limit overrun | Manager and up in Sales |
 | Confirm stock, make and sign DO / BAST, receive returns | OPR and up in Warehouse |
 | Mark a PI paid | Manager and up in Finance |
-| QC and rework on returns | OPR and up in Production *(Quality module later)* |
+| QC and rework on returns | OPR and up in Quality |
 | See all sales records | Everyone in Sales, Marketing, Warehouse and Finance, plus Director and GM |
 
 ### Slices
@@ -304,5 +305,5 @@ One record end to end each, with the strict code review after each slice.
 - [x] The GM sees margins. Jingga, 2026-10-14 *(ask supervisor)*
 - [ ] Partly rejected BAST (some lines accepted): the plan rejects the whole BAST *(assumed)*. Was already open above
 - [ ] Rework limit: the plan only counts rounds, no scrap *(assumed)*. Was already open above
-- [ ] Who does QC on returns until the Quality module exists? The plan says Production *(assumed)*. The colleague's repo lets anyone in the company with the returns permission do it (every level except director and viewer), since it has no departments in roles
+- [x] QC on returns is done by Quality, a new empty department function. Jingga, 2026-10-14. Was: the plan said Production. The colleague's repo lets anyone in the company with the returns permission do it (every level except director and viewer), since it has no departments in roles
 - [x] Progress uses the colleague's default: 30 % down before delivery, the rest 30 days after delivery, changeable per order. Jingga, 2026-10-14 *(ask supervisor)*

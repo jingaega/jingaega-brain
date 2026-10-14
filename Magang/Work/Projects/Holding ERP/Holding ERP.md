@@ -126,6 +126,8 @@ The full list is 12 modules. Order of work and status are in [[Pandu Roadmap]]. 
 | 2026-10-14 | Om Leo (director, "super finance") approves journals in every company and gives finance people access to journal entries | Jingga |
 | 2026-10-14 | A Manager may correct a goods receipt, and every reversal is done by a Manager | Jingga |
 | 2026-10-14 | Vendor bank accounts: seen by everyone who can see vendors, changed by people who can manage vendors, like the colleague's repo | Jingga, after looking at the colleague's repo |
+| 2026-10-14 | Every column in the company's Excel sheets (supplier list, customer list, employee sheet) is a field when adding that record | Jingga. Nothing in their files is lost. Example: customer NPWP is kept although only Finance uses it |
+| 2026-10-14 | New department functions: Marketing (next to Sales, both in S&M) and Quality (empty until the Quality module) | Jingga. Only Marketing sees margins. QC on returns goes to Quality |
 | 2026-10-14 | S&M first build: CBD first, then tempo and progress (down payment). COD and Kopken later, Kopken as an order type | Jingga, after comparing with the colleague's repo. CBD is the default payment type |
 | 2026-10-14 | S&M starts at Quote recorded, and the customer PO is its own record, checked against the quote | Jingga, kept over the colleague's repo, where the PO is a field on the SO |
 | 2026-10-14 | Check stock is automatic, like the colleague's repo | Jingga. When it can be built depends on stock (Phase 4), open question in [[Sales and Marketing Module]] |
