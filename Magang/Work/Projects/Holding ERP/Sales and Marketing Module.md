@@ -272,7 +272,7 @@ One table per record, each with `company_id`, the read and write rule pair, a co
 | `return_checks` | Each QC round: pass or defect, what was wrong, who | The rework count is the number of defect rounds |
 | `approval_requests` | Document, kind (low margin, term mismatch, credit limit), asked by, decided by, decision, note | One shared table so there is one "To approve" list *(design choice)* |
 
-Document numbers *(assumed format, open question below)*: `SQ-PDT-2026-10-0001` for quotes, then SO, PI and DO the same way, numbered per company per month like the colleague's repo.
+Document numbers in the group's official style (Jingga, 2026-10-14): `SQ-1025-001` for quotes, then SO, PI and DO the same way, numbered per company per month.
 
 ### Screens
 All under the company, in a new **Sales** menu:
@@ -331,7 +331,7 @@ One record end to end each, with the strict code review after each slice.
 - [x] Several delivery addresses per customer, like the colleague's repo. Jingga, 2026-10-14
 - [x] A CBD PI is marked paid by Finance, Manager and up. Jingga, 2026-10-14. The colleague's repo lets sales staff and managers record it (there was no finance role then), and later added an accountant role that can too
 - [x] Quote prices are stored without PPN. Jingga, 2026-10-14. How PPN shows on documents comes with FAT
-- [x] Document numbers like the colleague's repo for now: `SQ-PDT-2026-10-0001`. Jingga, 2026-10-14 *(ask supervisor, may change)*
+- [x] Document numbers follow the group's official style, like Pandu's `LK-0825-008`: prefix, month and year, then a number per company and month, so quotes are `SQ-1025-001`. Jingga, 2026-10-14. The SQ prefix is *(assumed)*: what does Pandu call its quotes today?
 - [x] The GM sees margins. Jingga, 2026-10-14 *(ask supervisor)*
 - [ ] Partly rejected BAST (some lines accepted): the plan rejects the whole BAST *(assumed)*. Was already open above
 - [ ] Rework limit: the plan only counts rounds, no scrap *(assumed)*. Was already open above

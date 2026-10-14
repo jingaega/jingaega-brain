@@ -126,6 +126,8 @@ The full list is 12 modules. Order of work and status are in [[Pandu Roadmap]]. 
 | 2026-10-14 | Om Leo (director, "super finance") approves journals in every company and gives finance people access to journal entries | Jingga |
 | 2026-10-14 | A Manager may correct a goods receipt, and every reversal is done by a Manager | Jingga |
 | 2026-10-14 | Vendor bank accounts: seen by everyone who can see vendors, changed by people who can manage vendors, like the colleague's repo | Jingga, after looking at the colleague's repo |
+| 2026-10-14 | ERP document numbers follow the group's official style, like Pandu's `LK-0825-008`: prefix, month and year, number. Quotes are `SQ-1025-001` | Jingga, after reading the group's PO templates |
+| 2026-10-14 | A customer's PO is checked against our quote line by line on prices before PPN; a different PPN or total is only a note | Jingga |
 | 2026-10-14 | Quote prices come from the item's SPPR. Sales can't type a price, only propose one with a reason, approved by a Manager or up in Marketing. Sales never sees cost or margin. Pandu has no bottom price | Jingga. Sales gets incentives on price, so they must not see the profit |
 | 2026-10-14 | Costing model: COGS = COGM (materials at MAP) + DL + FOH, one FOH rate per unit for the company, GP on the selling price, SPPR set by Marketing with Finance's advice | Jingga, explaining the office whiteboard |
 | 2026-10-14 | Finance sees item costs and margins too, every level. Sales never does | Jingga. Finance types the costs |
