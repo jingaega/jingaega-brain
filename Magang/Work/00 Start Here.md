@@ -23,7 +23,7 @@ Internship project: one ERP that connects a holding with its six companies, plus
 - [ ] Ask supervisor: the "super finance" role (Om Leo) and which journals it approves, and approval bands up to Rp 100 jt (in [[Finance Accounting Tax Module]] and [[Procurement Module]])
 - [ ] Plan Excel export
 - [ ] Later, from the architecture review: history labels per record, one login module, split user admin, merge the small option files
-- [ ] Set up a start-up script for cloud sessions (starts Docker and the database), so a worker restart doesn't stop tests. Docker died twice more in the tenth session
+- [x] Set up a start-up script for cloud sessions: `.claude/hooks/session-start.sh` in the code repo installs packages and starts the machine's PostgreSQL 16 (not Docker), then runs `pnpm db:setup`. Works for all sessions once merged into `main`
 - [ ] Ask HR how new NRPs are numbered (until then automatic ones look like PDT-00004)
 - [ ] Answer the last slice 6 question in [[Foundation Module]]: demo items, once Pandu's real item list is known
 - [ ] Answer the 3 new *(assumed)* user admin rules from slice 5 in [[Foundation Module]]
