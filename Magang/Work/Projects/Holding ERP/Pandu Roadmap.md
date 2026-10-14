@@ -22,7 +22,7 @@ A working, real-time ERP that Pandu uses for its own Wening flow, from the first
 |---|---|---|---|
 | 0. Decide | Stack, deadline, repo and environment are chosen | none | Done (3 follow ups open in [[Holding ERP]]) |
 | 1. Foundation | Login, companies with color themes, 2 super users, roles and authorization, master data (items, customers, vendors) | [[Foundation Module]] | Built (slices 1 to 8, 10 and 11: levels and departments). Live lists moved to [[#Additional features]] |
-| 2. Sell | A Pandu CBD, tempo or progress order goes from quote to signed BAST | [[Sales and Marketing Module]] | Plan approved, S0 to S2 built |
+| 2. Sell | A Pandu CBD, tempo or progress order goes from quote to signed BAST | [[Sales and Marketing Module]] | Plan approved, S0 to S3 built |
 | 3. Buy | A Pandu purchase goes from request to paid | [[Procurement Module]] | Notes captured |
 | 4. Stock | Stock is correct after every sale, purchase and return | IMS, WMS | Not started |
 | 5. Money | Finance posts journals automatically from phases 2 to 4 | Finance A&T | Not started |
@@ -40,7 +40,7 @@ Why this order: Sell and Buy are already the best specced. Stock sits right afte
 | Module | Spec | Build | Notes |
 |---|---|---|---|
 | Foundation | Draft, open questions waiting | Built, open questions left. Live lists moved to Additional features | Comes before the 12, not counted in them |
-| Sales & Marketing | Build plan approved 2026-10-14, supervisor questions marked | S0, S1 (quotes) and S2 (price proposals) built. Next: S3 customer PO | First module. CBD first, then tempo and progress |
+| Sales & Marketing | Build plan approved 2026-10-14, supervisor questions marked | S0, S1 (quotes), S2 (price proposals) and S3 (customer PO) built. Next: S4 sales order | First module. CBD first, then tempo and progress |
 | Procurement | Notes captured | Not started | Covers vendor management too |
 | IMS | [[IMS Module]] (stub, general idea) | Not started | |
 | WMS | [[WMS Module]] (stub, general idea) | Not started | |
@@ -75,7 +75,7 @@ Why this order: Sell and Buy are already the best specced. Stock sits right afte
 - [x] S&M S0: Foundation changes for S&M
 - [x] S&M S1: quotes
 - [x] S&M S2: price proposals and approvals
-- [ ] S&M S3: customer PO
+- [x] S&M S3: customer PO
 - [ ] Phase 4: the margin check moves from the typed item cost to the moving average cost
 - [ ] Phase 4: make S&M check stock automatic (hold stock on the SO, shortage to Prod/Purch), replacing the manual "stock confirmed" step
 

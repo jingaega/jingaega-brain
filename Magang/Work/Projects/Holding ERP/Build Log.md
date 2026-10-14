@@ -24,6 +24,8 @@ One entry per working session, newest on top. Written by Claude at wrap up. Proc
 - Found: a dev server started right after `pnpm build` can get stuck reloading the login page. Restarting `pnpm dev` fixes it
 - Second costing whiteboard read: FOH in pricing is a standard % of COGM (COGS = COGM x 115 %), SPPR = COGS / (1 - GP)
 - Built S2 (price proposals) in two commits plus review fixes: Pricing page (FOH rate %, minimum GP), COGS and GP on the item page, Propose Price on quote lines, To approve for Marketing Managers. Fixed a test race over Serio's pricing. 235 tests pass, merged into `main`
+- Jingga shared the group's PO templates (layouts and columns only kept, in [[Procurement Module#The group's PO templates]]). Quote numbers now follow the official style, `SQ-1025-001`
+- Built S3 (customer PO) in two commits plus review fixes: Record Customer PO on a sent quote, lines checked against the quote before PPN and flagged, the quote Accepted; a looser payment term waits for the GM (or a Director) on To approve, and a refusal sends the quote back to waiting. Review: quote changes now lock the quote, and approvals are one statement, so two at once can't both win. 246 tests pass, clicked through in a browser
 
 ## 2026-10-13 to 14 (tenth session)
 - Jingga: customers belong to Sales and Finance, Managers and up. Migration 0023. Master data owners now all answered

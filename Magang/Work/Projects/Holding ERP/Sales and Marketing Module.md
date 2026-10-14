@@ -319,7 +319,11 @@ One record end to end each, with the strict code review after each slice.
   - S2b: on a quote being prepared, Sales proposes another price for a line with a reason. The quote can't be sent while it waits. Sales, **To approve** lists them for Managers and up in Marketing (and the GM) with the price now, the proposed price, the COGS and the GP now and proposed, and a warning below the minimum GP. Approved: the line takes the price. Refused: it keeps its price, and Sales may propose again
   - Built *(assumed, easy to change)*: editing a quote being prepared resets its lines to the SPPR and drops their proposals; a revision starts at today's SPPR without earlier approved prices; one proposal can wait per line
   - Strict review: one money module, one save helper, a test race fixed. 235 tests pass, clicked through in a browser
-- [ ] **S3. Customer PO**: record against the accepted version, line by line check, term mismatch to the GM, quote locks
+- [x] **S3. Customer PO**: built 2026-10-14
+  - S3a: on a sent quote that hasn't expired, **Record Customer PO**: their PO number and date, delivery date (optional), payment term, deliver to (the customer's address or one of its delivery addresses), a note, the scan, and per quote line the qty and price before PPN as their PO says (an empty qty means not ordered). The quote becomes **Accepted** and can't be revised or lost after. The quote page shows the PO, with a warning when it differs from the quote and the quoted qty or price under each line that differs
+  - S3b: a payment term looser than the quote's waits for the GM on **To approve**, under Payment terms (new permission `quotes.approve_term`). Approved: the PO stands. Refused: the quote waits for the customer again, so Sales can revise it or record a new PO. The quote page lists refused POs with the GM's note
+  - Built *(assumed, easy to change)*: looser means CBD, then progress, then tempo, and more Net days among tempo terms. Differences in qty, price or items are only flagged, nobody approves them. The Director can also decide terms, always, not only when there is no GM. While the term waits, the quote already shows Accepted; the SO (S4) waits for the decision
+  - Strict review: quote changes now lock the quote, so two at once can't both pass (also for S1's revise, send and lost); deciding a term or a price is one statement, so two decisions at once can't both win; one file response and one item label shared. 246 tests pass, clicked through in a browser
 - [ ] **S4. Sales order**: from the PO cust, payment type and term with their source, stock confirmed, cancel
 - [ ] **S5. PI and CBD**: PI from the SO, Finance marks it paid, DO / BAST blocked until then. CBD works end to end after S6
 - [ ] **S6. DO / BAST**: create (partial qty), deliver, sign with photo or reject. CBD order closes after the last signed BAST
@@ -337,3 +341,6 @@ One record end to end each, with the strict code review after each slice.
 - [ ] Rework limit: the plan only counts rounds, no scrap *(assumed)*. Was already open above
 - [x] QC on returns is done by Quality, a new empty department function. Jingga, 2026-10-14. Was: the plan said Production. The colleague's repo lets anyone in the company with the returns permission do it (every level except director and viewer), since it has no departments in roles
 - [x] Progress uses the colleague's default: 30 % down before delivery, the rest 30 days after delivery, changeable per order. Jingga, 2026-10-14 *(ask supervisor)*
+- [ ] From S3: is the order of payment terms right (CBD is tightest, then progress, then tempo with fewer days)? It decides which PO terms wait for the GM *(assumed)*
+- [ ] From S3: should a PO with a different qty or price (not term) also need someone's approval, or is the flag enough? *(assumed: the flag is enough)*
+- [ ] From S3: can the Director always decide a looser term, or only when the company has no GM? *(assumed: always)*
