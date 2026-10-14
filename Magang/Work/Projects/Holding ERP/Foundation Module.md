@@ -119,7 +119,7 @@ Written before the build. Each one is something Jingga can click through.
 - [x] That user can't open an Anggoan record, even by typing its URL
 - [x] Create an item, a customer and a vendor in Pandu. They don't show up in Anggoan (checked in slices 6 to 8)
 - [ ] Set an item Inactive, it disappears from pick lists but stays on its detail page (slice 6: it leaves the items list and its page still opens. The first pick list comes with the S&M quote)
-- [ ] A second browser sees a new item appear without refreshing (real-time check)
+- [ ] A second browser sees a new item appear without refreshing (real-time check). Comes with live lists, now an [[Pandu Roadmap#Additional features|additional feature]]
 - [ ] All labels and buttons are in English
 
 ## Build plan
@@ -142,12 +142,12 @@ Draft by Claude, waiting for Jingga's approval. Stack is in the decisions table 
   - [x] 6. Items and UoM, with the audit log (done 2026-10-13)
   - [x] 7. Customers, with the group company link and the S&M settings (done 2026-10-13)
   - [x] 8. Vendors, with the group company link, currency, category and payment term (done 2026-10-13)
-  - [ ] 9. Real-time: lists update live in a second browser. Skipped for now, plan below (Jingga, 2026-10-13)
+  - 9. Real-time lists: moved to [[Pandu Roadmap#Additional features]] (Jingga, 2026-10-14). The plan stays below
   - [x] 10. Excel import of vendors, starting with Pandu's supplier list (done 2026-10-14)
 - Open questions only block their own slice. Slices 1 to 3 and 6 to 9 can start now. Slices 4 and 5 use the 6 templates until they are confirmed
 
 ### Slice 9 plan: real-time lists
-Written 2026-10-13, approved by Jingga the same day after asking whether live updates are needed at all. Build starts when Jingga says go. Closes the acceptance check "A second browser sees a new item appear without refreshing".
+Written 2026-10-13, approved by Jingga the same day after asking whether live updates are needed at all. Moved to [[Pandu Roadmap#Additional features]] on 2026-10-14: not needed to finish Foundation, built when a screen gains from it. Closes the acceptance check "A second browser sees a new item appear without refreshing".
 
 **What changes for people**
 - The Items, Units, Customers and Vendors lists update by themselves when someone else adds, edits or deactivates a record in the same company. No refresh button, no reload

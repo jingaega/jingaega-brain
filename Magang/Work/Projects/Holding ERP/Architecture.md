@@ -143,7 +143,7 @@ Items and units (slice 6), customers (slice 7) and vendors (slice 8), plans in [
 - Every slice is also clicked through in a real browser, and then gets the strict code review ([[Workflow]])
 
 ## Not built yet
-- Real-time lists (slice 9)
+- Live lists, an additional feature (see [[Pandu Roadmap#Additional features]])
 - Business modules, starting with [[Sales and Marketing Module]] and [[Procurement Module]]
 - Intercompany documents (see [[Holding ERP#Intercompany rules]]), not before it is discussed
 - Hosting on AWS. Known limits to fix before more than one server runs are in [[Foundation Module#Known issues]]

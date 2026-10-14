@@ -17,8 +17,7 @@ Internship project: one ERP that connects a holding with its six companies, plus
 - [ ] Phase 1: answer the open questions in [[Foundation Module]] and approve its build plan
 - [ ] Sales and Marketing module: answer the open questions that block Pandu in [[Sales and Marketing Module]]
 - [ ] Get supervisor sign-off on the fresh repo, invite the colleague to both repos (see [[Colleague Repo Comparison]])
-- [ ] Foundation slice 9: live master data lists. Plan approved, skipped for now (Jingga, 2026-10-13). Build once the supervisor says live screens are wanted
-- [ ] Ask supervisor: what "real-time" means and whether live screens (slice 9) are wanted now, whether the import may be looser than the form, who may see vendor bank accounts (in [[Foundation Module]])
+- [ ] Ask supervisor: what "real-time" means and whether live screens are wanted now (see [[Pandu Roadmap#Additional features]]), whether the import may be looser than the form, who may see vendor bank accounts (in [[Foundation Module]])
 - [ ] Decide departments in roles (finance, procurement), needed for who manages items and customers (in [[Foundation Module]])
 - [ ] Plan Excel export
 - [ ] Ask HR how new NRPs are numbered (until then automatic ones look like PDT-00004)
