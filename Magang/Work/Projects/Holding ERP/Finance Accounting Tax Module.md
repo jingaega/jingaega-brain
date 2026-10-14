@@ -59,6 +59,7 @@ Finance and Marketing work it out together: Finance advises from the numbers, Ma
 
 **Open questions on this**
 - [x] FOH is a rate: whatever DL and FOH cost that month is split over the units you want to look at (per bottle, per liter and so on), giving a rupiah amount per unit. Jingga, 2026-10-14
+- [x] In pricing, the FOH rate is a standard **% of COGM**, one for the company, like 15 %: COGS = COGM x 115 %. Finance works it out from the monthly DL and FOH split (per PC, per L, per batch, per month or per machine hour). Second whiteboard, 2026-10-14 *(Claude's reading, ask supervisor)*. Example: COGM Rp 10.000, FOH 15 %, GP 40 %: COGS Rp 11.500, SPPR = 11.500 / 60 % = Rp 19.167
 - [x] The margin in Marketing's way is the GP on the price: SPPR = COGS / (1 - GP). Example: COGS Rp 12.000 at 25 % GP gives Rp 16.000. Jingga, 2026-10-14
 - [x] One FOH rate for the whole company: the month's total, split per unit. Jingga, 2026-10-14. Finance calculates it (Jingga, 2026-10-14). Until the Finance module (Phase 5) works it out, Finance Managers type the rate per unit *(assumed)*
 - [x] One SPPR per item. Dis A Surabaya and Dis B Bandung on the whiteboard are probably about something else. Jingga, 2026-10-14

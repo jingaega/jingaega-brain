@@ -24,3 +24,14 @@ Back to [[Meetings]]. Photo shared by Jingga on 2026-10-14. Who wrote it and whe
 - Cost method: open question in [[Sales and Marketing Module]]. Jingga reads "15 to 22" as nothing important
 - HET and distributor prices: not in any spec yet. Pricing (price lists) is outside the ERP today, see [[Sales and Marketing Module]]
 - BoM: [[Production Module]]
+
+## Second whiteboard (Jingga, 2026-10-14)
+
+![[2026-10-14 whiteboard costing 2.jpg]]
+
+Claude's reading:
+- COGM = cost of goods material = C + P + E (chemical, packaging, looks) and so on. COGS = COGM + DL + FOH. SPPR = COGS + margin (GP)
+- **Marketing's way:** standard rate FOH as a %: SPPR = COGM + ...% FOH + ...% margin. Example: **COGS = COGM + 15 %**
+- **Example on the right:** COGM x 115 % = COGS, GP 40 %, so **SPPR = COGS / 60 %**. Confirms GP on the price
+- **Finance's way:** revenue - COGM = VA, VA - DL - FOH = GP. DL and FOH per month (operator Rp 5.000.000, factory SPV Rp 7.000.000, electricity, water, rent): DL and FOH = Rp 100 jt a month, split per PC (100 jt / 5.000) or per L (100 jt / 4.000), or per batch, per month, per machine hour
+- So the ERP keeps one company **FOH rate in %** of COGM, worked out by Finance from the monthly split *(Claude's reading, ask supervisor)*
