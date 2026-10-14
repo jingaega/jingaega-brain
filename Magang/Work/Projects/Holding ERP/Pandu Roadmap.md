@@ -68,6 +68,7 @@ Why this order: Sell and Buy are already the best specced. Stock sits right afte
 - [x] Slice 7: customers
 - [x] Slice 8: vendors
 - [x] Slice 10: Excel import of vendors, with Pandu's supplier list
+- [x] Architecture review of Foundation, 3 of 7 candidates built (see [[Build Log]])
 - [ ] Close the S&M open questions that block Pandu (see below)
 - [ ] Write the S&M build plan
 

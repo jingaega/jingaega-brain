@@ -14,12 +14,16 @@ Internship project: one ERP that connects a holding with its six companies, plus
 
 ## Current focus
 - [x] Phase 0: stack, deadline and repo chosen (see [[Pandu Roadmap]]). Hosting still open
-- [ ] Phase 1: answer the open questions in [[Foundation Module]] and approve its build plan
+- [x] Phase 1: Foundation built (slices 1 to 8 and 10). Its open questions still wait, see [[Foundation Module]]
+- [ ] Meet the supervisor with the questions below, starting with the ones marked "Ask supervisor" and the first S&M questions
+- [ ] Write the S&M build plan once the S&M questions that block Pandu are answered
 - [ ] Sales and Marketing module: answer the open questions that block Pandu in [[Sales and Marketing Module]]
 - [ ] Get supervisor sign-off on the fresh repo, invite the colleague to both repos (see [[Colleague Repo Comparison]])
 - [ ] Ask supervisor: what "real-time" means and whether live screens are wanted now (see [[Pandu Roadmap#Additional features]]), whether the import may be looser than the form, who may see vendor bank accounts (in [[Foundation Module]])
 - [ ] Decide departments in roles (finance, procurement), needed for who manages items and customers (in [[Foundation Module]])
 - [ ] Plan Excel export
+- [ ] Later, from the architecture review: history labels per record, one login module, split user admin, merge the small option files
+- [ ] Set up a start-up script for cloud sessions (starts Docker and the database), so a worker restart doesn't stop tests
 - [ ] Ask HR how new NRPs are numbered (until then automatic ones look like PDT-00004)
 - [ ] Ask supervisor: payment terms as a shared list (CBD, Net 14/30/45/60) or any number of days per vendor? Ours for now (in [[Procurement Module]])
 - [ ] Answer the last slice 6 question in [[Foundation Module]]: demo items, once Pandu's real item list is known
@@ -40,11 +44,13 @@ Internship project: one ERP that connects a holding with its six companies, plus
 - Grilling session on slice 9, the Excel import and the colleague's repo. Their import is no looser than their form, so ours makes the same checks as Add vendor
 - Read Pandu's real supplier list. New rules from it: fax and several bank accounts kept (bank accounts hidden until Procurement), several PIC emails, the bank cell gets split
 - Slice 10 plan (vendor import) written and approved in [[Foundation Module]]
-- Jingga: skip slice 9 for now, build slice 10
+- Jingga: skip slice 9 for now, build slice 10. Later moved live lists to [[Pandu Roadmap#Additional features]], so Foundation's build is done
 - Built slice 10: Fax and several PIC emails on the forms, bank accounts kept but hidden, and Import from Excel on the Vendors list. Pandu's real supplier list imports as 7 new vendors with no errors
 - Strict code review fixed 3 findings. 163 tests pass, CI green
+- Architecture review of Foundation: 7 candidates. Built 3: one shared master record module, reads check permissions themselves (rule added to the code repo's CLAUDE.md), vendors and bank accounts written in one place. Strict review fixed 3 more findings. 168 tests pass, CI green
+- Listed every open question for the supervisor, grouped by what each one unblocks (see Current focus)
 - Docker in the cloud session needs a restart after the session's worker restarts (stale containerd files)
-- Next: the supervisor questions (real-time, looser import, who sees bank accounts), then slice 9 if live screens are wanted, or the S&M plan
+- Next: take the supervisor questions to the supervisor, then write the S&M build plan
 
 **2026-10-13 (ninth session)**
 - Built Foundation slice 6: items and units, plus an audit log at Jingga's request. Plan, defaults and questions are in [[Foundation Module]]
