@@ -10,6 +10,7 @@ tags: [internship, erp, log]
 One entry per working session, newest on top. Written by Claude at wrap up. Process is in [[Workflow]].
 
 ## 2026-10-13 to 14 (tenth session)
+- Jingga: master data screens are for Managers and up only; adding from modules comes later. Starting grants changed, migration 0021 takes back OPR, Lead and SPV add rights. 188 tests pass
 - Slice 11b: Settings, Departments (add, rename, deactivate, people count). Function fixed after adding, people keep a deactivated department *(both assumed)*. Strict review: 3 small fixes. 188 tests pass, CI green on 11a
 - Found while writing up: the slice 11 master data owners differ from Jingga's 2026-10-13 answers on customers and items. Put in Open questions in [[Foundation Module]] for Jingga
 - Slice 11a: levels (Director, GM, Manager, SPV, Lead, OPR) and departments with a function instead of the 6 roles. Company Admin is a switch. Master data permissions split into add and change by owning function. Add user and Manage ask for level and department. The Roles screen has a tab per function (so 11c is done too). Demo people moved; Company Admin became GM with the switch

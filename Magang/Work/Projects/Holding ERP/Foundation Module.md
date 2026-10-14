@@ -198,9 +198,11 @@ Written 2026-10-14, approved by Jingga the same day. Replaces the 6 role templat
 
 | Record | Owning function | Add | Change, deactivate |
 |---|---|---|---|
-| Vendors | Procurement | OPR and up | Manager and up |
-| Customers | Sales | OPR and up | Manager and up |
-| Items and units | Procurement, Warehouse, Production | OPR and up | Manager and up |
+| Vendors | Procurement | Manager and up | Manager and up |
+| Customers | Sales | Manager and up | Manager and up |
+| Items and units | Procurement, Warehouse, Production | Manager and up | Manager and up |
+
+Changed by Jingga, 2026-10-14, after 11b: on the master data screens only Managers and up add and change. OPR, Lead and SPV only look. Adding records from a module's own screens (a customer from Sales, an item from Inventory) comes later. Built in commit a2e9e86 (migration 0021).
 
 Everyone in the company sees all master data. The GM changes everything; the Director only views.
 
@@ -232,7 +234,7 @@ Everyone in the company sees all master data. The GM changes everything; the Dir
 - Strict review: one helper now works out what a place may do (it was in two places), one guard for function names, no casts in the starting grants, saving roles in three queries instead of three per level. 183 tests pass
 
 **Open questions from building slice 11**
-- [ ] Who owns customers and items? Jingga's answers of 2026-10-13 (slices 6 and 7 plans): customers by Managers and up in Finance and Procurement, items and units by Managers and up in Finance. The slice 11 plan of 2026-10-14 (built): customers by Sales, items by Procurement, Warehouse and Production, OPR and up add, Managers change. Which one holds? Either is a change of starting grants only
+- [ ] Who owns customers and items? Levels answered (Jingga, 2026-10-14): Managers and up only. Functions still differ: the 2026-10-13 answers say Finance and Procurement for customers and Finance for items; the build follows the slice 11 plan (Sales for customers; Procurement, Warehouse and Production for items). A change of starting grants only
 - [ ] May a department's function change later, and what happens to the people in a deactivated department?
 
 **Tests**
