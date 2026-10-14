@@ -35,7 +35,7 @@ Internship project: one ERP that connects a holding with its six companies, plus
 - Serio is the holding company. PT Pandu is still the baseline for development: build for Pandu first, then adapt Serio and the others from it
 
 ## Last session
-**2026-10-13 (tenth session, planning only)**
+**2026-10-13 to 14 (tenth session)**
 - Merged the slice 6 to 8 branch into `main` in both repos. CI green on `main`. Docker works, its service just needs starting in a new cloud session
 - Asked whether live updates are needed at all. Decided: "real-time" means data is current when saved *(assumed, supervisor question)*, and slice 9 builds live master data lists anyway
 - Grilling session on slice 9, the Excel import and the colleague's repo. Their import is no looser than their form, so ours makes the same checks as Add vendor
