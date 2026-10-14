@@ -151,7 +151,7 @@ Build notes:
 | Quote locks on PO | Once PO cust is linked, that quote version can't be edited |
 | Loss needs a reason | Price (customer says too expensive) *(assumed reading of "price too low")*, customer cancelled, no response, expired (auto) |
 | Price comes from the SPPR | A quote line's price fills in from the item's SPPR. Sales can't type a price. Jingga, 2026-10-14 |
-| Another price is a proposal | Sales proposes a price with a required reason. The quote waits and can't be sent until a Manager or up in Marketing approves. Refused: the line goes back to the SPPR. Jingga, 2026-10-14 |
+| Another price is a proposal | Sales proposes a price, above or below the SPPR, with a required reason. The quote waits and can't be sent until a Manager or up in Marketing approves. Refused: the line goes back to the SPPR. Jingga, 2026-10-14 |
 | Approvers see the margin | The approver sees the COGS and the GP (price - COGS) / price at the proposed price. Sales never does. The minimum margin (10 %) is a warning for the approver *(assumed)* |
 | No photo, no BAST | DO / BAST can't move to Signed without at least one photo |
 | Stock goes out when goods leave | Stock drops when the goods leave the warehouse, so nobody else is promised them *(assumed, ask supervisor and FAT)*. Manual until stock exists (Phase 4) |
@@ -304,7 +304,7 @@ One record end to end each, with the strict code review after each slice.
   - Strict review: 6 fixes (one insert per address, money formatting without floats, shared Net days limit, cleaner payment term field, no cast on the item page, one permission check for "see or change costs"). 206 tests pass, clicked through in a browser
   - Also from Jingga during S0: address, PIC name and PIC phone are required for customers and vendors, PIC email optional. The Excel import checks the same
 - [ ] **S1. Quotes**: SPPR on items (set by Marketing Managers, seen by everyone who sees items), record a quote with lines priced from the SPPR, versions, lost with reason, expiry and "expires soon", sales settings
-- [ ] **S2. Price proposals and approvals**: Sales proposes another price with a reason, the quote waits, a Marketing Manager approves or refuses, seeing the COGS and GP (hidden from everyone without `margin.view`), the To approve list. Needs the FOH rate per unit to reach COGS (Finance types it)
+- [ ] **S2. Price proposals and approvals**: Sales proposes another price with a reason, the quote waits, a Marketing Manager approves or refuses, seeing the COGS and GP (hidden from everyone without `margin.view`), the To approve list. Needs the FOH rate per unit to reach COGS (Finance calculates it; Finance Managers type it until Phase 5 *(assumed)*)
 - [ ] **S3. Customer PO**: record against the accepted version, line by line check, term mismatch to the GM, quote locks
 - [ ] **S4. Sales order**: from the PO cust, payment type and term with their source, stock confirmed, cancel
 - [ ] **S5. PI and CBD**: PI from the SO, Finance marks it paid, DO / BAST blocked until then. CBD works end to end after S6

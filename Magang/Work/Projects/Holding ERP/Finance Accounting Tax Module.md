@@ -59,8 +59,8 @@ Finance and Marketing work it out together: Finance advises from the numbers, Ma
 
 **Open questions on this**
 - [x] FOH is a rate: whatever DL and FOH cost that month is split over the units you want to look at (per bottle, per liter and so on), giving a rupiah amount per unit. Jingga, 2026-10-14
-- [ ] Is the margin in Marketing's way the GP on the price (price = COGS / (1 - GP))? *(assumed, matches the GP formula)*
-- [x] One FOH rate for the whole company: the month's total, split per unit. Jingga, 2026-10-14. Who types it (Finance?) still open
+- [x] The margin in Marketing's way is the GP on the price: SPPR = COGS / (1 - GP). Example: COGS Rp 12.000 at 25 % GP gives Rp 16.000. Jingga, 2026-10-14
+- [x] One FOH rate for the whole company: the month's total, split per unit. Jingga, 2026-10-14. Finance calculates it (Jingga, 2026-10-14). Until the Finance module (Phase 5) works it out, Finance Managers type the rate per unit *(assumed)*
 - [x] One SPPR per item. Dis A Surabaya and Dis B Bandung on the whiteboard are probably about something else. Jingga, 2026-10-14
 - [x] Marketing sets the SPPR with Finance's advice. Jingga, 2026-10-14
 - [x] Sales can't type a price, only propose one with a reason, approved by a Manager or up in Marketing (Finance not needed). Sales sees only the SPPR, never the COGS or margin. Pandu has no bottom price. Jingga, 2026-10-14
