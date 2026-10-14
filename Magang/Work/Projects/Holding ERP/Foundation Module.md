@@ -89,6 +89,7 @@ These are built now so work isn't blocked, and are easy to change later. All are
 - [x] Both holding people are Super Admin. Jingga, 2026-10-14. Their real accounts replace the placeholder ones
 - [x] The directors are Super User, and also have the Director level in their company. Jingga, 2026-10-14
 - [x] Super User only views, except approvals above Rp 100 jt: the Super Admin approves first, then a Super User gives the final approval. Jingga, 2026-10-14. Changes the rule "Super User never changes anything" for those approvals, built with approvals later
+- [ ] Email for everyone? For now only people who can change records, use Settings or see personal data need one (slice 11 plan). Revisit: also anyone who can add, or everyone like the colleague's repo
 - [ ] Om Leo is a director with "super finance" powers (below). Is "super finance" a role for him only, or a permission others could get later?
 - [x] The NRP is given automatically when a new user is added. Jingga, 2026-10-13. Format still open (see slice 5 questions)
 - [ ] **Roles like the colleague's repo** (Jingga, 2026-10-14): levels **Director, GM, Manager, SPV, Lead, OPR** in each company (Director added to the colleague's list), plus a department with a function (Finance, Procurement, Warehouse, HR...). What someone may do is their level in their department's function. Company Admin becomes a switch on the access. Replaces our 6 role templates and answers the departments question below. A change to a finished module, needs its own plan first
@@ -213,7 +214,7 @@ Everyone in the company sees all master data. The GM changes everything; the Dir
 - Every company starts with one department per function, named after it (Management, Procurement and so on)
 - Today's people move: Company Admin → Manager in Management with the switch on; Director → Director in Management (now view only); Manager → Manager in Management; Supervisor → SPV in Management; Staff → OPR in Management; Viewer → OPR in Other (Other owns nothing, so they still only view). Only demo people exist today
 - One access row per person per company. This replaces the earlier "several roles per person are allowed" (Jingga, 2026-10-13)
-- An email is needed for anyone who can add, change or see personal data, as now with "manage"
+- **Email** (Jingga, 2026-10-14, for now): needed by anyone who can change records, use Settings (the Company Admin switch) or see personal data. So Manager and up in a function, the GM, Company Admin and HR Managers. OPR, Lead and SPV who only add or view may go without, like staff today. Keep in mind: this may change to "also anyone who can add", or to "everyone needs an email" like the colleague's repo (every login there is an email invitation)
 
 **Built in three parts, one commit each, then the strict review**
 - 11a: levels, departments, the admin switch, split permissions, moving today's people, permission checks by level and function (database and app), Add user and Manage with level and department
