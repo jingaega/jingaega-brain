@@ -99,7 +99,7 @@ These are built now so work isn't blocked, and are easy to change later. All are
 - [x] Excel import and export are needed. Jingga, 2026-10-13. Import of vendors planned as slice 10 (below). Export gets its own plan later
 - [ ] **Ask supervisor:** what does "real-time" in the scope mean? Our reading *(assumed)*: data is current the moment it is saved. Live lists (slice 9) are extra on top. Also ask: are live screens wanted now? Slice 9 is planned but skipped until then (Jingga, 2026-10-13)
 - [ ] **Ask supervisor:** should the Excel import be looser than the form (for example, let a vendor in without a category)? Until then it makes the same checks as Add vendor
-- [x] Vendor bank accounts like the colleague's repo: everyone who can see vendors sees them, only people who can manage vendors change them. Jingga, 2026-10-14. Built today: stored but shown nowhere, the audit log keeps only that they changed. Showing them is a small change still to build
+- [x] Vendor bank accounts like the colleague's repo: everyone who can see vendors sees them, only people who can manage vendors change them. Jingga, 2026-10-14. Built 2026-10-14: the vendor page lists them for everyone who can see vendors. The audit log still keeps only that they changed, not the numbers
 - [ ] Seed demo items outside production (local and staging)? None for now. Needs Pandu's real item list, since the colleague's demo items (hand soap, dish soap) aren't Wening. See the slice 6 plan
 - [x] Password rules: at least 10 characters, no forced mix. Jingga, 2026-10-13
 - [x] A login lasts one work day: it ends 9 hours after signing in, not renewed while in use (9 hours is Claude's reading of one work day). Jingga, 2026-10-13
