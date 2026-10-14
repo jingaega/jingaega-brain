@@ -44,4 +44,5 @@ PO number, uang muka, payment of uang muka, belanja (the buyer shops after the a
 - [x] Payment terms stay free per vendor (CBD, or Net with any number of days), up to Net 180. Purchases follow the vendor's own terms (vendor SOP). Meeting [[2026-10-14]]. Built 2026-10-14: the form and the database allow Net 1 to 180
 - [ ] Approval rules: who approves, and above what amount?
 - [ ] What does Pandu buy, and does each need a different path? From the supplier list: chemicals, packaging and printing (vendor categories since slice 8)
+- [ ] Inbox note (2026-10-14): "Procurement has 4 types: cost, expense, inventory," and the fourth is missing. Is it fixed asset? The colleague's repo books a goods receipt to inventory, fixed asset or expense by item type. And what is the difference between cost and expense here?
 - [ ] Which journals post at which step?

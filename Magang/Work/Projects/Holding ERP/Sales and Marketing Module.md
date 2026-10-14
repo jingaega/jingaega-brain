@@ -171,6 +171,12 @@ Build notes:
 | Proc / Prod | Buys or makes the goods when stock is short. Decided by a buy-or-make flag on the item | After SO, when check stock says no |
 | FAT | Invoice, AR, payment, books the sale on signed BAST | After receive |
 
+## Notes from the Inbox
+From Jingga's Inbox, processed 2026-10-14. Raw notes, not rules yet.
+- **After the SO, Production comes before Procurement.** For goods Pandu makes, a shortage on an SO goes to Production, and Production asks Procurement for the raw materials. Pandu makes what it sells instead of buying finished goods. Fits the buy or make flag on items: make items go to Production first *(assumed reading)*
+- **Marketing wants analysis:** sales by customer, favorite products, customer care, and complaints or rejects (voice of customer). Not in the first build. Needs a spec of its own when Marketing is planned
+- **Down payment and progress payments come before the invoice, and the payment and the invoice must match.** See [[Finance Accounting Tax Module]]
+
 ## Pandu baseline
 - **Who Pandu sells to:** outside customers and other group companies. Anggoan is the main one, a B2B buyer, and goes through S&M
 - **Group company orders:** intercompany is discussed later. Until then Anggoan is handled like any other customer

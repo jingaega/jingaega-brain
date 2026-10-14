@@ -25,6 +25,10 @@ Warehouse Management System, for both production and sales.
 - What Pandu does here today:
 - What Wening changes (batches, expiry, formulas):
 
+## Notes from the Inbox
+From Jingga's Inbox, processed 2026-10-14.
+- After a goods receipt (GR), goods are scanned by QR code or barcode. Which labels exist today, and who prints them, is open
+
 ## Open questions
 - [ ] Does WMS have one set of records for both production and sales?
 - [ ] Which parts does Pandu need first?

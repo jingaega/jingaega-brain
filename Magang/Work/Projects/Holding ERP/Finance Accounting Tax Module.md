@@ -30,6 +30,11 @@ Called Finance A&T in other notes. Part of FAHCGA, the group name for Finance Ac
 - Om Leo (a director, "super finance") approves the journals of every company, and gives finance people access to make journal entries. Jingga, 2026-10-14
 - Every reversal (correcting a posted entry) is done by a Manager. Jingga, 2026-10-14
 
+## Notes from the Inbox
+From Jingga's Inbox, processed 2026-10-14. Raw notes, not rules yet.
+- A recorded payment can't be edited. It must match its invoice. The invoice is what can be edited *(assumed: before it is paid)*
+- Down payment and progress payments are received before the invoice. The payment and the invoice must match in the end (see progress in [[Sales and Marketing Module]])
+
 ## Open questions
 - [ ] Which journals does Om Leo approve: every journal, or only the ones typed by hand (automatic ones from purchases and sales post on their own)?
 - [ ] Production Cost is also listed in [[Production Module]]. Which module owns it?
