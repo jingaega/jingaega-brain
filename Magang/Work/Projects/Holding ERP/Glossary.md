@@ -118,10 +118,6 @@ Value added = revenue - COGM. Finance's way to reach the GP: VA - DL - FOH = GP.
 Gross profit, the margin: (selling price - COGS) / selling price.
 _Avoid_: markup (that is on cost, not on the price)
 
-**Bottom price**:
-The lowest price Sales may offer for an item without Marketing's approval. Sales sees it (for their incentive), never the COGS.
-_Avoid_: floor price
-
 **SPPR**:
 Selling price publish rate = COGS + GP. The price Sales sees and quotes from. HET on the whiteboard.
 _Avoid_: publish rate (alone), HET

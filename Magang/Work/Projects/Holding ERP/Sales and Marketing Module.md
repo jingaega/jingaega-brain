@@ -173,7 +173,7 @@ Build notes:
 
 ## Costing and pricing (from Jingga, 2026-10-14)
 The full model is in [[Finance Accounting Tax Module#Costing and pricing]]. What it means for S&M:
-- Sales quotes from the **SPPR** (selling price publish rate) and never sees cost or margin
+- Sales quotes from the **SPPR** (selling price publish rate) and never sees cost or margin. A quote line's price fills in from the item's SPPR; Sales can't type a price, only propose another one, approved by Marketing and Finance. Pandu has no bottom price (Jingga, 2026-10-14)
 - The margin check uses COGS = COGM + DL + FOH, not just the material cost. GP = (price - COGS) / price
 - The typed item cost from slice S0 is the **COGM** for now (assumed). DL and FOH are not in the ERP yet, so the S2 margin check needs them first. This changes the S2 plan, see the open questions in the Finance note
 - MAP (moving average price) is the costing method, confirmed by Jingga. Procurement sees MAP
