@@ -10,6 +10,8 @@ tags: [internship, erp, log]
 One entry per working session, newest on top. Written by Claude at wrap up. Process is in [[Workflow]].
 
 ## 2026-10-13 to 14 (tenth session)
+- Slice 11a: levels (Director, GM, Manager, SPV, Lead, OPR) and departments with a function instead of the 6 roles. Company Admin is a switch. Master data permissions split into add and change by owning function. Add user and Manage ask for level and department. The Roles screen has a tab per function (so 11c is done too). Demo people moved; Company Admin became GM with the switch
+- Strict review of 11a: 5 findings fixed (one rule for what a place may do, one function name guard, no casts, fewer queries when saving roles, form parsing in the server actions). Kept the hand written check lists in the schema, like the rest of the repo. 183 tests pass
 - Architecture review of Foundation (`/improve-codebase-architecture`): 7 candidates. Built 3 of them:
   - One shared module for master data records, 5 copies of the same logic removed
   - Reads now check permissions themselves, like changes, for master data and Settings. Rule added to the code repo's `CLAUDE.md`

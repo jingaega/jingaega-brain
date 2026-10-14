@@ -212,7 +212,7 @@ Everyone in the company sees all master data. The GM changes everything; the Dir
 
 **Defaults** *(assumed, easy to change on the Roles screen)*
 - Every company starts with one department per function, named after it (Management, Procurement and so on)
-- Today's people move: Company Admin → Manager in Management with the switch on; Director → Director in Management (now view only); Manager → Manager in Management; Supervisor → SPV in Management; Staff → OPR in Management; Viewer → OPR in Other (Other owns nothing, so they still only view). Only demo people exist today
+- Today's people move: Company Admin → GM in Management with the switch on (changed while building from Manager, so they keep changing all master data as before); Director → Director in Management (now view only); Manager → Manager in Management; Supervisor → SPV in Management; Staff → OPR in Management; Viewer → OPR in Other (Other owns nothing, so they still only view). Only demo people exist today
 - One access row per person per company. This replaces the earlier "several roles per person are allowed" (Jingga, 2026-10-13)
 - **Email** (Jingga, 2026-10-14, for now): needed by anyone who can change records, use Settings (the Company Admin switch) or see personal data. So Manager and up in a function, the GM, Company Admin and HR Managers. OPR, Lead and SPV who only add or view may go without, like staff today. Keep in mind: this may change to "also anyone who can add", or to "everyone needs an email" like the colleague's repo (every login there is an email invitation)
 
@@ -220,6 +220,11 @@ Everyone in the company sees all master data. The GM changes everything; the Dir
 - 11a: levels, departments, the admin switch, split permissions, moving today's people, permission checks by level and function (database and app), Add user and Manage with level and department
 - 11b: Departments screen
 - 11c: Roles screen as a grid per function
+
+**Built** (2026-10-14)
+- 11a built (commits c3f4d33 and review fixes c76a669): everything in 11a, plus 11c, since the Roles screen had to show grants per function anyway. It has a tab for every department and one per function
+- Left: 11b, the Departments screen
+- Strict review: one helper now works out what a place may do (it was in two places), one guard for function names, no casts in the starting grants, saving roles in three queries instead of three per level. 183 tests pass
 
 **Tests**
 - A Procurement OPR can add a vendor but not change one; a Procurement Manager can change it; a Sales Manager can't change vendors

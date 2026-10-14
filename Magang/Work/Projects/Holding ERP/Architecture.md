@@ -63,11 +63,12 @@ A request goes like this:
 - Login tables (users, sessions, accounts) are not under [[#Company isolation]], because login has to work before anyone is known
 
 ### Access and permissions
-- An [[Glossary#Group and access|access]] row gives a user a role in one company. One user can have access to several companies. Several roles in one company are allowed by the database, the screens give one (open question in [[Foundation Module]])
-- A [[Glossary#Group and access|role]] belongs to one company and has a list of permissions. The 6 role templates and the permission list are in `lib/permissions.ts`
-- What someone may do in a company is their abilities: their holding role (if any) plus the permissions of their roles there
+- An [[Glossary#Group and access|access]] row is a person's place in one company: one level, one department and the Company Admin switch. One row per person per company (slice 11). One person can have access to several companies
+- Levels (Director, GM, Manager, SPV, Lead, OPR) are the `roles` table, one set per company. Departments belong to one company and each has a function (Management, Procurement, Sales and so on). The lists and the starting grants are in `lib/permissions.ts`
+- A level's grants are kept for every department ("all") or for one function. What someone may do in a company is their abilities: their holding role (if any), plus their level's grants for every department and for their department's function, plus the Settings permissions when the switch is on. One helper works this out (`placePermissions`, `lib/roles.ts`); PostgreSQL's personal data check follows the same rule
+- Master data permissions are split: `*.create` to add, `*.edit` to change and deactivate. Settings keeps `*.manage`
 - `can()` decides what a screen shows. `requirePermission()` stops a read or a change. Super Admin passes every check, Super User only view checks
-- Every function that reads or changes company data takes an Actor: the person, the company and their abilities. It checks its own permission (`*.view` to read, `*.manage` to change), so the check sits with the rule and is tested with it. Pages get the Actor from `getCompanyActor`, file download routes from `routeActor` (`lib/company-page.ts`)
+- Every function that reads or changes company data takes an Actor: the person, the company and their abilities. It checks its own permission (`*.view` to read, `*.create`, `*.edit` or `*.manage` to change), so the check sits with the rule and is tested with it. Pages get the Actor from `getCompanyActor`, file download routes from `routeActor` (`lib/company-page.ts`)
 - Permissions are the app's check. [[#Company isolation]] is the database's check underneath. Both must agree
 
 ### Company isolation
@@ -81,15 +82,15 @@ The most important part: even a bug in the app can't show one company's data to 
 
 ### Users and roles screens
 Settings in each company, built in slice 5. Account and access admin, not HR (see [[Glossary#Group and access|User and Employee]]).
-- **Users**: everyone with access, search, Add User, and Manage per person (change role, remove access, give access back)
+- **Users**: everyone with access, search, Add User, and Manage per person (change level, department and the Company Admin switch, remove access, give access back)
 - **Add User**: a new email gets an account and an email with a link to choose a password (3 days). An email that already has an account in another group company just gets access here. All saved in one transaction (`lib/users.ts`, `lib/accounts.ts`)
 - **Deactivate**: Super Admin only. The account can't sign in anywhere and is signed out at once. Reactivate undoes it
-- **Roles**: a tick grid of permissions per role, saved per company (`lib/roles.ts`)
+- **Roles**: a tick grid of permissions per level, one tab for every department and one per function, each saved on its own (`lib/roles.ts`)
 - Every change goes through [[#Access and permissions|requirePermission]] and [[#Company isolation|withUser]]
 
 ### Signing in without an email
 Added in slice 5e (plan in [[Foundation Module]]).
-- Email is optional for staff and viewers; roles with a "manage" permission or `users.personal_data` need one. People without one get a hidden placeholder address (`lib/no-email.ts`) that nothing is ever sent to
+- Email is optional for people who only add or look; anyone with an `*.edit` or `*.manage` permission, the Company Admin switch or `users.personal_data` needs one (for now, see [[Foundation Module]]). People without one get a hidden placeholder address (`lib/no-email.ts`) that nothing is ever sent to
 - They get a temporary password from the admin, shown once, signing in once within 24 hours; every page sends them to `/choose-password` first
 - `lib/sign-in-rules.ts` holds every rule about who may sign in, checked inside the login library: deactivated accounts, spent temporary passwords, and the 15 minute lock after 5 wrong passwords
 - Password resets by an admin and locks are in the audit log
@@ -134,8 +135,8 @@ Items and units (slice 6), customers (slice 7) and vendors (slice 8), plans in [
 ### Database, migrations and seed
 - Tables are defined in `db/schema`, changes become migrations with `pnpm db:generate`, applied with `pnpm db:migrate`
 - `pnpm db:setup` migrates, creates the app's limited database user and seeds
-- The seed (`db/seed.ts`) makes the companies, permissions, the 6 roles per company and the holding accounts. Running it again never undoes changes made on the Roles screen
-- Demo users exist only outside production: PDT-00001 Pandu viewer, PDT-00002 staff in Pandu and Anggoan, PDT-00003 Pandu company admin
+- The seed (`db/seed.ts`) makes the companies, permissions, the 6 levels and 9 departments per company (departments only for a company that has none) and the holding accounts. Running it again never undoes changes made on the Roles screen
+- Demo users exist only outside production: PDT-00001 Pandu OPR in Other (only views), PDT-00002 OPR in Management in Pandu and Anggoan, PDT-00003 Pandu GM in Management with the Company Admin switch
 - Data types follow the house rules: money and quantities as exact numbers, timestamps with time zone
 
 ### Tests and CI
