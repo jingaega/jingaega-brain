@@ -14,7 +14,7 @@ Internship project: one ERP that connects a holding with its six companies, plus
 
 ## Current focus
 - [x] Phase 0: stack, deadline and repo chosen (see [[Pandu Roadmap]]). Hosting still open
-- [x] Phase 1: Foundation built (slices 1 to 8 and 10). Its open questions still wait, see [[Foundation Module]]
+- [x] Phase 1: Foundation built (slices 1 to 8, 10 and 11). Its open questions still wait, see [[Foundation Module]]
 - [ ] Meet the supervisor with the questions below, starting with the ones marked "Ask supervisor" and the first S&M questions
 - [ ] Write the S&M build plan once the S&M questions that block Pandu are answered
 - [ ] Sales and Marketing module: answer the open questions that block Pandu in [[Sales and Marketing Module]]
@@ -39,6 +39,8 @@ Internship project: one ERP that connects a holding with its six companies, plus
 
 ## Last session
 **2026-10-13 to 14 (tenth session)**
+- Slice 11 built: levels (Director, GM, Manager, SPV, Lead, OPR) and departments with a function instead of the 6 roles, the Company Admin switch, master data rights by owning function, Roles per function and a Departments screen. 188 tests pass, CI green
+- Open: who owns customers and items, since the slice 11 plan differs from the 2026-10-13 answers (see [[Foundation Module]])
 - Merged the slice 6 to 8 branch into `main` in both repos. CI green on `main`. Docker works, its service just needs starting in a new cloud session
 - Asked whether live updates are needed at all. Decided: "real-time" means data is current when saved *(assumed, supervisor question)*, and slice 9 builds live master data lists anyway
 - Grilling session on slice 9, the Excel import and the colleague's repo. Their import is no looser than their form, so ours makes the same checks as Add vendor

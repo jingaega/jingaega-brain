@@ -85,6 +85,7 @@ Settings in each company, built in slice 5. Account and access admin, not HR (se
 - **Users**: everyone with access, search, Add User, and Manage per person (change level, department and the Company Admin switch, remove access, give access back)
 - **Add User**: a new email gets an account and an email with a link to choose a password (3 days). An email that already has an account in another group company just gets access here. All saved in one transaction (`lib/users.ts`, `lib/accounts.ts`)
 - **Deactivate**: Super Admin only. The account can't sign in anywhere and is signed out at once. Reactivate undoes it
+- **Departments**: every department with its function, people count and status. Company Admins add, rename and deactivate (`lib/departments.ts`). The function can't change after adding
 - **Roles**: a tick grid of permissions per level, one tab for every department and one per function, each saved on its own (`lib/roles.ts`)
 - Every change goes through [[#Access and permissions|requirePermission]] and [[#Company isolation|withUser]]
 

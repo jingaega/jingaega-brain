@@ -223,8 +223,17 @@ Everyone in the company sees all master data. The GM changes everything; the Dir
 
 **Built** (2026-10-14)
 - 11a built (commits c3f4d33 and review fixes c76a669): everything in 11a, plus 11c, since the Roles screen had to show grants per function anyway. It has a tab for every department and one per function
-- Left: 11b, the Departments screen
+- 11b built (commits 42b797f and review fixes c426c71): Settings, Departments lists every department with its function, how many people are in it and its status. Company Admins add, rename, deactivate and reactivate. Anyone who sees the people sees the list
+- 11b rules not in the plan *(assumed, easy to change)*:
+  - The function is picked when adding and can't change: changing it would quietly change what everyone in the department may do (like a unit's code)
+  - A department needs a name, unique in the company
+  - People in a deactivated department keep it and their rights; nobody new can be put in it, and moving them needs an active one (like an inactive unit)
+- Strict review of 11b: one query for active departments, a clearer banner prop, shared form parts labelled. 188 tests pass
 - Strict review: one helper now works out what a place may do (it was in two places), one guard for function names, no casts in the starting grants, saving roles in three queries instead of three per level. 183 tests pass
+
+**Open questions from building slice 11**
+- [ ] Who owns customers and items? Jingga's answers of 2026-10-13 (slices 6 and 7 plans): customers by Managers and up in Finance and Procurement, items and units by Managers and up in Finance. The slice 11 plan of 2026-10-14 (built): customers by Sales, items by Procurement, Warehouse and Production, OPR and up add, Managers change. Which one holds? Either is a change of starting grants only
+- [ ] May a department's function change later, and what happens to the people in a deactivated department?
 
 **Tests**
 - A Procurement OPR can add a vendor but not change one; a Procurement Manager can change it; a Sales Manager can't change vendors
