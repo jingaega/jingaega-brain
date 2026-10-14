@@ -229,8 +229,8 @@ Foundation is done, so these change its data model. Each one is small:
 - **Marketing function.** Add `marketing` to the department functions, so "only Marketing sees margin" and "a Marketing Manager approves low margins" have someone to point at. Pandu gets a Marketing department at seed
 - **Customer fields** that S&M needs, all promised "with S&M" earlier: NPWP (15 or 16 digits, optional), credit limit (Rp, 0 by default), default payment type and term (CBD, tempo with Net 1 to 180 days, or progress), set by Sales and Finance Managers
 - **Several delivery addresses per customer**, like the colleague's repo *(assumed, open question below)*. The one address today becomes the first one
-- **Item cost**: a typed standard cost per item, changed only by Finance Managers and up, seen only by Marketing and the supers *(assumed, until Phase 4)*
-- **New permission to see cost and margin** (`margin.view`). The GM gets everything by default today, so the GM is left out of this one on purpose *(assumed, ask: should the GM see margins?)*
+- **Item cost**: a typed standard cost per item, changed only by Finance Managers and up, seen only by Marketing, the GM and the supers. Jingga, 2026-10-14 *(until Phase 4)*
+- **New permission to see cost and margin** (`margin.view`): Marketing, the GM and the supers. Jingga, 2026-10-14 *(GM: ask supervisor)*
 
 ### Data model
 One table per record, each with `company_id`, the read and write rule pair, a company isolation test and the audit log, like every Foundation table.
@@ -268,7 +268,7 @@ All under the company, in a new **Sales** menu:
 | Work | Who |
 |---|---|
 | Record quotes, PO cust and SOs, mark lost | OPR and up in Sales |
-| See margin and cost | Marketing (every level) and the supers, nobody else |
+| See margin and cost | Marketing (every level), the GM and the supers, nobody else (GM: ask supervisor) |
 | Approve low margins | Manager and up in Marketing |
 | Approve a looser term on a PO cust | GM (Director if no GM) |
 | Approve a credit limit overrun | Manager and up in Sales |
@@ -291,12 +291,12 @@ One record end to end each, with the strict code review after each slice.
 - [ ] **S9. Returns**: from a rejected BAST, QC rounds, rework count, kirim with a new DO / BAST
 
 ### Open questions this plan raises
-- [ ] Several delivery addresses per customer, like the colleague's repo? The plan says yes *(assumed)*. Was already open above
-- [ ] Who marks a CBD PI paid? CBD is now first, so this blocks S5. The plan says Finance Managers *(assumed)*. Was "later" above
-- [ ] Prices on quotes before or after PPN? Is PPN on the quote at all? The spec is silent. The plan stores prices without PPN *(assumed)*
-- [ ] Document number format. The plan uses the colleague's `SQ-PDT-2026-10-0001` *(assumed)*. Customers use `C-0001`
-- [ ] Should the GM see margins? The plan says no, only Marketing and the supers
+- [x] Several delivery addresses per customer, like the colleague's repo. Jingga, 2026-10-14
+- [x] A CBD PI is marked paid by Finance, Manager and up. Jingga, 2026-10-14. The colleague's repo lets sales staff and managers record it (there was no finance role then), and later added an accountant role that can too
+- [x] Quote prices are stored without PPN. Jingga, 2026-10-14. How PPN shows on documents comes with FAT
+- [x] Document numbers like the colleague's repo for now: `SQ-PDT-2026-10-0001`. Jingga, 2026-10-14 *(ask supervisor, may change)*
+- [x] The GM sees margins. Jingga, 2026-10-14 *(ask supervisor)*
 - [ ] Partly rejected BAST (some lines accepted): the plan rejects the whole BAST *(assumed)*. Was already open above
 - [ ] Rework limit: the plan only counts rounds, no scrap *(assumed)*. Was already open above
-- [ ] Who does QC on returns until the Quality module exists? The plan says Production *(assumed)*
-- [ ] Progress: what does the payment schedule after the down payment look like? The plan uses the colleague's default (30 % down, the rest 30 days after delivery) *(assumed)*
+- [ ] Who does QC on returns until the Quality module exists? The plan says Production *(assumed)*. The colleague's repo lets anyone in the company with the returns permission do it (every level except director and viewer), since it has no departments in roles
+- [x] Progress uses the colleague's default: 30 % down before delivery, the rest 30 days after delivery, changeable per order. Jingga, 2026-10-14 *(ask supervisor)*
