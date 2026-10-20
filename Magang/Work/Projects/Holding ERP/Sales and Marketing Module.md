@@ -254,23 +254,23 @@ Foundation is done, so these change its data model. Each one is small:
 ### Data model
 One table per record, each with `company_id`, the read and write rule pair, a company isolation test and the audit log, like every Foundation table.
 
-| Table | Holds | Notes |
-|---|---|---|
-| `sales_settings` | Per company: default margin 20 %, minimum margin 10 %, quote warning days 3 | *(assumed numbers, colleague's)* |
-| `quotes` | Customer, number, current version, status (awaiting reply, accepted, lost), lost reason and note | Lost reasons: price, customer cancelled, no response, expired (auto) |
-| `quote_versions` | Version number, payment type and term, down payment % for progress, validity date, date sent, file, status (current, revised) | Only the current version can change, and only before a PO cust |
-| `quote_lines` | Item, qty, unit, price | GP % is worked out when read, never stored, so cost changes show at once |
-| `customer_pos` | Quote version, PO number, PO date, payment term, delivery address, scan, status (received, matched, mismatch) | One per accepted quote version |
-| `customer_po_lines` | Item, qty, price, plus the flag when it differs from the quote | |
-| `sales_orders` | PO cust, payment type and term (copied, never typed), credit check result, stock confirmed (who, when), status | Confirmed, Partially delivered, Delivered, Handed to FAT, Closed, Cancelled |
-| `sales_order_lines` | Item, qty, price, delivered qty | Invoiced and paid qty come with FAT (Phase 5) |
-| `proforma_invoices` | SO, kind (full for CBD, down payment for progress), amount, paid (who, when, reference) | No AR, no journal |
-| `deliveries` | SO, number, date, status (created, delivered, signed, rejected), receiver name, rejection reason, replaces (for kirim) | The DO / BAST, one document |
-| `delivery_lines` | SO line, qty | |
-| `delivery_photos` | Photo files | Stored like the KTP scan (`lib/file-storage.ts`) |
-| `returns` | Rejected delivery, reason, received by warehouse (who, when), status, rework count | Received, In QC, In rework, Passed, Sent out again |
-| `return_checks` | Each QC round: pass or defect, what was wrong, who | The rework count is the number of defect rounds |
-| `approval_requests` | Document, kind (low margin, term mismatch, credit limit), asked by, decided by, decision, note | One shared table so there is one "To approve" list *(design choice)* |
+| Table               | Holds                                                                                                                         | Notes                                                                       |
+| ------------------- | ----------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------- |
+| `sales_settings`    | Per company: default margin 20 %, minimum margin 10 %, quote warning days 3                                                   | *(assumed numbers, colleague's)*                                            |
+| `quotes`            | Customer, number, current version, status (awaiting reply, accepted, lost), lost reason and note                              | Lost reasons: price, customer cancelled, no response, expired (auto)        |
+| `quote_versions`    | Version number, payment type and term, down payment % for progress, validity date, date sent, file, status (current, revised) | Only the current version can change, and only before a PO cust              |
+| `quote_lines`       | Item, qty, unit, price                                                                                                        | GP % is worked out when read, never stored, so cost changes show at once    |
+| `customer_pos`      | Quote version, PO number, PO date, payment term, delivery address, scan, status (received, matched, mismatch)                 | One per accepted quote version                                              |
+| `customer_po_lines` | Item, qty, price, plus the flag when it differs from the quote                                                                |                                                                             |
+| `sales_orders`      | PO cust, payment type and term (copied, never typed), credit check result, stock confirmed (who, when), status                | Confirmed, Partially delivered, Delivered, Handed to FAT, Closed, Cancelled |
+| `sales_order_lines` | Item, qty, price, delivered qty                                                                                               | Invoiced and paid qty come with FAT (Phase 5)                               |
+| `proforma_invoices` | SO, kind (full for CBD, down payment for progress), amount, paid (who, when, reference)                                       | No AR, no journal                                                           |
+| `deliveries`        | SO, number, date, status (created, delivered, signed, rejected), receiver name, rejection reason, replaces (for kirim)        | The DO / BAST, one document                                                 |
+| `delivery_lines`    | SO line, qty                                                                                                                  |                                                                             |
+| `delivery_photos`   | Photo files                                                                                                                   | Stored like the KTP scan (`lib/file-storage.ts`)                            |
+| `returns`           | Rejected delivery, reason, received by warehouse (who, when), status, rework count                                            | Received, In QC, In rework, Passed, Sent out again                          |
+| `return_checks`     | Each QC round: pass or defect, what was wrong, who                                                                            | The rework count is the number of defect rounds                             |
+| `approval_requests` | Document, kind (low margin, term mismatch, credit limit), asked by, decided by, decision, note                                | One shared table so there is one "To approve" list *(design choice)*        |
 
 Document numbers in the group's official style (Jingga, 2026-10-14): `SQ-1025-001` for quotes, then SO, PI and DO the same way, numbered per company per month.
 
