@@ -9,6 +9,15 @@ tags: [internship, erp, log]
 
 One entry per working session, newest on top. Written by Claude at wrap up. Process is in [[Workflow]].
 
+## 2026-10-21 (thirteenth session)
+- Installed graphify (`graphifyy` on PyPI) and set it up for the code repo: `/graphify` skill, a code only graph (no API key), a rule in the repo's `CLAUDE.md`, PreToolUse hooks that make Claude query the graph before grepping, and git hooks that rebuild it. The session start hook now installs graphify and builds the graph in every cloud session, without ever blocking the session. A scoped query costs about 600 tokens
+- Found `main` of the code repo was at S3: S3c, S4 and S2d lived only on the branch `claude/stoic-volta-cs2r54`. Fast forwarded `main` to it. CI for that push not checked
+- S5 compared with the colleague's repo, ERPNext and Odoo first (PPN on the PI, partial payment, who creates, cancel after a payment). Jingga: take the colleague's way for PPN with an ask flag, partial payments with a partly paid status, Sales creates, "idk" on cancelling after a payment (my call, assumed)
+- Built S5a (proforma invoice for a CBD order: amount copied from the order plus 11 % PPN *(assumed)*, frozen in PostgreSQL, one live per order, void with a reason, voided when its order is cancelled, Proforma invoices list and page) and S5b (payments: several per PI, never more than its amount, status worked out from them, a PI with a payment can't be voided and its order can't be cancelled). Migrations 0044 and 0045
+- Strict review fixed 5 findings: one shared order total expression, one reason dialog for cancel and void, order changes take an options object, the order page's PI part split out, a magic "0.00" compare. 283 tests pass, lint, typecheck and build pass, clicked through in a browser
+- Found: a dev server started right after `pnpm build` gets stuck on the login page again (as noted 2026-10-14). Delete `.next` and restart `pnpm dev`
+- Next: S6 DO / BAST. It reads the PI's paid status, so a CBD order can't ship until it is fully paid
+
 ## 2026-10-21 (twelfth session)
 - Read the colleague's repo in depth and wrote [[Colleague Architecture]] for the modules we haven't built, plus a clash table in [[Colleague Repo Comparison]]
 - Researched general ERP practice per module and per company type, and read ERPNext and Odoo from their code: [[ERP Best Practices]], [[ERPNext Architecture]], [[Odoo Architecture]]. New rule: each phase's plan starts with this comparison
@@ -20,15 +29,6 @@ One entry per working session, newest on top. Written by Claude at wrap up. Proc
 - Browser click-through after every slice. Demo data removed from the dev database after
 - 271 tests pass, lint, typecheck and build pass. Branch `claude/stoic-volta-cs2r54` not merged into `main` yet
 - Next: S5 PI and CBD
-
-## 2026-10-21 (thirteenth session)
-- Installed graphify (`graphifyy` on PyPI) and set it up for the code repo: `/graphify` skill, a code only graph (no API key), a rule in the repo's `CLAUDE.md`, PreToolUse hooks that make Claude query the graph before grepping, and git hooks that rebuild it. The session start hook now installs graphify and builds the graph in every cloud session, without ever blocking the session. A scoped query costs about 600 tokens
-- Found `main` of the code repo was at S3: S3c, S4 and S2d lived only on the branch `claude/stoic-volta-cs2r54`. Fast forwarded `main` to it. CI for that push not checked
-- S5 compared with the colleague's repo, ERPNext and Odoo first (PPN on the PI, partial payment, who creates, cancel after a payment). Jingga: take the colleague's way for PPN with an ask flag, partial payments with a partly paid status, Sales creates, "idk" on cancelling after a payment (my call, assumed)
-- Built S5a (proforma invoice for a CBD order: amount copied from the order plus 11 % PPN *(assumed)*, frozen in PostgreSQL, one live per order, void with a reason, voided when its order is cancelled, Proforma invoices list and page) and S5b (payments: several per PI, never more than its amount, status worked out from them, a PI with a payment can't be voided and its order can't be cancelled). Migrations 0044 and 0045
-- Strict review fixed 5 findings: one shared order total expression, one reason dialog for cancel and void, order changes take an options object, the order page's PI part split out, a magic "0.00" compare. 283 tests pass, lint, typecheck and build pass, clicked through in a browser
-- Found: a dev server started right after `pnpm build` gets stuck on the login page again (as noted 2026-10-14). Delete `.next` and restart `pnpm dev`
-- Next: S6 DO / BAST. It reads the PI's paid status, so a CBD order can't ship until it is fully paid
 
 ## 2026-10-14 (eleventh session)
 - Session start hook for cloud sessions in the code repo: installs packages, starts the machine's PostgreSQL 16 (not Docker), runs `pnpm db:setup`. Merged into `main`
