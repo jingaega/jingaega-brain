@@ -77,6 +77,7 @@ Why this order: Sell and Buy are already the best specced. Stock sits right afte
 - [x] S&M S2: price proposals and approvals
 - [x] S&M S3: customer PO
 - [x] S&M S3c: suggested SPPR and SPPR approval below the minimum GP
+- [x] S&M S2d: a price above the SPPR applies with a reason
 - [x] S&M S4: sales order (lower PO price approval, create from the quote, stock confirmed, cancel)
 - [ ] Phase 4: the margin check moves from the typed item cost to the moving average cost
 - [ ] Phase 4: make S&M check stock automatic (hold stock on the SO, shortage to Prod/Purch), replacing the manual "stock confirmed" step
