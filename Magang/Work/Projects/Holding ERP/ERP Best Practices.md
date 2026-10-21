@@ -63,6 +63,9 @@ So the modules we build for Pandu cover the manufacturer and most of the trader.
 | Tax invoice | Output VAT invoice through the tax office system (Coretax), DPP 11/12 at 12 % for most goods | Not yet | PPN worked out, no Coretax | **Gap** for both, Phase 5 |
 | Returns | Return authorization, QC decides: restock, rework or scrap; credit note | From a rejected BAST, QC by Quality, rework loop | Any delivery, one rework, QA by Sales | Ours wins. **Gap**: scrap or write off is missing |
 | Collections | AR aging, reminders, payment matched to invoices | Phase 5 | Built | Phase 5 |
+| CRM | Lead (not yet qualified), then opportunity (need, budget, timing) with stages, lost reasons and competitors, a pipeline forecast; a won deal becomes a quote or order without retyping | Quote lost reasons only; CRM named for later | Inquiries and price requests, no pipeline | **Gap**, later. Pandu's quotes start by hand |
+| Website leads | Web forms land as leads, checked against existing customers so no duplicates | Named in the S&M idea, websites are their own project ([[Company Websites]]) | None | Phase 9 |
+| POS | Counter sale lowers ERP stock at once; opening float, cash in and out, end of shift count against expected; works offline | Sibama and Anggoan need it | None | Phase 9 |
 
 ## Phase 3: Buy (procure to pay)
 
@@ -105,27 +108,82 @@ So the modules we build for Pandu cover the manufacturer and most of the trader.
 | Costing model | Absorption costing for stock value (fixed overhead in product cost), management views on top | COGM, DL, FOH, GP, SPPR on the whiteboard | Materials only | Ours wins on the model, **Gap** in posting it |
 | Group reports | Consolidation with eliminations | Later | Planned dashboard only | Phase 9 |
 
-## Phase 6: Make (Production, Quality, R&D, Engineering, MMS)
+## Phase 6: Make (Production and Quality)
 
 | Topic | General | Ours | Colleague | Verdict |
 |---|---|---|---|---|
 | Formula | Versioned and approved; a batch scales from it; every batch matches the formula registered with the regulator (BPOM CPKB for cosmetics, Kemenkes for household products) | Needed for Wening | BoM versions, no approval, no registration link | **Gap, high**: approval and a registration number per formula |
 | Production order | Plan, issue (in parts), finish with yield; scrap and by products; leftovers returned | Not built | Built, no scrap, no returns | **Decide** |
 | Batch record | Every batch keeps materials and their batches, who, when, QC results | Needed | Issues logged, material batches not on the order | **Gap**: trace back to material batches |
-| Planning | Master schedule, then materials planning, rough capacity check | PPIC owner open | Restock list only | **Decide** what Pandu needs |
-| QC release | Incoming and finished goods stay in quarantine until Quality releases them (ISO 22716, CPKB) | Required for Wening | A switch, off by default; blocked batches stuck | **Gap**: always on for Pandu, rework or destroy flow |
+| Planning | Master schedule, then materials planning, rough capacity check, campaigns for products that share a line | PPIC owner open | Restock list only | **Decide** what Pandu needs |
+| Production cost | Labour and overhead absorbed into each batch at a rate, variances reported | FOH as a % of COGM in pricing | Materials only | **Decide** with Finance (Phase 5) |
+| QC specs | Test parameters per item with limits, versioned, linked to the formula | Not in the notes | Specs per item with history | **Gap** |
+| Incoming QC | Materials stay in quarantine until checked; sampling plans; vendor CoA checked against the spec | Not in the notes | A switch, off by default, raw material and packaging only | **Decide** |
+| QC release | Finished batches stay in quarantine until Quality (not Production) releases them (ISO 22716, CPKB) | Required for Wening | A switch, off by default; blocked batches stuck | **Gap**: always on for Pandu, rework or destroy flow |
+| CoA | Certificate of analysis made from the batch's results, sent with deliveries when a customer asks | Not in the notes | CoA PDF per batch | **Gap** |
+| Deviations and CAPA | Non conformance record with severity and decision (use, rework, return, destroy), root cause and corrective action, followed up | Not in the notes | None | **Gap** |
+| Supplier quality | Reject rate and late deliveries per vendor feed a vendor rating | Not in the notes | Reject rate by value | **Gap** |
 | Complaints and recall | Complaints investigated, all affected batches found, recalled goods kept apart, regulator told | Recall wanted | None | **Gap, high** |
-| R&D | Formula trials, stability tests, then registration before launch | Stub | Trials, tests, launch by the GM | **Gap**: registration step before launch |
-| Maintenance | Preventive plans, work orders, PM compliance, MTBF, MTTR, OEE, critical spares | MMS meaning open, Sancang does Pandu's plant | Built, no OEE | **Decide** who records it |
 
 ## Phase 7: People and places (HR, GA)
 
 | Topic | General | Ours | Colleague | Verdict |
 |---|---|---|---|---|
 | Employee record | HR owns the employee and staff number; a login is linked to it | NRP on the user, HR owns it later | Employee first, generated numbers | **Decide** before HR |
+| Contracts | PKWT and PKWTT with dates, probation, pay; reminders before a PKWT ends | Contract Management in the HR idea | Built, never edited, a new one ends the old | Same idea |
+| Attendance | Check in and out (device, GPS or face), shifts, late and early, corrections by HR with a reason | Absensi in the HR idea | GPS against work locations, HR corrects | **Decide** how Pandu clocks in |
+| Leave | Balances per year, carry over, cuti bersama, request and approval, calendar | Not in the notes | Built, policy by the Super Admin | **Decide** who sets the policy |
+| Overtime, THR | PP 35/2021, Permenaker 6/2016 | Inbox notes | Built | Same |
 | Payroll | Period locked before payment, payslips, bank transfer file, PPh 21 TER, BPJS with yearly caps | Inbox notes match | Built; JP cap typed in as the 2025 figure | Same source. **Gap**: caps must be settings, updated yearly |
-| Overtime, THR, leave | PP 35/2021, Permenaker 6/2016, UU 13/2003 | Inbox notes | Built | Same |
-| Assets | One register shared by GA (where, who holds it) and Finance (cost, depreciation) | GA idea only | GA register, no depreciation | **Gap** (see Phase 5) |
+| Payslip privacy | Pay seen only by HR payroll, the person and approvers; never in general audit views | Not in the notes | Payroll rights per permission | **Gap** to plan |
+| Claims, loans, advances | Request, approve, pay, settle; advances declared with receipts | Inbox notes | Built, advances share the UM account | Same idea |
+| Grades | Career paths, points, assessments, promotion changes pay with history | Inbox notes and meeting [[2026-10-14]] | Built | Same idea |
+| Assets | One register shared by GA (where, who holds it, handover BAST) and Finance (cost, depreciation) | GA idea only | GA register, no depreciation | **Gap** (see Phase 5) |
+| Supplies | Office stock issued to departments, cost to their cost center, restock request | Not in the notes | Built, no approval | **Decide** |
+| Repairs and bookings | Facility requests with status; rooms and cars booked without double booking | Facility Management in the GA idea | Built | **Decide** what Pandu needs |
+| Licences and documents | Company permits and contracts with expiry reminders (NIB, product registrations, vehicle STNK and KIR) | Not in the notes | Built, 60, 30, 7 day reminders | **Gap**: product registrations belong here too |
+| Bills | Utilities per meter and month, approved, paid, booked to a cost center | Not in the notes | Built, PPN not split | **Decide** |
+
+## Phase 8: Rest (R&D, Engineering, MMS)
+
+| Topic | General | Ours | Colleague | Verdict |
+|---|---|---|---|---|
+| R&D projects | Stages from idea to launch with targets (cost, price, date) | Stub, nothing yet | Projects with stages and targets | **Decide** what Pandu's R&D does |
+| Trials | Lab batches from a formula version, materials used booked as R&D cost | Stub | Trials use real stock, R&D expense | **Decide** |
+| Stability | Accelerated and real time storage, checks like pH, viscosity, odor, micro; result sets the shelf life | Stub | Test rounds with storage days | **Gap**: shelf life from stability results |
+| Launch | Only after stable results and the regulator's registration; the formula goes to Production as an approved version | Stub | Launch by the GM, a failed test only warns | **Gap**: registration and passed tests before launch |
+| Change control | Change request, review, approval, released revision with an effective date; impact checked on open orders | Stub | ECR, approval by Manager then GM, BoM change made by hand | **Gap**: the approved change should create the new formula version |
+| Machines and lines | Machine list with technical data, linked to the asset register | Production idea lists machines | Engineering owns machines and lines | **Decide** owner |
+| Preventive plans | By calendar or running hours, checklists, parts kit | MMS meaning open | Built, due list made by a button | **Decide** |
+| Work orders | Breakdown and preventive, downtime, parts used, technician | MMS meaning open | Built, no approval | **Decide** |
+| KPIs | PM compliance (leading), MTBF, MTTR, OEE = availability x performance x quality (lagging) | Not in the notes | MTBF, MTTR, availability, no OEE | **Gap**: OEE needs output per line |
+| Who maintains | In house or a contractor with service orders | Sancang does Pandu's plant | In house | **Decide**, ties to intercompany |
+
+## Integrated System
+
+| Topic | General | Ours | Colleague | Verdict |
+|---|---|---|---|---|
+| One inbox | Everything waiting for me across modules, in one list | Per module (Sales To approve) | One approvals inbox | **Gap**, comes with the shared approval engine |
+| Notifications | In app, by email for urgent ones, made by the system when something waits or is decided | Email for login only | In app bell from approvals | **Gap** |
+| My Workspace | One page per person: my requests, approvals, leave, assets | Not in the notes | Built | **Decide** |
+| Document chain | From any document, see the ones before and after it (quote, PO cust, SO, DO, invoice, payment) | Quote shows its PO cust | Planned, not built | **Gap** to plan from S4 |
+| Import and export | Excel import with all or nothing checks; export of every list | Vendor import built, export planned | Import for items and vendors | Same idea. Export still open |
+| Search | One search across records | Not in the notes | None | Later |
+| Holding view | Group dashboard for the supers: sales, AR, AP, stock per company and in total | Phase 9 | Company cards only | Phase 9 |
+
+## Phase 9: Extend (other companies and the group)
+
+| Topic | General | Ours | Colleague | Verdict |
+|---|---|---|---|---|
+| Intercompany sale | One transaction makes the buyer's PO and the seller's SO, with due to and due from; prices at arm's length | Later, "PO becomes SO at the other company" | Not in phase 1 | **Gap, high** for Pandu to Anggoan |
+| Intercompany service | Service order at the provider, cost at the receiver (Sancang maintaining Pandu) | Later | None | **Gap** |
+| Consolidation | Each company's books stay whole; the group view eliminates intercompany sales, balances and profit in stock | Later | Planned dashboard only | **Gap** |
+| Shared master data | One group chart of accounts and item codes make consolidation easier | Items per company now | Per company | **Decide** |
+| Trader (Sibama, Anggoan) | POS, price lists and discounts, landed cost on imports, fast picking | Named in [[Company Roles and Modules]] | Sales, POS not built | Phase 9 plan |
+| Service company (Sancang) | Service orders and contracts tied to equipment and site, technician schedule, mobile close out offline, invoice from actual work, two way match for parts | Named | None | Phase 9 plan |
+| Discrete maker (Serio) | Multi level BOM, routings and work centers, scrap per operation | Named *(assumed)* | BoM for process only | Phase 9 plan |
+| Advisory (ETA) | Engagements, time sheets, billing | Finance only | None | Phase 9 plan |
+| New company | Adding a company is configuration, not code | Rule in the repo | Rule in the repo | Same |
 
 ## Biggest gaps for Pandu
 Sorted by how much they matter for Pandu's real flow. None is a rule yet.
@@ -146,4 +204,7 @@ Sorted by how much they matter for Pandu's real flow. None is a rule yet.
 - Stock and costing: [Cleverence, standard costing](https://www.cleverence.com/articles/for-business/standard-costing-inventory-valuation-4827/), [Cleverence, warehouse inventory process](https://www.cleverence.com/articles/for-business/warehouse-inventory-management-process-4827/), [Cleverence, put away strategy](https://www.cleverence.com/articles/3pl-business/how-to-implement-an-effective-put-away-strategy-5827)
 - Planning and maintenance: [Cleverence, production planning and control](https://www.cleverence.com/articles/for-business/how-to-do-production-planning-and-control-4821/), [OxMaint, maintenance KPIs](https://oxmaint.com/article/mtbf-mttr-oee-maintenance-kpis)
 - Controls and group: [Hyperbots, ERP financial controls](https://www.hyperbots.com/glossary/erp-financial-controls), [SafePaaS, segregation of duties](https://www.safepaas.com/?p=11725), [Trintech, intercompany eliminations](https://www.trintech.com/blog/what-are-intercompany-eliminations-a-guide-to-accurate-financial-consolidation/), [Apideck, multi entity ERP](https://developers.apideck.com/guides/multi-entity-erp-behavior)
+- Quality and change control: [ERP Research, quality management](https://erpresearch.com/erp/erpnext/quality-management), [AlisQI, supplier deviations](https://www.alisqi.com/en/modules/supplier-quality/supplier-deviation-management), [Acumatica, engineering change control](https://www.acumatica.com/media/2020/05/Acumatica_Manufacturing_Engineering_Change_Control_Datasheet_200916.pdf), [Guideflow, engineering change management](https://www.guideflow.com/blog/engineering-change-management-software)
+- Stability testing: [Cosmetics and Toiletries, stability guidance](https://www.cosmeticsandtoiletries.com/testing/method-process/article/21837281/stability-testing-guidance-for-product-safety-and-shelflife-insight), [ALS, stability storage and testing](https://www.alsglobal.com/en/quality-control/stability-storage-and-testing), [CTPA, stability testing](https://www.ctpa.org.uk/e-learning/stability-testing-for-cosmetics)
+- Service, POS and CRM: [ERP Research, field service](https://www.erpresearch.com/erp-modules/field-service), [SAP, field service management](https://www.sap.com/products/scm/field-service-management/what-is-field-service-management.html), [DMSI, POS for Business Central](https://dmsiworks.com/blog/pos-systems-for-business-central-what-to-look-for-and-what-most-get-wrong), [ERP Research, POS](https://www.erpresearch.com/erp-add-ons/pos), [ERPNext, sales pipeline](https://docs.frappe.io/erpnext/sales-pipeline.md), [SuperOffice, lead and opportunity management](https://superoffice.com/blog/lead-and-opportunity-management)
 - ERP products: [ERP Research, Odoo vs SAP Business One](https://www.erpresearch.com/compare/odoo-vs-sap-business-one-for-manufacturing)
