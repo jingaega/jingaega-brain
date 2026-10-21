@@ -16,6 +16,9 @@ Part of [[Holding ERP]]. Company context is in [[Company Roles and Modules]].
 - **Handed to other modules:**
 - **Which companies use it:**
 
+## Comparison
+Ours, general and the colleague's, refreshed at the start of the phase: [[ERP Best Practices]] (this module's section). Gap and Decide rows from it are in Open questions below.
+
 ## Key terms
 | Term | Meaning | Who makes it |
 |---|---|---|

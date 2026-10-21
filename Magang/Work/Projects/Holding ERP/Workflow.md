@@ -18,6 +18,7 @@ How Jingga, Claude (chat) and Claude Code work together on the ERP. Goal and ord
 | Claude Code | Implements one module slice at a time from the spec, writes tests, keeps the repo clean | Changes a spec rule without asking, invents business rules |
 
 ## The loop (one per module)
+0. **Compare.** At the start of each phase, refresh that phase's table in [[ERP Best Practices]]: what ERPs generally do, what we have, what the colleague's repo does ([[Colleague Architecture]]). Every Gap or Decide row becomes an open question in the module note or a line in its build plan. Jingga's rule, 2026-10-21
 1. **Spec.** The module note in the vault is the source of truth. Use the Module Spec template. Open questions are listed, not hidden
 2. **Plan.** Before any code, Claude writes a build plan at the bottom of the spec: data model, screens, API, and a task list cut into small slices. Jingga approves it
 3. **Build.** Claude Code takes one slice at a time. A slice is one record working end to end (database, API, screen), not a whole layer
