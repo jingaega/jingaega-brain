@@ -18,10 +18,11 @@ Internship project: one ERP that connects a holding with its six companies, plus
 - [ ] Meet the supervisor with the questions below, starting with the ones marked "Ask supervisor" and the first S&M questions
 - [x] Write the S&M build plan once the S&M questions that block Pandu are answered (approved 2026-10-14)
 - [x] Sales and Marketing module: answer the open questions that block Pandu in [[Sales and Marketing Module]]
-- [ ] Build S&M: S0 to S4 done (quotes, price proposals, customer PO, suggested SPPR, sales order, price above the SPPR). Next: S5 PI and CBD (see [[Sales and Marketing Module#Slices]])
+- [ ] Build S&M: S0 to S5 done (quotes, price proposals, customer PO, suggested SPPR, sales order, price above the SPPR, PI and payments). Next: S6 DO / BAST (see [[Sales and Marketing Module#Slices]])
 - [ ] Ask supervisor: the new 2026-10-21 questions in [[Sales and Marketing Module]] (lower PO price needs Marketing, tighter PO term, `SO` prefix, price above the SPPR without waiting, prices per segment or customer)
 - [ ] Decide one shared approval engine before Procurement (see [[ERP Best Practices#Foundation and shared engines]])
 - [ ] Merge `claude/stoic-volta-cs2r54` into `main` in the code repo
+- [ ] Ask supervisor: the 4 S5 questions in [[Sales and Marketing Module]] (PPN rate and how it shows, paying a PI in parts, correcting a wrong payment, cancelling an order that has a payment)
 - [ ] Ask supervisor: the S&M items marked *(ask supervisor)* and the 3 new S3 questions (order of payment terms, whether a PO with a different qty or price needs approval, Director deciding terms) in [[Sales and Marketing Module]]. Also: what does Pandu call its quotes today, to confirm the `SQ` in `SQ-1026-001`
 - [ ] Get supervisor sign-off on the fresh repo, invite the colleague to both repos (see [[Colleague Repo Comparison]])
 - [ ] Ask supervisor: what "real-time" means and whether live screens are wanted now (see [[Pandu Roadmap#Additional features]]), whether the import may be looser than the form (in [[Foundation Module]])
@@ -42,6 +43,13 @@ Internship project: one ERP that connects a holding with its six companies, plus
 - Serio is the holding company. PT Pandu is still the baseline for development: build for Pandu first, then adapt Serio and the others from it
 
 ## Last session
+**2026-10-21 (thirteenth session)**
+- Installed graphify and set it up for the code repo (skill, code only graph, rule in the repo's `CLAUDE.md`, hooks). The session start hook now installs it and builds the graph in every cloud session, so the earlier "installed for this session only" is replaced. To cut tokens, Claude queries the graph before grepping
+- `main` of the code repo was behind: S3c, S4 and S2d were only on a branch. Merged into `main` (fast forward)
+- S5 compared with the colleague's repo, ERPNext and Odoo, then built: a CBD order gets a proforma invoice (order total plus 11 % PPN *(assumed)*), Finance records payments in parts (open, partly paid, paid), void with a reason, cancel voids an unpaid PI, and an order with a payment can't be cancelled. Strict review fixed 5 findings. 283 tests pass, clicked through in a browser
+- 4 new questions for the supervisor, in [[Sales and Marketing Module]]
+- Next: S6 DO / BAST, which needs the PI fully paid on a CBD order. Plan first, wait for approval
+
 **2026-10-21 (twelfth session)**
 - Analyzed the colleague's repo, ERPNext and Odoo from their code. New reference notes: [[Colleague Architecture]], [[ERPNext Architecture]], [[Odoo Architecture]], and [[ERP Best Practices]] comparing all of them per module. Every phase now starts with that comparison (step 0 in [[Workflow]], rule in the code repo's CLAUDE.md)
 - Margins settled: 20 % default and 10 % minimum are GP. Built S3c: a suggested SPPR from the default GP (set by Marketing Managers), and an SPPR below the minimum GP waits for the GM

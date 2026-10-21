@@ -21,7 +21,7 @@ One entry per working session, newest on top. Written by Claude at wrap up. Proc
 - 271 tests pass, lint, typecheck and build pass. Branch `claude/stoic-volta-cs2r54` not merged into `main` yet
 - Next: S5 PI and CBD
 
-## 2026-10-21 (twelfth session)
+## 2026-10-21 (thirteenth session)
 - Installed graphify (`graphifyy` on PyPI) and set it up for the code repo: `/graphify` skill, a code only graph (no API key), a rule in the repo's `CLAUDE.md`, PreToolUse hooks that make Claude query the graph before grepping, and git hooks that rebuild it. The session start hook now installs graphify and builds the graph in every cloud session, without ever blocking the session. A scoped query costs about 600 tokens
 - Found `main` of the code repo was at S3: S3c, S4 and S2d lived only on the branch `claude/stoic-volta-cs2r54`. Fast forwarded `main` to it. CI for that push not checked
 - S5 compared with the colleague's repo, ERPNext and Odoo first (PPN on the PI, partial payment, who creates, cancel after a payment). Jingga: take the colleague's way for PPN with an ask flag, partial payments with a partly paid status, Sales creates, "idk" on cancelling after a payment (my call, assumed)
