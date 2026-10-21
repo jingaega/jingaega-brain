@@ -83,7 +83,7 @@ From a deep read of his repo for the modules we haven't built yet. His design pe
 |---|---|---|---|
 | Start of a sale | Inquiry in the ERP, price requests to Procurement | Quote made by hand, ERP records it | Ours |
 | Price | Price lists per customer or segment, Sales types prices | SPPR per item, Sales only proposes | Ours |
-| Margin | Markup on cost, default 20 %, minimum 10 % | GP on the selling price, COGS = COGM x (1 + FOH) | Ours. Our "20 % / 10 %" note in [[Holding ERP]] came from his markups, so check the number |
+| Margin | Markup on cost, default 20 %, minimum 10 % | GP on the selling price, COGS = COGM x (1 + FOH) | Ours. Same numbers, but ours are GP (Jingga, 2026-10-21) |
 | Payment type | On the customer | On each quote version | Ours |
 | Customer PO | A few fields on the SO | Its own record, checked line by line against the quote | Ours |
 | Progress balance due | 30 days after the order date | 30 days after delivery | Ours |
