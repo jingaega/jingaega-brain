@@ -149,6 +149,6 @@ Items and units (slice 6), customers (slice 7) and vendors (slice 8), plans in [
 ## Not built yet
 - Live lists, an additional feature (see [[Pandu Roadmap#Additional features]])
 - Business modules, starting with [[Sales and Marketing Module]] and [[Procurement Module]]
-- How the colleague's repo builds the modules we haven't built: [[Colleague Architecture]] (reference only). What ERPs generally do, compared with both: [[ERP Best Practices]]
+- How the colleague's repo builds the modules we haven't built: [[Colleague Architecture]] (reference only). What ERPs generally do, compared with both: [[ERP Best Practices]]. How ERPNext and Odoo build the same modules: [[ERPNext Architecture]], [[Odoo Architecture]]
 - Intercompany documents (see [[Holding ERP#Intercompany rules]]), not before it is discussed
 - Hosting on AWS. Known limits to fix before more than one server runs are in [[Foundation Module#Known issues]]

@@ -26,7 +26,8 @@ One ERP that connects a holding with six companies. PT Serio Prima Indotek is th
   - `Architecture.md` how the built code fits together: login, access, company isolation, users and roles
   - `Colleague Repo Comparison.md` how the vault differs from `Difsyy/Serio-Intern`, and why we build our own repo
   - `Colleague Architecture.md` how `Difsyy/Serio-Intern` builds the modules we haven't built, reference only
-  - `ERP Best Practices.md` what ERPs generally do per module, compared with ours and the colleague's. Refreshed at the start of every phase
+  - `ERP Best Practices.md` what ERPs generally do per module, compared with ERPNext, Odoo, ours and the colleague's. Refreshed at the start of every phase
+  - `ERPNext Architecture.md`, `Odoo Architecture.md` how those two open ERPs build the modules, read from their code, reference only
 
 ## Code repo
 - The code lives in `jingaega/PT-SERIO-ERP`. Its live rules for coding are in that repo's own `CLAUDE.md`

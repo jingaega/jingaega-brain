@@ -33,7 +33,7 @@ FAHCGA is the group name for Finance Accounting Tax, HR and GA. Finance Accounti
 Each module's general idea lives in its own stub note, linked in the table above.
 
 How the colleague's repo builds each of these, for reference only: [[Colleague Architecture]].
-What ERPs generally do per module, compared with ours and the colleague's: [[ERP Best Practices]].
+What ERPs generally do per module, compared with ours and the colleague's: [[ERP Best Practices]]. ERPNext and Odoo, read from their code: [[ERPNext Architecture]], [[Odoo Architecture]].
 
 ## Overlaps to settle
 - **Production Cost** is listed in both Finance Accounting Tax and Production. Which module owns it?
