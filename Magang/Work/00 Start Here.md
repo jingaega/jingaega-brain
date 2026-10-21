@@ -1,7 +1,7 @@
 ---
 title: Start Here
 type: hub
-updated: 2026-10-14
+updated: 2026-10-21
 tags: [internship, hub]
 ---
 
@@ -18,7 +18,10 @@ Internship project: one ERP that connects a holding with its six companies, plus
 - [ ] Meet the supervisor with the questions below, starting with the ones marked "Ask supervisor" and the first S&M questions
 - [x] Write the S&M build plan once the S&M questions that block Pandu are answered (approved 2026-10-14)
 - [x] Sales and Marketing module: answer the open questions that block Pandu in [[Sales and Marketing Module]]
-- [ ] Build S&M: S0 to S3 done (quotes, price proposals, customer PO). Next: S4 sales order (see [[Sales and Marketing Module#Slices]])
+- [ ] Build S&M: S0 to S4 done (quotes, price proposals, customer PO, suggested SPPR, sales order, price above the SPPR). Next: S5 PI and CBD (see [[Sales and Marketing Module#Slices]])
+- [ ] Ask supervisor: the new 2026-10-21 questions in [[Sales and Marketing Module]] (lower PO price needs Marketing, tighter PO term, `SO` prefix, price above the SPPR without waiting, prices per segment or customer)
+- [ ] Decide one shared approval engine before Procurement (see [[ERP Best Practices#Foundation and shared engines]])
+- [ ] Merge `claude/stoic-volta-cs2r54` into `main` in the code repo
 - [ ] Ask supervisor: the S&M items marked *(ask supervisor)* and the 3 new S3 questions (order of payment terms, whether a PO with a different qty or price needs approval, Director deciding terms) in [[Sales and Marketing Module]]. Also: what does Pandu call its quotes today, to confirm the `SQ` in `SQ-1026-001`
 - [ ] Get supervisor sign-off on the fresh repo, invite the colleague to both repos (see [[Colleague Repo Comparison]])
 - [ ] Ask supervisor: what "real-time" means and whether live screens are wanted now (see [[Pandu Roadmap#Additional features]]), whether the import may be looser than the form (in [[Foundation Module]])
@@ -39,6 +42,16 @@ Internship project: one ERP that connects a holding with its six companies, plus
 - Serio is the holding company. PT Pandu is still the baseline for development: build for Pandu first, then adapt Serio and the others from it
 
 ## Last session
+**2026-10-21 (twelfth session)**
+- Analyzed the colleague's repo, ERPNext and Odoo from their code. New reference notes: [[Colleague Architecture]], [[ERPNext Architecture]], [[Odoo Architecture]], and [[ERP Best Practices]] comparing all of them per module. Every phase now starts with that comparison (step 0 in [[Workflow]], rule in the code repo's CLAUDE.md)
+- Margins settled: 20 % default and 10 % minimum are GP. Built S3c: a suggested SPPR from the default GP (set by Marketing Managers), and an SPPR below the minimum GP waits for the GM
+- Directors see costs and margins. Elimination added to the [[Glossary]]: the holding view crosses out sales between group companies as its own line, each company's books stay the same
+- Built S4 sales order: S4a (a lower price on the customer's PO waits for Marketing), S4b (Create Sales Order from the accepted quote, lines from the PO), S4c (Warehouse confirms stock, Sales Manager cancels with a reason)
+- Compared the colleague's Marketing plan (MK1 to MK5). Kept ours for who sets the SPPR and who sees margin. Built S2d: a price above the SPPR applies at once with a reason and Marketing sees it. Price lists per segment and customer planned, waiting for the supervisor. Market price survey, SPPR start date and Marketing reports added as ideas
+- Strict review and a browser click-through after every slice. 271 tests pass. All work is on `claude/stoic-volta-cs2r54`, not merged into `main` yet
+- The database stops when the cloud worker restarts: run the session start hook again
+- Next: S5 PI and CBD. Before Procurement: decide one shared approval engine
+
 **2026-10-14 (eleventh session)**
 - Session start hook for cloud sessions merged into `main`: installs packages, starts PostgreSQL 16, runs `pnpm db:setup`
 - S&M questions answered with Jingga (compared with the colleague's repo and two office whiteboards), Inbox sorted into the module notes, S&M build plan written and approved (S0 to S9, CBD first)

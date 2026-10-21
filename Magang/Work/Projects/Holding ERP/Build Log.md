@@ -9,6 +9,18 @@ tags: [internship, erp, log]
 
 One entry per working session, newest on top. Written by Claude at wrap up. Process is in [[Workflow]].
 
+## 2026-10-21 (twelfth session)
+- Read the colleague's repo in depth and wrote [[Colleague Architecture]] for the modules we haven't built, plus a clash table in [[Colleague Repo Comparison]]
+- Researched general ERP practice per module and per company type, and read ERPNext and Odoo from their code: [[ERP Best Practices]], [[ERPNext Architecture]], [[Odoo Architecture]]. New rule: each phase's plan starts with this comparison
+- Margins: default 20 % and minimum 10 % are GP. Built S3c (suggested SPPR = COGS / (1 - default GP), default GP set by Marketing Managers, an SPPR below the minimum waits for the GM). Migration 0038
+- Director sees costs and margins (migration 0039). Elimination explained and added to the Glossary
+- S4 plan approved after comparing general practice, ERPNext, Odoo and the colleague. Built S4a (lower PO price waits for Marketing, migration 0040), S4b (sales orders from the accepted quote, numbered `SO-MMYY-NNN`, lines locked in PostgreSQL, migration 0041), S4c (stock confirmed by Warehouse, cancel by a Sales Manager with a reason, migration 0042)
+- Compared the colleague's Marketing plan. Decisions: SPPR stays with Marketing, margin stays hidden from Sales, a price above the SPPR needs a reason but no approval, price lists planned. Built S2d (migration 0043)
+- Strict review after every slice. Main fixes: typed decision sides, one rule for when a quote can become an order, totals summed in SQL, one guard for order changes, one shared proposal query. Logged, not fixed: approvals now come in four shapes, so a shared engine is a Decide item before Procurement
+- Browser click-through after every slice. Demo data removed from the dev database after
+- 271 tests pass, lint, typecheck and build pass. Branch `claude/stoic-volta-cs2r54` not merged into `main` yet
+- Next: S5 PI and CBD
+
 ## 2026-10-14 (eleventh session)
 - Session start hook for cloud sessions in the code repo: installs packages, starts the machine's PostgreSQL 16 (not Docker), runs `pnpm db:setup`. Merged into `main`
 - S&M questions answered with Jingga, compared with the colleague's repo and the office whiteboard (GP % on the selling price, cost methods). Inbox processed into the module notes
