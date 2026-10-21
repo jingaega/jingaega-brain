@@ -55,7 +55,8 @@ Finance and Marketing work it out together: Finance advises from the numbers, Ma
 **Who sees what**
 - Sales only knows the SPPR, never cost or margin
 - Procurement knows the MAP (material prices)
-- Marketing and Finance see cost and margin (built in S&M slice S0)
+- **Cost and margin are seen only by the GM, the Super Admin, the Super User and the Finance manager** (Jingga, 2026-10-21, replaces "Marketing and Finance see it"; the code changes in S&M change plan R3). Marketing Manager and Director are open there
+- **FOH from the ledger** (Jingga, 2026-10-21): the month's indirect costs from the general ledger, spread over the month's products by sales value, last month's FOH % for pricing. The standard % of COGM below stays until this is built in Phase 5. A COGS adjustment by Finance never goes below the system COGS
 
 **Open questions on this**
 - [x] FOH is a rate: whatever DL and FOH cost that month is split over the units you want to look at (per bottle, per liter and so on), giving a rupiah amount per unit. Jingga, 2026-10-14
