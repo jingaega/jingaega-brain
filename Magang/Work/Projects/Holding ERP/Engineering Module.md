@@ -20,6 +20,12 @@ Named in the module list. No general idea yet.
 - What Pandu does here today:
 - What Wening changes (batches, expiry, formulas):
 
+## Colleague's design
+How the colleague's repo builds this, for reference only: [[Colleague Architecture#Engineering]].
+
 ## Open questions
 - [ ] What does Engineering cover?
 - [ ] Which parts does Pandu need first?
+- [ ] Does Engineering own the machine list and production lines, like the colleague's repo?
+- [ ] Engineering change requests: needed, and who approves them?
+- [ ] Engineering projects with a budget: needed?

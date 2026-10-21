@@ -21,5 +21,11 @@ Part of FAHCGA.
 - What Pandu does here today:
 - What Wening changes (batches, expiry, formulas):
 
+## Colleague's design
+How the colleague's repo builds this, for reference only: [[Colleague Architecture#GA]].
+
 ## Open questions
 - [ ] Which parts does Pandu need first?
+- [ ] Is GA its own department, or part of HR?
+- [ ] Assets: register only (colleague), or with depreciation?
+- [ ] Which GA parts does Pandu need: assets, office supplies, repairs, bookings, company documents, bills?

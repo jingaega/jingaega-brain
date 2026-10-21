@@ -32,6 +32,8 @@ FAHCGA is the group name for Finance Accounting Tax, HR and GA. Finance Accounti
 
 Each module's general idea lives in its own stub note, linked in the table above.
 
+How the colleague's repo builds each of these, for reference only: [[Colleague Architecture]].
+
 ## Overlaps to settle
 - **Production Cost** is listed in both Finance Accounting Tax and Production. Which module owns it?
 - **PPIC** is marked * in both Production and IMS, so it is shared. Which module owns the records?

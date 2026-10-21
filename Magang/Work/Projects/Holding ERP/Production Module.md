@@ -25,7 +25,14 @@ Wening needs formulas (BOM), batch and expiry tracking, and QC per batch, see [[
 - What Pandu does here today:
 - What Wening changes (batches, expiry, formulas):
 
+## Colleague's design
+How the colleague's repo builds this, for reference only: [[Colleague Architecture#Production]].
+
 ## Open questions
 - [ ] Production Cost is also listed in [[Finance Accounting Tax Module]]. Which module owns it?
 - [ ] PPIC is shared with [[IMS Module]]. Which module owns the records?
 - [ ] Which parts does Pandu need first?
+- [ ] MMS is also its own module in [[Module Overview]]. Do machines and maintenance belong here or in [[MMS Module]] and [[Engineering Module]] like the colleague's repo?
+- [ ] Does a finished batch carry DL and FOH, or materials only like the colleague's repo?
+- [ ] Production orders: need approval? Allow partial finish, scrap, and return of unused materials?
+- [ ] Planning: does Pandu need a schedule or MRP, or only a restock list like the colleague's repo?

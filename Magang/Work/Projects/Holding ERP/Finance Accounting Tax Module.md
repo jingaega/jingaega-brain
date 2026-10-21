@@ -71,7 +71,15 @@ From Jingga's Inbox, processed 2026-10-14. Raw notes, not rules yet.
 - A recorded payment can't be edited. It must match its invoice. The invoice is what can be edited *(assumed: before it is paid)*
 - Down payment and progress payments are received before the invoice. The payment and the invoice must match in the end (see progress in [[Sales and Marketing Module]])
 
+## Colleague's design
+How the colleague's repo builds this, for reference only: [[Colleague Architecture#Finance A&T]].
+
 ## Open questions
 - [ ] Which journals does Om Leo approve: every journal, or only the ones typed by hand (automatic ones from purchases and sales post on their own)?
 - [ ] Production Cost is also listed in [[Production Module]]. Which module owns it?
 - [ ] Which parts does Pandu need first?
+- [ ] Use one journal engine for every module (each step posts its own journal, corrections by reversal), like the colleague's repo?
+- [ ] Month closing: lock a closed month so nothing can be posted in it? Who closes and who reopens?
+- [ ] Chart of accounts: does Pandu have one today, or start from the colleague's starter list?
+- [ ] Purchase price differences on invoices: to a price variance account (colleague) or into the item's cost?
+- [ ] PPh 23 on services bought: needed?

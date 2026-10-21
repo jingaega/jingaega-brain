@@ -41,5 +41,13 @@ From Jingga's Inbox, processed 2026-10-14. Raw notes, not rules yet. Career path
   - Attendance and improvement. The manager of each division proposes, to the supervisor and HR *(reading unsure: proposes to whom?)*
   - Competency metrics, like junior mechanic to mechanic to senior mechanic
 
+## Colleague's design
+How the colleague's repo builds this, for reference only: [[Colleague Architecture#HR]].
+
 ## Open questions
 - [ ] Which parts does Pandu need first?
+- [ ] Where do the NRP and the NIK live: on the user (our build) or on an HR employee record (colleague)? Can legacy NRPs stay?
+- [ ] Who approves payroll, THR, bonus and promotions? The colleague: the Super Admin
+- [ ] Attendance by GPS with work locations, like the colleague's repo? Who can see attendance?
+- [ ] Who edits the leave policy: company HR or the Super Admin (colleague)?
+- [ ] The colleague's payroll rules (BPJS rates, PPh 21 TER, overtime PP 35/2021, THR) look like the same source as the Inbox notes above. Can we take them as the starting point?

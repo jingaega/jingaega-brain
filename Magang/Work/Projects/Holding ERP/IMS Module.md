@@ -22,6 +22,14 @@ Inventory Management System.
 - What Pandu does here today:
 - What Wening changes (batches, expiry, formulas):
 
+## Colleague's design
+How the colleague's repo builds this, for reference only: [[Colleague Architecture#IMS]].
+
 ## Open questions
 - [ ] PPIC is shared with [[Production Module]]. Which module owns the records?
 - [ ] Which parts does Pandu need first?
+- [ ] Costing: one moving average per item for the whole company (colleague), or per location?
+- [ ] When a finished good runs low, should it suggest production instead of a PR? The colleague's repo always makes a PR
+- [ ] Slow moving and ABC: count production use too, not only sales?
+- [ ] Who approves a stock count difference? The colleague sends every difference to the Super Admin
+- [ ] Batches without expiry: issue by arrival date (FIFO)? The colleague's repo goes by batch number

@@ -20,6 +20,13 @@ Named in the module list. No general idea yet. Pandu's QC per batch and the QC s
 - What Pandu does here today:
 - What Wening changes (batches, expiry, formulas):
 
+## Colleague's design
+How the colleague's repo builds this, for reference only: [[Colleague Architecture#Quality]].
+
 ## Open questions
 - [ ] What does Quality cover?
 - [ ] Which parts does Pandu need first?
+- [ ] Incoming QC on every GR, or only for some item classes (the colleague: raw material, packaging, finished goods)?
+- [ ] A blocked batch: rework, write off, or something else? The colleague's repo leaves it stuck in quarantine
+- [ ] Batch recall: trace a batch forward to customers and back to material batches?
+- [ ] Who releases a batch: the Quality Manager, the GM, or both?

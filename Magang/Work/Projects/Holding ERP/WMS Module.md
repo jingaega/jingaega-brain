@@ -29,6 +29,13 @@ Warehouse Management System, for both production and sales.
 From Jingga's Inbox, processed 2026-10-14.
 - After a goods receipt (GR), goods are scanned by QR code or barcode. Which labels exist today, and who prints them, is open
 
+## Colleague's design
+How the colleague's repo builds this, for reference only: [[Colleague Architecture#WMS]].
+
 ## Open questions
 - [ ] Does WMS have one set of records for both production and sales?
 - [ ] Which parts does Pandu need first?
+- [ ] Is receiving (GR) in WMS or in Procurement? The colleague keeps it in Procurement
+- [ ] Picking order: FEFO, FIFO by arrival, or the colleague's largest bin first?
+- [ ] Is a pick and check step required before a DO leaves, or optional like the colleague's repo?
+- [ ] Trip costs (fuel, toll): posted to the books, or only recorded like the colleague's repo?

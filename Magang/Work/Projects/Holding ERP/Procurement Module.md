@@ -50,6 +50,9 @@ Six real POs shared by Jingga, 2026-10-14 (Serio 2022, Sibama 2023 and 2025, San
 - [ ] Is the PO printed from the ERP in the newer layout, the same for every company with its own header?
 - [ ] Who are Prepared by and Approved by on a PO: the buyer and their Manager, or the approval chain (up to Rp 100 jt and above)?
 
+## Colleague's design
+How the colleague's repo builds this, for reference only: [[Colleague Architecture#Procurement]].
+
 ## Open questions
 - [x] A Manager may correct a goods receipt. Every reversal is done by a Manager. Jingga, 2026-10-14
 - [x] Approvals above Rp 100 jt: the Super Admin approves first, then a Super User (a director) gives the final approval. Jingga, 2026-10-14
@@ -65,3 +68,8 @@ Six real POs shared by Jingga, 2026-10-14 (Serio 2022, Sibama 2023 and 2025, San
 - [ ] What does Pandu buy, and does each need a different path? From the supplier list: chemicals, packaging and printing (vendor categories since slice 8)
 - [ ] Inbox note (2026-10-14): "Procurement has 4 types: cost, expense, inventory," and the fourth is missing. Is it fixed asset? The colleague's repo books a goods receipt to inventory, fixed asset or expense by item type. And what is the difference between cost and expense here?
 - [ ] Which journals post at which step?
+- [ ] How does a down payment to a vendor work (DP 50 %, TT 100 % in advance)? The colleague's repo only has an employee advance (UM) and pays vendors after receipt
+- [ ] Is "update PO" a real PO revision (R1, R2), or only the price fixed on the invoice like the colleague's repo?
+- [ ] Invoice price tolerance: the colleague uses 0 % with a Manager deciding on a hold. What tolerance, and who decides?
+- [ ] Is over receipt ever allowed? The colleague's repo refuses it
+- [ ] Partial payments of one invoice: allowed? The colleague allows them
