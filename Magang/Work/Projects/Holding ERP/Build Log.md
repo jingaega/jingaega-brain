@@ -16,7 +16,9 @@ One entry per working session, newest on top. Written by Claude at wrap up. Proc
 - Built S5a (proforma invoice for a CBD order: amount copied from the order plus 11 % PPN *(assumed)*, frozen in PostgreSQL, one live per order, void with a reason, voided when its order is cancelled, Proforma invoices list and page) and S5b (payments: several per PI, never more than its amount, status worked out from them, a PI with a payment can't be voided and its order can't be cancelled). Migrations 0044 and 0045
 - Strict review fixed 5 findings: one shared order total expression, one reason dialog for cancel and void, order changes take an options object, the order page's PI part split out, a magic "0.00" compare. 283 tests pass, lint, typecheck and build pass, clicked through in a browser
 - Found: a dev server started right after `pnpm build` gets stuck on the login page again (as noted 2026-10-14). Delete `.next` and restart `pnpm dev`
-- Next: S6 DO / BAST. It reads the PI's paid status, so a CBD order can't ship until it is fully paid
+- Wrote the S6 plan (DO / BAST) and compared stock timing, signature and photo, and tempo and progress gates with the colleague's repo, ERPNext and Odoo. S6 is CBD only. Jingga: photos should disappear after some time, planned as 365 days after signing *(assumed)*
+- Read the colleague's other branches. `feat/marketing-sppr` (not on his `main`) has a revised Marketing plan that differs from ours on GP numbers (27 / 17 against 20 / 10), FOH, and who sees cost. Written in [[Colleague Repo Comparison]], 2 new questions for the supervisor, nothing in the code changed
+- Next: S6a once Jingga approves the plan
 
 ## 2026-10-21 (twelfth session)
 - Read the colleague's repo in depth and wrote [[Colleague Architecture]] for the modules we haven't built, plus a clash table in [[Colleague Repo Comparison]]

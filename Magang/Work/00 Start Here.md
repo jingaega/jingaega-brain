@@ -22,6 +22,7 @@ Internship project: one ERP that connects a holding with its six companies, plus
 - [ ] Ask supervisor: the new 2026-10-21 questions in [[Sales and Marketing Module]] (lower PO price needs Marketing, tighter PO term, `SO` prefix, price above the SPPR without waiting, prices per segment or customer)
 - [ ] Decide one shared approval engine before Procurement (see [[ERP Best Practices#Foundation and shared engines]])
 - [ ] Merge `claude/stoic-volta-cs2r54` into `main` in the code repo
+- [ ] Ask supervisor: the colleague's revised Marketing numbers (GP 27 / 17, FOH from the ledger, who sees cost) against ours, in [[Colleague Repo Comparison]], and the S6 photo retention
 - [ ] Ask supervisor: the 4 S5 questions in [[Sales and Marketing Module]] (PPN rate and how it shows, paying a PI in parts, correcting a wrong payment, cancelling an order that has a payment)
 - [ ] Ask supervisor: the S&M items marked *(ask supervisor)* and the 3 new S3 questions (order of payment terms, whether a PO with a different qty or price needs approval, Director deciding terms) in [[Sales and Marketing Module]]. Also: what does Pandu call its quotes today, to confirm the `SQ` in `SQ-1026-001`
 - [ ] Get supervisor sign-off on the fresh repo, invite the colleague to both repos (see [[Colleague Repo Comparison]])
