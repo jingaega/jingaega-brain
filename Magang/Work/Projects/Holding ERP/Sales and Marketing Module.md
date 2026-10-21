@@ -150,8 +150,8 @@ Build notes:
 | Term change only through the PO cust | The SO has no free term field. Its term comes from the accepted quote. If the PO cust term differs (tempo 45 vs quoted 30), the mismatch is flagged: the GM approves it (Director if no GM) and it becomes the order's term, or sales makes a new quote version *(assumed, ask supervisor)* |
 | Quote locks on PO | Once PO cust is linked, that quote version can't be edited |
 | Loss needs a reason | Price (customer says too expensive) *(assumed reading of "price too low")*, customer cancelled, no response, expired (auto) |
-| Suggested SPPR | The item page suggests an SPPR from the COGS and the default GP (20 %, set by Marketing Managers). Marketing can take it or type its own. Jingga, 2026-10-21. Not built yet |
-| SPPR below the minimum GP | An SPPR below the minimum GP (10 %) shows a warning and waits for the GM to approve, or a Director when the company has no GM. Until then the item keeps its old SPPR *(assumed)*. Jingga, 2026-10-21. Not built yet |
+| Suggested SPPR | The item page suggests an SPPR from the COGS and the default GP (20 %, set by Marketing Managers). Marketing can take it or type its own. Jingga, 2026-10-21 |
+| SPPR below the minimum GP | An SPPR below the minimum GP (10 %) shows a warning and waits for the GM to approve, or a Director when the company has no GM. Until then the item keeps its old SPPR *(assumed)*. Jingga, 2026-10-21 |
 | Price comes from the SPPR | A quote line's price fills in from the item's SPPR. Sales can't type a price. Jingga, 2026-10-14 |
 | Another price is a proposal | Sales proposes a price, above or below the SPPR, with a required reason. The quote waits and can't be sent until a Manager or up in Marketing approves. Refused: the line goes back to the SPPR. Jingga, 2026-10-14 |
 | Approvers see the margin | The approver sees the COGS and the GP (price - COGS) / price at the proposed price. Sales never does. Below the minimum GP (10 %) the approver sees a warning. Jingga, 2026-10-21 |
@@ -326,12 +326,14 @@ One record end to end each, with the strict code review after each slice.
   - S3b: a payment term looser than the quote's waits for the GM on **To approve**, under Payment terms (new permission `quotes.approve_term`). Approved: the PO stands. Refused: the quote waits for the customer again, so Sales can revise it or record a new PO. The quote page lists refused POs with the GM's note
   - Built *(assumed, easy to change)*: looser means CBD, then progress, then tempo, and more Net days among tempo terms. Differences in qty, price or items are only flagged, nobody approves them. The Director can also decide terms, always, not only when there is no GM. While the term waits, the quote already shows Accepted; the SO (S4) waits for the decision
   - Strict review: quote changes now lock the quote, so two at once can't both pass (also for S1's revise, send and lost); deciding a term or a price is one statement, so two decisions at once can't both win; one file response and one item label shared. 246 tests pass, clicked through in a browser
-- [ ] **S3c. Suggested SPPR and SPPR approval**: plan 2026-10-21, from Jingga's answers the same day (rules table: Suggested SPPR, SPPR below the minimum GP)
+- [x] **S3c. Suggested SPPR and SPPR approval**: built 2026-10-21, from Jingga's answers the same day (rules table: Suggested SPPR, SPPR below the minimum GP)
   - Pricing page: a **Default GP** next to the minimum GP, 20 % until set, changed by Marketing Managers (`items.sppr`)
   - Item page, for people who see costs: a **suggested SPPR** = COGS / (1 - default GP), rounded up to the whole rupiah *(assumed)*, shown next to the SPPR and offered in the Set SPPR dialog. The dialog shows the GP of the typed SPPR and warns below the minimum GP
   - An SPPR below the minimum GP doesn't change the item. It waits for the GM on **To approve**, under SPPRs (new permission `items.approve_sppr`, the GM and the Director). Approved: the item takes it. Refused: the item keeps its SPPR. The item page shows the waiting SPPR
   - *(assumed, easy to change)*: someone who may approve SPPRs (the GM, the Super Admin) sets one below the minimum directly, after the warning. Without a typed cost there is no GP, so the SPPR is set directly. One SPPR can wait per item; a new one can't be set while it waits
   - Data: one column on pricing settings, one new table for waiting SPPRs (company rules and audit like every table). Tests for each rule above
+  - Also built *(assumed, easy to change)*: setting an SPPR needs seeing costs too, since its GP is checked. A Director approves without seeing the COGS or GP (Directors don't see costs), only that it is below the minimum
+  - Strict review: everything about the SPPR in one place, one shared helper for approve and refuse. 256 tests pass, clicked through in a browser (Marketing Manager sets, GM approves and refuses)
 - [ ] **S4. Sales order**: from the PO cust, payment type and term with their source, stock confirmed, cancel
 - [ ] **S5. PI and CBD**: PI from the SO, Finance marks it paid, DO / BAST blocked until then. CBD works end to end after S6
 - [ ] **S6. DO / BAST**: create (partial qty), deliver, sign with photo or reject. CBD order closes after the last signed BAST

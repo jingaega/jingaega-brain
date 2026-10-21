@@ -141,7 +141,7 @@ The full list is 12 modules. Order of work and status are in [[Pandu Roadmap]]. 
 | 2026-10-14 | Check stock is automatic, like the colleague's repo | Jingga. When it can be built depends on stock (Phase 4), open question in [[Sales and Marketing Module]] |
 | 2026-10-14 | Credit gate before the SO for tempo customers, like the colleague's repo | Jingga. Details in [[Sales and Marketing Module]] |
 | 2026-10-14 | Minimum margin is gross profit on the selling price: 20 % default, 10 % minimum, per company | Formula from the office whiteboard. Numbers first seen in the colleague's repo, where they are a markup on cost. Jingga confirmed 2026-10-21 that ours are GP on the selling price. Supervisor to confirm |
-| 2026-10-21 | The 20 % default GP gives a suggested SPPR for each item. Marketing can take it or type its own | Jingga. How it is worked out (SPPR = COGS / (1 - 20 %)) is *(assumed)*. Not built yet |
+| 2026-10-21 | The 20 % default GP gives a suggested SPPR for each item. Marketing can take it or type its own | Jingga. How it is worked out (SPPR = COGS / (1 - 20 %), rounded up to the whole rupiah) is *(assumed)*. Built in S&M slice S3c |
 | 2026-10-21 | Marketing Managers set the default GP, like the minimum. Below the minimum GP: a warning and an approval. A quote price by a Manager or up in Marketing (as built), an SPPR by the GM, or a Director when there is no GM | Jingga. A Marketing Manager sets the SPPR, so someone above approves it |
 | 2026-10-14 | The GM approves SO term overrides | Jingga |
 | 2026-10-14 | Roles move toward the colleague's model: levels (General Manager, Manager, SPV, Lead, OPR) with a department function, Company Admin as a switch | Jingga. Needs its own plan before building |

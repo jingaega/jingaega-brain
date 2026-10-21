@@ -40,7 +40,7 @@ Why this order: Sell and Buy are already the best specced. Stock sits right afte
 | Module | Spec | Build | Notes |
 |---|---|---|---|
 | Foundation | Draft, open questions waiting | Built, open questions left. Live lists moved to Additional features | Comes before the 12, not counted in them |
-| Sales & Marketing | Build plan approved 2026-10-14, supervisor questions marked | S0, S1 (quotes), S2 (price proposals) and S3 (customer PO) built. Next: S4 sales order | First module. CBD first, then tempo and progress |
+| Sales & Marketing | Build plan approved 2026-10-14, supervisor questions marked | S0, S1 (quotes), S2 (price proposals), S3 (customer PO) and S3c (suggested SPPR, SPPR approval) built. Next: S4 sales order | First module. CBD first, then tempo and progress |
 | Procurement | Notes captured | Not started | Covers vendor management too |
 | IMS | [[IMS Module]] (stub, general idea) | Not started | |
 | WMS | [[WMS Module]] (stub, general idea) | Not started | |
@@ -76,6 +76,7 @@ Why this order: Sell and Buy are already the best specced. Stock sits right afte
 - [x] S&M S1: quotes
 - [x] S&M S2: price proposals and approvals
 - [x] S&M S3: customer PO
+- [x] S&M S3c: suggested SPPR and SPPR approval below the minimum GP
 - [ ] Phase 4: the margin check moves from the typed item cost to the moving average cost
 - [ ] Phase 4: make S&M check stock automatic (hold stock on the SO, shortage to Prod/Purch), replacing the manual "stock confirmed" step
 
