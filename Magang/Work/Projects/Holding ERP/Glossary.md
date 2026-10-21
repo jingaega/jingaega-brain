@@ -29,7 +29,7 @@ _Avoid_: super user (when you mean this one)
 
 **Super User**:
 The holding level account that can see everything in every company and change nothing.
-_Avoid_: viewer (that is a company role)
+_Avoid_: viewer
 
 **User**:
 An account that can sign in to the ERP, with its email or NRP, and its access to companies. Managed under Settings, Users.
@@ -47,14 +47,22 @@ _Avoid_: Employee ID, employee number
 The 16 digit number on a person's KTP (national ID card). Kept in their personal details, only for people allowed to see them.
 _Avoid_: NIK for the staff number (that is the NRP)
 
-**Role**:
-A named set of permissions inside one company. For now one of: company admin, director, manager, supervisor, staff, viewer *(assumed)*.
+**Level**:
+A person's rank inside one company: Director, GM, Manager, SPV, Lead or OPR. Together with their department's function it decides what they can do. Since Foundation slice 11 this replaces the old roles (company admin, director, manager, supervisor, staff, viewer).
+_Avoid_: role
+
+**Department**:
+A group of people inside one company, like Purchasing or Sales. Each person is in one department. Each department has a function: management, procurement, sales, marketing, warehouse, finance, HR, production, quality, general affairs or other. The function decides which records its people work on.
+_Avoid_: division (when you mean this record)
+
+**Company Admin**:
+A switch on a person, next to their level, that lets them manage Settings for their company (users, departments, permissions). It is not a level.
 
 **Permission**:
 One action on one record type, like "create item" or "view customer".
 
 **Access**:
-A user holding a role inside a company. One user can have access to several companies.
+A user holding a level in a department inside a company. One user can have access to several companies.
 
 **Theme**:
 A company's colors and logo, which the whole screen switches to.

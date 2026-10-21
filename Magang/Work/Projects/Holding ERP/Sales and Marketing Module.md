@@ -150,6 +150,7 @@ Build notes:
 | Term change only through the PO cust | The SO has no free term field. Its term comes from the accepted quote. If the PO cust term differs (tempo 45 vs quoted 30), the mismatch is flagged: the GM approves it (Director if no GM) and it becomes the order's term, or sales makes a new quote version *(assumed, ask supervisor)* |
 | Quote locks on PO | Once PO cust is linked, that quote version can't be edited |
 | Loss needs a reason | Price (customer says too expensive) *(assumed reading of "price too low")*, customer cancelled, no response, expired (auto) |
+| Suggested SPPR | The item page suggests an SPPR from the COGS and the 20 % default GP. Marketing can take it or type its own. Jingga, 2026-10-21. Not built yet |
 | Price comes from the SPPR | A quote line's price fills in from the item's SPPR. Sales can't type a price. Jingga, 2026-10-14 |
 | Another price is a proposal | Sales proposes a price, above or below the SPPR, with a required reason. The quote waits and can't be sent until a Manager or up in Marketing approves. Refused: the line goes back to the SPPR. Jingga, 2026-10-14 |
 | Approvers see the margin | The approver sees the COGS and the GP (price - COGS) / price at the proposed price. Sales never does. The minimum margin (10 %) is a warning for the approver *(assumed)* |

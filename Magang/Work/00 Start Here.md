@@ -19,7 +19,7 @@ Internship project: one ERP that connects a holding with its six companies, plus
 - [x] Write the S&M build plan once the S&M questions that block Pandu are answered (approved 2026-10-14)
 - [x] Sales and Marketing module: answer the open questions that block Pandu in [[Sales and Marketing Module]]
 - [ ] Build S&M: S0 to S3 done (quotes, price proposals, customer PO). Next: S4 sales order (see [[Sales and Marketing Module#Slices]])
-- [ ] Ask supervisor: the S&M items marked *(ask supervisor)* and the 3 new S3 questions (order of payment terms, whether a PO with a different qty or price needs approval, Director deciding terms) in [[Sales and Marketing Module]]
+- [ ] Ask supervisor: the S&M items marked *(ask supervisor)* and the 3 new S3 questions (order of payment terms, whether a PO with a different qty or price needs approval, Director deciding terms) in [[Sales and Marketing Module]]. Also: what does Pandu call its quotes today, to confirm the `SQ` in `SQ-1026-001`
 - [ ] Get supervisor sign-off on the fresh repo, invite the colleague to both repos (see [[Colleague Repo Comparison]])
 - [ ] Ask supervisor: what "real-time" means and whether live screens are wanted now (see [[Pandu Roadmap#Additional features]]), whether the import may be looser than the form (in [[Foundation Module]])
 - [x] Cost method answered by Jingga: MAP builds the COGM, VA is value added (see [[Finance Accounting Tax Module#Costing and pricing]])
