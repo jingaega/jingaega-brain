@@ -86,6 +86,10 @@ Not needed to finish a module. Built later, when a screen gains from it or someo
 - [ ] Live lists: lists update by themselves when someone else changes a record. Plan approved, in [[Foundation Module#Slice 9 plan: real-time lists]]. Ask the supervisor if live screens are wanted
 - [ ] Live record pages and a live Users list (same plan, after the lists)
 - [ ] "Added by X" on a new or changed row in a live list (Jingga likes it)
+- [ ] Marketing: market price survey, competitor and shop prices per item against the SPPR. Open question in [[Sales and Marketing Module#Open questions this plan raises]]
+- [ ] Marketing: SPPR with a start date and history, set ahead of time. Same note. First step towards price lists
+- [ ] Marketing: price lists per segment and per customer on top of the SPPR, only after the supervisor confirms Pandu prices that way (decision 2026-10-21 in [[Holding ERP]]). The traders need them in Phase 9
+- [ ] Marketing: margin and voice of customer reports, and a Marketing home. Same note
 
 ## Stack
 Decided, see the decisions table in [[Holding ERP]].

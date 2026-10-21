@@ -153,7 +153,7 @@ Build notes:
 | Suggested SPPR | The item page suggests an SPPR from the COGS and the default GP (20 %, set by Marketing Managers). Marketing can take it or type its own. Jingga, 2026-10-21 |
 | SPPR below the minimum GP | An SPPR below the minimum GP (10 %) shows a warning and waits for the GM to approve, or a Director when the company has no GM. Until then the item keeps its old SPPR *(assumed)*. Jingga, 2026-10-21 |
 | Price comes from the SPPR | A quote line's price fills in from the item's SPPR. Sales can't type a price. Jingga, 2026-10-14 |
-| Another price is a proposal | Sales proposes a price, above or below the SPPR, with a required reason. The quote waits and can't be sent until a Manager or up in Marketing approves. Refused: the line goes back to the SPPR. Jingga, 2026-10-14 |
+| Another price is a proposal | Sales proposes a price with a required reason. **Below the SPPR:** the quote waits and can't be sent until a Manager or up in Marketing approves; refused, the line goes back to the SPPR. **Above the SPPR:** the line takes the price at once and the quote can be sent; Marketing sees it under "Prices above the SPPR". Jingga, 2026-10-14; above changed 2026-10-21 *(ask supervisor to confirm)* |
 | Approvers see the margin | The approver sees the COGS and the GP (price - COGS) / price at the proposed price. Sales never does. Below the minimum GP (10 %) the approver sees a warning. Jingga, 2026-10-21 |
 | No photo, no BAST | DO / BAST can't move to Signed without at least one photo |
 | Stock goes out when goods leave | Stock drops when the goods leave the warehouse, so nobody else is promised them *(assumed, ask supervisor and FAT)*. Manual until stock exists (Phase 4) |
@@ -188,7 +188,7 @@ From the group's own POs (see [[Procurement Module#The group's PO templates]]): 
 ## Notes from the Inbox
 From Jingga's Inbox, processed 2026-10-14. Raw notes, not rules yet.
 - **After the SO, Production comes before Procurement.** For goods Pandu makes, a shortage on an SO goes to Production, and Production asks Procurement for the raw materials. Pandu makes what it sells instead of buying finished goods. Fits the buy or make flag on items: make items go to Production first *(assumed reading)*
-- **Marketing wants analysis:** sales by customer, favorite products, customer care, and complaints or rejects (voice of customer). Not in the first build. Needs a spec of its own when Marketing is planned
+- **Marketing wants analysis:** sales by customer, favorite products, customer care, and complaints or rejects (voice of customer). Not in the first build. Needs a spec of its own when Marketing is planned. Listed with the other Marketing ideas in [[Pandu Roadmap#Additional features]]
 - **Down payment and progress payments come before the invoice, and the payment and the invoice must match.** See [[Finance Accounting Tax Module]]
 
 ## Pandu baseline
@@ -346,6 +346,7 @@ One record end to end each, with the strict code review after each slice.
   - Statuses: S4 builds Confirmed and Cancelled. Partially delivered and Delivered (S6), Handed to FAT and Closed (S5, S7) come later and are worked out from the lines' delivered qty, not typed (idea from ERPNext and Odoo)
   - Permissions *(assumed)*: `orders.view` for Sales, Marketing, Warehouse and Finance (every level), the Director and the GM; `orders.create` OPR and up in Sales; `orders.confirm_stock` OPR and up in Warehouse; `orders.cancel` Manager and up in Sales
   - Data: `sales_orders` (company, number, quote, quote version, PO cust, customer, payment type and days, where the term came from, delivery address, requested date, status, stock confirmed by and at, cancelled by, at and why) and `sales_order_lines` (PO cust line, quote line, item, qty, price before PPN, delivered qty 0); on `customer_pos`, a price approval (who, when, note) next to the term approval. Company rules, audit and an isolation test like every table. Tests for each rule above
+- [ ] **S2d. A price above the SPPR**: from the decision 2026-10-21 in [[Holding ERP]]. A proposed price above the item's SPPR applies to the line at once, with its reason, and doesn't stop the quote from being sent. Below the SPPR it waits, like S2. To approve gets a read only section **Prices above the SPPR** (last 30 days *(assumed)*) for Managers and up in Marketing. An item without an SPPR still waits *(assumed)*
 - [ ] **S5. PI and CBD**: PI from the SO, Finance marks it paid, DO / BAST blocked until then. CBD works end to end after S6
 - [ ] **S6. DO / BAST**: create (partial qty), deliver, sign with photo or reject. CBD order closes after the last signed BAST
 - [ ] **S7. Tempo**: credit check on the SO with Sales Manager approval, signed BAST hands the delivery to FAT
@@ -367,3 +368,7 @@ One record end to end each, with the strict code review after each slice.
 - [ ] From S3: can the Director always decide a looser term, or only when the company has no GM? *(assumed: always)*
 - [ ] From S4: a PO term tighter than the quote's (Net 14 against a quoted Net 30): does the SO take the customer's tighter term? *(assumed: no, the quote's term with a warning)*
 - [ ] From S4: is `SO` the prefix Pandu uses for sales orders today?
+- [ ] Does Pandu price per distributor, segment or customer (Dis A Surabaya, Dis B Bandung)? Planned design if yes: the SPPR stays the base, a segment or customer price overrides it, the most specific wins, each with a start date, set by Marketing with the GP check (decision 2026-10-21 in [[Holding ERP]])
+- [ ] Market price survey (idea from the colleague's MK2): who records competitor and shop prices (Sales, Marketing or both), and which fields (where, brand, pack size, price, date, photo)? Each item would show the low, average and high market price next to the SPPR
+- [ ] SPPR with a start date and history (idea from the colleague's MK3): Marketing sets the next SPPR ahead of time. Does a quote made before the date keep the old price, and does a revision take the new one?
+- [ ] Marketing reports (idea from the colleague's MK5, and the Inbox note above): which first? Gross margin by customer, item and month; sold price against the SPPR at the time; returns, rejected deliveries and QC rejects by customer and item (voice of customer); a Marketing home with requests waiting and items under the minimum GP

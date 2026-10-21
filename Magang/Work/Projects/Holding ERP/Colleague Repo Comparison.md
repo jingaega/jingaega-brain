@@ -119,3 +119,22 @@ From a deep read of his repo for the modules we haven't built yet. His design pe
 | Analysis | Slow moving and ABC count sales only, so every raw material looks slow | Inventory control for production too | Open |
 | QR or barcode after GR | None | Scanning after GR | Open |
 | Picking order | Largest bin first | Not set | Open |
+
+## Their Marketing plan (2026-10-21)
+The colleague's Claude read our vault and planned Marketing for his ERP in five steps (MK1 margin rule and monitor, MK2 market price survey, MK3 price change requests, MK4 quote approval below the SPPR, MK5 margin reports). How it lands for us:
+
+| Topic | Their plan | Ours | Verdict |
+|---|---|---|---|
+| COGS | Adds the FOH % to materials | COGM x (1 + FOH %) | Same now |
+| Margin | Switches from markup to GP on the price | GP on the price | Same now |
+| Price lists | Per segment or customer | One SPPR per item, segment and customer prices planned on top | Open, ask supervisor (decision 2026-10-21 in [[Holding ERP]]) |
+| Who changes the SPPR | Sales requests, Marketing Manager approves (MK3) | Marketing sets it from the suggested SPPR; Sales proposes per quote line | Ours, Jingga 2026-10-21 |
+| Price above the SPPR | No approval | A reason, no wait (S2d) | Same now *(ask supervisor)* |
+| Price below the SPPR | Marketing Manager approves (MK4) | Marketing approves | Same |
+| Who sees cost and margin | Sales sees each line's margin | Marketing, Finance, GM, Director, super roles; never Sales | Ours, confirmed 2026-10-21 |
+| Market price survey | MK2 | Not yet | Idea taken, open question |
+| SPPR start date and history | MK3 | Change log only | Idea taken, open question |
+| Margin and voice of customer reports | MK5 | Wanted, not in the first build | Idea taken, open question |
+
+Their read of our vault was out of date on three points: the Director sees costs too, an SPPR below the minimum GP waits for the GM (S3c), and the holding view eliminates sales between group companies as its own line instead of just leaving them out.
+
