@@ -332,7 +332,7 @@ One record end to end each, with the strict code review after each slice.
   - An SPPR below the minimum GP doesn't change the item. It waits for the GM on **To approve**, under SPPRs (new permission `items.approve_sppr`, the GM and the Director). Approved: the item takes it. Refused: the item keeps its SPPR. The item page shows the waiting SPPR
   - *(assumed, easy to change)*: someone who may approve SPPRs (the GM, the Super Admin) sets one below the minimum directly, after the warning. Without a typed cost there is no GP, so the SPPR is set directly. One SPPR can wait per item; a new one can't be set while it waits
   - Data: one column on pricing settings, one new table for waiting SPPRs (company rules and audit like every table). Tests for each rule above
-  - Also built *(assumed, easy to change)*: setting an SPPR needs seeing costs too, since its GP is checked. A Director approves without seeing the COGS or GP (Directors don't see costs), only that it is below the minimum
+  - Also built *(assumed, easy to change)*: setting an SPPR needs seeing costs too, since its GP is checked. A Director now sees the COGS and GP too (decision 2026-10-21 in [[Holding ERP]])
   - Strict review: everything about the SPPR in one place, one shared helper for approve and refuse. 256 tests pass, clicked through in a browser (Marketing Manager sets, GM approves and refuses)
 - [ ] **S4. Sales order**: from the PO cust, payment type and term with their source, stock confirmed, cancel
 - [ ] **S5. PI and CBD**: PI from the SO, Finance marks it paid, DO / BAST blocked until then. CBD works end to end after S6
