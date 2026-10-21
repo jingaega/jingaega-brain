@@ -23,6 +23,10 @@ _Avoid_: Maraloka
 A company inside the group when it shows up as another company's customer or vendor, like Anggoan buying from Pandu.
 _Avoid_: sister company, affiliate
 
+**Elimination**:
+In the holding's combined total, sales, debts and unsold profit between group companies are crossed out, so the group shows only what came from outside. Each company's own books stay the same, and the crossed out amount shows as its own line. Example: Pandu sells to Anggoan for Rp 100 jt and Anggoan sells to customers for Rp 130 jt, so group sales are Rp 130 jt, not Rp 230 jt. Required for group reports (PSAK 65). Built in Phase 9.
+_Avoid_: removing sales, deleting
+
 **Super Admin**:
 The holding level account that can see and change everything in every company.
 _Avoid_: super user (when you mean this one)
