@@ -200,6 +200,11 @@ From Jingga's Inbox, processed 2026-10-14. Raw notes, not rules yet.
 - **What the holding view excludes:** Pandu's sales to group companies. Only sales to outside customers count as group revenue
 
 ## Open questions
+- [ ] *(ask supervisor, S5)* PPN on a PI: built as 11 % on top of the order total before PPN, taken from the colleague's repo, where the customer pays the total with tax. What is the rate, does it differ per item or customer, and how does PPN show on the PI and the later invoice? FAT decides how it shows; the rate is a constant in code until then. Jingga, 2026-10-21
+- [ ] *(ask supervisor, S5)* Does a customer pay a CBD PI in parts? Built so (partly paid status and an amount paid, like the colleague's repo), and DO / BAST waits for the full amount. If it is always in full, the parts can go
+- [ ] *(ask supervisor, S5)* A wrong payment entry can't be corrected: it can't be changed or deleted, so the PI can't be voided and its order can't be cancelled. Is a reversal needed before FAT?
+- [ ] *(ask supervisor, S5)* An order with a payment on its PI can't be cancelled, since refunds come with FAT. Is that right, or should Finance refund first? Jingga said "idk" on 2026-10-21, so this is my call
+- [ ] Prefix `PI` for proforma numbers *(assumed)*, like `SQ` and `SO`
 - [ ] Does CBD also start at quote recorded, or at RFQ like the whiteboard? Decides if both flows share one entry point
 - [x] Credit gate before the SO for tempo customers, like the colleague's repo. Jingga, 2026-10-14. Each customer has a credit limit (0 by default). Exposure = open SOs not yet invoiced + unpaid invoices + the new SO. Over the limit: a warning, the SO waits for approval by a Manager or up in Sales, and no stock is held until approved. Overdue invoices are not checked separately *(assumed)*
 - [ ] Rework limit: after how many failed QC rounds does it go to scrap or a supplier claim?
@@ -234,7 +239,7 @@ Written before the build. Each one is something Jingga can click through, as Pan
 - [ ] An SO is made from the PO cust and shows its payment type and term, and where they came from
 - [ ] A tempo SO over the customer's credit limit waits for a Sales Manager. Under the limit it goes straight to Confirmed
 - [ ] "Stock confirmed" on the SO is needed before any DO / BAST
-- [ ] CBD: a PI is made from the SO. No DO / BAST can be made until Finance marks the PI paid. After the last signed BAST the order is Closed
+- [ ] CBD: a PI is made from the SO. No DO / BAST can be made until Finance has recorded the full payment on the PI. After the last signed BAST the order is Closed (the PI and its payments are built in S5, the DO / BAST block and Closed come in S6)
 - [ ] Progress: a down payment PI is paid before the first DO / BAST. The rest goes to FAT as a schedule
 - [ ] A DO / BAST can't be signed without a photo. Partial deliveries update the SO's delivered qty
 - [ ] Tempo: a signed BAST sets the delivery to "handed to FAT"
@@ -266,7 +271,8 @@ One table per record, each with `company_id`, the read and write rule pair, a co
 | `customer_po_lines` | Item, qty, price, plus the flag when it differs from the quote                                                                |                                                                             |
 | `sales_orders`      | PO cust, payment type and term (copied, never typed), credit check result, stock confirmed (who, when), status                | Confirmed, Partially delivered, Delivered, Handed to FAT, Closed, Cancelled |
 | `sales_order_lines` | Item, qty, price, delivered qty                                                                                               | Invoiced and paid qty come with FAT (Phase 5)                               |
-| `proforma_invoices` | SO, kind (full for CBD, down payment for progress), amount, paid (who, when, reference)                                       | No AR, no journal                                                           |
+| `proforma_invoices` | SO, kind (full for CBD, down payment for progress), subtotal, PPN rate and amount, amount, void (who, when, why)               | No AR, no journal. Paid and status are worked out from the payments |
+| `proforma_payments` | PI, amount, day received, reference, recorded by                                                                              | Several per PI, never more than its amount. Never changed or deleted *(assumed)* |
 | `deliveries`        | SO, number, date, status (created, delivered, signed, rejected), receiver name, rejection reason, replaces (for kirim)        | The DO / BAST, one document                                                 |
 | `delivery_lines`    | SO line, qty                                                                                                                  |                                                                             |
 | `delivery_photos`   | Photo files                                                                                                                   | Stored like the KTP scan (`lib/file-storage.ts`)                            |
@@ -295,7 +301,9 @@ All under the company, in a new **Sales** menu:
 | Approve a looser term on a PO cust | GM (Director if no GM) |
 | Approve a credit limit overrun | Manager and up in Sales |
 | Confirm stock, make and sign DO / BAST, receive returns | OPR and up in Warehouse |
-| Mark a PI paid | Manager and up in Finance |
+| Make a PI | OPR and up in Sales *(assumed)* |
+| Record a payment on a PI | Manager and up in Finance |
+| Void a PI that has no payment | Manager and up in Sales or Finance *(assumed)* |
 | QC and rework on returns | OPR and up in Quality |
 | See all sales records | Everyone in Sales, Marketing, Warehouse and Finance, plus Director and GM |
 
@@ -348,7 +356,12 @@ One record end to end each, with the strict code review after each slice.
   - Data: `sales_orders` (company, number, quote, quote version, PO cust, customer, payment type and days, where the term came from, delivery address, requested date, status, stock confirmed by and at, cancelled by, at and why) and `sales_order_lines` (PO cust line, quote line, item, qty, price before PPN, delivered qty 0); on `customer_pos`, a price approval (who, when, note) next to the term approval. Company rules, audit and an isolation test like every table. Tests for each rule above
 - [x] **S2d. A price above the SPPR**: built 2026-10-21, from the decision 2026-10-21 in [[Holding ERP]]. A proposed price above the item's SPPR applies to the line at once, with its reason, and doesn't stop the quote from being sent. Below the SPPR it waits, like S2. To approve gets a read only section **Prices above the SPPR** (last 30 days *(assumed)*) for Managers and up in Marketing. An item without an SPPR still waits *(assumed)*
   - Built as planned. The quote line shows "Above the SPPR" with the reason. Moving back down to the SPPR or below waits again. To approve shows the item's SPPR now, not the one at the time *(assumed)*. Strict review: one query shared by both proposal lists. 271 tests pass, clicked through in a browser (higher price, quote sent at once, Marketing sees it; lower price waits)
-- [ ] **S5. PI and CBD**: PI from the SO, Finance marks it paid, DO / BAST blocked until then. CBD works end to end after S6
+- [x] **S5. PI and CBD**: built 2026-10-21 (S5a, S5b). Compared with the colleague's repo, ERPNext and Odoo first. Jingga: take the colleague's way for PPN with an ask flag, and several payments with a partly paid status; "idk" on cancelling after a payment, so the call below is mine. DO / BAST blocked until the PI is paid comes with S6 (it reads the PI's paid status)
+  - S5a: on a **CBD** order with the stock confirmed, **Make Proforma Invoice** (OPR and up in Sales). Numbered `PI-1026-001` *(assumed prefix, like quotes and orders)*. The amount is the order's total before PPN plus PPN at 11 % *(assumed, ask supervisor and FAT: the rate, and whether a company sets its own)*, copied and never typed, frozen in PostgreSQL. Each PI keeps the rate it was made with. One live PI per order. The order page shows it, the chain gets the PI, and a **Proforma invoices** list and page are under Sales. **Void** with a reason (Manager and up in Sales or Finance) while nothing is paid. A voided PI stays as history and the order may get a new one
+  - S5b: **Record Payment** (Manager and up in Finance): amount, the day it was received (today or earlier), a reference (optional *(assumed)*). Several payments may add up to the PI, never more. The status is worked out from the payments, never typed: Open, Partly paid, Paid (and Void). Payments are never changed or deleted *(assumed, ask supervisor: a wrong payment can't be corrected until FAT)*. A PI with a payment can't be voided
+  - Cancelling an order voids its unpaid live PI with it. An order whose PI has any payment can't be cancelled, since a refund comes with FAT *(assumed, my call after "idk", ask supervisor)*
+  - Data: `proforma_invoices` (order, kind full, subtotal, PPN rate and amount, amount, void who, when and why) and `proforma_payments` (PI, amount, day received, reference, who). Company rules, audit and tests like every table; PostgreSQL also refuses an over payment, a void with a payment, and any change to a payment or to a PI's amounts. New permissions *(assumed)*: `invoices.view` (Sales, Marketing, Warehouse and Finance at every level, the Director, the GM), `invoices.create` (Sales, every level), `invoices.record_payment` (Manager in Finance, the GM), `invoices.void` (Manager in Sales or Finance, the GM)
+  - Strict review: one order total expression shared by the orders list and the PI, one reason dialog for cancel and void, order changes take an options object, the order page's PI part split out. 283 tests pass, clicked through in a browser (make a PI, record a part payment, cancel refused)
 - [ ] **S6. DO / BAST**: create (partial qty), deliver, sign with photo or reject. CBD order closes after the last signed BAST
 - [ ] **S7. Tempo**: credit check on the SO with Sales Manager approval, signed BAST hands the delivery to FAT
 - [ ] **S8. Progress**: down payment PI before the first DO / BAST, the rest handed to FAT as a schedule
