@@ -18,7 +18,9 @@ One entry per working session, newest on top. Written by Claude at wrap up. Proc
 - Compared three R4 and R5 choices with the colleague's newest code; Jingga approved the recommendations: an SPPR below the floor warning on the item page, areas owned by Sales and Finance Managers, a city in one active area only. 299 tests pass, warning checked in a browser
 - Wrote the S7 plan, compared with the colleague's repo (credit_hold), ERPNext (credit controller) and Odoo (warning only); Jingga approved it, with all live tempo orders counting until FAT
 - Built S7a (credit check on tempo orders, Sales Managers approve or refuse) and S7b (tempo DOs, signed BASTs handed to FAT with a due date, To invoice list). Migration 0054. Strict review: one fix. 304 tests pass, clicked through in a browser
-- Next: S8 progress (down payment PI before the first DO / BAST). Plan first
+- Split the S&M spec: finished slices' history moved to [[Sales and Marketing Build Notes]] (12,500 to 7,200 words). Graphed the colleague's repo (code only, no tokens) in the session start hook, outside his clone. Decided not to graph the vault: the build (about 100,000 tokens) and refresh cost wouldn't pay back
+- S8 plan compared with the colleague's repo, ERPNext and Odoo; Jingga: follow the colleague (fixed due dates, no credit check for progress, DP PI at once, up to 12 parts). Built S8 and reviewed it. Migration 0055. 308 tests pass, clicked through in a browser
+- Next: S9 returns (from a rejected BAST, QC rounds, rework count, kirim). Plan first
 
 ## 2026-10-21 (thirteenth session)
 - Installed graphify (`graphifyy` on PyPI) and set it up for the code repo: `/graphify` skill, a code only graph (no API key), a rule in the repo's `CLAUDE.md`, PreToolUse hooks that make Claude query the graph before grepping, and git hooks that rebuild it. The session start hook now installs graphify and builds the graph in every cloud session, without ever blocking the session. A scoped query costs about 600 tokens

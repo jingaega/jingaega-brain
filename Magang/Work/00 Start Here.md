@@ -18,7 +18,7 @@ Internship project: one ERP that connects a holding with its six companies, plus
 - [ ] Meet the supervisor with the questions below, starting with the ones marked "Ask supervisor" and the first S&M questions
 - [x] Write the S&M build plan once the S&M questions that block Pandu are answered (approved 2026-10-14)
 - [x] Sales and Marketing module: answer the open questions that block Pandu in [[Sales and Marketing Module]]
-- [ ] Build S&M: S0 to S7 done (quotes, price proposals, customer PO, suggested SPPR, sales order, price above the SPPR, PI and payments, DO / BAST, tempo credit check and handed to FAT), plus the costing change R1 to R5. Next: S8 progress, plan written and waiting for approval (see [[Sales and Marketing Module#Slices]])
+- [ ] Build S&M: S0 to S7 done (quotes, price proposals, customer PO, suggested SPPR, sales order, price above the SPPR, PI and payments, DO / BAST, tempo credit check and handed to FAT, progress payment plan), plus the costing change R1 to R5. Next: S9 returns, plan first (see [[Sales and Marketing Module#Slices]])
 - [ ] Ask supervisor: the new 2026-10-21 questions in [[Sales and Marketing Module]] (lower PO price needs Marketing, tighter PO term, `SO` prefix, price above the SPPR without waiting, prices per segment or customer)
 - [ ] Decide one shared approval engine before Procurement (see [[ERP Best Practices#Foundation and shared engines]])
 - [ ] Merge `claude/stoic-volta-cs2r54` into `main` in the code repo
@@ -50,8 +50,10 @@ Internship project: one ERP that connects a holding with its six companies, plus
 - Built S6 DO / BAST for CBD orders: create once the PI is fully paid, deliver, sign with photos or reject, order status from its lines (Closed for CBD once all signed), photos removed after 365 days. Stock going out when goods leave is flagged for the supervisor
 - Then R4 (SPPR valid from a day, with history) and R5 (sales Areas with their cities, a customer's area from its city)
 - Then S7 tempo: credit check on tempo orders with Sales Manager approval, tempo DO / BASTs, signed BASTs handed to FAT with a due date, a To invoice list
-- 304 tests pass, clicked through in a browser
-- Next: S8 progress, plan first
+- Then S8 progress: a payment plan per order (DP, then parts with fixed due dates, following the colleague), the down payment PI before delivery, handed to FAT
+- The S&M spec was split (history in [[Sales and Marketing Build Notes]]) and the colleague's repo is graphed each session; the vault is not graphed (not worth the tokens)
+- 308 tests pass, clicked through in a browser
+- Next: S9 returns, plan first
 
 **2026-10-21 (thirteenth session)**
 - Installed graphify and set it up for the code repo (skill, code only graph, rule in the repo's `CLAUDE.md`, hooks). The session start hook now installs it and builds the graph in every cloud session, so the earlier "installed for this session only" is replaced. To cut tokens, Claude queries the graph before grepping
