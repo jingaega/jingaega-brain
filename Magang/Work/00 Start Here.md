@@ -185,7 +185,7 @@ Internship project: one ERP that connects a holding with its six companies, plus
 - Projects: [[Holding ERP]], [[Company Websites]]
 - How we work: [[Workflow]], [[Pandu Roadmap]], [[Build Log]]
 - For Claude Code: [[Claude Code Instructions]]
-- Module specs: [[Foundation Module]], [[Sales and Marketing Module]], [[Procurement Module]]
+- Module specs: [[Foundation Module]], [[Sales and Marketing Module]] (history of its finished slices in [[Sales and Marketing Build Notes]]), [[Procurement Module]]
 - Other modules (stubs, general ideas only): [[Module Overview]], [[Finance Accounting Tax Module]], [[HR Module]], [[GA Module]], [[Production Module]], [[WMS Module]], [[IMS Module]], [[Integrated System Module]], [[RND Module]], [[Engineering Module]], [[Quality Module]], [[MMS Module]]
 - Reference: [[Glossary]], [[Company Roles and Modules]], [[Companies]], [[Colleague Repo Comparison]]
 - Meetings: [[Meetings]]

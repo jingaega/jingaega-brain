@@ -21,6 +21,7 @@ One ERP that connects a holding with six companies. PT Serio Prima Indotek is th
 - `AI-Draft-Notes/` drafts Claude wrote that Jingga has not reviewed yet. Created only when needed
 - Notes in `Projects/Holding ERP/` worth knowing by name:
   - `Foundation Module.md` the Phase 1 spec and its build plan
+  - `Sales and Marketing Build Notes.md` what each finished S&M slice built, assumed and reviewed. The spec keeps the rules and the slice list; read the build notes only when the history of a slice matters
   - `Glossary.md` every term, one meaning each
   - `Module Overview.md` general ideas for the modules that have no spec yet, subject to change
   - `Architecture.md` how the built code fits together: login, access, company isolation, users and roles
