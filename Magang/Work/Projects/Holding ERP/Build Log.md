@@ -38,7 +38,8 @@ One entry per working session, newest on top. Written by Claude at wrap up. Proc
 - Security fix found by the FOH test: 10 Finance tables had their company rules but row security was off. Migration 0074 switches it on, and a new test checks every table with `company_id`
 - Checked the colleague's FN1, FN2 and MK5 first: his latest rule (net profit = GP less marketing less tax) matches ours, tax waits for a tax account. Campaigns left out until asked (they need a field on journal lines)
 - New questions: actual FOH as % of sales versus the standard % of COGM, the income tax account, typed cost as COGM, campaigns
-- Next: stop before batch 4 (F15 fixed assets, F16 year end and cash flow), report to Jingga
+- Batch 4 (Jingga: go on without stopping): F15 fixed assets (book and tax depreciation, disposal approved by cost like the colleague's GA rule), F16 year end close and cash flow. Migrations 0076 and 0077. Found and fixed while testing: Drizzle leaves column names unqualified in a subquery, so the asset's sums matched nothing. 425 tests pass, clicked through. Finance F0 to F16 done, on `main`
+- Next: Production, ported from the colleague's repo on its own branch (Jingga: not merged until asked)
 
 ## 2026-10-22 (thirteenth session, continued)
 - Jingga confirmed the colleague's revised Marketing rules, then asked to check FOH against general practice. Adopted my recommendation (pricing keeps a standard FOH %, the books follow PSAK 202), flagged for the supervisor. Stock going out when goods leave is built but flagged too

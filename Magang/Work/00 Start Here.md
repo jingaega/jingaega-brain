@@ -51,7 +51,8 @@ Internship project: one ERP that connects a holding with its six companies, plus
 - Security fix: row security was off on 10 Finance tables (migration 0074), now checked by a test for every table
 - Every slice had the strict review and a browser click through. 415 tests pass. All on `main`
 - New questions in [[Finance Accounting Tax Module#Open questions]] (FOH % basis, income tax account, typed cost as COGM, marketing campaigns)
-- Next: batch 4, F15 fixed assets and F16 year end and cash flow, waiting for Jingga's go
+- Batch 4 too: F15 fixed assets, F16 year end and cash flow. Finance is done (F0 to F16), 425 tests pass, on `main`
+- Next: Production ported from the colleague's repo on a branch, not merged until Jingga says so
 
 **2026-10-22 (fourteenth session)**
 - Finance comes next, before Stock and Procurement (Jingga). Whole module planned and approved, slices F0 to F16
