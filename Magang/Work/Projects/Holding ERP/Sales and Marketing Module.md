@@ -330,6 +330,21 @@ One record end to end each, with the strict code review after each slice.
 - [x] **S8. Progress**: built. What it built, assumed and reviewed: [[Sales and Marketing Build Notes#S8. Progress]]. Progress is credit checked for its part after the down payment, and its PI waits for the stock (Jingga, 2026-10-22, changing two "follow the colleague" answers)
 - [x] **S9. Returns**: built. What it built, assumed and reviewed: [[Sales and Marketing Build Notes#S9. Returns]]. All four return questions and the permissions are flagged for the supervisor (Jingga, 2026-10-22)
 
+- [ ] **M. Marketing as its own module**: plan written 2026-10-22, **waiting for Jingga's approval** (Jingga: "sales and marketing should be separate like the colleague's")
+  - Today everything sits under **Sales** in the sidebar: Quotes, Orders, Proforma invoices, Deliveries, Returns, To invoice, To approve and Pricing. To approve mixes Marketing's decisions (proposed prices, prices above the SPPR, customer PO prices) with the GM's (payment terms) and the Sales Managers' (credit)
+  - The colleague's repo (`feat/marketing-sppr`, 20 Oct): **Marketing is its own module** with its own sidebar entry and tabs, open only to people who see margins: a **margin and price monitor** as its home (per product: cost, SPPR in use, GP, flagged when the GP is under the minimum, no SPPR or no cost), **Prices** (SPPR per product with its history) and **Settings** (FOH, GP limits). His planned price change requests and quote price approvals go there too. Sales keeps quotes to returns
+  - **Proposed, screens only** (no table, rule or permission changes, so nothing in the finished slices' data model moves):
+    - A **Marketing** section in the sidebar, for people with `margin.view` or `quotes.approve_price`
+    - **Marketing, To approve**: proposed prices, prices above the SPPR and customer PO prices, moved out of Sales' To approve. Sales' To approve keeps payment terms (GM) and credit (Sales Managers)
+    - **Marketing, Pricing**: the FOH and GP page, moved from Sales
+    - **Marketing, Price monitor** (new, a read only view of what exists): per item its cost, SPPR in use, suggested SPPR and GP, with the problems first (GP under the minimum, SPPR below the suggested one, no SPPR, no cost); each row opens the item page, where the SPPR is set as today
+    - The old Sales URLs for Pricing go to the new place; the vault spec note stays one note, with a short "Marketing module" section listing its screens
+  - Tests: the sidebar shows each section only to who may; the monitor's flags; the moved pages keep their permission checks
+  - Questions for Jingga, my recommendation first:
+    1. **Screens only**, data and permissions unchanged (recommended), or also rename the permissions to `marketing.*`
+    2. **Add the price monitor** like the colleague's (recommended), or only move the existing pages
+    3. **One vault spec note** with a Marketing section (recommended, less churn), or split into a Sales Module note and a Marketing Module note
+
 ### Open questions this plan raises
 - [ ] *(ask supervisor, flagged by Jingga)* Stock and the order's delivered qty go down when the goods leave (Delivered), not when the BAST is signed. **Jingga, 2026-10-21: ok, build it, but flag it.** Compared: the colleague's repo at "shipped", ERPNext at the delivery note, Odoo at validating the delivery
 - [ ] *(my recommendation, ask FAT in Phase 5)* COGS timing. The colleague books COGS when goods leave; ERPNext too (or into a "delivered not billed" account); Odoo with the invoice. Ours books revenue and COGS together on the signed BAST, which matches PSAK 72 when the BAST is the customer's acceptance. Recommended: keep ours. When the ledger comes, goods that left but aren't signed sit in a "delivered, not yet accepted" stock account, and the signed BAST moves them to COGS with the revenue. Nothing to build in S6, which moves quantities only
