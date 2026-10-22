@@ -16,7 +16,9 @@ One entry per working session, newest on top. Written by Claude at wrap up. Proc
 - Jingga: credit note and deposit refund approvals go to the supervisor. Merged into `main`
 - Built F1, Finance setup: chart of accounts under headings, the account each job uses, banks and cash, tax codes valid from a day, a Finance section. Starter chart seeded in all 6 companies with the same codes. Migration 0059. Strict review: one account lookup, the shared percent parser. 339 tests pass, clicked through in a browser. On `main`
 - Built F2, the journal engine: journals and lines, balance checked by PostgreSQL at commit, nothing ever changes, reversal by a mirror journal dated today, Journals list and page. Migration 0060. Strict review: one insert path, typed events. 344 tests pass, clicked through in a browser. On `main`, CI green on F0 and F1
-- Next: F3, manual journals with approval and the opening balances journal
+- Built F3, manual journals: drafts with balanced lines, sent through the shared approval engine, posted as the approver, cancel and reverse. Migration 0061. Found and fixed while clicking: React empties a form after a refused save, so the editor keeps its fields in state. Strict review: one lines table, one JSON rows reader. 350 tests pass. On `main`
+- New question: how Om Leo (a Super User) approves manual journals in every company
+- Next: F4, month close and reopen
 
 ## 2026-10-22 (thirteenth session, continued)
 - Jingga confirmed the colleague's revised Marketing rules, then asked to check FOH against general practice. Adopted my recommendation (pricing keeps a standard FOH %, the books follow PSAK 202), flagged for the supervisor. Stock going out when goods leave is built but flagged too
