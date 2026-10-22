@@ -156,3 +156,22 @@ Plan written 2026-10-22, **approved by Jingga 2026-10-22** (1 not now, 2 none fo
 - Two small changes from the plan while building: the rejected goods are held **from the rejection**, not only once the return is received (otherwise a new DO could use them before QC; flagged in the open questions). **Kirim makes the new DO at once** with what the rejected DO carried, without a form, since the quantities are fixed by the return. Cancelling a kirim DO gives its return back to Passed, so it can be sent out again
 - PostgreSQL also keeps: a return only from a Rejected DO and one per DO; the status moves only as the last QC round says (a pass, a defect, rework done); rounds in order; a round never changes except its rework done once; kirim only on a DO of the same order
 - Strict review: one helper for DO line items (the DO and return pages), the return links on a DO read one way, `formError` and `directError` moved to the test helpers for the 13 test files that copied them, and the delivery and return tests share one order fixture. 317 tests pass, clicked through in a browser (return received, defect, rework, pass, kirim)
+
+## M. Marketing as its own module
+plan written 2026-10-22, **approved by Jingga 2026-10-22** with the three recommendations (Jingga: "sales and marketing should be separate like the colleague's")
+- Today everything sits under **Sales** in the sidebar: Quotes, Orders, Proforma invoices, Deliveries, Returns, To invoice, To approve and Pricing. To approve mixes Marketing's decisions (proposed prices, prices above the SPPR, customer PO prices) with the GM's (payment terms) and the Sales Managers' (credit)
+- The colleague's repo (`feat/marketing-sppr`, 20 Oct): **Marketing is its own module** with its own sidebar entry and tabs, open only to people who see margins: a **margin and price monitor** as its home (per product: cost, SPPR in use, GP, flagged when the GP is under the minimum, no SPPR or no cost), **Prices** (SPPR per product with its history) and **Settings** (FOH, GP limits). His planned price change requests and quote price approvals go there too. Sales keeps quotes to returns
+- **Proposed, screens only** (no table, rule or permission changes, so nothing in the finished slices' data model moves):
+  - A **Marketing** section in the sidebar, for people with `margin.view` or `quotes.approve_price`
+  - **Marketing, To approve**: proposed prices, prices above the SPPR and customer PO prices, moved out of Sales' To approve. Sales' To approve keeps payment terms (GM) and credit (Sales Managers)
+  - **Marketing, Pricing**: the FOH and GP page, moved from Sales
+  - **Marketing, Price monitor** (new, a read only view of what exists): per item its cost, SPPR in use, suggested SPPR and GP, with the problems first (GP under the minimum, SPPR below the suggested one, no SPPR, no cost); each row opens the item page, where the SPPR is set as today
+  - The old Sales URLs for Pricing go to the new place; the vault spec note stays one note, with a short "Marketing module" section listing its screens
+- Tests: the sidebar shows each section only to who may; the monitor's flags; the moved pages keep their permission checks
+- Questions for Jingga, my recommendation first:
+  1. **Screens only**, data and permissions unchanged (recommended), or also rename the permissions to `marketing.*`
+  2. **Add the price monitor** like the colleague's (recommended), or only move the existing pages
+  3. **One vault spec note** with a Marketing section (recommended, less churn), or split into a Sales Module note and a Marketing Module note
+- **Built 2026-10-22, as approved.** No table, rule or permission changes. A Marketing section in the sidebar (Price monitor, Prices to approve, Pricing); `/marketing` opens the monitor; the old Sales Pricing address goes to Marketing. The sidebar's Sales, Marketing and Master data sections come from one list (`lib/sidebar-sections.ts`)
+- Strict review: `ItemLabel` became a shared component (Marketing no longer imports from Sales' folders), the monitor's flags come from one table. 322 tests pass, clicked through in a browser
+

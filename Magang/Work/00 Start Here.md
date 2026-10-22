@@ -53,7 +53,8 @@ Internship project: one ERP that connects a holding with its six companies, plus
 - Then S8 progress: a payment plan per order (DP, then parts with fixed due dates, following the colleague), the down payment PI before delivery, handed to FAT
 - The S&M spec was split (history in [[Sales and Marketing Build Notes]]) and the colleague's repo is graphed each session; the vault is not graphed (not worth the tokens)
 - Then S9 returns: Warehouse records the return of a rejected BAST, Quality records QC rounds (rework done by Quality or Production, counted), a pass is sent out again on a new DO / BAST. The four return questions and the permissions are flagged for the supervisor
-- 317 tests pass, clicked through in a browser
+- Then change M: Marketing is its own module in the app (Price monitor, Prices to approve, Pricing), like the colleague's repo
+- 322 tests pass, clicked through in a browser
 - Next: all planned S&M slices are built. Meet the supervisor with the flagged questions, then plan the next phase
 
 **2026-10-21 (thirteenth session)**

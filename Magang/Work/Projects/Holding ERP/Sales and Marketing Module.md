@@ -24,6 +24,14 @@ The S&M module starts when a quotation is recorded. Everything before that (RFQ,
 > [!warning] Consequence
 > Lost-deal reports only cover quotes that were actually recorded. Deals lost before a quote exists are never seen by the ERP.
 
+## Marketing module (change M, Jingga 2026-10-22)
+Sales and Marketing share this spec, but in the app Marketing is its own module, like the colleague's repo. Its screens:
+- **Price monitor** (its home): each active item's cost, COGS, SPPR in use, suggested SPPR and GP, the ones with GP under the minimum, an SPPR below the suggested one, no SPPR or no cost first. Each opens the item page, where the SPPR is set
+- **Prices to approve**: prices Sales proposed, prices above the SPPR (to see) and customer PO prices below the quote
+- **Pricing**: the FOH rate and the minimum and default GP
+
+Sales keeps quotes, orders, PIs, deliveries, returns, To invoice, and its own To approve for payment terms (the GM) and credit (Sales Managers). Who sees what is unchanged: Marketing's screens need `margin.view` or `quotes.approve_price`.
+
 ## Key terms
 All terms are in [[Glossary]].
 
@@ -330,20 +338,7 @@ One record end to end each, with the strict code review after each slice.
 - [x] **S8. Progress**: built. What it built, assumed and reviewed: [[Sales and Marketing Build Notes#S8. Progress]]. Progress is credit checked for its part after the down payment, and its PI waits for the stock (Jingga, 2026-10-22, changing two "follow the colleague" answers)
 - [x] **S9. Returns**: built. What it built, assumed and reviewed: [[Sales and Marketing Build Notes#S9. Returns]]. All four return questions and the permissions are flagged for the supervisor (Jingga, 2026-10-22)
 
-- [ ] **M. Marketing as its own module**: plan written 2026-10-22, **approved by Jingga 2026-10-22** with the three recommendations (Jingga: "sales and marketing should be separate like the colleague's")
-  - Today everything sits under **Sales** in the sidebar: Quotes, Orders, Proforma invoices, Deliveries, Returns, To invoice, To approve and Pricing. To approve mixes Marketing's decisions (proposed prices, prices above the SPPR, customer PO prices) with the GM's (payment terms) and the Sales Managers' (credit)
-  - The colleague's repo (`feat/marketing-sppr`, 20 Oct): **Marketing is its own module** with its own sidebar entry and tabs, open only to people who see margins: a **margin and price monitor** as its home (per product: cost, SPPR in use, GP, flagged when the GP is under the minimum, no SPPR or no cost), **Prices** (SPPR per product with its history) and **Settings** (FOH, GP limits). His planned price change requests and quote price approvals go there too. Sales keeps quotes to returns
-  - **Proposed, screens only** (no table, rule or permission changes, so nothing in the finished slices' data model moves):
-    - A **Marketing** section in the sidebar, for people with `margin.view` or `quotes.approve_price`
-    - **Marketing, To approve**: proposed prices, prices above the SPPR and customer PO prices, moved out of Sales' To approve. Sales' To approve keeps payment terms (GM) and credit (Sales Managers)
-    - **Marketing, Pricing**: the FOH and GP page, moved from Sales
-    - **Marketing, Price monitor** (new, a read only view of what exists): per item its cost, SPPR in use, suggested SPPR and GP, with the problems first (GP under the minimum, SPPR below the suggested one, no SPPR, no cost); each row opens the item page, where the SPPR is set as today
-    - The old Sales URLs for Pricing go to the new place; the vault spec note stays one note, with a short "Marketing module" section listing its screens
-  - Tests: the sidebar shows each section only to who may; the monitor's flags; the moved pages keep their permission checks
-  - Questions for Jingga, my recommendation first:
-    1. **Screens only**, data and permissions unchanged (recommended), or also rename the permissions to `marketing.*`
-    2. **Add the price monitor** like the colleague's (recommended), or only move the existing pages
-    3. **One vault spec note** with a Marketing section (recommended, less churn), or split into a Sales Module note and a Marketing Module note
+- [x] **M. Marketing as its own module**: built. What it built and reviewed: [[Sales and Marketing Build Notes#M. Marketing as its own module]]
 
 ### Open questions this plan raises
 - [ ] *(ask supervisor, flagged by Jingga)* Stock and the order's delivered qty go down when the goods leave (Delivered), not when the BAST is signed. **Jingga, 2026-10-21: ok, build it, but flag it.** Compared: the colleague's repo at "shipped", ERPNext at the delivery note, Odoo at validating the delivery

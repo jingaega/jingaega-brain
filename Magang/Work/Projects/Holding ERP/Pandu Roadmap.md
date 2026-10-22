@@ -40,7 +40,7 @@ Why this order: Sell and Buy are already the best specced. Stock sits right afte
 | Module | Spec | Build | Notes |
 |---|---|---|---|
 | Foundation | Draft, open questions waiting | Built, open questions left. Live lists moved to Additional features | Comes before the 12, not counted in them |
-| Sales & Marketing | Build plan approved 2026-10-14, supervisor questions marked | S0, S1 (quotes), S2 (price proposals), S3 (customer PO), S3c (suggested SPPR, SPPR approval), S4 (sales order), S5 (PI and payments), S6 (DO / BAST) S7 (tempo credit check, handed to FAT), S8 (progress payment plan and down payment), S9 (returns, QC and rework, kirim) and the costing change R1 to R5 built. All planned slices done; supervisor questions open | First module. CBD first, then tempo and progress |
+| Sales & Marketing | Build plan approved 2026-10-14, supervisor questions marked | S0, S1 (quotes), S2 (price proposals), S3 (customer PO), S3c (suggested SPPR, SPPR approval), S4 (sales order), S5 (PI and payments), S6 (DO / BAST) S7 (tempo credit check, handed to FAT), S8 (progress payment plan and down payment), S9 (returns, QC and rework, kirim), the costing change R1 to R5 and Marketing as its own module (change M) built. All planned slices done; supervisor questions open | First module. CBD first, then tempo and progress |
 | Procurement | Notes captured | Not started | Covers vendor management too |
 | IMS | [[IMS Module]] (stub, general idea) | Not started | |
 | WMS | [[WMS Module]] (stub, general idea) | Not started | |

@@ -22,6 +22,7 @@ One entry per working session, newest on top. Written by Claude at wrap up. Proc
 - S8 plan compared with the colleague's repo, ERPNext and Odoo; Jingga: follow the colleague (fixed due dates, no credit check for progress, DP PI at once, up to 12 parts). Built S8 and reviewed it. Migration 0055. 308 tests pass, clicked through in a browser
 - S9 plan compared with the colleague's repo, ERPNext, Odoo and general practice on four questions (returns after a signed BAST, a rework limit, who does QC and rework, scrap). Jingga: not now, none for now, ok but ask, ok; all four and the permissions flagged for the supervisor
 - Built S9 (returns: return received, QC rounds, rework done by Quality or Production, kirim on a new DO / BAST; rejected goods held until sent out again). Migration 0057. Strict review: one helper for DO line items, return links read one way, shared test helpers. 317 tests pass, clicked through in a browser
+- Jingga: Sales and Marketing should be separate like the colleague's. Planned and built change M: a Marketing section (Price monitor, Prices to approve, Pricing), Sales' To approve keeps terms and credit. Screens only. Strict review: two fixes. 322 tests pass, clicked through in a browser
 - Next: all planned S&M slices are built. Meet the supervisor with the flagged questions, then plan the next phase
 
 ## 2026-10-21 (thirteenth session)
