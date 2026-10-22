@@ -21,7 +21,7 @@ Internship project: one ERP that connects a holding with its six companies, plus
 - [x] Build S&M: S0 to S9 done (quotes, price proposals, customer PO, suggested SPPR, sales order, price above the SPPR, PI and payments, DO / BAST, tempo credit check and handed to FAT, progress payment plan, returns with QC and kirim), plus the costing change R1 to R5. All planned slices built (see [[Sales and Marketing Module#Slices]])
 - [ ] Ask supervisor: the new 2026-10-21 questions in [[Sales and Marketing Module]] (lower PO price needs Marketing, tighter PO term, `SO` prefix, price above the SPPR without waiting, prices per segment or customer)
 - [x] Decide one shared approval engine before Procurement: built first in Finance (F0), Jingga 2026-10-22
-- [ ] Finance (Phase 5, next, before Stock and Procurement): whole module planned and approved 2026-10-22, slices F0 to F16 in [[Finance Accounting Tax Module]]. F0 to F6 and F7a built. Next: F7b
+- [ ] Finance (Phase 5, next, before Stock and Procurement): whole module planned and approved 2026-10-22, slices F0 to F16 in [[Finance Accounting Tax Module]]. F0 to F7 built. Next: F8 receipts
 - [ ] Ask supervisor and FAT: the Finance open questions (auto invoice on signed BAST, chart of accounts, PPN rate, Om Leo's journals, approval bands)
 - [ ] Merge `claude/stoic-volta-cs2r54` into `main` in the code repo
 - [ ] Ask supervisor: the colleague's revised Marketing numbers (GP 27 / 17, FOH from the ledger, who sees cost) against ours, in [[Colleague Repo Comparison]], and the S6 photo retention
@@ -48,10 +48,10 @@ Internship project: one ERP that connects a holding with its six companies, plus
 ## Last session
 **2026-10-22 (fourteenth session)**
 - Finance comes next, before Stock and Procurement (Jingga). Whole module planned and approved, slices F0 to F16
-- Built F0 to F6 and F7a: the shared approval engine with a My approvals inbox, Finance setup (chart, banks and cash, tax codes), the journal engine, manual journals, month close and reopen, the statements, customer deposits with payment reversal, refunds on cancelled orders, and the invoice a signed BAST posts
-- Every slice had the strict review, its fixes, and a browser click through. 374 tests pass. All on `main`
+- Built F0 to F6 and F7a: the shared approval engine with a My approvals inbox, Finance setup (chart, banks and cash, tax codes), the journal engine, manual journals, month close and reopen, the statements, customer deposits with payment reversal, refunds on cancelled orders, and the invoice a signed BAST posts (with cancel, invoice again and the Faktur Pajak number)
+- Every slice had the strict review, its fixes, and a browser click through. 377 tests pass. All on `main`
 - New questions for the supervisor are in [[Finance Accounting Tax Module#Open questions]]
-- Next: F7b, cancel and remake an invoice, Faktur Pajak number
+- Next: F8, receipts, AR aging, unpaid invoices in the credit check
 
 **2026-10-22 (thirteenth session, continued)**
 - Built the costing change R1 to R3 from the colleague's branch, confirmed by Jingga: GP 27 / 17 with a refusal under the minimum, the SPPR floor (no more GM SPPR approval), cost seen only by the GM, Finance and Marketing Managers and the supers
