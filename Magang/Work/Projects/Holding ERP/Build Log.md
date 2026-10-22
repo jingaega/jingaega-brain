@@ -14,7 +14,8 @@ One entry per working session, newest on top. Written by Claude at wrap up. Proc
 - Built R1 to R3 (GP 27 / 17 with a refusal under the minimum, the SPPR floor that removes the GM's SPPR approval, cost seen only by the GM, Finance and Marketing Managers and the supers). Migrations 0046 to 0048. Strict review: one exact GP check for screens and PostgreSQL
 - Built S6a and S6b (DO / BAST for CBD orders with a paid PI: create, cancel, Mark Delivered, Sign with photos, Reject, order status from its lines, photos removed after 365 days). Migrations 0049 and 0050. Strict review fixed 4 things. 293 tests pass, lint, typecheck and build pass, clicked through in a browser
 - The worker restarted mid session; nothing was lost. PostgreSQL needs `pg_ctlcluster 16 main start` after a restart
-- Next: R4 (SPPR valid from a day) and R5 (customer area), then S7 tempo
+- Built R4 (SPPR valid from a day, with history) and R5 (Areas with cities, a customer's city and area). Strict review: one fix. 298 tests pass, clicked through in a browser. A new test raced with the customers test over Pandu's codes; it uses ETA now
+- Next: S7 tempo (credit check on the SO, tempo DO / BAST, handed to FAT). Plan first
 
 ## 2026-10-21 (thirteenth session)
 - Installed graphify (`graphifyy` on PyPI) and set it up for the code repo: `/graphify` skill, a code only graph (no API key), a rule in the repo's `CLAUDE.md`, PreToolUse hooks that make Claude query the graph before grepping, and git hooks that rebuild it. The session start hook now installs graphify and builds the graph in every cloud session, without ever blocking the session. A scoped query costs about 600 tokens

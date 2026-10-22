@@ -18,7 +18,7 @@ Internship project: one ERP that connects a holding with its six companies, plus
 - [ ] Meet the supervisor with the questions below, starting with the ones marked "Ask supervisor" and the first S&M questions
 - [x] Write the S&M build plan once the S&M questions that block Pandu are answered (approved 2026-10-14)
 - [x] Sales and Marketing module: answer the open questions that block Pandu in [[Sales and Marketing Module]]
-- [ ] Build S&M: S0 to S6 done (quotes, price proposals, customer PO, suggested SPPR, sales order, price above the SPPR, PI and payments, DO / BAST), plus the costing change R1 to R3. Next: R4 (SPPR valid from a day) and R5 (customer area), then S7 tempo (see [[Sales and Marketing Module#Slices]])
+- [ ] Build S&M: S0 to S6 done (quotes, price proposals, customer PO, suggested SPPR, sales order, price above the SPPR, PI and payments, DO / BAST), plus the costing change R1 to R5. Next: S7 tempo, plan first (see [[Sales and Marketing Module#Slices]])
 - [ ] Ask supervisor: the new 2026-10-21 questions in [[Sales and Marketing Module]] (lower PO price needs Marketing, tighter PO term, `SO` prefix, price above the SPPR without waiting, prices per segment or customer)
 - [ ] Decide one shared approval engine before Procurement (see [[ERP Best Practices#Foundation and shared engines]])
 - [ ] Merge `claude/stoic-volta-cs2r54` into `main` in the code repo
@@ -48,8 +48,9 @@ Internship project: one ERP that connects a holding with its six companies, plus
 - Built the costing change R1 to R3 from the colleague's branch, confirmed by Jingga: GP 27 / 17 with a refusal under the minimum, the SPPR floor (no more GM SPPR approval), cost seen only by the GM, Finance and Marketing Managers and the supers
 - FOH: pricing keeps a standard FOH % set by Finance, the books follow PSAK 202 in Phase 5. Adopted, flagged for the supervisor
 - Built S6 DO / BAST for CBD orders: create once the PI is fully paid, deliver, sign with photos or reject, order status from its lines (Closed for CBD once all signed), photos removed after 365 days. Stock going out when goods leave is flagged for the supervisor
-- 293 tests pass, clicked through in a browser
-- Next: R4 and R5, then S7 tempo
+- Then R4 (SPPR valid from a day, with history) and R5 (sales Areas with their cities, a customer's area from its city)
+- 298 tests pass, clicked through in a browser
+- Next: S7 tempo, plan first
 
 **2026-10-21 (thirteenth session)**
 - Installed graphify and set it up for the code repo (skill, code only graph, rule in the repo's `CLAUDE.md`, hooks). The session start hook now installs it and builds the graph in every cloud session, so the earlier "installed for this session only" is replaced. To cut tokens, Claude queries the graph before grepping
