@@ -44,7 +44,7 @@ Order changed 2026-10-22 (Jingga): after Sell comes Money (Finance), then Stock,
 | Procurement | Notes captured | Not started | Covers vendor management too |
 | IMS | [[IMS Module]] (stub, general idea) | Not started | |
 | WMS | [[WMS Module]] (stub, general idea) | Not started | |
-| Finance A&T | [[Finance Accounting Tax Module]], whole module plan approved 2026-10-22 | F0 to F9 built (approval engine, setup, journals, manual journals, periods, statements, deposits and refunds, invoices from signed BASTs, receipts and AR aging, credit notes). Next: F10 bank and F11 tax | Auto-posts journals, reversal journals for corrections. Built before Procurement and Stock |
+| Finance A&T | [[Finance Accounting Tax Module]], whole module plan approved 2026-10-22 | F0 to F10 built (approval engine, setup, journals, manual journals, periods, statements, deposits and refunds, invoices from signed BASTs, receipts and AR aging, credit notes, bank reconciliation, bank and cash entries, statement import). Next: F11 tax | Auto-posts journals, reversal journals for corrections. Built before Procurement and Stock |
 | Production | [[Production Module]] (stub, general idea) | Not started | BOM, batch, expiry, QC |
 | Quality | [[Quality Module]] (stub, name only) | Not started | |
 | HR | [[HR Module]] (stub, general idea) | Not started | Owns employees and the NRP. User accounts (Foundation) link to employees, not the other way round |

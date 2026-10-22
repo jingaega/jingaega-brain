@@ -21,7 +21,7 @@ Internship project: one ERP that connects a holding with its six companies, plus
 - [x] Build S&M: S0 to S9 done (quotes, price proposals, customer PO, suggested SPPR, sales order, price above the SPPR, PI and payments, DO / BAST, tempo credit check and handed to FAT, progress payment plan, returns with QC and kirim), plus the costing change R1 to R5. All planned slices built (see [[Sales and Marketing Module#Slices]])
 - [ ] Ask supervisor: the new 2026-10-21 questions in [[Sales and Marketing Module]] (lower PO price needs Marketing, tighter PO term, `SO` prefix, price above the SPPR without waiting, prices per segment or customer)
 - [x] Decide one shared approval engine before Procurement: built first in Finance (F0), Jingga 2026-10-22
-- [ ] Finance (Phase 5, next, before Stock and Procurement): whole module planned and approved 2026-10-22, slices F0 to F16 in [[Finance Accounting Tax Module]]. F0 to F9 built. Next: F10 bank and F11 tax
+- [ ] Finance (Phase 5, next, before Stock and Procurement): whole module planned and approved 2026-10-22, slices F0 to F16 in [[Finance Accounting Tax Module]]. F0 to F10 built. Next: F11 tax
 - [ ] Ask supervisor and FAT: the Finance open questions (auto invoice on signed BAST, chart of accounts, PPN rate, Om Leo's journals, approval bands)
 - [ ] Merge `claude/stoic-volta-cs2r54` into `main` in the code repo
 - [ ] Ask supervisor: the colleague's revised Marketing numbers (GP 27 / 17, FOH from the ledger, who sees cost) against ours, in [[Colleague Repo Comparison]], and the S6 photo retention

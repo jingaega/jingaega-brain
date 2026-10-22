@@ -30,7 +30,10 @@ One entry per working session, newest on top. Written by Claude at wrap up. Proc
 - Batch 1 (AR), Jingga asked to work in batches: built F8a receipts (one receipt, several invoices; orders close when paid), F8b AR aging, Overdue and unpaid invoices in the credit check, F9 credit notes through the approval engine. Migrations 0067 and 0068. 388 tests pass, clicked through. On `main`
 - Two failed test runs left test data behind; cleaned up, and the test cleanup now also removes receipts and credit notes
 - New questions: how a customer's credit from a credit note is used, and who asks credit notes
-- Next: batch 2, F10 bank reconciliation and F11 tax
+- Credit notes moved to the Sales Manager, to be confirmed (Jingga), migration 0069
+- Batch 2 started (Jingga: batches 2 and 3 together, check the colleague and ERPNext / Odoo before guessing): F10a reconciliation by ticking every bank line, F10b bank and cash entries (petty cash), F10c statement CSV import and matching. Migrations 0070 to 0072. 400 tests pass, clicked through. On `main`
+- The worker restarted mid F10c; PostgreSQL needed `pg_ctlcluster 16 main start`. Next.js 16.4.0 now prints a security advisory and asks for an upgrade (to raise with Jingga)
+- Next: F11 tax
 
 ## 2026-10-22 (thirteenth session, continued)
 - Jingga confirmed the colleague's revised Marketing rules, then asked to check FOH against general practice. Adopted my recommendation (pricing keeps a standard FOH %, the books follow PSAK 202), flagged for the supervisor. Stock going out when goods leave is built but flagged too
