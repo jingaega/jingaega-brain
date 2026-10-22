@@ -304,7 +304,7 @@ A **Finance** section in the sidebar: Journals, Manual journals, Invoices, Recei
 
 ### Slices
 One record end to end each, with the strict code review after each.
-- [ ] **F0. Shared approval engine**: rules, requests and steps, the To approve inbox, approval rules in Settings
+- [x] **F0. Shared approval engine**: rules, requests and steps, the To approve inbox (called My approvals in the app), approval rules in Settings. Built 2026-10-22, migration 0058. PostgreSQL decides who may decide a step. A Super User's final approval lets that one transaction write in that company only. Starting rules *(assumed)*: manual journals and reopening a month by the Super Admin until F3 and F4; deposit refunds and credit notes on the 5 / 25 / 100 jt bands. Strict review: one rules shape by step, no casts, a shared test helper. 332 tests pass, clicked through in a browser
 - [ ] **F1. Finance setup**: chart of accounts, mappings, banks and cash, tax codes, the Finance section
 - [ ] **F2. Journal engine**: posting and reversal in PostgreSQL, journal list and page
 - [ ] **F3. Manual journals**: with Om Leo's approval, and the opening balances journal

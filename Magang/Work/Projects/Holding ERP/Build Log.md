@@ -9,6 +9,12 @@ tags: [internship, erp, log]
 
 One entry per working session, newest on top. Written by Claude at wrap up. Process is in [[Workflow]].
 
+## 2026-10-22 (fourteenth session)
+- Read the vault in detail. Phase 2 (Sell) is done. The session start hook on `main` already worked; checked it (packages, PostgreSQL 16, `pnpm db:setup`, graphify), lint and tests pass
+- Jingga: Finance next, before Stock and Procurement, planned as one whole module mainly from the colleague's built Finance. Compared his Finance code, ERPNext and Odoo. Plan approved: slices F0 to F16 in [[Finance Accounting Tax Module]]. Decisions: shared approval engine first, a signed BAST posts the invoice by itself *(ask supervisor)*, no COGS until Stock, the colleague's chart extended with the same codes everywhere. Stock comes after Finance
+- Built F0, the shared approval engine: rules per document type, step and amount band (Settings, Approvals), requests with fixed steps, one My approvals inbox. PostgreSQL decides who may decide (never the asker, never two steps of one request, a Super User only on the final step after the Super Admin). Migration 0058. Strict review: one rules shape by step, no casts, a shared test helper. 332 tests pass, lint, typecheck and build pass, clicked through in a browser
+- Next: F1, Finance setup (chart of accounts, mappings, banks, tax codes, the Finance section)
+
 ## 2026-10-22 (thirteenth session, continued)
 - Jingga confirmed the colleague's revised Marketing rules, then asked to check FOH against general practice. Adopted my recommendation (pricing keeps a standard FOH %, the books follow PSAK 202), flagged for the supervisor. Stock going out when goods leave is built but flagged too
 - Built R1 to R3 (GP 27 / 17 with a refusal under the minimum, the SPPR floor that removes the GM's SPPR approval, cost seen only by the GM, Finance and Marketing Managers and the supers). Migrations 0046 to 0048. Strict review: one exact GP check for screens and PostgreSQL
