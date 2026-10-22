@@ -16,7 +16,9 @@ One entry per working session, newest on top. Written by Claude at wrap up. Proc
 - The worker restarted mid session; nothing was lost. PostgreSQL needs `pg_ctlcluster 16 main start` after a restart
 - Built R4 (SPPR valid from a day, with history) and R5 (Areas with cities, a customer's city and area). Strict review: one fix. 298 tests pass, clicked through in a browser. A new test raced with the customers test over Pandu's codes; it uses ETA now
 - Compared three R4 and R5 choices with the colleague's newest code; Jingga approved the recommendations: an SPPR below the floor warning on the item page, areas owned by Sales and Finance Managers, a city in one active area only. 299 tests pass, warning checked in a browser
-- Next: S7 tempo (credit check on the SO, tempo DO / BAST, handed to FAT). Plan first
+- Wrote the S7 plan, compared with the colleague's repo (credit_hold), ERPNext (credit controller) and Odoo (warning only); Jingga approved it, with all live tempo orders counting until FAT
+- Built S7a (credit check on tempo orders, Sales Managers approve or refuse) and S7b (tempo DOs, signed BASTs handed to FAT with a due date, To invoice list). Migration 0054. Strict review: one fix. 304 tests pass, clicked through in a browser
+- Next: S8 progress (down payment PI before the first DO / BAST). Plan first
 
 ## 2026-10-21 (thirteenth session)
 - Installed graphify (`graphifyy` on PyPI) and set it up for the code repo: `/graphify` skill, a code only graph (no API key), a rule in the repo's `CLAUDE.md`, PreToolUse hooks that make Claude query the graph before grepping, and git hooks that rebuild it. The session start hook now installs graphify and builds the graph in every cloud session, without ever blocking the session. A scoped query costs about 600 tokens

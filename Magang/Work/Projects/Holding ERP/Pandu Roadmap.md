@@ -22,7 +22,7 @@ A working, real-time ERP that Pandu uses for its own Wening flow, from the first
 |---|---|---|---|
 | 0. Decide | Stack, deadline, repo and environment are chosen | none | Done (3 follow ups open in [[Holding ERP]]) |
 | 1. Foundation | Login, companies with color themes, 2 super users, roles and authorization, master data (items, customers, vendors) | [[Foundation Module]] | Built (slices 1 to 8, 10 and 11: levels and departments). Live lists moved to [[#Additional features]] |
-| 2. Sell | A Pandu CBD, tempo or progress order goes from quote to signed BAST | [[Sales and Marketing Module]] | Plan approved, S0 to S6 built, costing rules R1 to R5 changed |
+| 2. Sell | A Pandu CBD, tempo or progress order goes from quote to signed BAST | [[Sales and Marketing Module]] | Plan approved, S0 to S7 built, costing rules R1 to R5 changed |
 | 3. Buy | A Pandu purchase goes from request to paid | [[Procurement Module]] | Notes captured |
 | 4. Stock | Stock is correct after every sale, purchase and return | IMS, WMS | Not started |
 | 5. Money | Finance posts journals automatically from phases 2 to 4 | Finance A&T | Not started |
@@ -40,7 +40,7 @@ Why this order: Sell and Buy are already the best specced. Stock sits right afte
 | Module | Spec | Build | Notes |
 |---|---|---|---|
 | Foundation | Draft, open questions waiting | Built, open questions left. Live lists moved to Additional features | Comes before the 12, not counted in them |
-| Sales & Marketing | Build plan approved 2026-10-14, supervisor questions marked | S0, S1 (quotes), S2 (price proposals), S3 (customer PO), S3c (suggested SPPR, SPPR approval), S4 (sales order), S5 (PI and payments), S6 (DO / BAST) and the costing change R1 to R3 built. Next: S7 tempo | First module. CBD first, then tempo and progress |
+| Sales & Marketing | Build plan approved 2026-10-14, supervisor questions marked | S0, S1 (quotes), S2 (price proposals), S3 (customer PO), S3c (suggested SPPR, SPPR approval), S4 (sales order), S5 (PI and payments), S6 (DO / BAST) S7 (tempo credit check, handed to FAT) and the costing change R1 to R5 built. Next: S8 progress | First module. CBD first, then tempo and progress |
 | Procurement | Notes captured | Not started | Covers vendor management too |
 | IMS | [[IMS Module]] (stub, general idea) | Not started | |
 | WMS | [[WMS Module]] (stub, general idea) | Not started | |
@@ -80,6 +80,7 @@ Why this order: Sell and Buy are already the best specced. Stock sits right afte
 - [x] S&M S2d: a price above the SPPR applies with a reason
 - [x] S&M S4: sales order (lower PO price approval, create from the quote, stock confirmed, cancel)
 - [x] S&M S5: PI and CBD (proforma invoice with PPN, partial payments recorded by Finance, void, cancel rules, Proforma invoices list)
+- [x] S&M S7: tempo (credit check with Sales Manager approval, tempo DO / BAST, handed to FAT, To invoice list)
 - [x] S&M R4 and R5: SPPR valid from a day with history, sales areas and a customer's area from its city
 - [x] S&M R1 to R3: GP 27 / 17 with a refusal, the SPPR floor, who sees cost (from the colleague's branch, confirmed by Jingga)
 - [x] S&M S6: DO / BAST (create, deliver, sign with photos or reject, order status, photos removed after a year)
