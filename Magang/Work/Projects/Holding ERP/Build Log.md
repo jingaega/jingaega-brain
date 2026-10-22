@@ -20,7 +20,9 @@ One entry per working session, newest on top. Written by Claude at wrap up. Proc
 - Built S7a (credit check on tempo orders, Sales Managers approve or refuse) and S7b (tempo DOs, signed BASTs handed to FAT with a due date, To invoice list). Migration 0054. Strict review: one fix. 304 tests pass, clicked through in a browser
 - Split the S&M spec: finished slices' history moved to [[Sales and Marketing Build Notes]] (12,500 to 7,200 words). Graphed the colleague's repo (code only, no tokens) in the session start hook, outside his clone. Decided not to graph the vault: the build (about 100,000 tokens) and refresh cost wouldn't pay back
 - S8 plan compared with the colleague's repo, ERPNext and Odoo; Jingga: follow the colleague (fixed due dates, no credit check for progress, DP PI at once, up to 12 parts). Built S8 and reviewed it. Migration 0055. 308 tests pass, clicked through in a browser
-- Next: S9 returns (from a rejected BAST, QC rounds, rework count, kirim). Plan first
+- S9 plan compared with the colleague's repo, ERPNext, Odoo and general practice on four questions (returns after a signed BAST, a rework limit, who does QC and rework, scrap). Jingga: not now, none for now, ok but ask, ok; all four and the permissions flagged for the supervisor
+- Built S9 (returns: return received, QC rounds, rework done by Quality or Production, kirim on a new DO / BAST; rejected goods held until sent out again). Migration 0057. Strict review: one helper for DO line items, return links read one way, shared test helpers. 317 tests pass, clicked through in a browser
+- Next: all planned S&M slices are built. Meet the supervisor with the flagged questions, then plan the next phase
 
 ## 2026-10-21 (thirteenth session)
 - Installed graphify (`graphifyy` on PyPI) and set it up for the code repo: `/graphify` skill, a code only graph (no API key), a rule in the repo's `CLAUDE.md`, PreToolUse hooks that make Claude query the graph before grepping, and git hooks that rebuild it. The session start hook now installs graphify and builds the graph in every cloud session, without ever blocking the session. A scoped query costs about 600 tokens
