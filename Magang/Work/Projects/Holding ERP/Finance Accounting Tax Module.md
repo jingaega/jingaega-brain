@@ -230,6 +230,7 @@ For the supervisor and FAT. Each one names the slice it blocks; the rest is buil
 - [ ] *(ask supervisor, F3)* Which journals does Om Leo approve: only manual ones (planned), or more?
 - [ ] *(ask FAT, F7)* PPN: 11 % on the full base (built for the PI), or 12 % on a DPP of 11/12? When is the Faktur Pajak made, and who types its number?
 - [ ] *(ask supervisor, F0)* Approval bands up to Rp 100 jt. The colleague's 5 / 25 / 100 jt are used until answered
+- [ ] *(ask supervisor, F6 and F9, Jingga 2026-10-22)* Who approves a credit note and a deposit refund? Built with the starting bands: up to Rp 5 jt the asker's department Manager, up to Rp 25 jt the GM, above that the Super Admin, and above Rp 100 jt a Super User after the Super Admin
 - [ ] *(ask supervisor, F7)* Progress: the deposit applied as the down payment % of each BAST, the rest due on the plan's parts in order?
 - [ ] *(ask supervisor, F6)* Reversing a PI payment: a Finance Manager alone (planned), or also an approval? A refund goes through the engine (planned)
 - [ ] *(ask FAT, F4)* Who closes and reopens a month? Planned: a Finance Manager closes, reopening is approved
@@ -304,7 +305,7 @@ A **Finance** section in the sidebar: Journals, Manual journals, Invoices, Recei
 
 ### Slices
 One record end to end each, with the strict code review after each.
-- [x] **F0. Shared approval engine**: rules, requests and steps, the To approve inbox (called My approvals in the app), approval rules in Settings. Built 2026-10-22, migration 0058. PostgreSQL decides who may decide a step. A Super User's final approval lets that one transaction write in that company only. Starting rules *(assumed)*: manual journals and reopening a month by the Super Admin until F3 and F4; deposit refunds and credit notes on the 5 / 25 / 100 jt bands. Strict review: one rules shape by step, no casts, a shared test helper. 332 tests pass, clicked through in a browser
+- [x] **F0. Shared approval engine**: rules, requests and steps, the To approve inbox (called My approvals in the app), approval rules in Settings. Built 2026-10-22, migration 0058. PostgreSQL decides who may decide a step. A Super User's final approval lets that one transaction write in that company only. Starting rules *(assumed)*: manual journals and reopening a month by the Super Admin until F3 and F4; deposit refunds and credit notes on the 5 / 25 / 100 jt bands *(ask supervisor)*. Strict review: one rules shape by step, no casts, a shared test helper. 332 tests pass, clicked through in a browser
 - [ ] **F1. Finance setup**: chart of accounts, mappings, banks and cash, tax codes, the Finance section
 - [ ] **F2. Journal engine**: posting and reversal in PostgreSQL, journal list and page
 - [ ] **F3. Manual journals**: with Om Leo's approval, and the opening balances journal
