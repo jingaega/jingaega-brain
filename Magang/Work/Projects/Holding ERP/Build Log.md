@@ -34,7 +34,11 @@ One entry per working session, newest on top. Written by Claude at wrap up. Proc
 - Batch 2 started (Jingga: batches 2 and 3 together, check the colleague and ERPNext / Odoo before guessing): F10a reconciliation by ticking every bank line, F10b bank and cash entries (petty cash), F10c statement CSV import and matching. Migrations 0070 to 0072. 400 tests pass, clicked through. On `main`
 - The worker restarted mid F10c; PostgreSQL needed `pg_ctlcluster 16 main start`. Next.js 16.4.0 now prints a security advisory and asks for an upgrade (to raise with Jingga)
 - Built F11a (tax codes by date everywhere, PPN out report) and F11b (tax profile, Coretax XML export). Migration 0073. Fixed a test that switched off Pandu's PPN-11 and tripped other tests running at the same time. 404 tests pass twice in a row, clicked through. On `main`
-- Next: batch 3, F12 actual FOH %, F13 dashboard, F14 marketing cost
+- Batch 3: built F12 actual FOH % from the books (Reports, Actual FOH, and last month's on Pricing), F13 Finance dashboard (revenue, VA, GP, net profit by month, product and area), F14 marketing cost (budget by category and month against the spend on each category's account). Migrations 0074 and 0075. Each had the strict review: the dashboard groups one list of sales facts; money rounding of negative amounts fixed; marketing rows built from one list. 415 tests pass, lint, typecheck and build pass, clicked through. On `main`
+- Security fix found by the FOH test: 10 Finance tables had their company rules but row security was off. Migration 0074 switches it on, and a new test checks every table with `company_id`
+- Checked the colleague's FN1, FN2 and MK5 first: his latest rule (net profit = GP less marketing less tax) matches ours, tax waits for a tax account. Campaigns left out until asked (they need a field on journal lines)
+- New questions: actual FOH as % of sales versus the standard % of COGM, the income tax account, typed cost as COGM, campaigns
+- Next: stop before batch 4 (F15 fixed assets, F16 year end and cash flow), report to Jingga
 
 ## 2026-10-22 (thirteenth session, continued)
 - Jingga confirmed the colleague's revised Marketing rules, then asked to check FOH against general practice. Adopted my recommendation (pricing keeps a standard FOH %, the books follow PSAK 202), flagged for the supervisor. Stock going out when goods leave is built but flagged too

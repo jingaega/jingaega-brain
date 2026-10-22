@@ -46,6 +46,13 @@ Internship project: one ERP that connects a holding with its six companies, plus
 - Serio is the holding company. PT Pandu is still the baseline for development: build for Pandu first, then adapt Serio and the others from it
 
 ## Last session
+**2026-10-23 (fourteenth session, continued)**
+- Batches 2 and 3 done: F10 bank (reconciliation, bank and cash entries, statement CSV import), F11 tax (tax codes by date, PPN out, Coretax export), F12 actual FOH %, F13 Finance dashboard, F14 marketing cost
+- Security fix: row security was off on 10 Finance tables (migration 0074), now checked by a test for every table
+- Every slice had the strict review and a browser click through. 415 tests pass. All on `main`
+- New questions in [[Finance Accounting Tax Module#Open questions]] (FOH % basis, income tax account, typed cost as COGM, marketing campaigns)
+- Next: batch 4, F15 fixed assets and F16 year end and cash flow, waiting for Jingga's go
+
 **2026-10-22 (fourteenth session)**
 - Finance comes next, before Stock and Procurement (Jingga). Whole module planned and approved, slices F0 to F16
 - Built F0 to F6 and F7a: the shared approval engine with a My approvals inbox, Finance setup (chart, banks and cash, tax codes), the journal engine, manual journals, month close and reopen, the statements, customer deposits with payment reversal, refunds on cancelled orders, and the invoice a signed BAST posts (with cancel, invoice again and the Faktur Pajak number), receipts with AR aging, and credit notes

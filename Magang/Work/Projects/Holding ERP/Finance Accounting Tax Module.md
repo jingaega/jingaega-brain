@@ -244,7 +244,11 @@ For the supervisor and FAT. Each one names the slice it blocks; the rest is buil
 - [ ] *(ask FAT, F4)* Who closes and reopens a month? Planned: a Finance Manager closes, reopening is approved
 - [ ] *(ask FAT, F16)* Year end close by a Finance Manager, approved like a reopen?
 - [ ] *(ask supervisor, F15)* Fixed assets owned by Finance, with GA adding location and holder in Phase 7?
-- [ ] *(ask supervisor, F14)* Marketing cost categories (ATL, BTL, trade promotion, support, from the colleague's plan) and who sets the budgets
+- [ ] *(ask supervisor, F14)* Marketing cost categories (ATL, BTL, trade promotion, support, from the colleague's plan) and who sets the budgets. Built with those four and the Marketing Manager setting them
+- [ ] *(ask supervisor, F14)* Campaigns: should spend be tagged to a campaign (a field on journal lines, which changes the journal engine), or are budgets by category and month enough?
+- [ ] *(ask supervisor, F12)* Actual FOH is a % of sales; the standard rate pricing uses is a % of COGM. Turning one into the other needs the COGM of what was sold, which comes with Stock. Which should pricing use until then?
+- [ ] *(ask FAT, F13)* Net profit is GP less marketing; there is no income tax account in the books yet. Which account takes the monthly tax (PPh 25 or the year's estimate)?
+- [ ] *(ask supervisor, F13)* Until Stock, the dashboard's COGM is the typed item cost; items without one show COGM 0 and are flagged. Fine as a management number?
 - [ ] *(ask FAT, F10)* Which banks does Pandu use, and can they export a statement file (CSV)? Built with a simple layout (date, description, amount or in and out); send a real file so the import reads it as it is
 - [ ] *(ask supervisor, F10)* Bank and cash entries (petty cash and the like) post at once by Finance SPVs and Managers. Should larger ones wait for approval, and from what amount?
 - [ ] Production Cost is also listed in [[Production Module]]. Which module owns it?
@@ -292,7 +296,7 @@ Written before the build. Each one is something Jingga can click through, as Pan
 | `customer_receipts`, `receipt_allocations` | Receipts and what they pay | One receipt, several invoices |
 | `credit_notes` | Credit notes | Approved through the engine |
 | `bank_statement_lines` | Imported statements | F10 |
-| `marketing_campaigns`, `campaign_budgets` | Marketing cost | F14 |
+| `marketing_budgets` | Marketing budget by category and month (campaigns wait, see Open questions) | F14 |
 | `fixed_assets`, `asset_categories`, `depreciation_lines` | Assets and both schedules | F15 |
 
 Document numbers in the group style, per company per month: `JE`, `MJ`, `INV`, `RCV`, `CN`, `RFD` *(assumed prefixes)*.
@@ -335,9 +339,9 @@ One record end to end each, with the strict code review after each.
 - [x] **F11. Tax**: tax codes by date, PPN out report, Coretax e-Faktur export file
   - [x] **F11a.** Built 2026-10-23, no migration. The PI, the payment plan amounts and the credit check use the sales tax code valid today, like invoices (the fixed 11 % is gone; the colleague stores valid from but never uses it). PPN on the DPP share: 12 % on 11/12 is 11 % of the price. Reports, PPN out: a month's invoices and posted credit notes with Faktur Pajak numbers, NPWP, base and PPN, CSV
   - [x] **F11b.** Built 2026-10-23, migration 0073. A tax profile per company (NPWP, NITKU; NITKU defaults to the NPWP and 000000), set on Tax codes. PPN out downloads the month's invoices without a Faktur Pajak number as Coretax's XML import (TaxInvoiceBulk). The colleague has none; layout from DJP's template and Odoo's Indonesian e-Faktur module *(check with FAT before first use: transaction code 01, or 04 on a DPP fraction; goods code 000000; unit code UM.0018; a buyer without NPWP sent as Other ID)*. Found and fixed: money rounding threw on an odd divisor. 404 tests pass, clicked through
-- [ ] **F12. Actual FOH %**: from the ledger, next to the standard % on Pricing
-- [ ] **F13. Finance dashboard**: revenue, VA, GP by product, area and month, net profit
-- [ ] **F14. Marketing cost**: campaigns, budgets by category, spend from the journals
+- [x] **F12. Actual FOH %**: from the ledger, next to the standard % on Pricing. Built 2026-10-23, no migration. Reports, Actual FOH: each of the last 12 months' indirect costs (every expense account except 5-... and marketing) as a % of its sales (invoices before PPN less credit notes), the colleague's FN1; Pricing shows last month's next to the standard rate. Found and fixed while testing: 10 Finance tables had their company rules but row security was never switched on (migration 0074), and a test now checks every table with `company_id` has it on. 408 tests pass, clicked through
+- [x] **F13. Finance dashboard**: revenue, VA, GP by product, area and month, net profit. Built 2026-10-23, no migration. Finance, Dashboard, for people who see costs: revenue (invoices before PPN less credit notes), VA (revenue less COGM, the typed item cost times the qty until Stock), GP (VA less the month's actual FOH), net profit (GP less marketing; no income tax in the books yet), by month, product and area, with the month's FOH and marketing shared to areas by revenue, the colleague's FN2. Credit notes come off by month and area only (they carry no product). Strict review: one list of sales facts grouped once; money rounding of negative amounts fixed (it rounded -1,4 to 0). 410 tests pass, clicked through
+- [x] **F14. Marketing cost**: budgets by category, spend from the journals. Built 2026-10-23, migration 0075. Marketing, Marketing cost: a budget per category (ATL, BTL, trade promotion, support, the colleague's MK5) and month against the spend booked on each category's account (6-4100 to 6-4400, new in every company, each with its own account job; 6-4000 keeps spend without a category, shown as Other). Every marketing account stays out of the FOH pool. Marketing sees it at every level, the Finance Manager and Director look, a Marketing Manager sets budgets *(assumed)*. Campaigns are not built: tagging spend to a campaign needs a field on journal lines (see Open questions). 415 tests pass, clicked through
 - [ ] **F15. Fixed assets**: book and tax depreciation, disposal
 - [ ] **F16. Year end and cash flow**: close into retained earnings, cash flow statement
 
