@@ -22,7 +22,8 @@ One entry per working session, newest on top. Written by Claude at wrap up. Proc
 - Built F5, statements: trial balance, ledger, profit and loss, balance sheet, CSV downloads. Money helpers handle amounts below 0. 360 tests pass, clicked through. On `main`
 - Built F6, customer deposits. F6a: a PI payment picks a bank or cash account and posts its journal; a Finance Manager reverses a wrong one. F6b: an order with money on its PI can be cancelled, the money stays a deposit, Finance asks a refund that is paid once approved. Migrations 0063 and 0064. Strict review: reused the live delivery statuses and one bank lookup, one bank picker, dropped a catch that never matched. 369 tests pass, clicked through in a browser. On `main`
 - New questions: the refund's paid day, and reversing a payment once its order is cancelled
-- Next: F7, the invoice a signed BAST posts
+- Built F7a: signing a DO / BAST posts its invoice (deposit first, the rest owed), Finance, Invoices list and page, Sales, To invoice removed, orders show Invoiced. Migration 0065. Strict review: one locked read of the order, the deposit share by payment type. Fixed a flaky customer code test (other files add Pandu customers at once). 374 tests pass, clicked through. On `main`
+- Next: F7b, cancel and remake an invoice, Faktur Pajak number
 
 ## 2026-10-22 (thirteenth session, continued)
 - Jingga confirmed the colleague's revised Marketing rules, then asked to check FOH against general practice. Adopted my recommendation (pricing keeps a standard FOH %, the books follow PSAK 202), flagged for the supervisor. Stock going out when goods leave is built but flagged too
