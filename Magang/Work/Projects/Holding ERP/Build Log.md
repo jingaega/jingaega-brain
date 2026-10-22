@@ -19,7 +19,8 @@ One entry per working session, newest on top. Written by Claude at wrap up. Proc
 - Built F3, manual journals: drafts with balanced lines, sent through the shared approval engine, posted as the approver, cancel and reverse. Migration 0061. Found and fixed while clicking: React empties a form after a refused save, so the editor keeps its fields in state. Strict review: one lines table, one JSON rows reader. 350 tests pass. On `main`
 - New question: how Om Leo (a Super User) approves manual journals in every company
 - Built F4, month close and reopen: closed months refuse journals in PostgreSQL, reopening goes through the approval engine. Migration 0062. Tests share one journal cleanup. 354 tests pass, clicked through. On `main`
-- Next: F5, statements (trial balance, ledger, P&L, balance sheet)
+- Built F5, statements: trial balance, ledger, profit and loss, balance sheet, CSV downloads. Money helpers handle amounts below 0. 360 tests pass, clicked through. On `main`
+- Next: F6, customer deposits (bank on PI payments, reversal by a Manager, refunds)
 
 ## 2026-10-22 (thirteenth session, continued)
 - Jingga confirmed the colleague's revised Marketing rules, then asked to check FOH against general practice. Adopted my recommendation (pricing keeps a standard FOH %, the books follow PSAK 202), flagged for the supervisor. Stock going out when goods leave is built but flagged too
