@@ -18,7 +18,7 @@ Internship project: one ERP that connects a holding with its six companies, plus
 - [ ] Meet the supervisor with the questions below, starting with the ones marked "Ask supervisor" and the first S&M questions
 - [x] Write the S&M build plan once the S&M questions that block Pandu are answered (approved 2026-10-14)
 - [x] Sales and Marketing module: answer the open questions that block Pandu in [[Sales and Marketing Module]]
-- [ ] Build S&M: S0 to S7 done (quotes, price proposals, customer PO, suggested SPPR, sales order, price above the SPPR, PI and payments, DO / BAST, tempo credit check and handed to FAT, progress payment plan, returns with QC and kirim), plus the costing change R1 to R5. All planned slices built (see [[Sales and Marketing Module#Slices]])
+- [x] Build S&M: S0 to S9 done (quotes, price proposals, customer PO, suggested SPPR, sales order, price above the SPPR, PI and payments, DO / BAST, tempo credit check and handed to FAT, progress payment plan, returns with QC and kirim), plus the costing change R1 to R5. All planned slices built (see [[Sales and Marketing Module#Slices]])
 - [ ] Ask supervisor: the new 2026-10-21 questions in [[Sales and Marketing Module]] (lower PO price needs Marketing, tighter PO term, `SO` prefix, price above the SPPR without waiting, prices per segment or customer)
 - [ ] Decide one shared approval engine before Procurement (see [[ERP Best Practices#Foundation and shared engines]])
 - [ ] Merge `claude/stoic-volta-cs2r54` into `main` in the code repo
