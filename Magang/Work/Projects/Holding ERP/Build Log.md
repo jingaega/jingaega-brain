@@ -15,7 +15,8 @@ One entry per working session, newest on top. Written by Claude at wrap up. Proc
 - Built F0, the shared approval engine: rules per document type, step and amount band (Settings, Approvals), requests with fixed steps, one My approvals inbox. PostgreSQL decides who may decide (never the asker, never two steps of one request, a Super User only on the final step after the Super Admin). Migration 0058. Strict review: one rules shape by step, no casts, a shared test helper. 332 tests pass, lint, typecheck and build pass, clicked through in a browser
 - Jingga: credit note and deposit refund approvals go to the supervisor. Merged into `main`
 - Built F1, Finance setup: chart of accounts under headings, the account each job uses, banks and cash, tax codes valid from a day, a Finance section. Starter chart seeded in all 6 companies with the same codes. Migration 0059. Strict review: one account lookup, the shared percent parser. 339 tests pass, clicked through in a browser. On `main`
-- Next: F2, the journal engine
+- Built F2, the journal engine: journals and lines, balance checked by PostgreSQL at commit, nothing ever changes, reversal by a mirror journal dated today, Journals list and page. Migration 0060. Strict review: one insert path, typed events. 344 tests pass, clicked through in a browser. On `main`, CI green on F0 and F1
+- Next: F3, manual journals with approval and the opening balances journal
 
 ## 2026-10-22 (thirteenth session, continued)
 - Jingga confirmed the colleague's revised Marketing rules, then asked to check FOH against general practice. Adopted my recommendation (pricing keeps a standard FOH %, the books follow PSAK 202), flagged for the supervisor. Stock going out when goods leave is built but flagged too
