@@ -159,5 +159,49 @@ Quality check on returned or reworked goods.
 **Kirim**:
 Sending goods back out after rework passes QC, through a new DO / BAST.
 
+## Finance
+
+**Chart of accounts**:
+The list of a company's accounts, each with a code like `1-1300` and a type (asset, liability, equity, revenue, expense). The same codes in every company.
+
+**Journal**:
+One booking in the ledger: lines on accounts, debit equals credit. Never changed once posted; a correction is a reversal journal.
+_Avoid_: entry (alone), posting (when you mean the record)
+
+**Account mapping**:
+Which account a business step uses for a job (AR, sales revenue, PPN out...), set per company.
+
+**AR**:
+Accounts receivable: what customers owe on posted invoices.
+
+**AP**:
+Accounts payable: what we owe vendors on posted vendor invoices.
+
+**Customer deposit**:
+Money a customer paid before an invoice exists (a PI payment). It is owed back until an invoice uses it up.
+_Avoid_: down payment (that is the PI kind)
+
+**Invoice**:
+The customer's bill, posted when a BAST is signed. Not the PI.
+_Avoid_: proforma (that is the PI)
+
+**Receipt**:
+Money received from a customer on one or more invoices.
+
+**Credit note**:
+A document that lowers what a customer owes, from a return or a price correction.
+
+**Faktur Pajak**:
+The tax invoice for PPN, numbered through the tax office system (Coretax).
+
+**DPP**:
+Dasar Pengenaan Pajak, the base PPN is worked out on. Can be a fraction of the price, like 11/12.
+
+**Period**:
+One month of the books. A closed period takes no journal.
+
+**Reversal**:
+A journal with debit and credit swapped that cancels an earlier one. Done by a Manager.
+
 ## Open terms
 - Is the colleague's "Surat Jalan" the same document as our DO / BAST?

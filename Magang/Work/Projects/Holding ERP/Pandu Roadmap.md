@@ -22,16 +22,16 @@ A working, real-time ERP that Pandu uses for its own Wening flow, from the first
 |---|---|---|---|
 | 0. Decide | Stack, deadline, repo and environment are chosen | none | Done (3 follow ups open in [[Holding ERP]]) |
 | 1. Foundation | Login, companies with color themes, 2 super users, roles and authorization, master data (items, customers, vendors) | [[Foundation Module]] | Built (slices 1 to 8, 10 and 11: levels and departments). Live lists moved to [[#Additional features]] |
-| 2. Sell | A Pandu CBD, tempo or progress order goes from quote to signed BAST | [[Sales and Marketing Module]] | Plan approved, S0 to S9 built (all planned slices), costing rules R1 to R5 changed. Next: supervisor questions, then the next phase |
+| 2. Sell | A Pandu CBD, tempo or progress order goes from quote to signed BAST | [[Sales and Marketing Module]] | Done: S0 to S9 built (all planned slices), costing rules R1 to R5 changed. Supervisor questions open |
 | 3. Buy | A Pandu purchase goes from request to paid | [[Procurement Module]] | Notes captured |
-| 4. Stock | Stock is correct after every sale, purchase and return | IMS, WMS | Not started |
-| 5. Money | Finance posts journals automatically from phases 2 to 4 | Finance A&T | Not started |
+| 4. Stock | Stock is correct after every sale, purchase and return | IMS, WMS | Not started. Comes right after Finance (Jingga, 2026-10-22) |
+| 5. Money | Finance posts journals automatically from phases 2 to 4 | [[Finance Accounting Tax Module]] | **Next, built before 3 and 4** (Jingga, 2026-10-22). Whole module planned and approved (F0 to F16). AP, COGS and payroll parts come with their modules |
 | 6. Make | Wening production with formulas, batches, expiry and QC | Production, Quality | Not started |
 | 7. People and places | Staff, payroll, facilities | HR, GA | Not started |
 | 8. Rest | Remaining modules for Pandu | RND, Engineering, MMS | Not started |
 | 9. Extend | Serio (holding) and the other four companies come online, intercompany flows and the holding view switched on | all | Not started |
 
-Why this order: Sell and Buy are already the best specced. Stock sits right after them because both depend on it. Finance comes after the flows it posts from, so its posting rules are known. Foundation comes before everything because even a quote needs a customer and an item.
+Order changed 2026-10-22 (Jingga): after Sell comes Money (Finance), then Stock, then Buy. Finance first finishes quote to paid for sales; its posting engine is ready for Stock and Procurement when they come. Original reasoning: Sell and Buy are already the best specced. Stock sits right after them because both depend on it. Finance comes after the flows it posts from, so its posting rules are known. Foundation comes before everything because even a quote needs a customer and an item.
 
 > [!note] Phase 2 before Stock and Money
 > Sell is built before IMS/WMS and Finance exist. Until then, check stock is a manual "stock confirmed" step on the SO, and a signed BAST only sets the order to "handed to FAT". Real stock and the invoice and payment are wired in at Phases 4 and 5, which is when "quote to paid" works.
@@ -44,7 +44,7 @@ Why this order: Sell and Buy are already the best specced. Stock sits right afte
 | Procurement | Notes captured | Not started | Covers vendor management too |
 | IMS | [[IMS Module]] (stub, general idea) | Not started | |
 | WMS | [[WMS Module]] (stub, general idea) | Not started | |
-| Finance A&T | [[Finance Accounting Tax Module]] (stub, general idea) | Not started | Auto-posts journals, reversal journals for corrections |
+| Finance A&T | [[Finance Accounting Tax Module]], whole module plan approved 2026-10-22 | Not started. Next: F0 shared approval engine | Auto-posts journals, reversal journals for corrections. Built before Procurement and Stock |
 | Production | [[Production Module]] (stub, general idea) | Not started | BOM, batch, expiry, QC |
 | Quality | [[Quality Module]] (stub, name only) | Not started | |
 | HR | [[HR Module]] (stub, general idea) | Not started | Owns employees and the NRP. User accounts (Foundation) link to employees, not the other way round |
