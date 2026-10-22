@@ -20,7 +20,9 @@ One entry per working session, newest on top. Written by Claude at wrap up. Proc
 - New question: how Om Leo (a Super User) approves manual journals in every company
 - Built F4, month close and reopen: closed months refuse journals in PostgreSQL, reopening goes through the approval engine. Migration 0062. Tests share one journal cleanup. 354 tests pass, clicked through. On `main`
 - Built F5, statements: trial balance, ledger, profit and loss, balance sheet, CSV downloads. Money helpers handle amounts below 0. 360 tests pass, clicked through. On `main`
-- Next: F6, customer deposits (bank on PI payments, reversal by a Manager, refunds)
+- Built F6, customer deposits. F6a: a PI payment picks a bank or cash account and posts its journal; a Finance Manager reverses a wrong one. F6b: an order with money on its PI can be cancelled, the money stays a deposit, Finance asks a refund that is paid once approved. Migrations 0063 and 0064. Strict review: reused the live delivery statuses and one bank lookup, one bank picker, dropped a catch that never matched. 369 tests pass, clicked through in a browser. On `main`
+- New questions: the refund's paid day, and reversing a payment once its order is cancelled
+- Next: F7, the invoice a signed BAST posts
 
 ## 2026-10-22 (thirteenth session, continued)
 - Jingga confirmed the colleague's revised Marketing rules, then asked to check FOH against general practice. Adopted my recommendation (pricing keeps a standard FOH %, the books follow PSAK 202), flagged for the supervisor. Stock going out when goods leave is built but flagged too
