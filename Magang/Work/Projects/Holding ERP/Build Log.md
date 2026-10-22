@@ -15,6 +15,7 @@ One entry per working session, newest on top. Written by Claude at wrap up. Proc
 - Built S6a and S6b (DO / BAST for CBD orders with a paid PI: create, cancel, Mark Delivered, Sign with photos, Reject, order status from its lines, photos removed after 365 days). Migrations 0049 and 0050. Strict review fixed 4 things. 293 tests pass, lint, typecheck and build pass, clicked through in a browser
 - The worker restarted mid session; nothing was lost. PostgreSQL needs `pg_ctlcluster 16 main start` after a restart
 - Built R4 (SPPR valid from a day, with history) and R5 (Areas with cities, a customer's city and area). Strict review: one fix. 298 tests pass, clicked through in a browser. A new test raced with the customers test over Pandu's codes; it uses ETA now
+- Compared three R4 and R5 choices with the colleague's newest code; Jingga approved the recommendations: an SPPR below the floor warning on the item page, areas owned by Sales and Finance Managers, a city in one active area only. 299 tests pass, warning checked in a browser
 - Next: S7 tempo (credit check on the SO, tempo DO / BAST, handed to FAT). Plan first
 
 ## 2026-10-21 (thirteenth session)
