@@ -327,7 +327,7 @@ One record end to end each, with the strict code review after each slice.
 - [x] **R. Costing rules change**: built. What it built, assumed and reviewed: [[Sales and Marketing Build Notes#R. Costing rules change]]
 - [x] **S6. DO / BAST**: built. What it built, assumed and reviewed: [[Sales and Marketing Build Notes#S6. DO / BAST]]
 - [x] **S7. Tempo**: built. What it built, assumed and reviewed: [[Sales and Marketing Build Notes#S7. Tempo]]
-- [x] **S8. Progress**: built. What it built, assumed and reviewed: [[Sales and Marketing Build Notes#S8. Progress]]
+- [x] **S8. Progress**: built. What it built, assumed and reviewed: [[Sales and Marketing Build Notes#S8. Progress]]. Progress is credit checked for its part after the down payment, and its PI waits for the stock (Jingga, 2026-10-22, changing two "follow the colleague" answers)
 - [ ] **S9. Returns**: from a rejected BAST, QC rounds, rework count, kirim with a new DO / BAST
 
 ### Open questions this plan raises
