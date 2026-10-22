@@ -33,7 +33,8 @@ One entry per working session, newest on top. Written by Claude at wrap up. Proc
 - Credit notes moved to the Sales Manager, to be confirmed (Jingga), migration 0069
 - Batch 2 started (Jingga: batches 2 and 3 together, check the colleague and ERPNext / Odoo before guessing): F10a reconciliation by ticking every bank line, F10b bank and cash entries (petty cash), F10c statement CSV import and matching. Migrations 0070 to 0072. 400 tests pass, clicked through. On `main`
 - The worker restarted mid F10c; PostgreSQL needed `pg_ctlcluster 16 main start`. Next.js 16.4.0 now prints a security advisory and asks for an upgrade (to raise with Jingga)
-- Next: F11 tax
+- Built F11a (tax codes by date everywhere, PPN out report) and F11b (tax profile, Coretax XML export). Migration 0073. Fixed a test that switched off Pandu's PPN-11 and tripped other tests running at the same time. 404 tests pass twice in a row, clicked through. On `main`
+- Next: batch 3, F12 actual FOH %, F13 dashboard, F14 marketing cost
 
 ## 2026-10-22 (thirteenth session, continued)
 - Jingga confirmed the colleague's revised Marketing rules, then asked to check FOH against general practice. Adopted my recommendation (pricing keeps a standard FOH %, the books follow PSAK 202), flagged for the supervisor. Stock going out when goods leave is built but flagged too
