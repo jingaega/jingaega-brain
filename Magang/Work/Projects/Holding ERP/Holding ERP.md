@@ -169,6 +169,7 @@ The full list is 12 modules. Order of work and status are in [[Pandu Roadmap]]. 
 | 2026-10-23 | A stock core is built for Production on the same branch (warehouses, stock per batch, opening stock); receiving, transfers, counts and deliveries stay for Phase 4 | Jingga. Production orders move real stock |
 | 2026-10-23 | `item_costs` is the item's one cost: typed by Finance until the item has stock, then the moving average kept by stock moves | Jingga, after comparing with the colleague's newest code (COGM = average stock cost, 2026-10-20). One cost for quotes, pricing, BoMs and the dashboard |
 | 2026-10-23 | Items get the colleague's batch and expiry switches, fixed once the item has stock | Jingga. Same as the colleague's; changes a finished table, approved |
+| 2026-10-23 | Production (P1 to P4) and the stock core are merged to `main` | Jingga. 442 tests pass |
 | 2026-10-14 | The GM approves SO term overrides | Jingga |
 | 2026-10-14 | Roles move toward the colleague's model: levels (General Manager, Manager, SPV, Lead, OPR) with a department function, Company Admin as a switch | Jingga. Needs its own plan before building |
 | 2026-10-13 | Excel import: same checks as the form, add only, warning on similar names, our template and Pandu's own columns both read. Copy how the colleague's import works, not its rules | Grilling session. Keeps one set of rules, and the import never changes existing vendors |

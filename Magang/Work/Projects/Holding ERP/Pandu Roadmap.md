@@ -24,7 +24,7 @@ A working, real-time ERP that Pandu uses for its own Wening flow, from the first
 | 1. Foundation | Login, companies with color themes, 2 super users, roles and authorization, master data (items, customers, vendors) | [[Foundation Module]] | Built (slices 1 to 8, 10 and 11: levels and departments). Live lists moved to [[#Additional features]] |
 | 2. Sell | A Pandu CBD, tempo or progress order goes from quote to signed BAST | [[Sales and Marketing Module]] | Done: S0 to S9 built (all planned slices), costing rules R1 to R5 changed. Supervisor questions open |
 | 3. Buy | A Pandu purchase goes from request to paid | [[Procurement Module]] | Notes captured |
-| 4. Stock | Stock is correct after every sale, purchase and return | IMS, WMS | Not started. Comes right after Finance (Jingga, 2026-10-22) |
+| 4. Stock | Stock is correct after every sale, purchase and return | IMS, WMS | Started: stock core for Production on `main` (warehouses, stock per batch, moving average, opening stock). Receiving, transfers, counts and deliveries next |
 | 5. Money | Finance posts journals automatically from phases 2 to 4 | [[Finance Accounting Tax Module]] | **Next, built before 3 and 4** (Jingga, 2026-10-22). Whole module planned and approved (F0 to F16). AP, COGS and payroll parts come with their modules |
 | 6. Make | Wening production with formulas, batches, expiry and QC | Production, Quality | Not started |
 | 7. People and places | Staff, payroll, facilities | HR, GA | Not started |
@@ -42,10 +42,10 @@ Order changed 2026-10-22 (Jingga): after Sell comes Money (Finance), then Stock,
 | Foundation | Draft, open questions waiting | Built, open questions left. Live lists moved to Additional features | Comes before the 12, not counted in them |
 | Sales & Marketing | Build plan approved 2026-10-14, supervisor questions marked | S0, S1 (quotes), S2 (price proposals), S3 (customer PO), S3c (suggested SPPR, SPPR approval), S4 (sales order), S5 (PI and payments), S6 (DO / BAST) S7 (tempo credit check, handed to FAT), S8 (progress payment plan and down payment), S9 (returns, QC and rework, kirim), the costing change R1 to R5 and Marketing as its own module (change M) built. All planned slices done; supervisor questions open | First module. CBD first, then tempo and progress |
 | Procurement | Notes captured | Not started | Covers vendor management too |
-| IMS | [[IMS Module]] (stub, general idea) | Not started | |
+| IMS | [[IMS Module]] (stub, general idea) | Stock core built with Production (see [[Production Module]]) | Moving average per item, earliest expiry first *(assumed)* |
 | WMS | [[WMS Module]] (stub, general idea) | Not started | |
 | Finance A&T | [[Finance Accounting Tax Module]], whole module plan approved 2026-10-22 | F0 to F16 built, module done (approval engine, setup, journals, manual journals, periods, statements, deposits and refunds, invoices from signed BASTs, receipts and AR aging, credit notes, bank reconciliation, bank and cash entries, statement import, PPN out and Coretax export, actual FOH %, Finance dashboard, marketing cost, fixed assets, year end, cash flow) | Auto-posts journals, reversal journals for corrections. Built before Procurement and Stock |
-| Production | [[Production Module]], ported from the colleague's repo | P1 to P4 built on branch `claude/production`, not merged (Jingga decides) | Material prices, BoM per variant, production orders through WIP, reports, and a stock core (warehouses, stock per batch, moving average) so orders move real stock |
+| Production | [[Production Module]], ported from the colleague's repo | P1 to P4 and a stock core built, on `main` (merged 2026-10-23) | Material prices, BoM per variant, production orders through WIP, reports, and a stock core (warehouses, stock per batch, moving average) so orders move real stock |
 | Quality | [[Quality Module]] (stub, name only) | Not started | |
 | HR | [[HR Module]] (stub, general idea) | Not started | Owns employees and the NRP. User accounts (Foundation) link to employees, not the other way round |
 | GA | [[GA Module]] (stub, general idea) | Not started | |
