@@ -2,7 +2,7 @@
 title: Production Module
 type: module-spec
 project: "[[Holding ERP]]"
-status: built on a branch, not merged
+status: built, merged to main
 created: 2026-10-13
 updated: 2026-10-23
 tags: [internship, erp, module, production]
@@ -12,8 +12,8 @@ tags: [internship, erp, module, production]
 
 Part of [[Holding ERP]]. All modules: [[Module Overview]].
 
-> [!note] Built ahead of its phase, on branch `claude/production`, not merged
-> Jingga, 2026-10-23: copy the colleague's whole Production module (`Difsyy/Serio-Intern`, `docs/plan-production.md`) and make it work on ours; questions after. Not merged until Jingga says so. Everything below marked *(assumed)* waits for the supervisor.
+> [!note] Built ahead of its phase, merged to `main` 2026-10-23
+> Jingga, 2026-10-23: copy the colleague's whole Production module (`Difsyy/Serio-Intern`, `docs/plan-production.md`) and make it work on ours; questions after. Built on branch `claude/production`, merged by Jingga the same day. Everything below marked *(assumed)* waits for the supervisor.
 
 Wening needs formulas (BOM), batch and expiry tracking, and QC per batch, see [[Company Roles and Modules]].
 
@@ -73,7 +73,7 @@ Jingga: "create stock for production", the stock core on this branch, then: one 
 How the colleague's repo builds this, for reference only: [[Colleague Architecture#Production]].
 
 ## Open questions
-- [ ] *(ask supervisor, P1 to P4)* Merge the ported Production now, or wait until Stock (Phase 4) so issue and finish move real stock?
+- [x] Merge the ported Production now, or wait until Stock? Merged with the stock core (Jingga, 2026-10-23)
 - [ ] *(ask FAT, stock core)* Average cost to the cent, or 4 decimals like the colleague (a few rupiah between stock value and the books)?
 - [ ] *(ask supervisor, stock core)* Who enters opening stock (Warehouse and Finance Managers now), and one MAIN warehouse to start?
 - [ ] *(ask supervisor, P3)* Return of unused materials and scrap: not built (the colleague's says to confirm too)
