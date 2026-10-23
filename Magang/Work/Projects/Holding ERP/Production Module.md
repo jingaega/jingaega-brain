@@ -39,9 +39,19 @@ Wening needs formulas (BOM), batch and expiry tracking, and QC per batch, see [[
 
 PostgreSQL keeps: company rules on every table, prices never edited (only replaced), only a draft BoM changes, an order's plan never changes, issued only grows. 438 tests pass, clicked through in a browser.
 
+## Stock core (S1, S2, built 2026-10-23 on the same branch)
+Jingga: "create stock for production", the stock core on this branch, then: one cost table like the colleague's, and his batch and expiry switches on Items.
+- Warehouses (master data, MAIN in every company *(assumed)*), a stock ledger of every movement (never changed), stock on hand per item, warehouse and batch. Only the database function `stock_move` writes stock
+- `item_costs` is the item's one cost: Finance types it while the item has no stock; once it has stock it is the moving average (the colleague's formula), kept by stock moves, and can't be typed any more. Quotes, the SPPR floor, Pricing, the dashboard, BoMs and production all read it
+- Items get the colleague's switches: the stock keeps a batch, or a batch and expiry. Fixed once the item has stock
+- Opening stock (Warehouse and Finance Managers *(assumed)*): Dr inventory, Cr opening balances. The only way in until receiving is built
+- Production orders pick a warehouse, show free stock and shortages, issue earliest expiry first at the average (refused beyond free stock), and put what was made into stock at the real cost
+- Migrations 0081, 0082. 442 tests pass, clicked through
+
 ## Different from the colleague's (on purpose, because we have no Stock or AP yet)
-- Costs are the item's typed cost (Finance), not the average stock cost *(assumed until Stock)*. A material without a typed cost can't be issued *(assumed)*
-- No warehouse, no stock on hand, no availability check, no "shortage to purchase request" button, no batch or expiry in stock. These come with Stock and Procurement
+- Costs are the moving average once an item has stock, Finance's typed cost before (the colleague shows no cost then)
+- The average is kept to the cent (the colleague: 4 decimals), so a stock value can read a few rupiah off the books (Rp 11 on Rp 9,5 jt in the test) *(assumed)*
+- No goods receipt, transfers, counts, quarantine or reservations yet, and no "shortage to purchase request" button. These come with Stock (Phase 4) and Procurement
 - The price list isn't updated by vendor invoices (no AP yet)
 - The import only matches suppliers and items that exist; it doesn't create them. Paste from Excel, no .xlsx upload *(assumed)*
 - Variants link to items in their own table instead of new columns on items (items stay as they are)
@@ -64,7 +74,8 @@ How the colleague's repo builds this, for reference only: [[Colleague Architectu
 
 ## Open questions
 - [ ] *(ask supervisor, P1 to P4)* Merge the ported Production now, or wait until Stock (Phase 4) so issue and finish move real stock?
-- [ ] *(ask supervisor, P3)* Issue at the typed cost until Stock, and refuse a material without one?
+- [ ] *(ask FAT, stock core)* Average cost to the cent, or 4 decimals like the colleague (a few rupiah between stock value and the books)?
+- [ ] *(ask supervisor, stock core)* Who enters opening stock (Warehouse and Finance Managers now), and one MAIN warehouse to start?
 - [ ] *(ask supervisor, P3)* Return of unused materials and scrap: not built (the colleague's says to confirm too)
 - [ ] *(ask supervisor, P4)* The 98 % yield mark (the colleague's, to confirm)
 - [ ] *(ask supervisor, P3)* QC release of a finished batch (the colleague's Q3 holds it in quarantine): wait for Quality?
