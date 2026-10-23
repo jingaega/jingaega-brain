@@ -54,6 +54,8 @@ Internship project: one ERP that connects a holding with its six companies, plus
 - Batch 4 too: F15 fixed assets, F16 year end and cash flow. Finance is done (F0 to F16), 425 tests pass, on `main`
 - Production ported from the colleague's repo on branch `claude/production` (P1 to P4), pushed, not merged. What changed and why: [[Production Module]]
 - Then a stock core on the same branch: warehouses, stock per batch, moving average in the item's one cost, opening stock; production orders now move real stock
+- Branch `claude/production` at db4d861, 442 tests pass. `main` at 0fecb94 (Finance done)
+- Still open: Next.js 16.4.0 prints a security advisory and stops build and dev once (a retry continues). Upgrade not run, Jingga to decide
 - Next: Jingga reviews the branch and says merge or not; questions in [[Production Module#Open questions]]
 
 **2026-10-22 (fourteenth session)**
