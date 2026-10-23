@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Magang/Work/Projects/Holding ERP/Architecture.md",
+                "file": "Magang/Work/00 Start Here.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Architecture"
+              "title": "00 Start Here"
             }
           }
         ]
@@ -55,7 +55,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "session-sta",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -79,7 +79,8 @@
               "title": "Bookmarks"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -191,6 +192,7 @@
   },
   "active": "192222acdc3a0a80",
   "lastOpenFiles": [
+    "Magang/Work/Projects/Holding ERP/Architecture.md",
     "Magang/Work/Projects/Holding ERP/ERPNext Architecture.md",
     "Magang/Work/Projects/Holding ERP/ERP Best Practices.md",
     "Magang/Work/Projects/Holding ERP/Colleague Architecture.md",
@@ -214,7 +216,6 @@
     "Magang/Work/Projects/Holding ERP/Module Overview.md",
     "Magang/Work/Projects/Holding ERP/Holding ERP.md",
     "Magang/Work/Projects/Holding ERP/Colleague Repo Comparison.md",
-    "Magang/Work/Projects/Holding ERP/Architecture.md",
     "Magang/Work/Projects/Holding ERP/MMS Module.md",
     "Magang/Work/Projects/Holding ERP/Quality Module.md",
     "Magang/Work/Projects/Holding ERP/Engineering Module.md",
