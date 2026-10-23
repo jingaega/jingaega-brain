@@ -45,7 +45,7 @@ Order changed 2026-10-22 (Jingga): after Sell comes Money (Finance), then Stock,
 | IMS | [[IMS Module]] (stub, general idea) | Not started | |
 | WMS | [[WMS Module]] (stub, general idea) | Not started | |
 | Finance A&T | [[Finance Accounting Tax Module]], whole module plan approved 2026-10-22 | F0 to F16 built, module done (approval engine, setup, journals, manual journals, periods, statements, deposits and refunds, invoices from signed BASTs, receipts and AR aging, credit notes, bank reconciliation, bank and cash entries, statement import, PPN out and Coretax export, actual FOH %, Finance dashboard, marketing cost, fixed assets, year end, cash flow) | Auto-posts journals, reversal journals for corrections. Built before Procurement and Stock |
-| Production | [[Production Module]] (stub, general idea) | Not started | BOM, batch, expiry, QC |
+| Production | [[Production Module]], ported from the colleague's repo | P1 to P4 built on branch `claude/production`, not merged (Jingga decides) | Material prices, BoM per variant, production orders through WIP, reports. Waits for Stock for real stock moves |
 | Quality | [[Quality Module]] (stub, name only) | Not started | |
 | HR | [[HR Module]] (stub, general idea) | Not started | Owns employees and the NRP. User accounts (Foundation) link to employees, not the other way round |
 | GA | [[GA Module]] (stub, general idea) | Not started | |
