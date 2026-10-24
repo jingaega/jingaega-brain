@@ -20,8 +20,21 @@
               "icon": "lucide-file",
               "title": "00 Start Here"
             }
+          },
+          {
+            "id": "5279f35a842ab54f",
+            "type": "leaf",
+            "state": {
+              "type": "release-notes",
+              "state": {
+                "currentVersion": "1.14.5"
+              },
+              "icon": "lucide-book-up",
+              "title": "Release Notes 1.14.5"
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -190,7 +203,7 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "192222acdc3a0a80",
+  "active": "5279f35a842ab54f",
   "lastOpenFiles": [
     "Magang/Work/Projects/Holding ERP/Sales and Marketing Build Notes.md",
     "Magang/Work/Projects/Holding ERP/Odoo Architecture.md",
