@@ -159,6 +159,41 @@ Quality check on returned or reworked goods.
 **Kirim**:
 Sending goods back out after rework passes QC, through a new DO / BAST.
 
+## Making
+
+**Cairan**:
+The base liquid a soap is made from (Cupir, Jirgen, Puch). Bought, and a raw material in the recipe.
+
+**BoM**:
+Bill of materials, the recipe of a variant: how much of each material one batch takes, with the loss on top. In the vault also called the formula.
+
+**Shift**:
+One production run of a day, A, B or C. Pandu makes three a day. A production order is one product on one shift.
+
+**Production code**:
+The code of a production order: the product code, the date and the shift, like `WN-500-2610A20`. Not a sequence number: it says what was made, when and on which shift.
+
+**Sisa**:
+What is left over after a shift: the base liquid still in the tank.
+
+**Susut**:
+What a shift lost: what went in, less the good product, less the rejects, less what was left over. **Measured** after the shift, never guessed from the recipe.
+
+**NG**:
+The rejected output of a shift, the good product that did not pass. From the Japanese "not good".
+
+**Warna**:
+The colour of a product, a quality check the team does by eye.
+
+**Busa**:
+The foam of a soap, a quality check the team does by eye.
+
+**Bau**:
+The smell of a product or of the base liquid, a quality check the team does by nose.
+
+**TDS**:
+Total dissolved solids, how much is dissolved in the water. A number in ppm, checked on the base liquid.
+
 ## Finance
 
 **Chart of accounts**:
