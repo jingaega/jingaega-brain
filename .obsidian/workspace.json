@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Magang/Work/CLAUDE.md",
+                "file": "Magang/Work/Projects/Holding ERP/Production Revamp Handoff.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "CLAUDE"
+              "title": "Production Revamp Handoff"
             }
           }
         ],
@@ -206,6 +206,8 @@
   },
   "active": "5279f35a842ab54f",
   "lastOpenFiles": [
+    "Magang/Work/Projects/Holding ERP/Production Module.md",
+    "Magang/Work/CLAUDE.md",
     "Magang/Work/Projects/Holding ERP/Production Revamp Next Session.md",
     "Magang/Work/Projects/Holding ERP/Production Revamp Handoff.md",
     "General/AI Database.md",
@@ -234,8 +236,6 @@
     "Magang/Work/Projects/Holding ERP/Odoo Architecture.md",
     "Magang/Work/Projects/Holding ERP/ERPNext Architecture.md",
     "Magang/Work/Projects/Holding ERP/ERP Best Practices.md",
-    "Magang/Work/Projects/Holding ERP/Procurement Module.md",
-    "Magang/Work/Projects/Holding ERP/Glossary.md",
     "Magang/Work/Attachments"
   ]
 }
