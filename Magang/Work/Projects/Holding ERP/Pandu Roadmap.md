@@ -26,7 +26,7 @@ A working, real-time ERP that Pandu uses for its own Wening flow, from the first
 | 3. Buy | A Pandu purchase goes from request to paid | [[Procurement Module]] | Notes captured |
 | 4. Stock | Stock is correct after every sale, purchase and return | IMS, WMS | Started: stock core for Production on `main` (warehouses, stock per batch, moving average, opening stock). Receiving, transfers, counts and deliveries next |
 | 5. Money | Finance posts journals automatically from phases 2 to 4 | [[Finance Accounting Tax Module]] | **Next, built before 3 and 4** (Jingga, 2026-10-22). Whole module planned and approved (F0 to F16). AP, COGS and payroll parts come with their modules |
-| 6. Make | Wening production with formulas, batches, expiry and QC | Production, Quality | Not started |
+| 6. Make | Wening production with formulas, batches, expiry and QC | Production, Quality | **Started**: the Production revamp (P5 to P11) on `feature/production-revamp`, 2026-10-24. The planner, shifts, actuals and QC readings are in it; Quality as a module is still a stub |
 | 7. People and places | Staff, payroll, facilities | HR, GA | Not started |
 | 8. Rest | Remaining modules for Pandu | RND, Engineering, MMS | Not started |
 | 9. Extend | Serio (holding) and the other four companies come online, intercompany flows and the holding view switched on | all | Not started |
@@ -45,8 +45,8 @@ Order changed 2026-10-22 (Jingga): after Sell comes Money (Finance), then Stock,
 | IMS | [[IMS Module]] (stub, general idea) | Stock core built with Production (see [[Production Module]]) | Moving average per item, earliest expiry first *(assumed)* |
 | WMS | [[WMS Module]] (stub, general idea) | Not started | |
 | Finance A&T | [[Finance Accounting Tax Module]], whole module plan approved 2026-10-22 | F0 to F16 built, module done (approval engine, setup, journals, manual journals, periods, statements, deposits and refunds, invoices from signed BASTs, receipts and AR aging, credit notes, bank reconciliation, bank and cash entries, statement import, PPN out and Coretax export, actual FOH %, Finance dashboard, marketing cost, fixed assets, year end, cash flow) | Auto-posts journals, reversal journals for corrections. Built before Procurement and Stock |
-| Production | [[Production Module]], ported from the colleague's repo | P1 to P4 and a stock core built, on `main` (merged 2026-10-23) | Material prices, BoM per variant, production orders through WIP, reports, and a stock core (warehouses, stock per batch, moving average) so orders move real stock |
-| Quality | [[Quality Module]] (stub, name only) | Not started | |
+| Production | [[Production Module]], ported from the colleague's repo | P1 to P4 and a stock core built, on `main` (merged 2026-10-23). Revamp P5 to P11 in progress on branch `feature/production-revamp` (2026-10-24) | Material prices, BoM per variant, production orders through WIP, reports, and a stock core (warehouses, stock per batch, moving average) so orders move real stock. The revamp adds the planner ("500 L of Cupir, what can we make?"), the item class, shifts with the `WN-500-2610A20` code, planned against actual with a measured susut, QC readings per item and the per-shift report |
+| Quality | [[Quality Module]] (stub, name only) | Not started as a module. The QC readings Production needs are built inside Production (P10): tests per item with limits, a reading flagged when out of range. Release and quarantine stay open | |
 | HR | [[HR Module]] (stub, general idea) | Not started | Owns employees and the NRP. User accounts (Foundation) link to employees, not the other way round |
 | GA | [[GA Module]] (stub, general idea) | Not started | |
 | RND | [[RND Module]] (stub, name only) | Not started | |

@@ -72,13 +72,70 @@ Jingga: "create stock for production", the stock core on this branch, then: one 
 ## Colleague's design
 How the colleague's repo builds this, for reference only: [[Colleague Architecture#Production]].
 
+## Production revamp (P5 to P9, started 2026-10-24)
+Jingga asked for the plant's real flow: "we have 500 L of Cupir, what can we make?". The ported module could not answer that, so this revamp adds it, plus the shift, the actuals and the quality readings.
+
+### P5. The dummy Wening recipe book
+Pandu only, seeded by `db/seed.ts`: one base liquid per family packaged several ways, so planning an order never says "no BoM in use" any more.
+- Base liquids: `CUP-BASE` (Cairan dasar Cupir), `SAB-BASE` (Bahan dasar sabun cair), both raw materials
+- Packaging: `PKG-JRC40`, `PKG-JRC5`, `PKG-PC125`, `PKG-BTL500`
+- Made: `CUP-40L` (jerigen 40 L), `CUP-5L` (Jirgen 5 L), `CUP-125ML` (Puch 125 ml), `SAB-500` (sabun 500 ml)
+- Two products (Cupir, Sabun) with four variants, one active BoM each, with the loss on the liquid line
+- Costs and SPPR are **dummy numbers** so the screens can be clicked through. Pandu's real item list and prices come later
+
+### The item class (new column on `items`)
+One class for the item, in every BoM and every report, so a BoM can split its cost between chemicals and packaging: `raw_material` (the liquid or chemical going in), `packaging` (the bottle, jerrycan or pouch), `other`. Set on the item page and in the seed. This is a change to the data model of Foundation (slice 6), additive only: a new column with a default, no data rewritten.
+
+### P7. The planner, "what can we make?"
+New screen: **Production -> What can we make**. Type a base liquid and how much of it there is (500 L of Cupir), and the table refreshes with one row per **alternative**: never a mix.
+- Each row: product, how much can be made, chemical cost, packaging cost, cost each, COGS each, selling price, left over (sisa) and the estimated susut
+- **Whole packages only**: you cannot sell half a jerrycan, so 500 L fills 12 jerrycans of 40 L, not 12,25
+- The susut in the planner is the **recipe estimate**. The real susut is measured after the shift (P9)
+- Costs only for people who may see costs, like everywhere else
+- It is a calculator. It does not create an order; planning an order stays where it was
+
+### P8. Shift and the production code
+- A production order is **one product on one shift** (A, B or C), on its planned day. One order per product, shift and day; a second one is refused with a clear message
+- The production code is the product code, the date and the shift: `WN-500-2610A20` (product code, YY, MM, shift, DD). Jingga's format with one separator after the product code, so the code reads clearly
+- The date in the code is the **planned** day, fixed when the order is planned and never changed, like every other document number
+
+### P9. Planned against actual, per shift
+- The order page shows **two tables**: the plan (frozen, never changes) beside what the shift measured
+- The shift records: the base liquid in, the good product out, the rejects (NG) and what was left over (sisa)
+- The **susut is measured**, never guessed: input less good product less rejects less leftover. The database works it out, so nobody can type a loss that does not follow from the balance
+- A finished order never changes: the measurements are frozen with it
+
+### P10. Quality readings
+Tests are set **per item**, not fixed columns, so a new test is a row and not a migration.
+- The base liquid carries **pH, TDS and Bau**; a soap variant carries **pH, Warna and Busa**
+- A reading is taken with the shift it belongs to, with the limits copied onto it, so a later change to a test does not rewrite the past
+- A reading outside its limits is **flagged, not blocked**. What happens to a batch that fails stays open (see the questions below)
+
+### P11. The report, one line per shift
+The production report gained a **Per shift** section: one line per shift of production, with the day, the shift, the code, what was planned, what was made, the liquid in, the good product, the rejects, the susut, the yield, the quality readings and the cost. The three existing sections stay as they were. CSV for the new section too.
+
+## The rules Jingga confirmed on 2026-10-24
+| Rule | Answer |
+|---|---|
+| The planner takes | a base liquid you already hold, e.g. 500 L of Cupir |
+| The rows of the planner | **alternatives, OR not AND** |
+| Whole packages or decimals | whole packages only |
+| Chemical against packaging cost | classify the **item** once, inherited by every BoM line |
+| Quality attributes | tests per item with limits, not fixed columns |
+| The shift | on the order, one order per product per shift per day, a repeat refused |
+| The susut | **measured after production**, from the volume balance |
+
+The shift rule is confirmed by Jingga but still to ask the supervisor.
+
 ## Open questions
-- [x] Merge the ported Production now, or wait until Stock? Merged with the stock core (Jingga, 2026-10-23)
+- [ ] *(ask supervisor, P8)* One production order per product per shift per day, a repeat refused. Jingga confirmed 2026-10-24, still to ask
+- [ ] *(ask supervisor, P8)* The production code `WN-500-2610A20`: product code, YY, MM, shift, DD. The separator after the product code is Jingga's call
 - [ ] *(ask FAT, stock core)* Average cost to the cent, or 4 decimals like the colleague (a few rupiah between stock value and the books)?
 - [ ] *(ask supervisor, stock core)* Who enters opening stock (Warehouse and Finance Managers now), and one MAIN warehouse to start?
-- [ ] *(ask supervisor, P3)* Return of unused materials and scrap: not built (the colleague's says to confirm too)
-- [ ] *(ask supervisor, P4)* The 98 % yield mark (the colleague's, to confirm)
+- [ ] *(ask supervisor, P3)* Return of unused materials and scrap: not built. Now also: what happens to the stock and the cost of the **rejects**?
+- [ ] *(ask supervisor, P4)* The 98 % yield mark (the colleague's, to confirm). The susut is now measured, so the mark may become the susut the plant uses
 - [ ] *(ask supervisor, P3)* QC release of a finished batch (the colleague's Q3 holds it in quarantine): wait for Quality?
+- [ ] *(ask supervisor, P5)* The dummy items, costs and SPPR: when does Pandu's real item list arrive?
 - [ ] *(ask supervisor)* Permissions above
 - [ ] Production Cost is also listed in [[Finance Accounting Tax Module]]. Which module owns it?
 - [ ] PPIC is shared with [[IMS Module]]. Which module owns the records?
@@ -87,3 +144,7 @@ How the colleague's repo builds this, for reference only: [[Colleague Architectu
 - [ ] Does a finished batch carry DL and FOH, or materials only like the colleague's repo?
 - [ ] Production orders: need approval? Allow partial finish, scrap, and return of unused materials?
 - [ ] Planning: does Pandu need a schedule or MRP, or only a restock list like the colleague's repo?
+
+## Open questions (from the original port)
+- [x] Merge the ported Production now, or wait until Stock? Merged with the stock core (Jingga, 2026-10-23)
+- [ ] *(ask supervisor)* Permissions above
