@@ -12,7 +12,7 @@ Main hub for the internship. This is also the first note Claude reads at the sta
 ## What this is
 Internship project: one ERP that connects a holding with its six companies, plus building or tidying each company's website. Full details in [[Holding ERP]].
 
-**Working right now**: the Production revamp, phase 6. See [[Production Revamp Handoff]] for what is built, what is left and the prompt to start the next session.
+**Working right now**: the Production revamp, phase 6. See [[Production Revamp Handoff]] for what is built and what is left, and [[Production Revamp Next Session]] for the prompt, the skills and the traps to know about.
 
 ## Current focus
 - [x] Phase 0: stack, deadline and repo chosen (see [[Pandu Roadmap]]). Hosting still open
