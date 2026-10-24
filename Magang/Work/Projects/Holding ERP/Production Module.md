@@ -72,7 +72,7 @@ Jingga: "create stock for production", the stock core on this branch, then: one 
 ## Colleague's design
 How the colleague's repo builds this, for reference only: [[Colleague Architecture#Production]].
 
-## Production revamp (P5 to P9, started 2026-10-24)
+## Production revamp (P5 to P11, started 2026-10-24)
 Jingga asked for the plant's real flow: "we have 500 L of Cupir, what can we make?". The ported module could not answer that, so this revamp adds it, plus the shift, the actuals and the quality readings.
 
 ### P5. The dummy Wening recipe book

@@ -49,7 +49,7 @@ Internship project: one ERP that connects a holding with its six companies, plus
 
 ## Last session
 **2026-10-24 (fifteenth session)**
-- Started the **Production revamp** (phase 6, Make) on branch `feature/production-revamp`. Plan first, Jingga answered the four points that change the data model, then built P5 to P11. Details in [[Production Module#Production revamp (P5 to P9, started 2026-10-24)]]
+- Started the **Production revamp** (phase 6, Make) on branch `feature/production-revamp`. Plan first, Jingga answered the four points that change the data model, then built P5 to P11. Details in [[Production Module#Production revamp (P5 to P11, started 2026-10-24)]]
 - What is new: the **planner** ("500 L of Cupir, what can we make?", one row per alternative, whole packages only), the **item class** so a BoM splits chemical from packaging cost, the **shift** (A, B, C) with the production code `WN-500-2610A20`, **planned against actual** with the susut measured from the volume balance, **quality readings** per item (pH, TDS, Bau for the liquid; pH, Warna, Busa for the soap), and the report with **one line per shift**
 - The dummy Wening recipe book is seeded in Pandu, so planning never says "no BoM in use" any more
 - 452 tests pass, lint and typecheck pass. Two failures are **not** from this work: `tests/auth.test.ts` and `tests/year-end.test.ts` fail on a clean tree too, since before the revamp

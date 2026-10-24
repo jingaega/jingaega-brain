@@ -54,7 +54,7 @@ Order changed 2026-10-22 (Jingga): after Sell comes Money (Finance), then Stock,
 | MMS | [[MMS Module]] (stub, name only) | Not started | |
 
 ## Now
-**The Production revamp (phase 6) on `feature/production-revamp`.** See [[Production Module#Production revamp (P5 to P9, started 2026-10-24)]] for what each slice is and what is still open.
+**The Production revamp (phase 6) on `feature/production-revamp`.** See [[Production Module#Production revamp (P5 to P11, started 2026-10-24)]] for what each slice is and what is still open.
 - [x] P5: the dummy Wening recipe book, so planning never says "no BoM in use"
 - [x] P6: the item class (raw material, packaging, other), so a BoM can split chemical from packaging cost
 - [x] P7: the planner, "500 L of Cupir, what can we make?", one row per alternative

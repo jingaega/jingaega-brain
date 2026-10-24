@@ -10,7 +10,7 @@ tags: [internship, erp, log]
 One entry per working session, newest on top. Written by Claude at wrap up. Process is in [[Workflow]].
 
 ## 2026-10-24 (fifteenth session)
-- Started the **Production revamp** (phase 6, Make) on branch `feature/production-revamp` in the code repo. Jingga asked for the plant's real flow: "we have 500 L of Cupir, what can we make?", plus shifts, planned against actual, quality readings and a per-shift report. Plan in [[Production Module#Production revamp (P5 to P9, started 2026-10-24)]]
+- Started the **Production revamp** (phase 6, Make) on branch `feature/production-revamp` in the code repo. Jingga asked for the plant's real flow: "we have 500 L of Cupir, what can we make?", plus shifts, planned against actual, quality readings and a per-shift report. Plan in [[Production Module#Production revamp (P5 to P11, started 2026-10-24)]]
 - Read the vault, our code and the colleague's repo for the Production and Quality rules. The colleague has a moving average per item, but no Finance-typed cost and no shift; his Quality is generic parameters with limits, which is the shape we took
 - Wrote the plan first and asked about the four points that change the data model. Jingga answered: the planner takes a base liquid you already hold and each row is an **alternative, OR not AND**; whole packages only; classify the item once for chemical against packaging cost; tests per item with limits; the shift on the order, one per product per shift per day
 - Asked what susut means, since it was not clear. Jingga: it is **measured after production** from the volume balance (input less good product less rejects less leftover), not guessed from the recipe

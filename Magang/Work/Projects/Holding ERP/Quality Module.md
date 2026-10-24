@@ -14,7 +14,7 @@ Stub. Only the general idea is here, and it is subject to change. The full spec 
 Named in the module list. No general idea yet. Pandu's QC per batch and the QC step in the S&M return loop probably land here *(assumed)*.
 
 ## What Production needs, and now has (2026-10-24)
-Quality as a module is still a stub. But Production cannot wait for it, so the QC readings Production needs were built inside Production (the revamp, P10). See [[Production Module#Production revamp (P5 to P9, started 2026-10-24)]].
+Quality as a module is still a stub. But Production cannot wait for it, so the QC readings Production needs were built inside Production (the revamp, P10). See [[Production Module#Production revamp (P5 to P11, started 2026-10-24)]].
 
 - **Tests per item, with limits.** Not fixed columns, so a new test is a row and not a migration. The base liquid carries **pH, TDS and Bau**; a soap variant carries **pH, Warna and Busa**. The limits are copied onto each reading, so a later change to a test does not rewrite the past
 - **A reading is flagged, not blocked.** A reading outside its limits is shown as out of range and the shift still finishes. What happens to a batch that fails is still open, below
