@@ -9,6 +9,22 @@ tags: [internship, erp, log]
 
 One entry per working session, newest on top. Written by Claude at wrap up. Process is in [[Workflow]].
 
+## 2026-10-24 (fifteenth session)
+- Started the **Production revamp** (phase 6, Make) on branch `feature/production-revamp` in the code repo. Jingga asked for the plant's real flow: "we have 500 L of Cupir, what can we make?", plus shifts, planned against actual, quality readings and a per-shift report. Plan in [[Production Module#Production revamp (P5 to P9, started 2026-10-24)]]
+- Read the vault, our code and the colleague's repo for the Production and Quality rules. The colleague has a moving average per item, but no Finance-typed cost and no shift; his Quality is generic parameters with limits, which is the shape we took
+- Wrote the plan first and asked about the four points that change the data model. Jingga answered: the planner takes a base liquid you already hold and each row is an **alternative, OR not AND**; whole packages only; classify the item once for chemical against packaging cost; tests per item with limits; the shift on the order, one per product per shift per day
+- Asked what susut means, since it was not clear. Jingga: it is **measured after production** from the volume balance (input less good product less rejects less leftover), not guessed from the recipe
+- Built P5: the dummy Wening recipe book in Pandu (two base liquids, four packages, four variants, one active BoM each, dummy costs and SPPR). Planning an order no longer says "no BoM in use": the database simply had no items, products, variants or BoMs at all
+- Built P6: the item class (raw_material, packaging, other), so a BoM can split its cost. This adds a column to `items`, a finished Foundation table, so it is flagged for approval
+- Built P7: the planner. 500 L of Cupir gives the alternatives with their quantities, chemical and packaging cost, COGS, selling price, leftover and the estimated susut. **Whole packages only**: 500 L fills 12 jerrycans of 40 L, not 12,25, because you cannot sell half a jerrycan
+- Built P8: the shift (A, B, C) and the production code `WN-500-2610A20`, the product code, the date and the shift. One order per product per shift per day, the second refused with a clear message
+- Built P9: planned against actual, side by side on the order page. The susut is worked out by PostgreSQL, so nobody can type a loss that does not follow from the balance
+- Built P10: quality readings, tests per item with limits. The base liquid carries pH, TDS and Bau; a soap carries pH, Warna and Busa. A reading out of range is flagged, not blocked
+- Built P11: the report, one line per shift, with the CSV
+- Fixed on the way: the seed did not set the class of items that already existed; the measured quantities could not be zero; the migrations needed `IF EXISTS` on their drops so they apply from any state
+- 452 tests pass, lint and typecheck pass. **Two failures are not from this work**: `tests/auth.test.ts` (the Super Admin sign in) and `tests/year-end.test.ts` (the year end close) both fail on a clean tree too, since before the revamp
+- The local setup on this machine is now done as well: Docker brings up PostgreSQL and Mailpit, pnpm is installed at 10.28.0, and `.claude/hooks/session-start.sh` works on both Windows and the cloud
+
 ## 2026-10-22 (fourteenth session)
 - Read the vault in detail. Phase 2 (Sell) is done. The session start hook on `main` already worked; checked it (packages, PostgreSQL 16, `pnpm db:setup`, graphify), lint and tests pass
 - Jingga: Finance next, before Stock and Procurement, planned as one whole module mainly from the colleague's built Finance. Compared his Finance code, ERPNext and Odoo. Plan approved: slices F0 to F16 in [[Finance Accounting Tax Module]]. Decisions: shared approval engine first, a signed BAST posts the invoice by itself *(ask supervisor)*, no COGS until Stock, the colleague's chart extended with the same codes everywhere. Stock comes after Finance

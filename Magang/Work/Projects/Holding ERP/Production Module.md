@@ -10,7 +10,7 @@ tags: [internship, erp, module, production]
 
 # Production Module
 
-Part of [[Holding ERP]]. All modules: [[Module Overview]].
+Part of [[Holding ERP]]. All modules: [[Module Overview]]. The work in progress and what the next session needs: [[Production Revamp Handoff]].
 
 > [!note] Built ahead of its phase, merged to `main` 2026-10-23
 > Jingga, 2026-10-23: copy the colleague's whole Production module (`Difsyy/Serio-Intern`, `docs/plan-production.md`) and make it work on ours; questions after. Built on branch `claude/production`, merged by Jingga the same day. Everything below marked *(assumed)* waits for the supervisor.

@@ -12,6 +12,8 @@ Main hub for the internship. This is also the first note Claude reads at the sta
 ## What this is
 Internship project: one ERP that connects a holding with its six companies, plus building or tidying each company's website. Full details in [[Holding ERP]].
 
+**Working right now**: the Production revamp, phase 6. See [[Production Revamp Handoff]] for what is built, what is left and the prompt to start the next session.
+
 ## Current focus
 - [x] Phase 0: stack, deadline and repo chosen (see [[Pandu Roadmap]]). Hosting still open
 - [x] Phase 1: Foundation built (slices 1 to 8, 10 and 11). Its open questions still wait, see [[Foundation Module]]
@@ -46,6 +48,15 @@ Internship project: one ERP that connects a holding with its six companies, plus
 - Serio is the holding company. PT Pandu is still the baseline for development: build for Pandu first, then adapt Serio and the others from it
 
 ## Last session
+**2026-10-24 (fifteenth session)**
+- Started the **Production revamp** (phase 6, Make) on branch `feature/production-revamp`. Plan first, Jingga answered the four points that change the data model, then built P5 to P11. Details in [[Production Module#Production revamp (P5 to P9, started 2026-10-24)]]
+- What is new: the **planner** ("500 L of Cupir, what can we make?", one row per alternative, whole packages only), the **item class** so a BoM splits chemical from packaging cost, the **shift** (A, B, C) with the production code `WN-500-2610A20`, **planned against actual** with the susut measured from the volume balance, **quality readings** per item (pH, TDS, Bau for the liquid; pH, Warna, Busa for the soap), and the report with **one line per shift**
+- The dummy Wening recipe book is seeded in Pandu, so planning never says "no BoM in use" any more
+- 452 tests pass, lint and typecheck pass. Two failures are **not** from this work: `tests/auth.test.ts` and `tests/year-end.test.ts` fail on a clean tree too, since before the revamp
+- This machine is set up now as well: Docker for PostgreSQL and Mailpit, pnpm 10.28.0, and the session start hook works on Windows and the cloud
+- **Next**: the thermo-nuclear review of the branch, a browser click through of the planner, the commit, then the supervisor questions in [[Production Module#Open questions]]
+- Still open from before: Next.js 16.4.0 prints a security advisory and stops build and dev once (a retry continues). Upgrade not run, Jingga to decide
+
 **2026-10-23 (fourteenth session, continued)**
 - Batches 2 and 3 done: F10 bank (reconciliation, bank and cash entries, statement CSV import), F11 tax (tax codes by date, PPN out, Coretax export), F12 actual FOH %, F13 Finance dashboard, F14 marketing cost
 - Security fix: row security was off on 10 Finance tables (migration 0074), now checked by a test for every table
