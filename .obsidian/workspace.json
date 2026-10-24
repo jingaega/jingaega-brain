@@ -13,28 +13,25 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Magang/Work/00 Start Here.md",
+                "file": "Magang/Work/Meeting Note.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "00 Start Here"
+              "title": "Meeting Note"
             }
           },
           {
             "id": "5279f35a842ab54f",
             "type": "leaf",
             "state": {
-              "type": "release-notes",
-              "state": {
-                "currentVersion": "1.14.5"
-              },
-              "icon": "lucide-book-up",
-              "title": "Release Notes 1.14.5"
+              "type": "graph",
+              "state": {},
+              "icon": "lucide-git-fork",
+              "title": "Graph view"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -68,7 +65,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "session-sta",
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -92,8 +89,7 @@
               "title": "Bookmarks"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
@@ -203,22 +199,24 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "5279f35a842ab54f",
+  "active": "df8434663f7054c1",
   "lastOpenFiles": [
+    "General",
+    "Magang/Work/Projects/Holding ERP/Colleague Architecture.md",
+    "Magang/Work/Projects/Holding ERP/GA Module.md",
+    "Magang/Work/00 Start Here.md",
+    "Magang/Work/Attachments/2026-10-14 whiteboard costing and pricing.jpg",
+    "Magang/Work/Attachments/2026-10-14 whiteboard costing 2.jpg",
     "Magang/Work/Projects/Holding ERP/Sales and Marketing Build Notes.md",
     "Magang/Work/Projects/Holding ERP/Odoo Architecture.md",
     "Magang/Work/Projects/Holding ERP/Architecture.md",
     "Magang/Work/Projects/Holding ERP/ERPNext Architecture.md",
     "Magang/Work/Projects/Holding ERP/ERP Best Practices.md",
-    "Magang/Work/Projects/Holding ERP/Colleague Architecture.md",
     "Magang/Work/Projects/Holding ERP/Sales and Marketing Module.md",
     "Magang/Work/Projects/Holding ERP/Procurement Module.md",
     "Magang/Work/Projects/Holding ERP/Glossary.md",
     "Magang/Work/Meetings/2026-10-14 Whiteboard costing and pricing.md",
-    "Magang/Work/00 Start Here.md",
-    "Magang/Work/Attachments/2026-10-14 whiteboard costing 2.jpg",
     "Magang/Work/Inbox/Inbox.md",
-    "Magang/Work/Attachments/2026-10-14 whiteboard costing and pricing.jpg",
     "Magang/Work/Attachments",
     "Magang/Work/Meetings/2026-10-14.md",
     "Magang/Work/Projects/Company Websites/Company Websites.md",
@@ -226,13 +224,11 @@
     "Magang/Work/CLAUDE.md",
     "Magang/Work/Meetings/Meetings.md",
     "Magang/Work/Templates/Meeting Note.md",
-    "Meeting Note.md",
-    "Magang/Work/Projects/Holding ERP/GA Module.md",
+    "Magang/Work/Meeting Note.md",
     "Magang/Work/Projects/Holding ERP/Module Overview.md",
     "Magang/Work/Projects/Holding ERP/Holding ERP.md",
     "Magang/Work/Projects/Holding ERP/Colleague Repo Comparison.md",
     "Magang/Work/Projects/Holding ERP/MMS Module.md",
-    "Magang/Work/Projects/Holding ERP/Quality Module.md",
-    "Magang/Work/Projects/Holding ERP/Engineering Module.md"
+    "Magang/Work/Projects/Holding ERP/Quality Module.md"
   ]
 }
