@@ -30,6 +30,14 @@ What the next session needs to finish the Production revamp. Back to [[Productio
 
 Migrations: 0083 item class, 0084 shift and code, 0085 quality. All applied to the local database.
 
+### The 40 files on the branch
+
+**New** (11): `db/schema/quality.ts`, `lib/production-planner.ts`, `lib/production-planner-queries.ts`, `lib/production-quality.ts`, `app/[company]/production/planner/page.tsx`, `db/migrations/0083_item-class.sql`, `db/migrations/0084_production-shift-code.sql`, `db/migrations/0085_production-quality.sql`, the three drizzle snapshots, `tests/production-planner.test.ts`, `tests/production-seed.test.ts`
+
+**Changed** (22): `db/schema/master-data.ts`, `db/schema/production.ts`, `db/schema/index.ts`, `db/seed.ts`, `db/migrations/meta/_journal.json`, `lib/item-supply.ts`, `lib/items.ts`, `lib/money.ts`, `lib/production-options.ts`, `lib/production-orders.ts`, `lib/production-reports.ts`, `lib/sidebar-sections.ts`, `app/[company]/production/orders/[id]/page.tsx`, `app/[company]/production/orders/actions.ts`, `app/[company]/production/orders/order-dialogs.tsx`, `app/[company]/production/reports/page.tsx`, `app/[company]/master-data/items/[id]/page.tsx`, `app/[company]/master-data/items/[id]/edit-item-dialog.tsx`, `app/[company]/master-data/items/actions.ts`, `app/[company]/master-data/items/add-item-dialog.tsx`, `app/[company]/master-data/items/item-fields.tsx`, `tests/production-orders.test.ts`
+
+**Also on the branch, from earlier in the session** (not part of the revamp, decide separately): `.claude/hooks/session-start.sh` (works on Windows and the cloud now), `.claude/settings.json` (the graphify guard), `.claude/hooks/graphify-guard.sh`, `.claude/commands/session-start-hook.md`, `.gitattributes` (`*.sh text eol=lf`, without it the hooks break on Windows)
+
 ## What is left
 
 1. **The thermo-nuclear code review** on the branch, per the repo's `CLAUDE.md` rule: every finished slice is followed by the strict review on that slice's commits, and its findings are fixed (or answered) before the slice is called done. The repo has the skill at `.claude/skills/thermo-nuclear-code-quality-review`
